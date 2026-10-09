@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auto Opciones | Próximamente — Tu Broker Automotriz de Confianza</title>
+  <meta name="description" content="Auto Opciones, Monterrey, MX. Próximamente: tu broker automotriz de confianza para comprar un auto nuevo de agencia.">
+  <meta name="theme-color" content="#f97316">
+  <meta property="og:title" content="Auto Opciones — Próximamente">
+  <meta property="og:description" content="Tu Broker Automotriz de Confianza. Te ayudamos a comprar tu auto nuevo de agencia.">
+  <meta property="og:image" content="assets/logo.png">
+  <link rel="icon" href="assets/logo.png">
+  <style>
+    :root {
+      --orange: #f97316;
+      --orange-dark: #c2540a;
+      --orange-soft: #fff1e6;
+      --white: #ffffff;
+      --ink: #1f2937;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .top-bar {
+      background: var(--orange);
+      height: 12px;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 16px;
+      background:
+        radial-gradient(circle at 50% 0%, var(--orange-soft) 0%, var(--white) 65%);
+    }
+    .logo {
+      width: min(560px, 100%);
+      mix-blend-mode: multiply;
+      height: auto;
+      margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: clamp(1rem, 3.5vw, 1.4rem);
+      padding: 12px 32px;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(249, 115, 22, .35);
+    }
+    h1 {
+      margin-top: 28px;
+      font-size: clamp(1.4rem, 5vw, 2.4rem);
+      font-weight: 800;
+      color: var(--orange-dark);
+    }
+    p.sub {
+      margin-top: 14px;
+      max-width: 34em;
+      font-size: clamp(1rem, 2.6vw, 1.15rem);
+      line-height: 1.55;
+      color: #4b5563;
+    }
+    footer {
+      background: var(--orange);
+      color: var(--white);
+      text-align: center;
+      padding: 18px 16px;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <main>
+    <img class="logo" src="assets/logo.png" alt="Auto Opciones — Mty. MX">
+    <span class="badge">Próximamente</span>
+    <h1>Tu Broker Automotriz de Confianza</h1>
+    <p class="sub">Un portal para ayudarte a encontrar y comprar tu auto nuevo de agencia, de forma fácil y transparente.</p>
+  </main>
+  <footer>&copy; <span id="y">2026</span> Auto Opciones · Monterrey, N.L., México · auto-opciones.com</footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
