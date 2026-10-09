@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Auto-Opciones · Propuesta</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&display=swap">
+<script src="ao.js?v=8"></script>
+<style>body{margin:0;background:#FFF8F3}*{box-sizing:border-box}a{color:#A8420A}a:hover{color:#F0661A}select,button,input{font-family:inherit}</style>
+</helmet>
+<div ref="{{ rootRef }}" style="container-type:inline-size;position:relative;background:#FFF8F3;color:#1F3466;font-family:Archivo,system-ui,sans-serif;font-size:15px;line-height:1.5;padding-top:12px">
+
+<header style="position:sticky;top:12px;z-index:6;margin:0 clamp(10px,2cqi,24px);display:flex;align-items:center;gap:16px;padding:10px 10px 10px 22px;background:#fff;border-radius:14px;box-shadow:0 6px 24px rgba(31,52,102,.10)">
+<img src="AutoOpciones_Logo/02_solo-texto/AutoOpciones_02_solo-texto.svg" alt="Auto-Opciones" onClick="{{ goInicio }}" style="height:32px;width:auto;cursor:pointer;margin-right:auto">
+<sc-if value="{{ navWide }}" hint-placeholder-val="{{ true }}">
+<nav style="display:flex;gap:4px;font-size:14px;font-weight:600;white-space:nowrap">
+<span onClick="{{ goInicio }}" style="padding:10px 16px;border-radius:14px;cursor:pointer" style-hover="background:#FFF2E8">Autos</span>
+<span onClick="{{ goInicio }}" style="padding:10px 16px;border-radius:14px;cursor:pointer" style-hover="background:#FFF2E8">Comparar · {{ nCmp }}</span>
+<span onClick="{{ goInicio }}" style="padding:10px 16px;border-radius:14px;cursor:pointer" style-hover="background:#FFF2E8">Ofertas</span>
+<span onClick="{{ goReq }}" style="padding:10px 16px;border-radius:14px;cursor:pointer" style-hover="background:#FFF2E8">Requisitos</span>
+<span onClick="{{ goInicio }}" style="padding:10px 16px;border-radius:14px;cursor:pointer" style-hover="background:#FFF2E8">Tips</span>
+</nav>
+</sc-if>
+<button onClick="{{ goReq }}" style="background:#F0661A;color:#fff;border:0;padding:12px 20px;border-radius:14px;font-weight:800;font-size:14px;cursor:pointer;white-space:nowrap" style-hover="background:#D4540E">Preautorízate</button>
+</header>
+
+<sc-if value="{{ isInicio }}" hint-placeholder-val="{{ true }}">
+
+<section style="margin:16px clamp(10px,2cqi,24px) 0;background:#F0661A;border-radius:clamp(28px,4cqi,48px);padding:clamp(28px,5cqi,72px) clamp(20px,4cqi,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(24px,4cqi,48px);align-items:center;overflow:hidden">
+<div style="display:flex;flex-direction:column;gap:22px">
+<span style="align-self:flex-start;background:#fff;color:#A8420A;font-weight:800;font-size:13px;padding:6px 14px;border-radius:14px">Monterrey · 28 marcas · 5 financieras</span>
+<h1 style="margin:0;font-weight:900;font-size:clamp(48px,8.4cqi,116px);line-height:.9;letter-spacing:-.04em;color:#fff">Elige.<br>Compara.<br>Estrena.</h1>
+<p style="margin:0;max-width:40ch;font-size:18px;font-weight:500;color:#1F3466">Encuentra tu auto nuevo, compara hasta 3 con su mensualidad real y sal de aquí con tu crédito preautorizado.</p>
+<div style="display:flex;align-items:center;gap:6px;background:#fff;border-radius:14px;padding:6px 6px 6px 22px;max-width:560px;box-shadow:0 12px 32px rgba(31,52,102,.18)">
+<select value="{{ heroMarca }}" onChange="{{ onHeroMarca }}" style="flex:1;min-width:0;border:0;background:transparent;font-size:16px;font-weight:700;color:#1F3466;padding:10px 0;outline:none"><option value="">Todas las marcas</option><sc-for list="{{ marcasSelect }}" as="o"><option value="{{ o.m }}">{{ o.m }}</option></sc-for></select>
+<button aria-label="Buscar" style="flex:none;width:52px;height:52px;border-radius:12px;background:#1F3466;color:#fff;border:0;cursor:pointer;display:grid;place-items:center" style-hover="background:#F0661A"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></button>
+</div>
+</div>
+<div style="position:relative;aspect-ratio:5/4;border-radius:36px;background:repeating-linear-gradient(135deg,#FF8A4C 0 14px,#F77A36 14px 28px)">
+<img src="{{ heroFoto }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit"><span style="position:absolute;left:18px;bottom:18px;font:12px ui-monospace,Menlo,monospace;color:#1F3466;background:#fff;padding:4px 10px;border-radius:14px">foto · auto recortado sin fondo</span>
+<span style="z-index:1;position:absolute;right:-6px;top:22px;transform:rotate(6deg);background:#fff;color:#1F3466;padding:12px 16px;border-radius:20px;font-weight:900;font-size:clamp(16px,2cqi,22px);line-height:1.05;box-shadow:0 12px 32px rgba(31,52,102,.18)">Enganche<br><span style="color:#F0661A">desde 0%</span></span>
+<span style="z-index:1;position:absolute;left:-4px;top:44%;transform:rotate(-5deg);background:#1F3466;color:#fff;padding:10px 16px;border-radius:14px;font-weight:800;font-size:15px">12 y 24 MSI</span>
+</div>
+</section>
+
+<section style="padding:clamp(32px,5cqi,56px) clamp(16px,4cqi,56px) 0">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">
+<h2 style="margin:0;font-weight:900;font-size:clamp(26px,3.4cqi,40px);letter-spacing:-.03em">¿Qué marca te late?</h2>
+<div style="display:flex;gap:8px;align-items:center">
+<sc-if value="{{ hayFiltroMarca }}"><span onClick="{{ limpiarMarca }}" style="font-size:14px;font-weight:700;cursor:pointer;color:#A8420A;padding:10px 4px">Quitar filtro ×</span></sc-if>
+<span onClick="{{ toggleMarcas }}" style="background:#fff;padding:10px 16px;border-radius:14px;font-weight:800;font-size:14px;cursor:pointer" style-hover="background:#FFE0CC"><sc-if value="{{ noVerMarcas }}" hint-placeholder-val="{{ true }}">Ver las {{ totalMarcas }} marcas ↓</sc-if><sc-if value="{{ verMarcas }}">Ver menos ↑</sc-if></span>
+</div></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(46%,200px),1fr));gap:14px">
+<sc-for list="{{ destacadas }}" as="b" hint-placeholder-count="8">
+<div onClick="{{ b.pick }}" style="background:#fff;border-radius:24px;padding:8px;cursor:pointer;display:flex;flex-direction:column;gap:8px" style-hover="box-shadow:0 12px 32px rgba(31,52,102,.14)">
+<div style="position:relative;aspect-ratio:4/3;border-radius:18px;background:repeating-linear-gradient(135deg,#FFF2E8 0 10px,#FFE8D9 10px 20px)"><img src="{{ b.foto }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit"><sc-if value="{{ b.active }}"><span style="position:absolute;inset:0;border-radius:18px;box-shadow:inset 0 0 0 4px #F0661A"></span></sc-if></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:6px;padding:0 6px 4px"><strong style="font-size:17px;font-weight:900">{{ b.m }}</strong><span style="font-size:12px;color:#56607A;white-space:nowrap">{{ b.nLabel }}</span></div>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{ verMarcas }}">
+<div style="margin-top:14px;background:#fff;border-radius:24px;padding:clamp(14px,2.4cqi,24px);display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 12px">
+<sc-for list="{{ marcas }}" as="b" hint-placeholder-count="28">
+<sc-if value="{{ b.inactive }}" hint-placeholder-val="{{ true }}"><div onClick="{{ b.pick }}" style="display:flex;justify-content:space-between;gap:8px;padding:10px 12px;border-radius:12px;cursor:pointer;font-weight:700" style-hover="background:#FFF2E8">{{ b.m }}<span style="font-size:12px;font-weight:600;color:#56607A">{{ b.n }}</span></div></sc-if>
+<sc-if value="{{ b.active }}"><div onClick="{{ b.pick }}" style="display:flex;justify-content:space-between;gap:8px;padding:10px 12px;border-radius:12px;cursor:pointer;font-weight:800;background:#F0661A;color:#fff">{{ b.m }}<span style="font-size:12px">{{ b.n }}</span></div></sc-if>
+</sc-for>
+</div>
+</sc-if>
+</section>
+
+<section style="padding:clamp(32px,5cqi,56px) clamp(16px,4cqi,56px) 0">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px">
+<h2 style="margin:0;font-weight:900;font-size:clamp(26px,3.4cqi,40px);letter-spacing:-.03em">{{ nAutos }} · {{ marcaActiva }}</h2>
+<div style="display:flex;gap:4px;background:#fff;padding:4px;border-radius:14px;overflow-x:auto;max-width:100%"><sc-for list="{{ tipos }}" as="t" hint-placeholder-count="5">
+<sc-if value="{{ t.active }}"><span onClick="{{ t.pick }}" style="padding:8px 14px;border-radius:14px;font-size:14px;font-weight:700;background:#F0661A;color:#fff;cursor:pointer;white-space:nowrap">{{ t.label }}</span></sc-if>
+<sc-if value="{{ t.inactive }}" hint-placeholder-val="{{ true }}"><span onClick="{{ t.pick }}" style="padding:8px 14px;border-radius:14px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap" style-hover="background:#FFF2E8">{{ t.label }}</span></sc-if>
+</sc-for></div>
+</div>
+<sc-if value="{{ sinAutos }}"><div style="background:#fff;border-radius:28px;padding:28px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center"><strong style="font-size:19px">Te conseguimos tu {{ marcaActiva }} en cualquier agencia.</strong><button style="background:#F0661A;color:#fff;border:0;padding:12px 20px;border-radius:14px;font-weight:800;cursor:pointer">Pedir cotización</button></div></sc-if>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:18px">
+<sc-for list="{{ autos }}" as="a" hint-placeholder-count="6">
+<article style="position:relative;background:#fff;border-radius:32px;padding:10px;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(31,52,102,.06);overflow:hidden" style-hover="box-shadow:0 12px 32px rgba(31,52,102,.14)">
+<div style="position:relative;aspect-ratio:4/3;border-radius:24px;background:repeating-linear-gradient(135deg,#FFF2E8 0 12px,#FFE8D9 12px 24px)">
+<span style="z-index:1;position:absolute;left:12px;top:12px;background:#fff;color:#1F3466;font-size:12px;font-weight:800;padding:5px 12px;border-radius:14px">{{ a.tipo }}</span>
+<img src="{{ a.foto }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit"><span style="position:absolute;left:12px;bottom:12px;font:11px ui-monospace,Menlo,monospace;color:#A8420A">{{ a.img }}</span>
+<button onClick="{{ a.abrirFicha }}" style="position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:6px;background:#1F3466;color:#fff;border:0;padding:9px 14px;border-radius:14px;font-weight:700;font-size:13px;cursor:pointer" style-hover="background:#F0661A"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h4l3-8 4 16 3-8h4"></path></svg>Ficha técnica</button>
+</div>
+<div style="padding:14px 10px 6px;display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+<div style="line-height:1.15"><span style="font-size:13px;font-weight:700;color:#A8420A">{{ a.marca }}</span><br><strong style="font-size:24px;font-weight:900;letter-spacing:-.02em">{{ a.modelo }}</strong><br><span style="font-size:13px;color:#56607A">{{ a.version }}</span></div>
+<div style="text-align:right;line-height:1.2"><strong style="font-size:17px">{{ a.precioF }}</strong><br><span style="display:inline-block;margin-top:4px;background:#FFF2E8;color:#A8420A;font-weight:800;font-size:12px;padding:3px 9px;border-radius:14px">{{ a.mensual }}/mes</span></div>
+</div>
+<div style="display:flex;gap:8px;padding:8px 4px 4px">
+<sc-if value="{{ a.notInCmp }}" hint-placeholder-val="{{ true }}"><button onClick="{{ a.toggleCmp }}" disabled="{{ a.cmpDisabled }}" style="flex:1;background:#FFF2E8;border:0;color:#1F3466;padding:12px 14px;border-radius:14px;font-weight:800;font-size:14px;cursor:pointer;text-align:left" style-hover="background:#FFE0CC">+ {{ a.cmpLabel }}</button></sc-if>
+<sc-if value="{{ a.inCmp }}"><button onClick="{{ a.toggleCmp }}" style="flex:1;background:#1F3466;border:0;color:#fff;padding:12px 14px;border-radius:14px;font-weight:800;font-size:14px;cursor:pointer;text-align:left">✓ {{ a.cmpLabel }}</button></sc-if>
+<button style="flex:1;background:#F0661A;border:0;color:#fff;padding:12px 14px;border-radius:14px;font-weight:800;font-size:14px;cursor:pointer;text-align:left" style-hover="background:#D4540E">Cotizar</button>
+</div>
+<sc-if value="{{ a.ficha }}">
+<div style="position:absolute;left:0;right:0;bottom:0;top:22%;background:#1F3466;color:#fff;border-radius:28px 28px 32px 32px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;z-index:2;box-shadow:0 -12px 32px rgba(31,52,102,.25)">
+<div style="display:flex;justify-content:space-between;align-items:center"><strong style="font-size:17px;font-weight:900">{{ a.modelo }} · ficha técnica</strong><button onClick="{{ a.cerrarFicha }}" aria-label="Cerrar" style="width:34px;height:34px;border-radius:8px;background:#fff;color:#1F3466;border:0;font-size:18px;font-weight:800;cursor:pointer">×</button></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;overflow:auto">
+<sc-for list="{{ a.specs }}" as="s"><span style="background:rgba(255,255,255,.12);border-radius:14px;padding:7px 11px;display:flex;flex-direction:column;line-height:1.15"><span style="font-size:11px;opacity:.75">{{ s.k }}</span><strong style="font-size:14px">{{ s.v }}</strong></span></sc-for>
+</div>
+</div>
+</sc-if>
+</article>
+</sc-for>
+</div>
+</section>
+
+<section style="padding:clamp(32px,5cqi,56px) clamp(16px,4cqi,56px) 0">
+<div style="background:#1F3466;color:#fff;border-radius:28px;padding:20px 26px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px">
+<div style="display:flex;flex-direction:column"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.75">Publicidad · Banamex</span><strong style="font-size:clamp(20px,2.4cqi,26px);font-weight:900;letter-spacing:-.02em">Tasa desde 13.5% en autos nuevos.</strong></div>
+<span style="font:12px ui-monospace,Menlo,monospace;opacity:.8">banner 1200×120</span>
+</div>
+</section>
+
+<section style="padding:clamp(40px,6cqi,72px) clamp(16px,4cqi,56px) 0">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:20px">
+<h2 style="margin:0;font-weight:900;font-size:clamp(32px,5cqi,60px);line-height:.95;letter-spacing:-.04em">Ponlos frente a frente</h2>
+<div style="display:flex;flex-wrap:wrap;gap:10px;min-width:0;max-width:100%">
+<div style="display:flex;align-items:center;gap:4px;background:#fff;padding:4px 4px 4px 14px;border-radius:14px;max-width:100%;overflow-x:auto"><span style="font-size:13px;color:#56607A;margin-right:4px">Enganche</span><sc-for list="{{ engOpts }}" as="o" hint-placeholder-count="4"><sc-if value="{{ o.active }}"><span onClick="{{ o.pick }}" style="padding:7px 12px;border-radius:14px;font-size:13px;font-weight:800;background:#F0661A;color:#fff;cursor:pointer">{{ o.label }}</span></sc-if><sc-if value="{{ o.inactive }}" hint-placeholder-val="{{ true }}"><span onClick="{{ o.pick }}" style="padding:7px 12px;border-radius:14px;font-size:13px;font-weight:600;cursor:pointer" style-hover="background:#FFF2E8">{{ o.label }}</span></sc-if></sc-for></div>
+<div style="display:flex;align-items:center;gap:4px;background:#fff;padding:4px 4px 4px 14px;border-radius:14px;overflow-x:auto;max-width:100%;min-width:0;flex:0 1 auto"><span style="font-size:13px;color:#56607A;margin-right:4px">Plazo</span><sc-for list="{{ plazoOpts }}" as="o" hint-placeholder-count="5"><sc-if value="{{ o.active }}"><span onClick="{{ o.pick }}" style="padding:7px 12px;border-radius:14px;font-size:13px;font-weight:800;background:#F0661A;color:#fff;cursor:pointer;white-space:nowrap">{{ o.label }}</span></sc-if><sc-if value="{{ o.inactive }}" hint-placeholder-val="{{ true }}"><span onClick="{{ o.pick }}" style="padding:7px 12px;border-radius:14px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap" style-hover="background:#FFF2E8">{{ o.label }}</span></sc-if></sc-for></div>
+</div>
+</div>
+<div style="overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x mandatory">
+<div style="display:grid;grid-template-columns:repeat(3,minmax(260px,1fr));gap:22px;min-width:820px">
+<sc-for list="{{ slots }}" as="s" hint-placeholder-count="3">
+<div style="position:relative;scroll-snap-align:start">
+<sc-if value="{{ s.vs }}"><span style="position:absolute;left:-23px;top:90px;z-index:3;width:44px;height:36px;border-radius:10px;background:#F0661A;color:#fff;font-weight:900;font-size:14px;display:grid;place-items:center;border:4px solid #FFF8F3">VS</span></sc-if>
+<sc-if value="{{ s.filled }}" hint-placeholder-val="{{ true }}">
+<div style="background:#fff;border-radius:32px;padding:10px;display:flex;flex-direction:column;gap:12px">
+<div style="position:relative;aspect-ratio:16/10;border-radius:24px;background:repeating-linear-gradient(135deg,#FFF2E8 0 10px,#FFE8D9 10px 20px)"><button onClick="{{ s.quitar }}" style="z-index:1;position:absolute;right:10px;top:10px;width:32px;height:32px;border-radius:8px;background:#fff;border:0;color:#1F3466;font-size:16px;font-weight:800;cursor:pointer">×</button><img src="{{ s.foto }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit"><span style="position:absolute;left:12px;bottom:10px;font:10px ui-monospace,Menlo,monospace;color:#A8420A">{{ s.img }}</span></div>
+<div style="padding:0 10px;line-height:1.15"><span style="font-size:13px;font-weight:700;color:#A8420A">{{ s.marca }}</span><br><strong style="font-size:23px;font-weight:900;letter-spacing:-.02em">{{ s.modelo }}</strong><br><span style="font-size:13px;color:#56607A">{{ s.version }} · {{ s.precioF }}</span></div>
+<div style="background:#F0661A;color:#fff;border-radius:24px;padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:13px;font-weight:600;color:#1F3466">Pagas al mes</span><select value="{{ s.finId }}" onChange="{{ s.onFin }}" style="border:0;border-radius:14px;background:#fff;color:#1F3466;padding:6px 10px;font-size:13px;font-weight:800"><sc-for list="{{ s.fins }}" as="f"><option value="{{ f.id }}">{{ f.nombre }}</option></sc-for></select></div>
+<strong style="font-size:34px;font-weight:900;letter-spacing:-.03em;line-height:1">{{ s.mensualF }}</strong>
+<span style="font-size:12px;color:#1F3466">{{ plazo }} · {{ s.tasaF }}</span>
+</div>
+<div style="padding:0 10px 8px;display:flex;flex-direction:column;gap:6px;font-size:13px">
+<div style="display:flex;justify-content:space-between"><span style="color:#56607A">Enganche {{ eng }}</span><strong>{{ s.engF }}</strong></div>
+<div style="display:flex;justify-content:space-between"><span style="color:#56607A">Apertura</span><strong>{{ s.aperturaF }}</strong></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px"><sc-for list="{{ s.specs }}" as="r"><span style="background:#FFF8F3;border-radius:12px;padding:6px 10px;line-height:1.15"><span style="font-size:10px;color:#56607A">{{ r.k }}</span><br><strong style="font-size:13px">{{ r.v }}</strong></span></sc-for></div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ s.empty }}">
+<div style="border-radius:32px;border:2px dashed rgba(240,102,26,.5);padding:24px;display:flex;flex-direction:column;gap:12px;min-height:420px;background:rgba(255,255,255,.5)">
+<span style="width:56px;height:56px;border-radius:12px;background:#FFF2E8;color:#F0661A;display:grid;place-items:center;font-size:28px;font-weight:800">+</span>
+<strong style="font-size:20px;font-weight:900">Suma un auto</strong>
+<select value="{{ s.marcaSel }}" onChange="{{ s.onMarca }}" style="border:0;border-radius:14px;background:#fff;color:#1F3466;padding:12px 14px;font-size:14px;font-weight:700"><option value="">Marca</option><sc-for list="{{ s.marcas }}" as="m"><option value="{{ m.m }}">{{ m.m }}</option></sc-for></select>
+<sc-if value="{{ s.hasMarca }}"><select onChange="{{ s.onModelo }}" style="border:0;border-radius:14px;background:#fff;color:#1F3466;padding:12px 14px;font-size:14px;font-weight:700"><option value="">Modelo</option><sc-for list="{{ s.modelos }}" as="m"><option value="{{ m.id }}">{{ m.label }}</option></sc-for></select></sc-if>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+<p style="margin:4px 0 0;font-size:12px;color:#56607A">Cifras ilustrativas. Sujetas a aprobación de crédito.</p>
+</section>
+
+<section style="padding:clamp(40px,6cqi,72px) 0 0">
+<h2 style="margin:0 clamp(16px,4cqi,56px) 18px;font-weight:900;font-size:clamp(26px,3.4cqi,40px);letter-spacing:-.03em">Ofertas del mes</h2>
+<div style="display:flex;gap:14px;overflow-x:auto;padding:0 clamp(16px,4cqi,56px) 8px;scroll-snap-type:x mandatory">
+<sc-for list="{{ ofertas }}" as="o" hint-placeholder-count="4">
+<div style="flex:none;width:min(78cqi,280px);scroll-snap-align:start;background:#fff;border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:8px;min-height:190px"><span style="align-self:flex-start;background:#FFF2E8;color:#A8420A;font-weight:800;font-size:12px;padding:4px 10px;border-radius:14px">{{ o.k }}</span><strong style="font-size:32px;font-weight:900;letter-spacing:-.03em;line-height:1;margin-top:auto">{{ o.v }}</strong><span style="font-size:13px;color:#56607A">{{ o.d }}</span></div>
+</sc-for>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px;padding:14px clamp(16px,4cqi,56px) 0"><sc-for list="{{ financieras }}" as="f" hint-placeholder-count="5"><span style="background:#1F3466;color:#fff;font-weight:800;font-size:14px;padding:8px 16px;border-radius:14px">{{ f.nombre }}</span></sc-for></div>
+</section>
+
+<section style="margin:clamp(40px,6cqi,72px) clamp(10px,2cqi,24px) 0;background:#fff;border-radius:clamp(28px,4cqi,48px);padding:clamp(28px,4cqi,56px) clamp(20px,4cqi,48px)">
+<h2 style="margin:0 0 6px;font-weight:900;font-size:clamp(28px,4cqi,48px);letter-spacing:-.03em;line-height:1">¿Qué papeles necesito?</h2>
+<p style="margin:0 0 20px;color:#56607A;font-size:16px">Elige tu perfil y te damos tu checklist.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<sc-for list="{{ reqTabs }}" as="t" hint-placeholder-count="5"><span onClick="{{ t.ir }}" style="display:flex;align-items:center;gap:10px;background:#FFF2E8;padding:14px 14px 14px 20px;border-radius:14px;font-weight:800;font-size:16px;cursor:pointer" style-hover="background:#F0661A;color:#fff">{{ t.label }}<span style="width:30px;height:30px;border-radius:8px;background:#fff;color:#F0661A;display:grid;place-items:center">→</span></span></sc-for>
+</div>
+</section>
+
+<section style="padding:clamp(40px,6cqi,72px) clamp(16px,4cqi,56px) 0">
+<h2 style="margin:0 0 18px;font-weight:900;font-size:clamp(26px,3.4cqi,40px);letter-spacing:-.03em">Tips y noticias</h2>
+<div style="display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;margin-bottom:12px">
+<sc-for list="{{ noticias }}" as="n" hint-placeholder-count="4"><div style="flex:none;display:flex;flex-direction:column;align-items:center;gap:6px;width:84px;cursor:pointer"><span style="width:76px;height:76px;border-radius:20px;padding:3px;background:#F0661A"><span style="display:block;width:100%;height:100%;border-radius:17px;border:3px solid #FFF8F3;background:#FFF2E8;display:grid;place-items:center"><img src="{{ n.icono }}" alt="{{ n.cat }}" style="width:32px;height:32px;display:block"></span></span><span style="font-size:12px;font-weight:700">{{ n.cat }}</span></div></sc-for>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:16px">
+<sc-for list="{{ noticias }}" as="n" hint-placeholder-count="4">
+<article style="background:#fff;border-radius:28px;padding:10px;display:flex;flex-direction:column;gap:8px;cursor:pointer" style-hover="box-shadow:0 12px 32px rgba(31,52,102,.12)">
+<div style="position:relative;aspect-ratio:16/10;border-radius:20px;background:repeating-linear-gradient(135deg,#FFF2E8 0 10px,#FFE8D9 10px 20px)"><img src="{{ n.foto }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit"></div>
+<div style="padding:4px 8px 10px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:800;color:#A8420A">{{ n.cat }} · {{ n.min }} min</span><strong style="font-size:18px;font-weight:800;line-height:1.2;text-wrap:balance">{{ n.t }}</strong><span style="font-size:14px;color:#56607A">{{ n.d }}</span></div>
+</article>
+</sc-for>
+</div>
+</section>
+
+</sc-if>
+
+<sc-if value="{{ isReq }}">
+<section style="margin:16px clamp(10px,2cqi,24px) 0;background:#F0661A;border-radius:clamp(28px,4cqi,48px);padding:clamp(28px,5cqi,64px) clamp(20px,4cqi,64px);display:flex;flex-direction:column;gap:14px">
+<span onClick="{{ goInicio }}" style="align-self:flex-start;background:#fff;color:#1F3466;font-weight:700;font-size:13px;padding:6px 14px;border-radius:14px;cursor:pointer">← Inicio</span>
+<h1 style="margin:0;font-weight:900;font-size:clamp(40px,7cqi,96px);line-height:.92;letter-spacing:-.04em;color:#fff">Tu checklist de crédito</h1>
+<p style="margin:0;max-width:46ch;font-size:18px;font-weight:500;color:#1F3466">Activa lo que ya tienes. Cuando llegues al 100%, envía tu solicitud.</p>
+</section>
+<section style="padding:20px clamp(16px,4cqi,56px) 0">
+<div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:8px">
+<sc-for list="{{ reqTabs }}" as="t" hint-placeholder-count="5">
+<sc-if value="{{ t.active }}"><span onClick="{{ t.pick }}" style="flex:none;padding:12px 18px;border-radius:14px;background:#1F3466;color:#fff;font-weight:800;font-size:15px;cursor:pointer;white-space:nowrap">{{ t.label }}</span></sc-if>
+<sc-if value="{{ t.inactive }}" hint-placeholder-val="{{ true }}"><span onClick="{{ t.pick }}" style="flex:none;padding:12px 18px;border-radius:14px;background:#fff;font-weight:700;font-size:15px;cursor:pointer;white-space:nowrap" style-hover="background:#FFE0CC">{{ t.label }}</span></sc-if>
+</sc-for>
+</div>
+</section>
+<section style="padding:20px clamp(16px,4cqi,56px) 0;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+<div style="flex:3 1 420px;min-width:0;background:#fff;border-radius:32px;padding:clamp(18px,3cqi,32px);display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2 style="margin:0;font-weight:900;font-size:clamp(22px,2.8cqi,30px);letter-spacing:-.02em">{{ req.titulo }}</h2><span style="color:#56607A;font-size:14px">{{ req.para }}</span></div><span style="background:#FFF2E8;color:#A8420A;font-weight:900;font-size:20px;padding:8px 16px;border-radius:14px">{{ reqPct }}</span></div>
+<div style="height:10px;border-radius:14px;background:#FFF2E8;overflow:hidden;margin:10px 0 8px"><div style="height:10px;border-radius:14px;background:#F0661A;width:{{ reqPct }};transition:width .3s"></div></div>
+<sc-for list="{{ req.docs }}" as="d" hint-placeholder-count="8">
+<div onClick="{{ d.toggle }}" style="display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:20px;cursor:pointer" style-hover="background:#FFF8F3">
+<span style="flex:1;font-size:15px;text-wrap:pretty">{{ d.t }}</span>
+<sc-if value="{{ d.on }}"><span style="flex:none;width:50px;height:30px;border-radius:9px;background:#F0661A;position:relative"><span style="position:absolute;right:3px;top:3px;width:24px;height:24px;border-radius:6px;background:#fff"></span></span></sc-if>
+<sc-if value="{{ d.off }}" hint-placeholder-val="{{ true }}"><span style="flex:none;width:50px;height:30px;border-radius:9px;background:#E6E2DE;position:relative"><span style="position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:6px;background:#fff;box-shadow:0 1px 2px rgba(31,52,102,.2)"></span></span></sc-if>
+</div>
+</sc-for>
+<p style="margin:10px 0 0;font-size:12px;color:#56607A">Requisitos de referencia. Cada institución puede pedir documentos adicionales.</p>
+</div>
+<aside style="flex:2 1 280px;display:flex;flex-direction:column;gap:14px">
+<div style="background:#fff;border-radius:32px;padding:22px;display:flex;flex-direction:column;gap:8px"><strong style="font-size:17px;font-weight:900">Condiciones</strong><sc-for list="{{ req.cond }}" as="c" hint-placeholder-count="3"><span style="font-size:14px;background:#FFF8F3;border-radius:14px;padding:10px 12px">{{ c.t }}</span></sc-for></div>
+<sc-if value="{{ reqFalta }}" hint-placeholder-val="{{ true }}"><button style="background:#F0661A;color:#fff;border:0;padding:18px 22px;border-radius:14px;font-weight:900;font-size:16px;cursor:pointer;text-align:left" style-hover="background:#D4540E">Solicitar preautorización →</button></sc-if>
+<sc-if value="{{ reqListo }}"><button style="background:#1F3466;color:#fff;border:0;padding:18px 22px;border-radius:14px;font-weight:900;font-size:16px;cursor:pointer;text-align:left">¡Listo! Enviar solicitud →</button></sc-if>
+<div style="background:#1F3466;color:#fff;border-radius:28px;padding:20px;display:flex;flex-direction:column;gap:6px"><strong style="font-size:16px">Certificado de autorización</strong><span style="font-size:13px;opacity:.85">Tu crédito aprobado vale 30 días hábiles en la agencia que elijas.</span></div>
+</aside>
+</section>
+</sc-if>
+
+<footer style="margin:clamp(40px,6cqi,72px) clamp(10px,2cqi,24px) 0;background:#F0661A;color:#fff;border-radius:clamp(28px,4cqi,48px) clamp(28px,4cqi,48px) 0 0;padding:clamp(28px,5cqi,56px) clamp(20px,4cqi,56px) clamp(90px,10cqi,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;align-items:end">
+<div style="display:flex;flex-direction:column;gap:14px"><img src="AutoOpciones_Logo/03_negativo_solo-texto/AutoOpciones_03_negativo_solo-texto.svg" alt="Auto-Opciones" style="height:36px;width:auto;align-self:flex-start"><strong style="font-size:clamp(22px,2.8cqi,30px);font-weight:900;line-height:1.05;letter-spacing:-.02em">Nosotros te damos las opciones, usted su confianza.</strong></div>
+<div style="display:flex;flex-direction:column;gap:4px;font-size:15px;font-weight:600;color:#1F3466"><span>Tel. 444 414 5826</span><span>atencion.clientes@auto-opciones.com</span><span>Facebook: Auto-Opciones.com</span></div>
+</footer>
+
+<sc-if value="{{ narrow }}">
+<nav style="position:sticky;bottom:12px;z-index:7;margin:0 12px;margin-top:-76px;background:#1F3466;border-radius:14px;padding:6px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;box-shadow:0 12px 32px rgba(31,52,102,.3)">
+<span onClick="{{ goInicio }}" style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0;border-radius:14px;color:#fff;font-size:11px;font-weight:700;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 4l9 7v9H3z"></path></svg>Inicio</span>
+<span onClick="{{ goInicio }}" style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0;border-radius:14px;color:#fff;font-size:11px;font-weight:700;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>Autos</span>
+<span onClick="{{ goInicio }}" style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0;border-radius:14px;background:#F0661A;color:#fff;font-size:11px;font-weight:800;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v18M16 3v18M3 8h5M16 16h5"></path></svg>Comparar {{ nCmp }}</span>
+<span onClick="{{ goReq }}" style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0;border-radius:14px;color:#fff;font-size:11px;font-weight:700;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"></path><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"></path></svg>Requisitos</span>
+</nav>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = window.AO ? window.AO.initState() : {};
+  componentDidMount() {
+    if (!window.AO) this._t = setInterval(() => { if (window.AO) { clearInterval(this._t); this.setState(window.AO.initState()); } }, 40);
+  }
+  componentWillUnmount() { clearInterval(this._t); this._ro && this._ro.disconnect(); }
+  renderVals() { return window.AO && this.state.page ? window.AO.vals(this) : {}; }
+}
+</script>
+</body>
+</html>
