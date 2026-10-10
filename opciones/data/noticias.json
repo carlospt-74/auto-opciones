@@ -1,0 +1,44 @@
+{
+  "noticias": [
+    {
+      "categoria": "Crédito",
+      "titulo": "CAT, tasa y comisión: qué revisar antes de firmar",
+      "resumen": "La tasa más baja no siempre es el crédito más barato. Te explicamos cómo leer el Costo Anual Total.",
+      "minutos": 4,
+      "foto": "assets/fotos/3760067.jpg",
+      "icono": "assets/iconos/credito.svg",
+      "enlace": "",
+      "mostrar": true
+    },
+    {
+      "categoria": "Empresas",
+      "titulo": "Arrendamiento puro o crédito: cuál conviene a tu negocio",
+      "resumen": "Diferencias en deducción, flujo de efectivo y propiedad del auto al final del plazo.",
+      "minutos": 6,
+      "foto": "assets/fotos/7144207.jpg",
+      "icono": "assets/iconos/empresas.svg",
+      "enlace": "",
+      "mostrar": true
+    },
+    {
+      "categoria": "Manejo",
+      "titulo": "Tu auto y el calor de Monterrey",
+      "resumen": "Batería, llantas y aire acondicionado: revisiones que conviene hacer antes del verano.",
+      "minutos": 3,
+      "foto": "assets/fotos/14782133.jpg",
+      "icono": "assets/iconos/manejo.svg",
+      "enlace": "",
+      "mostrar": true
+    },
+    {
+      "categoria": "Seguro",
+      "titulo": "Cobertura amplia o limitada",
+      "resumen": "Qué cubre cada una y por qué tu financiera puede exigir cobertura amplia.",
+      "minutos": 5,
+      "foto": "assets/fotos/10341357.jpg",
+      "icono": "assets/iconos/seguro.svg",
+      "enlace": "",
+      "mostrar": true
+    }
+  ]
+}

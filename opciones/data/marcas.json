@@ -1,0 +1,144 @@
+{
+  "marcas": [
+    {
+      "nombre": "Acura",
+      "logo": "assets/marcas/acura.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Alfa Romeo",
+      "logo": "assets/marcas/alfaromeo.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Audi",
+      "logo": "assets/marcas/audi.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "BMW",
+      "logo": "assets/marcas/bmw.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Cadillac",
+      "logo": "assets/marcas/cadillac.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Chevrolet",
+      "logo": "assets/marcas/chevrolet.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Chrysler",
+      "logo": "assets/marcas/chrysler.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Dodge",
+      "logo": "",
+      "mostrar": true
+    },
+    {
+      "nombre": "Fiat",
+      "logo": "assets/marcas/fiat.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Ford",
+      "logo": "assets/marcas/ford.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Honda",
+      "logo": "assets/marcas/honda.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Hyundai",
+      "logo": "assets/marcas/hyundai.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Jeep",
+      "logo": "assets/marcas/jeep.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Kia",
+      "logo": "assets/marcas/kia.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Land Rover",
+      "logo": "assets/marcas/landrover.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Mazda",
+      "logo": "assets/marcas/mazda.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Mercedes Benz",
+      "logo": "assets/marcas/mercedes.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Mini Cooper",
+      "logo": "assets/marcas/mini.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Mitsubishi",
+      "logo": "assets/marcas/mitsubishi.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Nissan",
+      "logo": "assets/marcas/nissan.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Peugeot",
+      "logo": "assets/marcas/peugeot.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "RAM",
+      "logo": "assets/marcas/ram.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Renault",
+      "logo": "assets/marcas/renault.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Seat",
+      "logo": "assets/marcas/seat.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Smart",
+      "logo": "assets/marcas/smart.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Suzuki",
+      "logo": "assets/marcas/suzuki.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Toyota",
+      "logo": "assets/marcas/toyota.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Volkswagen",
+      "logo": "assets/marcas/volkswagen.svg",
+      "mostrar": true
+    }
+  ]
+}
