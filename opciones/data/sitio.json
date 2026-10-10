@@ -9,7 +9,7 @@
     "azul": "#1F3466"
   },
   "contacto": {
-    "telefono": "444 414 5826",
+    "telefono": "999 414 5826",
     "correos": [
       "atencion.clientes@auto-opciones.com",
       "direccion@auto-opciones.com"
@@ -102,8 +102,7 @@
   "ficha": [
     {
       "etiqueta": "Motor",
-      "campo": "motor",
-      "unidad": ""
+      "campo": "motor"
     },
     {
       "etiqueta": "Potencia",
@@ -112,13 +111,11 @@
     },
     {
       "etiqueta": "Transmisión",
-      "campo": "trans",
-      "unidad": ""
+      "campo": "trans"
     },
     {
       "etiqueta": "Tracción",
-      "campo": "traccion",
-      "unidad": ""
+      "campo": "traccion"
     },
     {
       "etiqueta": "Rendimiento combinado",
@@ -127,8 +124,7 @@
     },
     {
       "etiqueta": "Pasajeros",
-      "campo": "pas",
-      "unidad": ""
+      "campo": "pas"
     },
     {
       "etiqueta": "Cajuela",
@@ -137,8 +133,7 @@
     },
     {
       "etiqueta": "Bolsas de aire",
-      "campo": "bolsas",
-      "unidad": ""
+      "campo": "bolsas"
     }
   ],
   "requisitos": {
@@ -157,39 +152,50 @@
       "resaltado": "opciones",
       "titulo_fin": "sobre la mesa.",
       "foto": "assets/fotos/33437141.jpg",
-      "boton": "Buscar"
+      "boton": "Buscar",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false
     },
     {
       "tipo": "marcas",
       "mostrar": true,
       "fondo": "blanco",
-      "titulo": "Explora por marca"
+      "titulo": "Explora por marca",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false
     },
     {
       "tipo": "comparador",
       "mostrar": true,
       "fondo": "blanco",
       "etiqueta": "Comparador",
-      "titulo": "¿Cuál te conviene más?"
+      "titulo": "¿Cuál te conviene más?",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false
     },
     {
       "tipo": "autos",
       "mostrar": true,
       "fondo": "blanco",
       "vista": "lista",
-      "texto_disponibles": "disponibles"
+      "texto_disponibles": "disponibles",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false
     },
     {
       "tipo": "ofertas",
       "mostrar": true,
       "fondo": "blanco",
       "titulo": "Ofertas de crédito vigentes",
-      "mostrar_financieras": true
+      "mostrar_financieras": true,
+      "mostrar_iconos": false
     },
     {
       "tipo": "publicidad",
       "mostrar": true,
       "fondo": "blanco",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false,
       "anuncio": "afirme"
     },
     {
@@ -198,13 +204,16 @@
       "fondo": "blanco",
       "etiqueta": "Información de crédito",
       "titulo": "Ten listos tus documentos antes de ir a la agencia.",
-      "texto": "Requisitos para cada perfil, en una lista que puedes ir marcando."
+      "texto": "Requisitos para cada perfil, en una lista que puedes ir marcando.",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false
     },
     {
       "tipo": "noticias",
       "mostrar": true,
       "fondo": "blanco",
       "titulo": "Noticias y tips",
+      "mostrar_financieras": false,
       "mostrar_iconos": true
     }
   ]
