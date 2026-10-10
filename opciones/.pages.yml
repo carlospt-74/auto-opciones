@@ -1,0 +1,291 @@
+media:
+  input: assets
+  output: assets
+
+content:
+  - name: sitio
+    label: Configuración del sitio
+    type: file
+    path: data/sitio.json
+    format: json
+    fields:
+      - { name: titulo_pagina, label: Título de la pestaña del navegador, type: string }
+      - { name: logo, label: Logo del sitio, type: image }
+      - name: colores
+        label: Colores
+        type: object
+        description: "Usa formato #RRGGBB. Si el naranja es muy claro, el texto blanco de los botones se leerá mal."
+        fields:
+          - { name: principal, label: Naranja principal (botones), type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: principal_hover, label: Naranja al pasar el mouse, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: texto_acento, label: Naranja oscuro para textos, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: fondo_suave, label: Fondo suave, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: azul, label: Azul marino (textos), type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+      - name: contacto
+        label: Contacto y pie de página
+        type: object
+        fields:
+          - { name: telefono, label: Teléfono, type: string }
+          - { name: correos, label: Correos, type: string, list: true }
+          - { name: redes, label: Redes y sitios, type: string, list: true }
+          - { name: frase, label: Frase del pie de página, type: string }
+      - name: menu
+        label: Menú superior
+        type: object
+        list: true
+        fields:
+          - { name: texto, label: Texto, type: string }
+          - &destino
+            name: destino
+            label: Lleva a
+            type: select
+            description: "También puedes escribir un enlace que empiece con https://, mailto: o tel:"
+            options:
+              creatable: true
+              values:
+                - { value: "pagina:inicio", label: "Inicio" }
+                - { value: "pagina:requisitos", label: "Página de requisitos" }
+                - { value: "seccion:banner", label: "Sección: Banner" }
+                - { value: "seccion:marcas", label: "Sección: Explora tu marca" }
+                - { value: "seccion:comparador", label: "Sección: Comparador" }
+                - { value: "seccion:autos", label: "Sección: Autos" }
+                - { value: "seccion:ofertas", label: "Sección: Ofertas de crédito" }
+                - { value: "seccion:info_credito", label: "Sección: Información de crédito" }
+                - { value: "seccion:noticias", label: "Sección: Noticias y tips" }
+      - name: boton_menu
+        label: Botón del menú
+        type: object
+        fields:
+          - { name: texto, label: Texto, type: string }
+          - *destino
+      - name: filtros
+        label: Filtros
+        type: object
+        fields:
+          - { name: texto_todos, label: "Texto de la opción 'Todos'", type: string }
+          - { name: tipos, label: Tipos de auto, type: string, list: true }
+          - { name: mostrar_presupuesto, label: Mostrar filtro de presupuesto, type: boolean }
+          - { name: texto_presupuesto, label: Nombre del filtro de presupuesto, type: string }
+          - { name: texto_cualquiera, label: "Texto de la opción 'Cualquiera'", type: string }
+          - name: presupuestos
+            label: Rangos de presupuesto
+            type: object
+            list: true
+            fields:
+              - { name: texto, label: Texto, type: string }
+              - { name: min, label: Desde (0 = sin mínimo), type: number }
+              - { name: max, label: Hasta (0 = sin máximo), type: number }
+          - { name: mostrar_pago, label: Mostrar filtro de pago, type: boolean }
+          - { name: texto_pago, label: Nombre del filtro de pago, type: string }
+          - { name: pagos, label: Formas de pago, type: string, list: true }
+      - name: calculo
+        label: Cálculo de mensualidad
+        type: object
+        fields:
+          - name: formula
+            label: Fórmula
+            type: string
+            description: "Variables: precio, enganche, monto, tasa (anual %), tasa_mensual, plazo (meses), apertura (%), seguro (mensual), iva (%). Usa ^ para potencia. Si hay un error se usa la fórmula de respaldo."
+          - { name: enganches, label: Opciones de enganche (%), type: number, list: true }
+          - { name: enganche_inicial, label: Enganche inicial (%), type: number }
+          - { name: plazos, label: Opciones de plazo (meses), type: number, list: true }
+          - { name: plazo_inicial, label: Plazo inicial (meses), type: number }
+          - { name: tasa_tarjetas, label: Tasa anual para la mensualidad de las tarjetas de autos (%), type: number }
+          - { name: iva, label: IVA (%), type: number }
+          - { name: nota, label: Nota bajo el comparador, type: string }
+      - name: ficha
+        label: Datos de la ficha técnica
+        type: object
+        list: true
+        fields:
+          - { name: etiqueta, label: Etiqueta, type: string }
+          - name: campo
+            label: Dato del auto
+            type: select
+            options: { values: [motor, hp, trans, traccion, rend, pas, cajuela, bolsas] }
+          - { name: unidad, label: Unidad, type: string }
+      - name: requisitos
+        label: Textos de la página de requisitos
+        type: object
+        fields:
+          - { name: titulo, label: Título, type: string }
+          - { name: resaltado, label: Palabra resaltada, type: string }
+          - { name: nota, label: Nota bajo los documentos, type: string }
+          - { name: boton, label: Texto del botón, type: string }
+          - { name: aviso, label: Aviso bajo el botón, type: string }
+      - name: secciones
+        label: Secciones de la página de inicio (arrastra para cambiar el orden)
+        type: object
+        list: true
+        description: "Puedes repetir el bloque Publicidad con distintos anuncios. Los demás tipos se usan una vez."
+        fields:
+          - name: tipo
+            label: Tipo de sección
+            type: select
+            options:
+              values:
+                - { value: banner, label: Banner inicial }
+                - { value: marcas, label: Explora tu marca }
+                - { value: comparador, label: Comparador }
+                - { value: autos, label: Autos }
+                - { value: ofertas, label: Ofertas de crédito }
+                - { value: publicidad, label: Publicidad }
+                - { value: info_credito, label: Información de crédito }
+                - { value: noticias, label: Noticias y tips }
+          - { name: mostrar, label: Mostrar, type: boolean }
+          - name: fondo
+            label: Fondo
+            type: select
+            options: { values: [blanco, suave] }
+          - { name: etiqueta, label: Etiqueta pequeña (comparador, información de crédito), type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: resaltado, label: Palabra resaltada (banner), type: string }
+          - { name: titulo_fin, label: Final del título (banner), type: string }
+          - { name: texto, label: Texto (información de crédito), type: string }
+          - { name: foto, label: Foto (banner), type: image }
+          - { name: boton, label: Texto del botón (banner), type: string }
+          - name: vista
+            label: Vista (autos)
+            type: select
+            options: { values: [lista, cuadricula] }
+          - { name: texto_disponibles, label: "Texto después del número de autos", type: string }
+          - { name: mostrar_financieras, label: Mostrar financieras (ofertas), type: boolean }
+          - { name: mostrar_iconos, label: Mostrar íconos (noticias), type: boolean }
+          - { name: anuncio, label: "Id del anuncio (publicidad)", type: string }
+
+  - name: autos
+    label: Autos
+    type: file
+    path: data/autos.json
+    format: json
+    fields:
+      - name: autos
+        label: Autos
+        type: object
+        list: true
+        fields:
+          - { name: id, label: Id único (sin espacios), type: string, required: true }
+          - { name: marca, label: Marca (igual que en Marcas), type: string, required: true }
+          - { name: modelo, label: Modelo, type: string }
+          - { name: version, label: Versión, type: string }
+          - { name: tipo, label: Tipo (igual que en Filtros), type: string }
+          - { name: precio, label: Precio (MXN), type: number }
+          - { name: foto, label: Foto, type: image, options: { path: assets/fotos } }
+          - { name: mostrar, label: Mostrar, type: boolean }
+          - { name: motor, label: Motor, type: string }
+          - { name: hp, label: Potencia (hp), type: number }
+          - { name: trans, label: Transmisión, type: string }
+          - { name: traccion, label: Tracción, type: string }
+          - { name: rend, label: Rendimiento (km/l), type: number }
+          - { name: pas, label: Pasajeros, type: number }
+          - { name: cajuela, label: Cajuela (L), type: number }
+          - { name: bolsas, label: Bolsas de aire, type: number }
+
+  - name: marcas
+    label: Marcas
+    type: file
+    path: data/marcas.json
+    format: json
+    fields:
+      - name: marcas
+        label: Marcas
+        type: object
+        list: true
+        fields:
+          - { name: nombre, label: Nombre, type: string, required: true }
+          - { name: logo, label: Logo, type: image, options: { path: assets/marcas } }
+          - { name: mostrar, label: Mostrar, type: boolean }
+
+  - name: financieras
+    label: Financieras
+    type: file
+    path: data/financieras.json
+    format: json
+    fields:
+      - name: financieras
+        label: Financieras
+        type: object
+        list: true
+        fields:
+          - { name: id, label: Id único (sin espacios), type: string, required: true }
+          - { name: nombre, label: Nombre, type: string }
+          - { name: tasa, label: Tasa anual (%), type: number }
+          - { name: apertura, label: Comisión por apertura (%), type: number }
+          - { name: seguro, label: Seguro mensual (MXN), type: number }
+          - { name: mostrar, label: Mostrar, type: boolean }
+
+  - name: ofertas
+    label: Ofertas de crédito
+    type: file
+    path: data/ofertas.json
+    format: json
+    fields:
+      - name: ofertas
+        label: Ofertas
+        type: object
+        list: true
+        fields:
+          - { name: etiqueta, label: Etiqueta, type: string }
+          - { name: valor, label: Valor destacado, type: string }
+          - { name: detalle, label: Detalle, type: string }
+          - { name: mostrar, label: Mostrar, type: boolean }
+
+  - name: noticias
+    label: Noticias y tips
+    type: file
+    path: data/noticias.json
+    format: json
+    fields:
+      - name: noticias
+        label: Noticias
+        type: object
+        list: true
+        fields:
+          - { name: categoria, label: Categoría, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: resumen, label: Resumen, type: text }
+          - { name: minutos, label: Minutos de lectura, type: number }
+          - { name: foto, label: Foto, type: image, options: { path: assets/fotos } }
+          - { name: icono, label: Ícono (SVG), type: image, options: { path: assets/iconos } }
+          - { name: enlace, label: Enlace (opcional), type: string }
+          - { name: mostrar, label: Mostrar, type: boolean }
+
+  - name: requisitos
+    label: Requisitos de crédito
+    type: file
+    path: data/requisitos.json
+    format: json
+    fields:
+      - name: perfiles
+        label: Perfiles
+        type: object
+        list: true
+        fields:
+          - { name: id, label: Id único (sin espacios), type: string, required: true }
+          - { name: pestana, label: Nombre corto, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: para, label: Para quién es, type: string }
+          - { name: documentos, label: Documentos, type: string, list: true }
+          - { name: condiciones, label: Condiciones, type: string, list: true }
+
+  - name: anuncios
+    label: Publicidad
+    type: file
+    path: data/anuncios.json
+    format: json
+    fields:
+      - name: anuncios
+        label: Anuncios
+        type: object
+        list: true
+        fields:
+          - { name: id, label: Id único (se usa en Secciones), type: string, required: true }
+          - { name: anunciante, label: Anunciante, type: string }
+          - { name: texto, label: Texto, type: string }
+          - { name: texto_boton, label: Texto del botón (opcional), type: string }
+          - { name: enlace, label: Enlace (opcional), type: string }
+          - name: ubicacion
+            label: Dónde aparece
+            type: select
+            options: { values: [inicio, requisitos] }
+          - { name: mostrar, label: Mostrar, type: boolean }
