@@ -32,7 +32,7 @@ content:
       - name: menu
         label: Menú superior
         type: object
-        list: { collapsible: { summary: "{texto}" } }
+        list: { collapsible: { collapsed: true, summary: "{texto}" } }
         fields:
           - { name: texto, label: Texto, type: string }
           - &destino
@@ -70,7 +70,7 @@ content:
           - name: presupuestos
             label: Rangos de presupuesto
             type: object
-            list: { collapsible: { summary: "{texto}" } }
+            list: { collapsible: { collapsed: true, summary: "{texto}" } }
             fields:
               - { name: texto, label: Texto, type: string }
               - { name: min, label: Desde (0 = sin mínimo), type: number }
@@ -96,7 +96,7 @@ content:
       - name: ficha
         label: Datos de la ficha técnica
         type: object
-        list: { collapsible: { summary: "{etiqueta}" } }
+        list: { collapsible: { collapsed: true, summary: "{etiqueta}" } }
         fields:
           - { name: etiqueta, label: Etiqueta, type: string }
           - name: campo
@@ -116,7 +116,7 @@ content:
       - name: secciones
         label: Secciones de la página de inicio (arrastra para cambiar el orden)
         type: object
-        list: { collapsible: { summary: "{tipo}: {titulo}" } }
+        list: { collapsible: { collapsed: true, summary: "{tipo}: {titulo}" } }
         description: "Puedes repetir el bloque Publicidad con distintos anuncios. Los demás tipos se usan una vez."
         fields:
           - name: tipo
@@ -162,7 +162,7 @@ content:
       - name: autos
         label: Autos
         type: object
-        list: { collapsible: { summary: "{marca} {modelo} {version}" } }
+        list: { collapsible: { collapsed: true, summary: "{marca} {modelo} {version}" } }
         fields:
           - { name: id, label: Id único (sin espacios), type: string, required: true, description: "No se puede repetir. Solo minúsculas, números y guiones.", pattern: { regex: "^[a-z0-9]+(-[a-z0-9]+)*$", message: "Solo minúsculas, números y guiones, sin espacios ni acentos (ej. cx-5)" } }
           - { name: marca, label: Marca (igual que en Marcas), type: string, required: true }
@@ -190,7 +190,7 @@ content:
       - name: marcas
         label: Marcas
         type: object
-        list: { collapsible: { summary: "{nombre}" } }
+        list: { collapsible: { collapsed: true, summary: "{nombre}" } }
         fields:
           - { name: nombre, label: Nombre, type: string, required: true }
           - { name: logo, label: Logo, type: image, options: { path: assets/marcas } }
@@ -205,7 +205,7 @@ content:
       - name: financieras
         label: Financieras
         type: object
-        list: { collapsible: { summary: "{nombre}" } }
+        list: { collapsible: { collapsed: true, summary: "{nombre}" } }
         fields:
           - { name: id, label: Id único (sin espacios), type: string, required: true, description: "No se puede repetir. Solo minúsculas, números y guiones.", pattern: { regex: "^[a-z0-9]+(-[a-z0-9]+)*$", message: "Solo minúsculas, números y guiones, sin espacios ni acentos (ej. cx-5)" } }
           - { name: nombre, label: Nombre, type: string }
@@ -223,7 +223,7 @@ content:
       - name: ofertas
         label: Ofertas
         type: object
-        list: { collapsible: { summary: "{etiqueta}: {valor}" } }
+        list: { collapsible: { collapsed: true, summary: "{etiqueta}: {valor}" } }
         fields:
           - { name: etiqueta, label: Etiqueta, type: string }
           - { name: valor, label: Valor destacado, type: string }
@@ -239,7 +239,7 @@ content:
       - name: noticias
         label: Noticias
         type: object
-        list: { collapsible: { summary: "{titulo}" } }
+        list: { collapsible: { collapsed: true, summary: "{titulo}" } }
         fields:
           - { name: categoria, label: Categoría, type: string }
           - { name: titulo, label: Título, type: string }
@@ -259,7 +259,7 @@ content:
       - name: perfiles
         label: Perfiles
         type: object
-        list: { collapsible: { summary: "{pestana}" } }
+        list: { collapsible: { collapsed: true, summary: "{pestana}" } }
         fields:
           - { name: id, label: Id único (sin espacios), type: string, required: true, description: "No se puede repetir. Solo minúsculas, números y guiones.", pattern: { regex: "^[a-z0-9]+(-[a-z0-9]+)*$", message: "Solo minúsculas, números y guiones, sin espacios ni acentos (ej. cx-5)" } }
           - { name: pestana, label: Nombre corto, type: string }
@@ -277,7 +277,7 @@ content:
       - name: anuncios
         label: Anuncios
         type: object
-        list: { collapsible: { summary: "{anunciante}" } }
+        list: { collapsible: { collapsed: true, summary: "{anunciante}" } }
         fields:
           - { name: id, label: Id único (se usa en Secciones), type: string, required: true, description: "No se puede repetir. Solo minúsculas, números y guiones.", pattern: { regex: "^[a-z0-9]+(-[a-z0-9]+)*$", message: "Solo minúsculas, números y guiones, sin espacios ni acentos (ej. cx-5)" } }
           - { name: anunciante, label: Anunciante, type: string }
