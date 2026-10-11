@@ -10,173 +10,49 @@ content:
     path: opciones/data/sitio.json
     format: json
     fields:
-      - { name: titulo_pagina, label: Título de la pestaña del navegador, type: string }
-      - { name: descripcion, label: Descripción para Google y redes (1-2 frases), type: text, description: "Es el texto que aparece al compartir el sitio o en los resultados de búsqueda." }
-      - { name: logo, label: Logo del sitio, type: image }
-      - name: colores
-        label: Colores
+      - name: encabezado
+        label: false
         type: object
-        description: "Usa formato #RRGGBB. Si el naranja es muy claro, el texto blanco de los botones se leerá mal."
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "1 · Encabezado: logo, menú superior y botón del menú" } }
         fields:
-          - { name: principal, label: Naranja principal (botones), type: string, description: "Color de los botones. El texto de los botones es blanco.", pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
-          - { name: principal_hover, label: Naranja al pasar el mouse, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
-          - { name: texto_acento, label: Naranja oscuro para textos, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
-          - { name: fondo_suave, label: Fondo suave, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
-          - { name: azul, label: Azul marino (textos), type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
-      - name: contacto
-        label: Contacto y pie de página
-        type: object
-        fields:
-          - { name: telefono, label: Teléfono, type: string }
-          - { name: correos, label: Correos, type: string, list: true }
-          - { name: redes, label: Redes y sitios, type: string, list: true }
-          - { name: frase, label: Frase del pie de página, type: string }
-          - { name: whatsapp, label: WhatsApp para recibir cotizaciones y solicitudes, type: string, description: "10 dígitos. Si lo dejas vacío, las solicitudes se envían por correo al primer correo de la lista.", pattern: { regex: "^$|^[0-9 +()-]{10,18}$", message: "Escribe el número con 10 dígitos, por ejemplo 81 1234 5678" } }
-          - { name: mensaje_auto, label: Mensaje al cotizar un auto, type: text, description: "Variables: {auto}, {anio}, {precio}, {enganche}, {plazo}, {mensualidad}. Si lo dejas vacío se usa el mensaje original." }
-          - { name: mensaje_marca, label: Mensaje al pedir cotización de una marca, type: text, description: "Variable: {marca}." }
-          - { name: mensaje_credito, label: Mensaje al solicitar preautorización, type: text, description: "Variables: {perfil}, {listos}." }
-          - name: legales
-            label: Enlaces legales del pie (aviso de privacidad, términos)
-            type: object
-            list: { collapsible: { collapsed: true, summary: "{texto}" } }
-            description: "Aparecen en el pie de página solo si llenas texto y enlace."
-            fields:
-              - { name: texto, label: Texto, type: string }
-              - { name: enlace, label: Enlace, type: string, pattern: { regex: "^$|^https?://[^ ]+$", message: "Debe empezar con https://" } }
-      - name: analitica
-        label: Estadísticas de visitas (opcional)
-        type: object
-        description: "Déjalo vacío si no usarás estadísticas. Google Analytics usa cookies y puede requerir un aviso."
-        fields:
-          - { name: plausible_dominio, label: Dominio en Plausible, type: string, description: "Ej. auto-opciones.com", pattern: { regex: "^$|^[A-Za-z0-9.-]+$", message: "Solo el dominio, sin https://" } }
-          - { name: ga4_id, label: ID de medición de Google Analytics 4, type: string, description: "Ej. G-XXXXXXXXXX", pattern: { regex: "^$|^G-[A-Za-z0-9]+$", message: "Debe empezar con G-" } }
-      - name: textos
-        label: Textos del sitio (botones y etiquetas)
-        type: object
-        description: "Si dejas un campo vacío se usa el texto original."
-        fields:
-          - { name: cotizar_auto, label: "Botón: cotizar este auto", type: string }
-          - { name: ver_ficha, label: "Botón: ver ficha técnica", type: string }
-          - { name: ficha, label: "Título de la ficha técnica", type: string }
-          - { name: precio_desde, label: "Etiqueta del precio", type: string }
-          - { name: leyenda_mensualidad, label: "Leyenda del asterisco (*) bajo los autos", type: text, description: "Aclara que la mensualidad es estimada. Si la borras y escribes un espacio, no se muestra." }
-          - { name: pedir_cotizacion, label: "Botón cuando no hay autos", type: string }
-          - { name: sin_autos, label: "Mensaje cuando no hay autos", type: string, description: "{marca} se reemplaza por la marca elegida." }
-          - { name: comparar, label: "Botón: comparar", type: string }
-          - { name: en_comparador, label: "Botón: auto ya en el comparador", type: string }
-          - { name: comparador_lleno, label: "Botón: comparador lleno", type: string }
-          - { name: ver_comparacion, label: "Botón de la barra del comparador", type: string }
-          - { name: enganche, label: "Etiqueta: enganche", type: string }
-          - { name: plazo, label: "Etiqueta: plazo", type: string }
-          - { name: mensualidad_estimada, label: "Etiqueta: mensualidad estimada", type: string }
-          - { name: paso1, label: "Requisitos: paso 1", type: string }
-          - { name: paso2, label: "Requisitos: paso 2", type: string }
-          - { name: paso3, label: "Requisitos: paso 3", type: string }
-          - { name: condiciones, label: "Requisitos: condiciones generales", type: string }
-          - { name: enviar_solicitud, label: "Requisitos: botón con expediente completo", type: string }
-          - { name: inicio, label: "Ruta: inicio", type: string }
-          - { name: requisitos, label: "Ruta: requisitos", type: string }
-          - { name: atencion, label: "Pie: título de atención", type: string }
-          - { name: siguenos, label: "Pie: título de redes", type: string }
-          - { name: whatsapp_texto, label: "Pie: enlace de WhatsApp", type: string }
-          - { name: renta_cotizar, label: "Tarjeta: texto si la forma de pago es arrendamiento", type: string }
-          - { name: noticias, label: "Ruta: noticias", type: string }
-          - { name: volver_noticias, label: "Noticia: botón para ver más", type: string }
-          - { name: min_lectura, label: "Noticia: texto después de los minutos de lectura", type: string }
-          - { name: cta_noticia, label: "Noticia: botón para cotizar", type: string }
-          - { name: noticia_no_encontrada, label: "Noticia: mensaje si no se encuentra", type: string }
-      - name: menu
-        label: Menú superior
-        type: object
-        list: { collapsible: { collapsed: true, summary: "{texto}" } }
-        fields:
-          - { name: texto, label: Texto, type: string }
-          - &destino
-            name: destino
-            label: Lleva a
-            type: select
-            description: "Lugar del sitio al que lleva. Para abrir un enlace externo usa el campo de abajo."
-            options:
-              values:
-                - { value: "pagina:inicio", label: "Inicio" }
-                - { value: "pagina:requisitos", label: "Página de requisitos" }
-                - { value: "seccion:banner", label: "Sección: Banner" }
-                - { value: "seccion:marcas", label: "Sección: Explora tu marca" }
-                - { value: "seccion:comparador", label: "Sección: Comparador" }
-                - { value: "seccion:autos", label: "Sección: Autos" }
-                - { value: "seccion:ofertas", label: "Sección: Ofertas de crédito" }
-                - { value: "seccion:info_credito", label: "Sección: Información de crédito" }
-                - { value: "seccion:noticias", label: "Sección: Noticias y tips" }
-          - &enlace
-            name: enlace
-            label: Enlace externo (opcional)
-            type: string
-            description: "Si lo llenas, se usa en lugar de 'Lleva a'. Debe empezar con https://, mailto: o tel:"
-            pattern: { regex: "^$|^(https?://|mailto:|tel:)[^ ]+$", message: "Debe empezar con https://, mailto: o tel: y no llevar espacios" }
-      - name: boton_menu
-        label: Botón del menú
-        type: object
-        fields:
-          - { name: texto, label: Texto, type: string }
-          - *destino
-          - *enlace
-      - name: filtros
-        label: Filtros
-        type: object
-        fields:
-          - { name: texto_todos, label: "Texto de la opción 'Todos'", type: string }
-          - { name: tipos, label: Tipos de auto, type: string, list: true }
-          - { name: mostrar_presupuesto, label: Mostrar filtro de presupuesto, type: boolean }
-          - { name: texto_presupuesto, label: Nombre del filtro de presupuesto, type: string }
-          - { name: texto_cualquiera, label: "Texto de la opción 'Cualquiera'", type: string }
-          - name: presupuestos
-            label: Rangos de presupuesto
+          - { name: logo, label: Logo del sitio, type: image }
+          - name: menu
+            label: Menú superior
             type: object
             list: { collapsible: { collapsed: true, summary: "{texto}" } }
             fields:
               - { name: texto, label: Texto, type: string }
-              - { name: min, label: Desde (0 = sin mínimo), type: number }
-              - { name: max, label: Hasta (0 = sin máximo), type: number }
-          - { name: mostrar_pago, label: Mostrar filtro de pago, type: boolean }
-          - { name: texto_pago, label: Nombre del filtro de pago, type: string }
-          - { name: pagos, label: Formas de pago, type: string, list: true }
-      - name: calculo
-        label: Cálculo de mensualidad
-        type: object
-        fields:
-          - name: formula
-            label: Fórmula
-            type: string
-            description: "Variables: precio, enganche, monto, tasa (anual %), tasa_mensual, plazo (meses), apertura (%), seguro (mensual), iva (%). Usa ^ para potencia. Si hay un error se usa la fórmula de respaldo."
-          - { name: enganches, label: Opciones de enganche (%), type: number, list: true, options: { step: any } }
-          - { name: enganche_inicial, label: Enganche inicial (%), type: number, options: { step: any } }
-          - { name: plazos, label: Opciones de plazo (meses), type: number, list: true }
-          - { name: plazo_inicial, label: Plazo inicial (meses), type: number }
-          - { name: tasa_tarjetas, label: Tasa anual para la mensualidad de las tarjetas de autos (%), type: number, options: { step: any } }
-          - { name: iva, label: IVA (%), type: number, options: { step: any } }
-          - { name: nota, label: Nota bajo el comparador, type: string }
-      - name: ficha
-        label: Datos de la ficha técnica
-        type: object
-        list: { collapsible: { collapsed: true, summary: "{etiqueta}" } }
-        fields:
-          - { name: etiqueta, label: Etiqueta, type: string }
-          - name: campo
-            label: Dato del auto
-            type: select
-            options: { values: [motor, hp, trans, traccion, rend, pas, cajuela, bolsas] }
-          - { name: unidad, label: Unidad, type: string }
-      - name: requisitos
-        label: Textos de la página de requisitos
-        type: object
-        fields:
-          - { name: titulo, label: Título, type: string }
-          - { name: resaltado, label: Palabra resaltada, type: string }
-          - { name: nota, label: Nota bajo los documentos, type: string }
-          - { name: boton, label: Texto del botón, type: string }
-          - { name: aviso, label: Aviso bajo el botón, type: string }
+              - &destino
+                name: destino
+                label: Lleva a
+                type: select
+                description: "Lugar del sitio al que lleva. Para abrir un enlace externo usa el campo de abajo."
+                options:
+                  values:
+                    - { value: "pagina:inicio", label: "Inicio" }
+                    - { value: "pagina:requisitos", label: "Página de requisitos" }
+                    - { value: "seccion:banner", label: "Sección: Banner" }
+                    - { value: "seccion:marcas", label: "Sección: Explora tu marca" }
+                    - { value: "seccion:comparador", label: "Sección: Comparador" }
+                    - { value: "seccion:autos", label: "Sección: Autos" }
+                    - { value: "seccion:ofertas", label: "Sección: Ofertas de crédito" }
+                    - { value: "seccion:info_credito", label: "Sección: Información de crédito" }
+                    - { value: "seccion:noticias", label: "Sección: Noticias y tips" }
+              - &enlace
+                name: enlace
+                label: Enlace externo (opcional)
+                type: string
+                description: "Si lo llenas, se usa en lugar de 'Lleva a'. Debe empezar con https://, mailto: o tel:"
+                pattern: { regex: "^$|^(https?://|mailto:|tel:)[^ ]+$", message: "Debe empezar con https://, mailto: o tel: y no llevar espacios" }
+          - name: boton_menu
+            label: Botón del menú
+            type: object
+            fields:
+              - { name: texto, label: Texto, type: string }
+              - *destino
+              - *enlace
       - name: secciones
-        label: Secciones de la página de inicio (arrastra para cambiar el orden)
+        label: "2 · Secciones de la página de inicio (en orden de aparición; arrastra para cambiar el orden)"
         type: block
         blockKey: tipo
         list: { collapsible: { collapsed: true, summary: "{tipo}: {titulo}" } }
@@ -239,6 +115,151 @@ content:
               - *sec_fondo
               - { name: titulo, label: Título, type: string }
               - { name: mostrar_iconos, label: Mostrar íconos, type: boolean, default: true }
+      - name: filtros
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "3 · Buscador del banner y filtros de autos" } }
+        fields:
+          - { name: texto_todos, label: "Texto de la opción 'Todos'", type: string }
+          - { name: tipos, label: Tipos de auto, type: string, list: true }
+          - { name: mostrar_presupuesto, label: Mostrar filtro de presupuesto, type: boolean }
+          - { name: texto_presupuesto, label: Nombre del filtro de presupuesto, type: string }
+          - { name: texto_cualquiera, label: "Texto de la opción 'Cualquiera'", type: string }
+          - name: presupuestos
+            label: Rangos de presupuesto
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{texto}" } }
+            fields:
+              - { name: texto, label: Texto, type: string }
+              - { name: min, label: Desde (0 = sin mínimo), type: number }
+              - { name: max, label: Hasta (0 = sin máximo), type: number }
+          - { name: mostrar_pago, label: Mostrar filtro de pago, type: boolean }
+          - { name: texto_pago, label: Nombre del filtro de pago, type: string }
+          - { name: pagos, label: Formas de pago, type: string, list: true }
+      - name: calculo
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "4 · Comparador y cálculo de mensualidad" } }
+        fields:
+          - name: formula
+            label: Fórmula
+            type: string
+            description: "Variables: precio, enganche, monto, tasa (anual %), tasa_mensual, plazo (meses), apertura (%), seguro (mensual), iva (%). Usa ^ para potencia. Si hay un error se usa la fórmula de respaldo."
+          - { name: enganches, label: Opciones de enganche (%), type: number, list: true, options: { step: any } }
+          - { name: enganche_inicial, label: Enganche inicial (%), type: number, options: { step: any } }
+          - { name: plazos, label: Opciones de plazo (meses), type: number, list: true }
+          - { name: plazo_inicial, label: Plazo inicial (meses), type: number }
+          - { name: tasa_tarjetas, label: Tasa anual para la mensualidad de las tarjetas de autos (%), type: number, options: { step: any } }
+          - { name: iva, label: IVA (%), type: number, options: { step: any } }
+          - { name: nota, label: Nota bajo el comparador, type: string }
+      - name: ficha
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "5 · Ficha técnica de los autos" } }
+        fields:
+          - name: campos
+            label: Datos que se muestran en la ficha técnica
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{etiqueta}" } }
+            fields:
+              - { name: etiqueta, label: Etiqueta, type: string }
+              - name: campo
+                label: Dato del auto
+                type: select
+                options: { values: [motor, hp, trans, traccion, rend, pas, cajuela, bolsas] }
+              - { name: unidad, label: Unidad, type: string }
+      - name: requisitos
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "6 · Página de requisitos (textos)" } }
+        fields:
+          - { name: titulo, label: Título, type: string }
+          - { name: resaltado, label: Palabra resaltada, type: string }
+          - { name: nota, label: Nota bajo los documentos, type: string }
+          - { name: boton, label: Texto del botón, type: string }
+          - { name: aviso, label: Aviso bajo el botón, type: string }
+      - name: contacto
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "7 · Pie de página, contacto y WhatsApp" } }
+        fields:
+          - { name: telefono, label: Teléfono, type: string }
+          - { name: correos, label: Correos, type: string, list: true }
+          - { name: redes, label: Redes y sitios, type: string, list: true }
+          - { name: frase, label: Frase del pie de página, type: string }
+          - { name: whatsapp, label: WhatsApp para recibir cotizaciones y solicitudes, type: string, description: "10 dígitos. Si lo dejas vacío, las solicitudes se envían por correo al primer correo de la lista.", pattern: { regex: "^$|^[0-9 +()-]{10,18}$", message: "Escribe el número con 10 dígitos, por ejemplo 81 1234 5678" } }
+          - { name: mensaje_auto, label: Mensaje al cotizar un auto, type: text, description: "Variables: {auto}, {anio}, {precio}, {enganche}, {plazo}, {mensualidad}. Si lo dejas vacío se usa el mensaje original." }
+          - { name: mensaje_marca, label: Mensaje al pedir cotización de una marca, type: text, description: "Variable: {marca}." }
+          - { name: mensaje_credito, label: Mensaje al solicitar preautorización, type: text, description: "Variables: {perfil}, {listos}." }
+          - name: legales
+            label: Enlaces legales del pie (aviso de privacidad, términos)
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{texto}" } }
+            description: "Aparecen en el pie de página solo si llenas texto y enlace."
+            fields:
+              - { name: texto, label: Texto, type: string }
+              - { name: enlace, label: Enlace, type: string, pattern: { regex: "^$|^https?://[^ ]+$", message: "Debe empezar con https://" } }
+      - name: textos
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "8 · Textos de botones y etiquetas" } }
+        description: "Si dejas un campo vacío se usa el texto original."
+        fields:
+          - { name: cotizar_auto, label: "Botón: cotizar este auto", type: string }
+          - { name: ver_ficha, label: "Botón: ver ficha técnica", type: string }
+          - { name: ficha, label: "Título de la ficha técnica", type: string }
+          - { name: precio_desde, label: "Etiqueta del precio", type: string }
+          - { name: leyenda_mensualidad, label: "Leyenda del asterisco (*) bajo los autos", type: text, description: "Aclara que la mensualidad es estimada. Si la borras y escribes un espacio, no se muestra." }
+          - { name: pedir_cotizacion, label: "Botón cuando no hay autos", type: string }
+          - { name: sin_autos, label: "Mensaje cuando no hay autos", type: string, description: "{marca} se reemplaza por la marca elegida." }
+          - { name: comparar, label: "Botón: comparar", type: string }
+          - { name: en_comparador, label: "Botón: auto ya en el comparador", type: string }
+          - { name: comparador_lleno, label: "Botón: comparador lleno", type: string }
+          - { name: ver_comparacion, label: "Botón de la barra del comparador", type: string }
+          - { name: enganche, label: "Etiqueta: enganche", type: string }
+          - { name: plazo, label: "Etiqueta: plazo", type: string }
+          - { name: mensualidad_estimada, label: "Etiqueta: mensualidad estimada", type: string }
+          - { name: paso1, label: "Requisitos: paso 1", type: string }
+          - { name: paso2, label: "Requisitos: paso 2", type: string }
+          - { name: paso3, label: "Requisitos: paso 3", type: string }
+          - { name: condiciones, label: "Requisitos: condiciones generales", type: string }
+          - { name: enviar_solicitud, label: "Requisitos: botón con expediente completo", type: string }
+          - { name: inicio, label: "Ruta: inicio", type: string }
+          - { name: requisitos, label: "Ruta: requisitos", type: string }
+          - { name: atencion, label: "Pie: título de atención", type: string }
+          - { name: siguenos, label: "Pie: título de redes", type: string }
+          - { name: whatsapp_texto, label: "Pie: enlace de WhatsApp", type: string }
+          - { name: renta_cotizar, label: "Tarjeta: texto si la forma de pago es arrendamiento", type: string }
+          - { name: noticias, label: "Ruta: noticias", type: string }
+          - { name: volver_noticias, label: "Noticia: botón para ver más", type: string }
+          - { name: min_lectura, label: "Noticia: texto después de los minutos de lectura", type: string }
+          - { name: cta_noticia, label: "Noticia: botón para cotizar", type: string }
+          - { name: noticia_no_encontrada, label: "Noticia: mensaje si no se encuentra", type: string }
+      - name: ajustes
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "9 · Título, descripción y estadísticas del sitio" } }
+        fields:
+          - { name: titulo_pagina, label: Título de la pestaña del navegador, type: string }
+          - { name: descripcion, label: Descripción para Google y redes (1-2 frases), type: text, description: "Es el texto que aparece al compartir el sitio o en los resultados de búsqueda." }
+          - name: analitica
+            label: Estadísticas de visitas (opcional)
+            type: object
+            description: "Déjalo vacío si no usarás estadísticas. Google Analytics usa cookies y puede requerir un aviso."
+            fields:
+              - { name: plausible_dominio, label: Dominio en Plausible, type: string, description: "Ej. auto-opciones.com", pattern: { regex: "^$|^[A-Za-z0-9.-]+$", message: "Solo el dominio, sin https://" } }
+              - { name: ga4_id, label: ID de medición de Google Analytics 4, type: string, description: "Ej. G-XXXXXXXXXX", pattern: { regex: "^$|^G-[A-Za-z0-9]+$", message: "Debe empezar con G-" } }
+      - name: colores
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "10 · Colores" } }
+        description: "Usa formato #RRGGBB. Si el naranja es muy claro, el texto blanco de los botones se leerá mal."
+        fields:
+          - { name: principal, label: Naranja principal (botones), type: string, description: "Color de los botones. El texto de los botones es blanco.", pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: principal_hover, label: Naranja al pasar el mouse, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: texto_acento, label: Naranja oscuro para textos, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: fondo_suave, label: Fondo suave, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: azul, label: Azul marino (textos), type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
 
   - name: autos
     label: Autos

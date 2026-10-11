@@ -13,10 +13,23 @@
   }
   aplicarColores();
 
+  // sitio.json agrupa la configuración en bloques de un solo elemento (para poder colapsarlos en el CMS).
+  // Aquí se "aplana" a las claves de siempre; también acepta la estructura anterior (sin grupos).
+  const uno = x => Array.isArray(x) ? (x[0] || {}) : (x && typeof x === 'object' ? x : {});
+  function aplanarSitio(j) {
+    j = j && typeof j === 'object' ? j : {};
+    const o = { ...j };
+    if (j.encabezado !== undefined) { const e = uno(j.encabezado); o.logo = e.logo; o.menu = e.menu || []; o.boton_menu = e.boton_menu || {}; }
+    if (j.ajustes !== undefined) { const a = uno(j.ajustes); o.titulo_pagina = a.titulo_pagina; o.descripcion = a.descripcion; o.analitica = a.analitica; }
+    if (Array.isArray(j.ficha) && j.ficha[0] && Array.isArray(j.ficha[0].campos)) o.ficha = j.ficha[0].campos;
+    ['colores', 'contacto', 'filtros', 'calculo', 'requisitos', 'textos'].forEach(k => { if (j[k] !== undefined) o[k] = uno(j[k]); });
+    return o;
+  }
+
   Promise.all(Object.entries(ARCH).map(([k, f]) =>
     fetch('data/' + f + '.json', { cache: 'no-cache' })
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then(j => { D[k] = k === 'sitio' ? (j || {}) : (Array.isArray(j[k]) ? j[k] : []); })
+      .then(j => { D[k] = k === 'sitio' ? aplanarSitio(j) : (Array.isArray(j[k]) ? j[k] : []); })
       .catch(e => console.warn('No se pudo leer data/' + f + '.json', e))
   )).then(() => { listo = true; aplicarColores(D.sitio.colores); if (D.sitio.titulo_pagina) document.title = D.sitio.titulo_pagina; prepararPagina(); notify(); });
 

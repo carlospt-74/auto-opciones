@@ -8,7 +8,18 @@
 Cada vez que guardas, el cambio se publica solo en 1 o 2 minutos. Si no lo ves, recarga la página.
 
 ## Qué se edita en cada sección
-- **Configuración del sitio:** colores, logo, teléfono, correos, menú, filtros, fórmula de mensualidad, ficha técnica, textos de requisitos y el orden de las secciones de inicio.
+- **Configuración del sitio:** está dividida en **10 grupos numerados** en el mismo orden en que aparecen en el portal, y cada uno se abre y se cierra con la flecha. Entran cerrados; abre solo el que quieras ajustar y guarda con **Save**:
+  1. **Encabezado:** logo, menú superior y botón del menú.
+  2. **Secciones de la página de inicio:** banner, marcas, comparador, autos, ofertas, publicidad, información de crédito y noticias, en orden de aparición (arrastra para cambiar el orden).
+  3. **Buscador del banner y filtros de autos:** tipos de auto, presupuestos y formas de pago.
+  4. **Comparador y cálculo de mensualidad:** enganches, plazos, tasa y fórmula.
+  5. **Ficha técnica de los autos:** qué datos se muestran.
+  6. **Página de requisitos:** textos.
+  7. **Pie de página, contacto y WhatsApp:** teléfono, correos, redes, enlaces legales y mensajes.
+  8. **Textos de botones y etiquetas** (lo que casi no cambia).
+  9. **Título, descripción y estadísticas del sitio.**
+  10. **Colores.**
+  Cada grupo muestra una flecha y, a la derecha, un bote de basura: **no lo uses**; si borras un grupo, el CMS no te dejará guardar hasta que lo recuperes.
 - **Autos:** agrega, edita u oculta autos. La marca y el tipo deben escribirse igual que en Marcas y en Filtros.
 - **Marcas:** nombre y logo de cada marca.
 - **Financieras:** tasa, comisión por apertura y seguro que usa el comparador.
@@ -31,7 +42,7 @@ Un auto nuevo nace con **Mostrar** encendido. Si no debe verse todavía, apágal
 ## Agregar una marca o un tipo de auto nuevo
 Las listas de **Marca** y **Tipo** de Autos son fijas. Para sumar una:
 1. **Marca:** agrégala en **Marcas** (nombre y logo). Luego, en el menú de la izquierda, entra a **Configuration**, busca la lista `marca` dentro de `autos` y agrega el nombre, escrito igual que en Marcas, en orden alfabético.
-2. **Tipo:** agrégalo en **Configuración del sitio → Filtros → Tipos de auto** y también en **Configuration**, en la lista `tipo` de `autos`.
+2. **Tipo:** agrégalo en **Configuración del sitio → grupo 3 (Buscador y filtros) → Tipos de auto** y también en **Configuration**, en la lista `tipo` de `autos`.
 
 Si prefieres no editar **Configuration**, pídele a quien administre el sitio que lo haga.
 
@@ -41,7 +52,7 @@ Si prefieres no editar **Configuration**, pídele a quien administre el sitio qu
 
 ## Cotizaciones y solicitudes (WhatsApp o correo)
 Los botones **Cotizar este auto**, **Pedir cotización**, **Solicitar preautorización** y **Expediente completo** envían un mensaje ya escrito con los datos del auto o del perfil elegido (por ejemplo, auto, precio, enganche, plazo y mensualidad).
-- En **Configuración del sitio → Contacto y pie de página**, escribe tu **WhatsApp** (10 dígitos). Los mensajes llegarán a ese número.
+- En **Configuración del sitio → grupo 7 (Pie de página, contacto y WhatsApp)**, escribe tu **WhatsApp** (10 dígitos). Los mensajes llegarán a ese número.
 - Si **no** llenas el WhatsApp, el mensaje se abre en el correo del visitante, dirigido al **primer correo** de la lista.
 - Puedes cambiar el texto de los mensajes en los campos **Mensaje al cotizar…**. Las palabras entre llaves, como `{auto}` o `{precio}`, se reemplazan solas.
 
@@ -56,39 +67,39 @@ El filtro **Pago** del banner cambia lo que muestran las tarjetas de autos:
 - **Crédito:** muestra la mensualidad estimada y la leyenda del asterisco (*).
 - **Contado:** oculta la mensualidad y la leyenda.
 - **Arrendamiento:** en lugar de la mensualidad muestra "Renta a cotizar".
-También se incluye en el mensaje de cotización. Para que funcione, escribe las opciones en **Filtros → Formas de pago** con las palabras *Crédito*, *Contado* o *Arrendamiento*.
+También se incluye en el mensaje de cotización. Para que funcione, escribe las opciones en **grupo 3 → Formas de pago** con las palabras *Crédito*, *Contado* o *Arrendamiento*.
 
 ## Foto del banner y colores
-- La **foto del banner** se cambia en **Secciones de la página de inicio → Banner → Foto** (horizontal, de unos 1600 × 900 px).
-- Los colores de la marca están en **Colores**. El naranja de los botones es `#EE8A52` (hover `#DE7840`).
+- La **foto del banner** se cambia en **grupo 2 (Secciones de la página de inicio) → Banner → Foto** (horizontal, de unos 1600 × 900 px).
+- Los colores de la marca están en **grupo 10 (Colores)**. El naranja de los botones es `#EE8A52` (hover `#DE7840`).
 
 ## Ofertas de crédito
 Muestra solo ofertas que puedas respaldar. Cada oferta tiene un interruptor **Mostrar** para ocultarla sin borrarla.
 
 ## Textos del sitio
-En **Configuración del sitio → Textos del sitio** puedes cambiar los textos de botones y etiquetas que no están en otras secciones (por ejemplo, "Cotizar este auto" o los pasos de Requisitos). Si dejas un campo vacío se usa el texto original.
+En **Configuración del sitio → grupo 8 (Textos de botones y etiquetas)** puedes cambiar los textos de botones y etiquetas que no están en otras secciones (por ejemplo, "Cotizar este auto" o los pasos de Requisitos). Si dejas un campo vacío se usa el texto original.
 
 La **leyenda del asterisco (*)** aclara bajo los autos que la mensualidad es estimada. Revisa con tu asesor que el texto cumpla con lo que necesitas. Para ocultarla, escribe un espacio en ese campo.
 
 ## Avisos legales
-En **Contacto y pie de página → Enlaces legales** agrega, por ejemplo, el **Aviso de privacidad** y los **Términos** con su enlace. Aparecen en el pie de página solo cuando existen. Pide a un asesor legal que revise su contenido.
+En **grupo 7 → Enlaces legales** agrega, por ejemplo, el **Aviso de privacidad** y los **Términos** con su enlace. Aparecen en el pie de página solo cuando existen. Pide a un asesor legal que revise su contenido.
 
 ## Estadísticas de visitas (opcional)
-En **Configuración del sitio → Estadísticas de visitas** puedes poner el dominio de **Plausible** o el ID de **Google Analytics 4** (`G-…`). Si los dejas vacíos, el sitio no usa estadísticas. Google Analytics usa cookies y puede requerir un aviso a los visitantes.
+En **Configuración del sitio → grupo 9 (Título, descripción y estadísticas)** puedes poner el dominio de **Plausible** o el ID de **Google Analytics 4** (`G-…`). Si los dejas vacíos, el sitio no usa estadísticas. Google Analytics usa cookies y puede requerir un aviso a los visitantes.
 
 ## Direcciones de cada vista
 Cada vista tiene su propio enlace, por ejemplo `…/#/requisitos` o `…/#/auto/rav4` (el `id` del auto). Sirven para compartir y para que el botón Atrás del navegador funcione.
 
 ## Cambiar el orden de las secciones
-En **Configuración del sitio → Secciones de la página de inicio**, arrastra los bloques. Cada tipo de sección muestra solo los campos que le corresponden. El interruptor **Mostrar** oculta una sección sin borrarla. El campo **Fondo** cambia entre blanco y naranja suave.
+En **Configuración del sitio → grupo 2 (Secciones de la página de inicio)**, arrastra los bloques. Cada tipo de sección muestra solo los campos que le corresponden. El interruptor **Mostrar** oculta una sección sin borrarla. El campo **Fondo** cambia entre blanco y naranja suave.
 
 Para agregar una sección, presiona **Add an item** y elige su tipo. Los tipos se usan una sola vez, salvo **Publicidad**, que puedes repetir. Para poner otro anuncio, crea el anuncio en **Publicidad**, luego agrega una sección de tipo *Publicidad* y escribe el **Id del anuncio**.
 
 ## Menú y botón con enlace externo
-En **Configuración del sitio → Menú superior** (y en **Botón del menú**), el campo **Lleva a** elige un lugar del propio sitio. Si quieres abrir un enlace externo, llena **Enlace externo** con `https://…`, `mailto:…` o `tel:…`. Cuando tiene un enlace, se usa ese en lugar de **Lleva a**.
+En **Configuración del sitio → grupo 1 (Encabezado) → Menú superior** (y en **Botón del menú**), el campo **Lleva a** elige un lugar del propio sitio. Si quieres abrir un enlace externo, llena **Enlace externo** con `https://…`, `mailto:…` o `tel:…`. Cuando tiene un enlace, se usa ese en lugar de **Lleva a**.
 
 ## Fórmula de mensualidad
-Está en **Configuración del sitio → Cálculo de mensualidad**. La fórmula actual es:
+Está en **Configuración del sitio → grupo 4 (Comparador y cálculo de mensualidad)**. La fórmula actual es:
 
 `monto * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)`
 
