@@ -6,7 +6,7 @@
   const notify = () => subs.forEach(c => { try { c.setState({ _d: Date.now() }); } catch (e) {} });
 
   const VARS_COLOR = { principal: '--ao-1', principal_hover: '--ao-1h', texto_acento: '--ao-tx', fondo_suave: '--ao-suave', azul: '--ao-azul' };
-  const COLOR_BASE = { principal: '#EE8A52', principal_hover: '#DE7840', texto_acento: '#9C4A1E', fondo_suave: '#FEF3EB', azul: '#1F3466' };
+  const COLOR_BASE = { principal: '#C35213', principal_hover: '#A74710', texto_acento: '#9C4A1E', fondo_suave: '#FEF3EB', azul: '#1F3466' };
   function aplicarColores(c) {
     const r = document.documentElement.style;
     for (const k in VARS_COLOR) { const v = c && c[k]; r.setProperty(VARS_COLOR[k], /^#[0-9a-f]{6}$/i.test(v || '') ? v : COLOR_BASE[k]); }
@@ -89,15 +89,18 @@
     condiciones: 'Condiciones generales', enviar_solicitud: 'Expediente completo · Enviar solicitud',
     atencion: 'Atención personalizada', siguenos: 'Síguenos', inicio: 'Inicio', requisitos: 'Requisitos',
     leyenda_mensualidad: 'Pago mensual estimado con una tasa de referencia, sujeto a aprobación de crédito.',
-    whatsapp_texto: 'Escríbenos por WhatsApp'
+    whatsapp_texto: 'Escríbenos por WhatsApp', renta_cotizar: 'Renta a cotizar', noticias: 'Noticias', noticia_no_encontrada: 'No encontramos esta noticia.',
+    volver_noticias: 'Ver más noticias y tips', min_lectura: 'min de lectura', cta_noticia: 'Cotizar mi auto'
   };
   // Mensajes que se envían al pedir una cotización o una preautorización (editables en el CMS).
   const MENSAJES = {
-    auto: 'Hola, me interesa cotizar el {auto}{anio} (precio desde {precio}). Con enganche de {enganche} a {plazo}, la mensualidad estimada es {mensualidad}. ¿Me pueden apoyar?',
+    auto: 'Hola, me interesa cotizar el {auto}{anio} (precio desde {precio}). {detalle} ¿Me pueden apoyar?',
     marca: 'Hola, busco un {marca}. ¿Me pueden ayudar a cotizarlo?',
     credito: 'Hola, quiero iniciar mi preautorización de crédito. Perfil: {perfil}. Documentos listos: {listos}.'
   };
   const llenar = (tpl, v) => String(tpl).replace(/\{(\w+)\}/g, (_, k) => v[k] != null ? v[k] : '').replace(/\s+([.,?!])/g, '$1').replace(/\s{2,}/g, ' ').trim();
+  const norm = x => String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const slug = x => norm(x).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
   const soloDigitos = x => String(x || '').replace(/\D/g, '');
   const numMx = x => { const d = soloDigitos(x); return d.length === 10 ? '52' + d : d; };
   const telHref = x => { const n = numMx(x); return n ? 'tel:+' + n : ''; };
@@ -132,11 +135,12 @@
   }
 
   // Dirección de cada vista (#/requisitos, #/auto/rav4) para poder compartirla y usar el botón Atrás.
-  const hashDe = st => st.page === 'req' ? '#/requisitos' + (st.req ? '/' + encodeURIComponent(st.req) : '') : (st.ficha ? '#/auto/' + encodeURIComponent(st.ficha) : '#/');
+  const hashDe = st => st.page === 'noticia' ? '#/noticia/' + encodeURIComponent(st.nid || '') : st.page === 'req' ? '#/requisitos' + (st.req ? '/' + encodeURIComponent(st.req) : '') : (st.ficha ? '#/auto/' + encodeURIComponent(st.ficha) : '#/');
   const estadoDeHash = () => {
     const p = (location.hash || '').replace(/^#\/?/, '').split('/').filter(Boolean).map(x => { try { return decodeURIComponent(x); } catch (e) { return x; } });
     if (p[0] === 'requisitos') return { page: 'req', req: p[1] || null, ficha: null, menu: false };
     if (p[0] === 'auto' && p[1]) return { page: 'inicio', ficha: p[1], menu: false };
+    if (p[0] === 'noticia' && p[1]) return { page: 'noticia', nid: p[1], ficha: null, menu: false };
     return { page: 'inicio', ficha: null, menu: false };
   };
   // Permite activar con Enter o Espacio los elementos que funcionan como botón pero no son <button>.
@@ -144,12 +148,12 @@
     window.__aoTeclado = true;
     document.addEventListener('keydown', e => {
       const el = e.target;
-      if ((e.key === 'Enter' || e.key === ' ') && el && el.getAttribute && /^(button|checkbox)$/.test(el.getAttribute('role') || '') && el.tagName !== 'BUTTON') { e.preventDefault(); el.click(); }
+      if ((e.key === 'Enter' || e.key === ' ') && el && el.getAttribute && /^(button|checkbox|link)$/.test(el.getAttribute('role') || '') && el.tagName !== 'BUTTON') { e.preventDefault(); el.click(); }
     });
   }
 
   function initState() {
-    return { page: 'inicio', menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, req: null, checks: {}, w: 1280 };
+    return { page: 'inicio', nid: null, pago: null, menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, req: null, checks: {}, w: 1280 };
   }
 
   function vals(c) {
@@ -158,7 +162,7 @@
     const st = c.state || {};
     const set = p => {
       c.setState(p);
-      if ('page' in p || 'req' in p || 'ficha' in p) {
+      if ('page' in p || 'req' in p || 'ficha' in p || 'nid' in p) {
         try { const h = hashDe({ ...c.state, ...p }); if (h !== (location.hash || '#/')) history.pushState(null, '', h); } catch (e) {}
       }
     };
@@ -186,6 +190,9 @@
     const FIN = D.financieras.filter(f => f.mostrar !== false);
     const ENG = lst(cal.enganches).map(Number).filter(isFinite); if (!ENG.length) ENG.push(10, 20, 30, 40);
     const PLAZO = lst(cal.plazos).map(Number).filter(isFinite); if (!PLAZO.length) PLAZO.push(12, 24, 36, 48, 60);
+    const PAGOS = lst(fil.pagos);
+    const pagoSel = st.pago != null && PAGOS.includes(st.pago) ? st.pago : (PAGOS[0] || '');
+    const esContado = /contado/.test(norm(pagoSel)), esArrend = /arrend/.test(norm(pagoSel));
     const eng = st.eng != null ? st.eng : (+cal.enganche_inicial || ENG[0]);
     const plazo = st.plazo != null ? st.plazo : (+cal.plazo_inicial || PLAZO[PLAZO.length - 1]);
     const finTarjeta = { tasa: +cal.tasa_tarjetas || (FIN[0] && FIN[0].tasa) || 14, apertura: 0, seguro: 0 };
@@ -195,7 +202,7 @@
     const lista = AUTOS.filter(a => (!st.marca || a.marca === st.marca) && (st.tipo === '*' || a.tipo === st.tipo) &&
       (!pr || ((!pr.min || a.precio >= +pr.min) && (!pr.max || a.precio <= +pr.max))));
     const byId = id => AUTOS.find(a => a.id === id);
-    const cmp = (st.cmp || [AUTOS[0] && AUTOS[0].id, AUTOS[1] && AUTOS[1].id, null]).map(x => (x && byId(x)) ? x : null);
+    const cmp = (st.cmp || [null, null, null]).map(x => (x && byId(x)) ? x : null);
     const nCmp = cmp.filter(Boolean).length;
     const toggleCmp = id => { const a = cmp.slice(); const i = a.indexOf(id); if (i >= 0) a[i] = null; else { const j = a.indexOf(null); if (j < 0) return; a[j] = id; } set({ cmp: a }); };
     const scrollA = id => setTimeout(() => { const el = document.getElementById('sec-' + id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' }); }, 60);
@@ -222,11 +229,12 @@
       const inC = cmp.includes(a.id);
       return { ...a, foto: a.foto || '', precioF: mxn(a.precio), nombre: a.marca + ' ' + a.modelo,
         mensual: mxn(mensualidad(a.precio, eng, finTarjeta, plazo)), specs: specs(a),
+        mensualTxt: esContado ? '' : esArrend ? T.renta_cotizar : mxn(mensualidad(a.precio, eng, finTarjeta, plazo)) + '/mes*', hayMensualTxt: !esContado,
         ficha: st.ficha === a.id, noFicha: st.ficha !== a.id, abrirFicha: () => set({ ficha: a.id }), cerrarFicha: () => set({ ficha: null }),
         inCmp: inC, notInCmp: !inC, cmpDisabled: !inC && nCmp >= 3,
         cmpLabel: inC ? T.en_comparador : (nCmp >= 3 ? T.comparador_lleno : T.comparar), toggleCmp: () => toggleCmp(a.id),
         hayAnio: !!a.anio, anioF: a.anio ? 'Modelo ' + a.anio : '', hayVig: !!a.vigencia, vigF: a.vigencia ? 'Precio vigente al ' + a.vigencia : '',
-        cotizar: () => lead('auto', llenar(MSG.auto, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), enganche: eng + '%', plazo: plazo + ' meses', mensualidad: mxn(mensualidad(a.precio, eng, finTarjeta, plazo)) + ' al mes' })) };
+        cotizar: () => lead('auto', llenar(MSG.auto, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), enganche: eng + '%', plazo: plazo + ' meses', pago: pagoSel, detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, finTarjeta, plazo)) + ' al mes.', mensualidad: mxn(mensualidad(a.precio, eng, finTarjeta, plazo)) + ' al mes' })) };
     });
 
     const marcasConAutos = MARCAS.filter(m => cnt(m.nombre) > 0);
@@ -263,6 +271,9 @@
     const pick = m => () => set({ marca: st.marca === m ? null : m, ficha: null });
     const reqPub = D.anuncios.find(a => a.ubicacion === 'requisitos' && a.mostrar !== false);
     const bm = S0.boton_menu || {};
+    const NOTICIAS = D.noticias.filter(n => n.mostrar !== false).map(n => { const tieneTexto = !!String(n.contenido || '').trim(), tieneEnlace = /^(https?:|mailto:|tel:)/.test(n.enlace || ''); return { ...n, slug: slug(n.titulo), tieneTexto, tieneEnlace, clic: tieneTexto || tieneEnlace }; });
+    const NOT = st.page === 'noticia' ? NOTICIAS.find(n => n.slug === st.nid && n.tieneTexto) : null;
+    try { const base = S0.titulo_pagina || 'Auto-Opciones'; document.title = NOT ? NOT.titulo + ' | ' + base : base; ponerMeta('meta[name="description"]', 'content', NOT ? (NOT.resumen || S0.descripcion) : S0.descripcion); } catch (e) {}
 
     return {
       T, rootRef: c._rootRef, narrow: W < 760, wide: W >= 760, navWide: W >= 1100, navNarrow: W < 1100,
@@ -286,7 +297,8 @@
       fl: { presupuesto: fil.texto_presupuesto || 'Presupuesto', cualquiera: fil.texto_cualquiera || 'Cualquiera', pago: fil.texto_pago || 'Pago' },
       verPres: fil.mostrar_presupuesto !== false && PRES.length > 0, verPago: fil.mostrar_pago !== false && lst(fil.pagos).length > 0,
       presOpts: PRES.map((p, i) => ({ i: String(i), texto: p.texto })), presSel: st.pres == null ? '' : String(st.pres), onPres: e => set({ pres: e.target.value }),
-      pagoOpts: lst(fil.pagos).map(t => ({ t })),
+      pagoOpts: PAGOS.map(t => ({ t })), pagoSel, onPago: e => set({ pago: e.target.value }),
+      hayCmp: nCmp > 0,
       buscar: () => scrollA('autos'), verCmp: () => scrollA('comparador'),
       tipos: tipos.map(t => ({ label: t.label, active: st.tipo === t.val, inactive: st.tipo !== t.val, pick: () => set({ tipo: t.val }) })),
       autos, hayAutos: autos.length > 0, sinAutos: autos.length === 0, nAutos: autos.length + (autos.length === 1 ? ' auto' : ' autos'),
@@ -296,10 +308,13 @@
       eng: eng + '%', plazo: plazo + ' meses', calcNota: cal.nota || '',
       ofertas: D.ofertas.filter(o => o.mostrar !== false).map(o => ({ k: o.etiqueta, v: o.valor, d: o.detalle })),
       financieras: FIN,
-      noticias: D.noticias.filter(n => n.mostrar !== false).map(n => ({ cat: n.categoria, t: n.titulo, d: n.resumen, foto: n.foto || '', icono: n.icono || '', abrir: () => { if (/^(https?:|mailto:|tel:)/.test(n.enlace || '')) window.open(n.enlace, /^https?:/.test(n.enlace) ? '_blank' : '_self', 'noopener'); } })),
+      noticias: NOTICIAS.map(n => ({ cat: n.categoria, t: n.titulo, d: n.resumen, foto: n.foto || '', icono: n.icono || '', slug: n.slug, clic: n.clic, cursor: n.clic ? 'pointer' : 'default', rol: n.clic ? 'link' : 'article', tab: n.clic ? '0' : '',
+        abrir: () => { if (n.tieneTexto) { set({ page: 'noticia', nid: n.slug, menu: false }); window.scrollTo(0, 0); } else if (n.tieneEnlace) window.open(n.enlace, /^https?:/.test(n.enlace) ? '_blank' : '_self', 'noopener'); } })),
+      isNoticia: st.page === 'noticia', noticiaOk: !!NOT, noticiaNo: !NOT, art: NOT ? { t: NOT.titulo, cat: NOT.categoria, foto: NOT.foto || '', hayFoto: !!NOT.foto, d: NOT.resumen || '', hayMin: !!+NOT.minutos, min: NOT.minutos + ' ' + T.min_lectura, ps: String(NOT.contenido || '').split(/\n\s*\n/).map(x => x.trim()).filter(Boolean).map(t => ({ t })) } : {},
+      cotizarGeneral: () => lead('marca', llenar(MSG.marca, { marca: 'auto' })), goNoticias: () => { set({ page: 'inicio', nid: null, menu: false }); scrollA('noticias'); },
       reqTabs: PER.map(r => ({ label: r.pestana, active: r.id === req.id, inactive: r.id !== req.id, pick: () => set({ req: r.id }), ir: () => { set({ req: r.id }); ir('pagina:requisitos'); } })),
       rq: { titulo: rq.titulo || '', resaltado: rq.resaltado || '', nota: rq.nota || '', boton: rq.boton || 'Solicitar preautorización', aviso: rq.aviso || '' },
-      hayLeyenda: !!String(T.leyenda_mensualidad || '').trim(),
+      hayLeyenda: !!String(T.leyenda_mensualidad || '').trim() && !esContado,
       hayReqPub: !!reqPub, reqPub: reqPub || {},
       req: { titulo: req.titulo, para: req.para, cond: lst(req.condiciones).map(t => ({ t })),
         docs: docs.map((t, i) => ({ t, n: String(i + 1).padStart(2, '0'), on: !!ck[i], off: !ck[i], toggle: () => set({ checks: { ...st.checks, [req.id]: { ...ck, [i]: !ck[i] } } }) })) },

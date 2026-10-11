@@ -45,6 +45,26 @@ Los botones **Cotizar este auto**, **Pedir cotización**, **Solicitar preautoriz
 - Si **no** llenas el WhatsApp, el mensaje se abre en el correo del visitante, dirigido al **primer correo** de la lista.
 - Puedes cambiar el texto de los mensajes en los campos **Mensaje al cotizar…**. Las palabras entre llaves, como `{auto}` o `{precio}`, se reemplazan solas.
 
+## Noticias y tips con su propia página
+En **Noticias y tips**, cada tarjeta se comporta según lo que llenes:
+- **Texto completo del artículo:** la noticia se abre en su propia página (con enlace compartible). Separa los párrafos con una línea en blanco.
+- **Enlace externo** (solo si no hay texto completo): la tarjeta abre ese enlace.
+- Si no llenas ninguno de los dos, la tarjeta es solo informativa y no se puede presionar.
+
+## Forma de pago
+El filtro **Pago** del banner cambia lo que muestran las tarjetas de autos:
+- **Crédito:** muestra la mensualidad estimada y la leyenda del asterisco (*).
+- **Contado:** oculta la mensualidad y la leyenda.
+- **Arrendamiento:** en lugar de la mensualidad muestra "Renta a cotizar".
+También se incluye en el mensaje de cotización. Para que funcione, escribe las opciones en **Filtros → Formas de pago** con las palabras *Crédito*, *Contado* o *Arrendamiento*.
+
+## Foto del banner y colores
+- La **foto del banner** se cambia en **Secciones de la página de inicio → Banner → Foto** (horizontal, de unos 1600 × 900 px).
+- El **naranja de los botones** debe tener buen contraste con el texto blanco (mínimo 4.5:1). El actual, `#C35213`, lo cumple; el naranja anterior, `#EE8A52`, no.
+
+## Ofertas de crédito
+Muestra solo ofertas que puedas respaldar. Cada oferta tiene un interruptor **Mostrar** para ocultarla sin borrarla.
+
 ## Textos del sitio
 En **Configuración del sitio → Textos del sitio** puedes cambiar los textos de botones y etiquetas que no están en otras secciones (por ejemplo, "Cotizar este auto" o los pasos de Requisitos). Si dejas un campo vacío se usa el texto original.
 

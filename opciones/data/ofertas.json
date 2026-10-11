@@ -16,13 +16,13 @@
       "etiqueta": "Meses sin intereses",
       "valor": "12 y 24",
       "detalle": "En modelos participantes este mes.",
-      "mostrar": true
+      "mostrar": false
     },
     {
       "etiqueta": "Preautorización",
       "valor": "Clientes premium",
       "detalle": "Por lealtad a la marca o buen historial de crédito.",
-      "mostrar": true
+      "mostrar": false
     }
   ]
 }
