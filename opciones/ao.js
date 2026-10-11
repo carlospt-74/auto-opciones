@@ -106,7 +106,7 @@
     leyenda_mensualidad: 'Pago mensual estimado con una tasa de referencia, sujeto a aprobación de crédito.',
     buscar_label: 'Buscar', buscar_placeholder: 'Marca o modelo', ordenar: 'Ordenar por', orden_relevancia: 'Más relevantes', orden_precio_asc: 'Precio: de menor a mayor', orden_precio_desc: 'Precio: de mayor a menor', orden_mensual: 'Mensualidad: de menor a mayor', mensual_hasta: 'Pago mensual hasta', limpiar_filtros: 'Limpiar filtros', horario: 'Horario',
     whatsapp_texto: 'Escríbenos por WhatsApp', saltar: 'Saltar al contenido', imprimir_lista: 'Imprimir o guardar mi lista', renta_cotizar: 'Renta a cotizar', noticias: 'Noticias', noticia_no_encontrada: 'No encontramos esta noticia.',
-    volver_noticias: 'Ver más noticias y tips', min_lectura: 'min de lectura', cta_noticia: 'Cotizar mi auto'
+    volver_noticias: 'Ver más noticias y tips', min_lectura: 'min de lectura', cta_noticia: 'Cotizar mi auto', ver_mas_autos: 'Ver más autos', volver_arriba: 'Volver arriba', deslizar: 'Desliza para ver los demás autos'
   };
   // Mensajes que se envían al pedir una cotización o una preautorización (editables en el CMS).
   const MENSAJES = {
@@ -191,7 +191,7 @@
   const guardarChecks = c => { try { localStorage.setItem(LS_CHECKS, JSON.stringify(c)); } catch (e) {} };
 
   function initState() {
-    return { page: 'inicio', nid: null, pago: null, menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, req: null, checks: leerChecks(), q: '', orden: '', mmax: '', w: 1280 };
+    return { page: 'inicio', nid: null, pago: null, menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, req: null, checks: leerChecks(), q: '', orden: '', mmax: '', mas: false, cmpPos: 0, w: 1280 };
   }
 
   function vals(c) {
@@ -272,7 +272,8 @@
     };
     const marcaTxt = st.marca || 'auto';
 
-    const autos = lista.map(a => {
+    const recorte = W < 760 && !st.mas && lista.length > 2;
+    const autos = (recorte ? lista.slice(0, 2) : lista).map(a => {
       const inC = cmp.includes(a.id);
       return { ...a, foto: a.foto || '', precioF: mxn(a.precio), nombre: a.marca + ' ' + a.modelo,
         mensual: mxn(mensualidad(a.precio, eng, finTarjeta, plazo)), specs: specs(a),
@@ -355,7 +356,11 @@
       hayCmp: nCmp > 0,
       buscar: () => scrollA('autos'), verCmp: () => scrollA('comparador'),
       tipos: tipos.map(t => ({ label: t.label, active: st.tipo === t.val, inactive: st.tipo !== t.val, pick: () => set({ tipo: t.val }) })),
-      autos, hayAutos: autos.length > 0, sinAutos: autos.length === 0, nAutos: autos.length + (autos.length === 1 ? ' auto' : ' autos'),
+      autos, hayAutos: autos.length > 0, sinAutos: autos.length === 0, nAutos: lista.length + (lista.length === 1 ? ' auto' : ' autos'),
+      verMas: recorte, masAutos: () => set({ mas: true }), masTxt: T.ver_mas_autos + ' (' + (lista.length - 2) + ' más)', alFinal: W < 760 && lista.length > 2, arriba: () => window.scrollTo({ top: 0, behavior: window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }),
+      cmpDeslizar: W < 760 && nCmp > 0, cmpPos: st.cmpPos || 0,
+      cmpScroll: e => { const el = e.currentTarget, n = 3; const i = Math.min(n - 1, Math.round(el.scrollLeft / Math.max(1, (el.scrollWidth - el.clientWidth) / Math.max(1, n - 1)))); if (i !== (c.state.cmpPos || 0)) c.setState({ cmpPos: i }); },
+      puntos: [0, 1, 2].map(i => ({ on: i === (st.cmpPos || 0), off: i !== (st.cmpPos || 0) })), txtDeslizar: T.deslizar, txtArriba: T.volver_arriba,
       autosCols: S.autos.vista === 'cuadricula' ? 'repeat(auto-fill,minmax(min(100%,340px),1fr))' : 'minmax(0,1fr)',
       slots, nCmp, nCmpLabel: nCmp + ' de 3', cmpEtiqueta: S.comparador.etiqueta || 'Comparador',
       engOpts: opt(ENG, eng, 'eng', v => v + '%'), plazoOpts: opt(PLAZO, plazo, 'plazo', v => v + ' meses'),

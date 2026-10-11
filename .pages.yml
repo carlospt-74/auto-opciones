@@ -120,7 +120,13 @@ content:
             fields:
               - *sec_mostrar
               - *sec_fondo
-              - { name: anuncio, label: "Id del anuncio (el que pusiste en Publicidad)", type: string }
+              - name: anuncio
+                label: Anuncio a mostrar (los creas en Publicidad)
+                type: select
+                options:
+                  values:
+                    - afirme
+                    - hsbc
           - name: info_credito
             label: Información de crédito
             fields:
@@ -283,6 +289,9 @@ content:
           - { name: volver_noticias, label: "Noticia: botón para ver más", type: string }
           - { name: min_lectura, label: "Noticia: texto después de los minutos de lectura", type: string }
           - { name: cta_noticia, label: "Noticia: botón para cotizar", type: string }
+          - { name: ver_mas_autos, label: "Celular: botón para ver más autos", type: string }
+          - { name: volver_arriba, label: "Celular: botón para volver arriba", type: string }
+          - { name: deslizar, label: "Celular: aviso para deslizar el comparador", type: string }
           - { name: noticia_no_encontrada, label: "Noticia: mensaje si no se encuentra", type: string }
       - name: ajustes
         label: false

@@ -27,13 +27,13 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;800&display=swap">
-<script src="ao.js?v=cms9"></script>
-<style>body{margin:0;background:#fff}*{box-sizing:border-box}a{color:var(--ao-tx)}a:hover{color:var(--ao-1)}select,button,input{font-family:inherit}[role=button]:focus-visible,[role=checkbox]:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid var(--ao-1);outline-offset:2px}details>summary{cursor:pointer;list-style:none}details>summary::-webkit-details-marker{display:none}.ao-skip{position:absolute;left:-9999px;top:8px;z-index:100;background:#fff;color:var(--ao-azul);padding:12px 16px;border-radius:12px;font-weight:600;box-shadow:0 8px 24px rgba(31,52,102,.25)}.ao-skip:focus{left:8px}main:focus{outline:none}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}@media print{[data-noprint]{display:none!important}body{background:#fff}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}@media (max-width:760px),(pointer:coarse){button,select,input,[role=button]{min-height:44px}img[role=button]{min-height:0;padding:7px 0;box-sizing:content-box}footer a{display:inline-block;padding:12px 0}}</style>
+<script src="ao.js?v=cms10"></script>
+<style>body{margin:0;background:#fff}*{box-sizing:border-box}a{color:var(--ao-tx)}a:hover{color:var(--ao-1)}select,button,input{font-family:inherit}[role=button]:focus-visible,[role=checkbox]:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid var(--ao-1);outline-offset:2px}details>summary{cursor:pointer;list-style:none}details>summary::-webkit-details-marker{display:none}.ao-skip{position:absolute;left:-9999px;top:8px;z-index:100;background:#fff;color:var(--ao-azul);padding:12px 16px;border-radius:12px;font-weight:600;box-shadow:0 8px 24px rgba(31,52,102,.25)}.ao-skip:focus{left:8px}main:focus{outline:none}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}@media print{[data-noprint]{display:none!important}body{background:#fff}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}@media (max-width:760px),(pointer:coarse){button,select,input,[role=button]{min-height:44px}img[role=button]{min-height:0;padding:7px 0;box-sizing:content-box}footer a{display:inline-block;padding:12px 0}}@media (orientation:landscape) and (max-height:500px){[data-cabecera]{position:static!important}[data-cmpbar]{position:static!important;padding-top:4px!important;padding-bottom:4px!important;margin-bottom:8px}}</style>
 </helmet>
 <div ref="{{ rootRef }}" style="container-type:inline-size;position:relative;background:#fff;color:var(--ao-azul);font-family:Archivo,system-ui,sans-serif;font-size:15px;line-height:1.55">
 <a href="#contenido" class="ao-skip" onClick="{{ saltar }}">{{ T.saltar }}</a>
 
-<div data-noprint style="position:sticky;top:0;z-index:30;box-shadow:0 6px 18px rgba(31,52,102,.06)">
+<div data-noprint data-cabecera style="position:sticky;top:0;z-index:30;box-shadow:0 6px 18px rgba(31,52,102,.06)">
 <header style="display:flex;align-items:center;gap:28px;padding:18px clamp(16px,5cqi,80px);border-bottom:1px solid rgba(31,52,102,.12);background:#fff">
 <img src="{{ logo }}" alt="Auto-Opciones" role="button" tabindex="0" onClick="{{ goInicio }}" style="height:clamp(28px,8cqi,38px);width:auto;cursor:pointer;max-width:calc(100cqi - 96px)">
 <sc-if value="{{ navWide }}" hint-placeholder-val="{{ true }}">
@@ -109,14 +109,15 @@
 </sc-if>
 </sc-for>
 </div></sc-if>
-<div style="overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px"><div style="display:grid;grid-template-columns:{{ cmpCols }};gap:16px;min-width:{{ cmpMin }}">
+<sc-if value="{{ cmpDeslizar }}"><p data-noprint style="margin:0 0 8px;font-size:13px;color:#56607A">← {{ txtDeslizar }} →</p></sc-if>
+<div onScroll="{{ cmpScroll }}" style="overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px"><div style="display:grid;grid-template-columns:{{ cmpCols }};gap:16px;min-width:{{ cmpMin }}">
 <sc-for list="{{ slots }}" as="s" hint-placeholder-count="3">
 <sc-if value="{{ s.filled }}" hint-placeholder-val="{{ true }}">
 <div style="border-radius:24px;overflow:hidden;background:#FBF9F7;border:1px solid rgba(31,52,102,.1);display:flex;flex-direction:column;scroll-snap-align:start">
 <div style="position:relative;aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#F7F3EF 0 10px,#EFE9E3 10px 20px)"><img src="{{ s.foto }}" alt="{{ s.nombre }}" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit"><button onClick="{{ s.quitar }}" style="border-radius:14px;position:absolute;right:8px;top:8px;background:#fff;border:0;color:var(--ao-azul);font-size:13px;padding:9px 14px;cursor:pointer">Quitar</button></div>
 <div style="padding:16px;display:flex;flex-direction:column;gap:8px">
 <div style="line-height:1.2"><span style="font-size:12px;color:var(--ao-tx);font-weight:600">{{ s.marca }}</span><br><strong style="font-size:21px;font-weight:500">{{ s.modelo }}</strong><br><span style="font-size:13px;color:#56607A">{{ s.version }} · {{ s.precioF }}</span></div>
-<select aria-label="Financiera para {{ s.nombre }}" value="{{ s.finId }}" onChange="{{ s.onFin }}" style="border-radius:12px;border-radius:12px;border:1px solid rgba(31,52,102,.3);background:#fff;color:var(--ao-azul);padding:8px;font-size:14px"><sc-for list="{{ s.fins }}" as="f"><option value="{{ f.id }}">{{ f.nombre }}</option></sc-for></select>
+<select aria-label="Financiera para {{ s.nombre }}" value="{{ s.finId }}" onChange="{{ s.onFin }}" style="border-radius:12px;border-radius:12px;border:1px solid rgba(31,52,102,.3);background:#fff;color:var(--ao-azul);padding:8px;font-size:16px"><sc-for list="{{ s.fins }}" as="f"><option value="{{ f.id }}">{{ f.nombre }}</option></sc-for></select>
 <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#56607A">{{ T.enganche }} {{ eng }}</span><span>{{ s.engF }}</span></div>
 <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#56607A">A financiar</span><span>{{ s.montoF }}</span></div>
 <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#56607A">Apertura</span><span>{{ s.aperturaF }}</span></div>
@@ -128,12 +129,13 @@
 <sc-if value="{{ s.empty }}">
 <div style="border-radius:24px;border:1px dashed rgba(31,52,102,.35);padding:20px;display:flex;flex-direction:column;gap:10px;min-height:300px;scroll-snap-align:start">
 <strong style="font-size:17px;font-weight:500">Agregar auto {{ s.n }}</strong>
-<select aria-label="Marca del auto {{ s.n }}" value="{{ s.marcaSel }}" onChange="{{ s.onMarca }}" style="border-radius:12px;border:1px solid rgba(31,52,102,.3);background:#fff;color:var(--ao-azul);padding:9px;font-size:14px"><option value="">Elige marca</option><sc-for list="{{ s.marcas }}" as="m"><option value="{{ m.m }}">{{ m.m }}</option></sc-for></select>
-<sc-if value="{{ s.hasMarca }}"><select aria-label="Modelo del auto {{ s.n }}" onChange="{{ s.onModelo }}" style="border-radius:12px;border:1px solid rgba(31,52,102,.3);background:#fff;color:var(--ao-azul);padding:9px;font-size:14px"><option value="">Elige modelo</option><sc-for list="{{ s.modelos }}" as="m"><option value="{{ m.id }}">{{ m.label }}</option></sc-for></select></sc-if>
+<select aria-label="Marca del auto {{ s.n }}" value="{{ s.marcaSel }}" onChange="{{ s.onMarca }}" style="border-radius:12px;border:1px solid rgba(31,52,102,.3);background:#fff;color:var(--ao-azul);padding:9px;font-size:16px"><option value="">Elige marca</option><sc-for list="{{ s.marcas }}" as="m"><option value="{{ m.m }}">{{ m.m }}</option></sc-for></select>
+<sc-if value="{{ s.hasMarca }}"><select aria-label="Modelo del auto {{ s.n }}" onChange="{{ s.onModelo }}" style="border-radius:12px;border:1px solid rgba(31,52,102,.3);background:#fff;color:var(--ao-azul);padding:9px;font-size:16px"><option value="">Elige modelo</option><sc-for list="{{ s.modelos }}" as="m"><option value="{{ m.id }}">{{ m.label }}</option></sc-for></select></sc-if>
 </div>
 </sc-if>
 </sc-for>
 </div></div>
+<sc-if value="{{ cmpDeslizar }}"><div data-noprint aria-hidden="true" style="display:flex;justify-content:center;gap:8px;margin-top:6px"><sc-for list="{{ puntos }}" as="d"><sc-if value="{{ d.on }}"><span style="width:20px;height:8px;border-radius:4px;background:var(--ao-1)"></span></sc-if><sc-if value="{{ d.off }}"><span style="width:8px;height:8px;border-radius:4px;background:rgba(31,52,102,.25)"></span></sc-if></sc-for></div></sc-if>
 <p style="margin:12px 0 0;font-size:12px;color:#56607A">{{ calcNota }}</p>
 </section>
 </div></sc-if>
@@ -182,6 +184,7 @@
 </article>
 </sc-for>
 </div>
+<sc-if value="{{ alFinal }}"><div data-noprint style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px"><sc-if value="{{ verMas }}"><button onClick="{{ masAutos }}" style="border-radius:14px;background:var(--ao-1);color:#fff;border:0;padding:12px 18px;font-weight:600;font-size:15px;cursor:pointer;flex:1 1 200px">{{ masTxt }}</button></sc-if><button onClick="{{ arriba }}" style="border-radius:14px;background:#fff;color:var(--ao-azul);border:1px solid rgba(31,52,102,.3);padding:12px 18px;font-weight:600;font-size:15px;cursor:pointer;flex:1 1 140px">{{ txtArriba }}</button></div></sc-if>
 <sc-if value="{{ hayLeyenda }}"><p style="margin:12px 0 0;font-size:12px;color:#56607A">* {{ T.leyenda_mensualidad }}</p></sc-if>
 </section>
 </div></sc-if>
@@ -248,7 +251,7 @@
 </div></sc-if>
 
 <div data-noprint style="order:9999;height:120px"></div>
-<div data-noprint role="region" aria-label="Comparador de autos" style="order:10000;position:sticky;bottom:16px;z-index:5;margin:0 clamp(12px,3cqi,40px);border-radius:14px;box-shadow:0 12px 32px rgba(31,52,102,.3);background:var(--ao-azul);color:#fff;padding:8px 8px 8px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+<div data-noprint data-cmpbar role="region" aria-label="Comparador de autos" style="order:10000;position:sticky;bottom:16px;z-index:5;margin:0 clamp(12px,3cqi,40px);border-radius:14px;box-shadow:0 12px 32px rgba(31,52,102,.3);background:var(--ao-azul);color:#fff;padding:8px 8px 8px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
 <span style="font-size:13px;white-space:nowrap">{{ cmpEtiqueta }} · {{ nCmpLabel }}</span>
 <sc-if value="{{ wide }}"><div style="display:flex;gap:6px;flex:1;min-width:0;overflow-x:auto">
 <sc-for list="{{ slots }}" as="s" hint-placeholder-count="3">
