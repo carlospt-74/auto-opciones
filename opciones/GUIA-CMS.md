@@ -35,7 +35,8 @@ Las listas (autos, marcas, financieras, noticias, etc.) se abren **colapsadas** 
    - **Marca** y **Tipo:** se eligen de una lista desplegable (así no hay errores de escritura).
    - **Precio:** en pesos, sin símbolo ni comas. Ejemplo: `599900`.
 3. Sube la **Foto** (ver Fotos más abajo). Opcional pero recomendable: **Año modelo** y **Precio vigente al** (se muestran en la tarjeta del auto).
-4. Presiona **Save**. Si falta algo o hay un error, el campo se marca en rojo y no se guarda hasta corregirlo.
+4. Revisa cómo se ve la tarjeta en el portal. La tarjeta recorta la foto (más en pantallas anchas), así que lo ideal es una foto 3:2 con el auto completo y al centro. Si el auto queda cortado, cambia **Enfoque de la foto** (por ejemplo, *Arriba* cuando el auto está en la parte alta de la foto).
+5. Presiona **Save**. Si falta algo o hay un error, el campo se marca en rojo y no se guarda hasta corregirlo.
 
 Un auto nuevo nace con **Mostrar** encendido. Si no debe verse todavía, apágalo; no lo borres.
 

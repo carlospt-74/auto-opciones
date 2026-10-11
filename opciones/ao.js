@@ -94,6 +94,9 @@
   const mxn = n => '$' + Math.round(n).toLocaleString('es-MX');
   const lst = a => Array.isArray(a) ? a : [];
 
+  // Qué parte de la foto se prioriza al recortarla (campo "Enfoque de la foto" de cada auto).
+  const ENFOQUE = { arriba: 'center 15%', 'arriba-centro': 'center 30%', centro: 'center', 'abajo-centro': 'center 70%', abajo: 'center 85%' };
+
   // Textos de la interfaz que se pueden editar en el CMS (Configuración del sitio → Textos del sitio).
   const TEXTOS = {
     ver_ficha: 'Ver ficha técnica', ficha: 'Ficha técnica', precio_desde: 'Precio desde', cotizar_auto: 'Cotizar este auto',
@@ -275,7 +278,7 @@
     const recorte = W < 760 && !st.mas && lista.length > 2;
     const autos = (recorte ? lista.slice(0, 2) : lista).map(a => {
       const inC = cmp.includes(a.id);
-      return { ...a, foto: a.foto || '', precioF: mxn(a.precio), nombre: a.marca + ' ' + a.modelo,
+      return { ...a, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', precioF: mxn(a.precio), nombre: a.marca + ' ' + a.modelo,
         mensual: mxn(mensualidad(a.precio, eng, finTarjeta, plazo)), specs: specs(a),
         mensualTxt: esContado ? '' : esArrend ? T.renta_cotizar : mxn(mensualidad(a.precio, eng, finTarjeta, plazo)) + '/mes*', hayMensualTxt: !esContado,
         ficha: st.ficha === a.id, noFicha: st.ficha !== a.id, abrirFicha: () => set({ ficha: a.id }), cerrarFicha: () => set({ ficha: null }),
@@ -298,7 +301,7 @@
       }
       const f = FIN.find(x => x.id === st.fin[i]) || FIN[0] || finTarjeta;
       const engM = a.precio * eng / 100, monto = a.precio - engM;
-      return { n: i + 1, filled: true, empty: false, id: a.id, foto: a.foto || '', marca: a.marca, modelo: a.modelo, version: a.version, nombre: a.marca + ' ' + a.modelo,
+      return { n: i + 1, filled: true, empty: false, id: a.id, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', marca: a.marca, modelo: a.modelo, version: a.version, nombre: a.marca + ' ' + a.modelo,
         precioF: mxn(a.precio), engF: mxn(engM), montoF: mxn(monto),
         aperturaF: mxn(monto * (+f.apertura || 0) / 100) + ' (' + (+f.apertura || 0) + '%)', tasaF: (+f.tasa || 0).toFixed(1) + '% anual',
         mensualF: mxn(mensualidad(a.precio, eng, f, plazo)), finId: f.id || '', finNombre: f.nombre || '',
@@ -353,7 +356,8 @@
       verPres: fil.mostrar_presupuesto !== false && PRES.length > 0, verPago: fil.mostrar_pago !== false && lst(fil.pagos).length > 0,
       presOpts: PRES.map((p, i) => ({ i: String(i), texto: p.texto })), presSel: st.pres == null ? '' : String(st.pres), onPres: e => set({ pres: e.target.value }),
       pagoOpts: PAGOS.map(t => ({ t })), pagoSel, onPago: e => set({ pago: e.target.value }),
-      hayCmp: nCmp > 0,
+      hayCmp: nCmp > 0, cmpFin: nCmp > 0 && !esContado, conFin: !esContado,
+      cardCols: S.autos.vista === 'cuadricula' ? 'repeat(auto-fit,minmax(min(100%,280px),1fr))' : W >= 760 ? 'minmax(300px,36%) minmax(0,1fr)' : 'minmax(0,1fr)', cardAlto: W >= 760 && S.autos.vista !== 'cuadricula' ? '260px' : '220px',
       buscar: () => scrollA('autos'), verCmp: () => scrollA('comparador'),
       tipos: tipos.map(t => ({ label: t.label, active: st.tipo === t.val, inactive: st.tipo !== t.val, pick: () => set({ tipo: t.val }) })),
       autos, hayAutos: autos.length > 0, sinAutos: autos.length === 0, nAutos: lista.length + (lista.length === 1 ? ' auto' : ' autos'),
