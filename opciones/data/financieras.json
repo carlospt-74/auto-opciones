@@ -1,0 +1,44 @@
+{
+  "financieras": [
+    {
+      "id": "bbva",
+      "nombre": "BBVA",
+      "tasa": 13.9,
+      "apertura": 2,
+      "seguro": 0,
+      "mostrar": true
+    },
+    {
+      "id": "banorte",
+      "nombre": "Banorte",
+      "tasa": 14.5,
+      "apertura": 1,
+      "seguro": 0,
+      "mostrar": true
+    },
+    {
+      "id": "banamex",
+      "nombre": "Banamex",
+      "tasa": 13.5,
+      "apertura": 3,
+      "seguro": 0,
+      "mostrar": true
+    },
+    {
+      "id": "afirme",
+      "nombre": "Afirme",
+      "tasa": 15.2,
+      "apertura": 1,
+      "seguro": 0,
+      "mostrar": true
+    },
+    {
+      "id": "hsbc",
+      "nombre": "HSBC",
+      "tasa": 14.2,
+      "apertura": 2,
+      "seguro": 0,
+      "mostrar": true
+    }
+  ]
+}

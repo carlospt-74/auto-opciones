@@ -1,0 +1,28 @@
+{
+  "ofertas": [
+    {
+      "etiqueta": "Enganche",
+      "valor": "Desde 0%",
+      "detalle": "Hasta 20% según la financiera y la marca.",
+      "mostrar": true
+    },
+    {
+      "etiqueta": "Comisión por apertura",
+      "valor": "1%, 2% o 3%",
+      "detalle": "Compara antes de elegir financiera.",
+      "mostrar": true
+    },
+    {
+      "etiqueta": "Meses sin intereses",
+      "valor": "12 y 24",
+      "detalle": "En modelos participantes este mes.",
+      "mostrar": true
+    },
+    {
+      "etiqueta": "Preautorización",
+      "valor": "Clientes premium",
+      "detalle": "Por lealtad a la marca o buen historial de crédito.",
+      "mostrar": true
+    }
+  ]
+}

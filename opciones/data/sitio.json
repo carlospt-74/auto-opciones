@@ -1,0 +1,220 @@
+{
+  "titulo_pagina": "Auto-Opciones",
+  "logo": "AutoOpciones_Logo/02_solo-texto/AutoOpciones_02_solo-texto.svg",
+  "colores": {
+    "principal": "#EE8A52",
+    "principal_hover": "#DE7840",
+    "texto_acento": "#9C4A1E",
+    "fondo_suave": "#FEF3EB",
+    "azul": "#1F3466"
+  },
+  "contacto": {
+    "telefono": "999 414 5826",
+    "correos": [
+      "atencion.clientes@auto-opciones.com",
+      "direccion@auto-opciones.com"
+    ],
+    "redes": [
+      "Facebook: Auto-Opciones.com",
+      "www.auto-opciones.com.mx"
+    ],
+    "frase": "Nosotros te damos las opciones, usted su confianza."
+  },
+  "menu": [
+    {
+      "texto": "Marcas y modelos",
+      "destino": "seccion:marcas"
+    },
+    {
+      "texto": "Ofertas",
+      "destino": "seccion:ofertas"
+    },
+    {
+      "texto": "Requisitos",
+      "destino": "pagina:requisitos"
+    },
+    {
+      "texto": "Noticias y tips",
+      "destino": "seccion:noticias"
+    }
+  ],
+  "boton_menu": {
+    "texto": "Solicitar crédito",
+    "destino": "pagina:requisitos"
+  },
+  "filtros": {
+    "texto_todos": "Todos",
+    "tipos": [
+      "SUV",
+      "Sedán",
+      "Hatchback",
+      "Pickup"
+    ],
+    "mostrar_presupuesto": true,
+    "texto_presupuesto": "Presupuesto",
+    "texto_cualquiera": "Cualquiera",
+    "presupuestos": [
+      {
+        "texto": "Hasta $500 mil",
+        "min": 0,
+        "max": 500000
+      },
+      {
+        "texto": "$500 mil – $800 mil",
+        "min": 500000,
+        "max": 800000
+      },
+      {
+        "texto": "Más de $800 mil",
+        "min": 800000,
+        "max": 0
+      }
+    ],
+    "mostrar_pago": true,
+    "texto_pago": "Pago",
+    "pagos": [
+      "Crédito",
+      "Arrendamiento",
+      "Contado"
+    ]
+  },
+  "calculo": {
+    "formula": "monto * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)",
+    "enganches": [
+      10,
+      20,
+      30,
+      40
+    ],
+    "enganche_inicial": 20,
+    "plazos": [
+      12,
+      24,
+      36,
+      48,
+      60
+    ],
+    "plazo_inicial": 48,
+    "tasa_tarjetas": 13.9,
+    "iva": 16,
+    "nota": "*Cifras ilustrativas. Sujetas a aprobación de crédito de cada institución."
+  },
+  "ficha": [
+    {
+      "etiqueta": "Motor",
+      "campo": "motor"
+    },
+    {
+      "etiqueta": "Potencia",
+      "campo": "hp",
+      "unidad": "hp"
+    },
+    {
+      "etiqueta": "Transmisión",
+      "campo": "trans"
+    },
+    {
+      "etiqueta": "Tracción",
+      "campo": "traccion"
+    },
+    {
+      "etiqueta": "Rendimiento combinado",
+      "campo": "rend",
+      "unidad": "km/l"
+    },
+    {
+      "etiqueta": "Pasajeros",
+      "campo": "pas"
+    },
+    {
+      "etiqueta": "Cajuela",
+      "campo": "cajuela",
+      "unidad": "L"
+    },
+    {
+      "etiqueta": "Bolsas de aire",
+      "campo": "bolsas"
+    }
+  ],
+  "requisitos": {
+    "titulo": "Información de crédito y",
+    "resaltado": "requisitos",
+    "nota": "Requisitos de referencia. Cada institución puede solicitar documentos adicionales.",
+    "boton": "Solicitar preautorización",
+    "aviso": "Al aprobarse, recibes tu certificado de autorización con vigencia de 30 días hábiles."
+  },
+  "secciones": [
+    {
+      "tipo": "banner",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Tu auto nuevo, con todas las",
+      "resaltado": "opciones",
+      "titulo_fin": "sobre la mesa.",
+      "foto": "assets/fotos/33437141.jpg",
+      "boton": "Buscar",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false
+    },
+    {
+      "tipo": "marcas",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Explora por marca",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false
+    },
+    {
+      "tipo": "comparador",
+      "mostrar": true,
+      "fondo": "blanco",
+      "etiqueta": "Comparador",
+      "titulo": "¿Cuál te conviene más?",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false
+    },
+    {
+      "tipo": "autos",
+      "mostrar": true,
+      "fondo": "blanco",
+      "vista": "lista",
+      "texto_disponibles": "disponibles",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false
+    },
+    {
+      "tipo": "ofertas",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Ofertas de crédito vigentes",
+      "mostrar_financieras": true,
+      "mostrar_iconos": false
+    },
+    {
+      "tipo": "publicidad",
+      "mostrar": true,
+      "fondo": "blanco",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false,
+      "anuncio": "afirme"
+    },
+    {
+      "tipo": "info_credito",
+      "mostrar": true,
+      "fondo": "blanco",
+      "etiqueta": "Información de crédito",
+      "titulo": "Ten listos tus documentos antes de ir a la agencia.",
+      "texto": "Requisitos para cada perfil, en una lista que puedes ir marcando.",
+      "mostrar_financieras": false,
+      "mostrar_iconos": false
+    },
+    {
+      "tipo": "noticias",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Noticias y tips",
+      "mostrar_financieras": false,
+      "mostrar_iconos": true
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 media:
-  input: opciones/assets
+  input: assets
   output: assets
 
 content:
   - name: sitio
     label: Configuración del sitio
     type: file
-    path: opciones/data/sitio.json
+    path: data/sitio.json
     format: json
     fields:
       - { name: titulo_pagina, label: Título de la pestaña del navegador, type: string }
@@ -156,7 +156,7 @@ content:
   - name: autos
     label: Autos
     type: file
-    path: opciones/data/autos.json
+    path: data/autos.json
     format: json
     fields:
       - name: autos
@@ -170,7 +170,7 @@ content:
           - { name: version, label: Versión, type: string }
           - { name: tipo, label: Tipo (igual que en Filtros), type: string }
           - { name: precio, label: Precio (MXN), type: number }
-          - { name: foto, label: Foto, type: image, options: { path: opciones/assets/fotos } }
+          - { name: foto, label: Foto, type: image, options: { path: assets/fotos } }
           - { name: mostrar, label: Mostrar, type: boolean }
           - { name: motor, label: Motor, type: string }
           - { name: hp, label: Potencia (hp), type: number }
@@ -184,7 +184,7 @@ content:
   - name: marcas
     label: Marcas
     type: file
-    path: opciones/data/marcas.json
+    path: data/marcas.json
     format: json
     fields:
       - name: marcas
@@ -193,13 +193,13 @@ content:
         list: true
         fields:
           - { name: nombre, label: Nombre, type: string, required: true }
-          - { name: logo, label: Logo, type: image, options: { path: opciones/assets/marcas } }
+          - { name: logo, label: Logo, type: image, options: { path: assets/marcas } }
           - { name: mostrar, label: Mostrar, type: boolean }
 
   - name: financieras
     label: Financieras
     type: file
-    path: opciones/data/financieras.json
+    path: data/financieras.json
     format: json
     fields:
       - name: financieras
@@ -217,7 +217,7 @@ content:
   - name: ofertas
     label: Ofertas de crédito
     type: file
-    path: opciones/data/ofertas.json
+    path: data/ofertas.json
     format: json
     fields:
       - name: ofertas
@@ -233,7 +233,7 @@ content:
   - name: noticias
     label: Noticias y tips
     type: file
-    path: opciones/data/noticias.json
+    path: data/noticias.json
     format: json
     fields:
       - name: noticias
@@ -245,15 +245,15 @@ content:
           - { name: titulo, label: Título, type: string }
           - { name: resumen, label: Resumen, type: text }
           - { name: minutos, label: Minutos de lectura, type: number }
-          - { name: foto, label: Foto, type: image, options: { path: opciones/assets/fotos } }
-          - { name: icono, label: Ícono (SVG), type: image, options: { path: opciones/assets/iconos } }
+          - { name: foto, label: Foto, type: image, options: { path: assets/fotos } }
+          - { name: icono, label: Ícono (SVG), type: image, options: { path: assets/iconos } }
           - { name: enlace, label: Enlace (opcional), type: string }
           - { name: mostrar, label: Mostrar, type: boolean }
 
   - name: requisitos
     label: Requisitos de crédito
     type: file
-    path: opciones/data/requisitos.json
+    path: data/requisitos.json
     format: json
     fields:
       - name: perfiles
@@ -271,7 +271,7 @@ content:
   - name: anuncios
     label: Publicidad
     type: file
-    path: opciones/data/anuncios.json
+    path: data/anuncios.json
     format: json
     fields:
       - name: anuncios
