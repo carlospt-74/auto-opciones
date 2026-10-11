@@ -18,7 +18,7 @@
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
       .then(j => { D[k] = k === 'sitio' ? (j || {}) : (Array.isArray(j[k]) ? j[k] : []); })
       .catch(e => console.warn('No se pudo leer data/' + f + '.json', e))
-  )).then(() => { listo = true; aplicarColores(D.sitio.colores); if (D.sitio.titulo_pagina) document.title = D.sitio.titulo_pagina; notify(); });
+  )).then(() => { listo = true; aplicarColores(D.sitio.colores); if (D.sitio.titulo_pagina) document.title = D.sitio.titulo_pagina; prepararPagina(); notify(); });
 
   // Fórmula de mensualidad editable. Si tiene un error, se usa la de respaldo.
   const FORMULA_BASE = 'monto * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)';
@@ -79,6 +79,75 @@
   const mxn = n => '$' + Math.round(n).toLocaleString('es-MX');
   const lst = a => Array.isArray(a) ? a : [];
 
+  // Textos de la interfaz que se pueden editar en el CMS (Configuración del sitio → Textos del sitio).
+  const TEXTOS = {
+    ver_ficha: 'Ver ficha técnica', ficha: 'Ficha técnica', precio_desde: 'Precio desde', cotizar_auto: 'Cotizar este auto',
+    pedir_cotizacion: 'Pedir cotización', sin_autos: 'Te conseguimos un {marca} en cualquier agencia de Monterrey.',
+    ver_comparacion: 'Ver comparación', comparar: 'Comparar', en_comparador: 'En comparador', comparador_lleno: 'Comparador lleno',
+    enganche: 'Enganche', plazo: 'Plazo', mensualidad_estimada: 'Mensualidad estimada a',
+    paso1: 'Paso 1 · Elige tu perfil', paso2: 'Paso 2 · Revisa tus documentos', paso3: 'Paso 3 · Solicita',
+    condiciones: 'Condiciones generales', enviar_solicitud: 'Expediente completo · Enviar solicitud',
+    atencion: 'Atención personalizada', siguenos: 'Síguenos', inicio: 'Inicio', requisitos: 'Requisitos',
+    leyenda_mensualidad: 'Pago mensual estimado con una tasa de referencia, sujeto a aprobación de crédito.',
+    whatsapp_texto: 'Escríbenos por WhatsApp'
+  };
+  // Mensajes que se envían al pedir una cotización o una preautorización (editables en el CMS).
+  const MENSAJES = {
+    auto: 'Hola, me interesa cotizar el {auto}{anio} (precio desde {precio}). Con enganche de {enganche} a {plazo}, la mensualidad estimada es {mensualidad}. ¿Me pueden apoyar?',
+    marca: 'Hola, busco un {marca}. ¿Me pueden ayudar a cotizarlo?',
+    credito: 'Hola, quiero iniciar mi preautorización de crédito. Perfil: {perfil}. Documentos listos: {listos}.'
+  };
+  const llenar = (tpl, v) => String(tpl).replace(/\{(\w+)\}/g, (_, k) => v[k] != null ? v[k] : '').replace(/\s+([.,?!])/g, '$1').replace(/\s{2,}/g, ' ').trim();
+  const soloDigitos = x => String(x || '').replace(/\D/g, '');
+  const numMx = x => { const d = soloDigitos(x); return d.length === 10 ? '52' + d : d; };
+  const telHref = x => { const n = numMx(x); return n ? 'tel:+' + n : ''; };
+
+  // Analítica (opcional): solo se carga si se llena en el CMS.
+  function track(evento, props) {
+    try {
+      if (window.plausible) window.plausible(evento, { props: props || {} });
+      if (window.gtag) window.gtag('event', evento === 'lead' ? 'generate_lead' : evento, props || {});
+    } catch (e) {}
+  }
+  function cargarAnalitica(an) {
+    an = an || {};
+    const add = (src, attrs) => { const s = document.createElement('script'); s.src = src; s.async = true; Object.keys(attrs || {}).forEach(k => s.setAttribute(k, attrs[k])); document.head.appendChild(s); };
+    if (/^[a-z0-9.-]+$/i.test(an.plausible_dominio || '') && !window.plausible) {
+      window.plausible = function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+      add('https://plausible.io/js/script.js', { defer: '', 'data-domain': an.plausible_dominio });
+    }
+    if (/^G-[A-Z0-9]+$/i.test(an.ga4_id || '') && !window.gtag) {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date()); window.gtag('config', an.ga4_id);
+      add('https://www.googletagmanager.com/gtag/js?id=' + an.ga4_id);
+    }
+  }
+  function ponerMeta(sel, attr, val) { const el = document.querySelector(sel); if (el && val) el.setAttribute(attr, val); }
+  function prepararPagina() {
+    const sd = D.sitio;
+    if (sd.descripcion) { ponerMeta('meta[name="description"]', 'content', sd.descripcion); ponerMeta('meta[property="og:description"]', 'content', sd.descripcion); }
+    if (sd.titulo_pagina) ponerMeta('meta[property="og:title"]', 'content', sd.titulo_pagina);
+    cargarAnalitica(sd.analitica);
+  }
+
+  // Dirección de cada vista (#/requisitos, #/auto/rav4) para poder compartirla y usar el botón Atrás.
+  const hashDe = st => st.page === 'req' ? '#/requisitos' + (st.req ? '/' + encodeURIComponent(st.req) : '') : (st.ficha ? '#/auto/' + encodeURIComponent(st.ficha) : '#/');
+  const estadoDeHash = () => {
+    const p = (location.hash || '').replace(/^#\/?/, '').split('/').filter(Boolean).map(x => { try { return decodeURIComponent(x); } catch (e) { return x; } });
+    if (p[0] === 'requisitos') return { page: 'req', req: p[1] || null, ficha: null, menu: false };
+    if (p[0] === 'auto' && p[1]) return { page: 'inicio', ficha: p[1], menu: false };
+    return { page: 'inicio', ficha: null, menu: false };
+  };
+  // Permite activar con Enter o Espacio los elementos que funcionan como botón pero no son <button>.
+  if (!window.__aoTeclado) {
+    window.__aoTeclado = true;
+    document.addEventListener('keydown', e => {
+      const el = e.target;
+      if ((e.key === 'Enter' || e.key === ' ') && el && el.getAttribute && /^(button|checkbox)$/.test(el.getAttribute('role') || '') && el.tagName !== 'BUTTON') { e.preventDefault(); el.click(); }
+    });
+  }
+
   function initState() {
     return { page: 'inicio', menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, req: null, checks: {}, w: 1280 };
   }
@@ -87,7 +156,18 @@
     subs.add(c);
     if (!listo) return {};
     const st = c.state || {};
-    const set = p => c.setState(p);
+    const set = p => {
+      c.setState(p);
+      if ('page' in p || 'req' in p || 'ficha' in p) {
+        try { const h = hashDe({ ...c.state, ...p }); if (h !== (location.hash || '#/')) history.pushState(null, '', h); } catch (e) {}
+      }
+    };
+    if (!c._hashOn) {
+      c._hashOn = true;
+      const aplicar = () => { const e = estadoDeHash(); if (e.page !== (c.state || {}).page) window.scrollTo(0, 0); c.setState(e); };
+      window.addEventListener('popstate', aplicar); window.addEventListener('hashchange', aplicar);
+      if (location.hash && location.hash !== '#/') setTimeout(aplicar, 0);
+    }
     if (!c._rootRef) {
       c._rootRef = el => {
         if (!el || c._roEl === el) return;
@@ -127,13 +207,26 @@
       if (d.indexOf('seccion:') === 0) scrollA(d.slice(8)); else window.scrollTo(0, 0);
     };
 
+    const T = { ...TEXTOS, ...Object.fromEntries(Object.entries(S0.textos || {}).filter(([, v]) => typeof v === 'string' && v !== '')) };
+    const MSG = { ...MENSAJES, ...Object.fromEntries(Object.entries({ auto: ct.mensaje_auto, marca: ct.mensaje_marca, credito: ct.mensaje_credito }).filter(([, v]) => v)) };
+    const waNum = numMx(ct.whatsapp), correo1 = lst(ct.correos)[0];
+    const lead = (tipo, texto) => {
+      track('lead', { tipo });
+      if (waNum) window.open('https://wa.me/' + waNum + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+      else if (correo1) window.location.href = 'mailto:' + correo1 + '?subject=' + encodeURIComponent('Solicitud desde el portal Auto-Opciones') + '&body=' + encodeURIComponent(texto);
+      else if (telHref(ct.telefono)) window.location.href = telHref(ct.telefono);
+    };
+    const marcaTxt = st.marca || 'auto';
+
     const autos = lista.map(a => {
       const inC = cmp.includes(a.id);
       return { ...a, foto: a.foto || '', precioF: mxn(a.precio), nombre: a.marca + ' ' + a.modelo,
         mensual: mxn(mensualidad(a.precio, eng, finTarjeta, plazo)), specs: specs(a),
         ficha: st.ficha === a.id, noFicha: st.ficha !== a.id, abrirFicha: () => set({ ficha: a.id }), cerrarFicha: () => set({ ficha: null }),
         inCmp: inC, notInCmp: !inC, cmpDisabled: !inC && nCmp >= 3,
-        cmpLabel: inC ? 'En comparador' : (nCmp >= 3 ? 'Comparador lleno' : 'Comparar'), toggleCmp: () => toggleCmp(a.id) };
+        cmpLabel: inC ? T.en_comparador : (nCmp >= 3 ? T.comparador_lleno : T.comparar), toggleCmp: () => toggleCmp(a.id),
+        hayAnio: !!a.anio, anioF: a.anio ? 'Modelo ' + a.anio : '', hayVig: !!a.vigencia, vigF: a.vigencia ? 'Precio vigente al ' + a.vigencia : '',
+        cotizar: () => lead('auto', llenar(MSG.auto, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), enganche: eng + '%', plazo: plazo + ' meses', mensualidad: mxn(mensualidad(a.precio, eng, finTarjeta, plazo)) + ' al mes' })) };
     });
 
     const marcasConAutos = MARCAS.filter(m => cnt(m.nombre) > 0);
@@ -172,15 +265,18 @@
     const bm = S0.boton_menu || {};
 
     return {
-      rootRef: c._rootRef, narrow: W < 760, wide: W >= 760, navWide: W >= 1100, navNarrow: W < 1100,
+      T, rootRef: c._rootRef, narrow: W < 760, wide: W >= 760, navWide: W >= 1100, navNarrow: W < 1100,
       isInicio: st.page === 'inicio', isReq: st.page === 'req',
       goInicio: () => ir('pagina:inicio'), goReq: () => ir('pagina:requisitos'),
       menuOpen: !!st.menu, toggleMenu: () => set({ menu: !st.menu }),
       S, pubs, logo: S0.logo || 'AutoOpciones_Logo/02_solo-texto/AutoOpciones_02_solo-texto.svg',
       menu: lst(S0.menu).map(m => ({ texto: m.texto, ir: () => ir(m.enlace || m.destino) })),
       btnMenu: { texto: bm.texto || 'Solicitar crédito', ir: () => ir(bm.enlace || bm.destino || 'pagina:requisitos') },
-      c: { telefono: ct.telefono || '', frase: ct.frase || '' },
-      correos: lst(ct.correos).map(v => ({ v })), redes: lst(ct.redes).map(v => ({ v })),
+      c: { telefono: ct.telefono || '', frase: ct.frase || '', telHref: telHref(ct.telefono), hayTel: !!telHref(ct.telefono), hayWa: !!waNum, waHref: waNum ? 'https://wa.me/' + waNum : '' },
+      correos: lst(ct.correos).map(v => ({ v, href: 'mailto:' + v })), legales: lst(ct.legales).filter(l => l && l.texto && l.enlace).map(l => ({ texto: l.texto, enlace: l.enlace })), hayLegales: lst(ct.legales).some(l => l && l.texto && l.enlace),
+      sinAutosTxt: llenar(T.sin_autos, { marca: marcaTxt }), cotizarMarca: () => lead('marca', llenar(MSG.marca, { marca: st.marca || 'auto' })),
+      pedirCredito: () => lead('credito', llenar(MSG.credito, { perfil: req.titulo || req.pestana || '', listos: hechos + ' de ' + docs.length })),
+      redes: lst(ct.redes).map(v => ({ v })),
       marcas: MARCAS.map(m => { const n = cnt(m.nombre); return { m: m.nombre, logo: m.logo || '', hasLogo: !!m.logo, noLogo: !m.logo, n, nLabel: n ? n + (n === 1 ? ' modelo' : ' modelos') : 'Bajo pedido', active: st.marca === m.nombre, inactive: st.marca !== m.nombre, pick: pick(m.nombre) }; }),
       totalMarcas: MARCAS.length,
       marcaActiva: st.marca || 'Todas las marcas',
@@ -200,9 +296,10 @@
       eng: eng + '%', plazo: plazo + ' meses', calcNota: cal.nota || '',
       ofertas: D.ofertas.filter(o => o.mostrar !== false).map(o => ({ k: o.etiqueta, v: o.valor, d: o.detalle })),
       financieras: FIN,
-      noticias: D.noticias.filter(n => n.mostrar !== false).map(n => ({ cat: n.categoria, t: n.titulo, d: n.resumen, foto: n.foto || '', icono: n.icono || '' })),
+      noticias: D.noticias.filter(n => n.mostrar !== false).map(n => ({ cat: n.categoria, t: n.titulo, d: n.resumen, foto: n.foto || '', icono: n.icono || '', abrir: () => { if (/^(https?:|mailto:|tel:)/.test(n.enlace || '')) window.open(n.enlace, /^https?:/.test(n.enlace) ? '_blank' : '_self', 'noopener'); } })),
       reqTabs: PER.map(r => ({ label: r.pestana, active: r.id === req.id, inactive: r.id !== req.id, pick: () => set({ req: r.id }), ir: () => { set({ req: r.id }); ir('pagina:requisitos'); } })),
       rq: { titulo: rq.titulo || '', resaltado: rq.resaltado || '', nota: rq.nota || '', boton: rq.boton || 'Solicitar preautorización', aviso: rq.aviso || '' },
+      hayLeyenda: !!String(T.leyenda_mensualidad || '').trim(),
       hayReqPub: !!reqPub, reqPub: reqPub || {},
       req: { titulo: req.titulo, para: req.para, cond: lst(req.condiciones).map(t => ({ t })),
         docs: docs.map((t, i) => ({ t, n: String(i + 1).padStart(2, '0'), on: !!ck[i], off: !ck[i], toggle: () => set({ checks: { ...st.checks, [req.id]: { ...ck, [i]: !ck[i] } } }) })) },
