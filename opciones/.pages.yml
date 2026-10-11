@@ -3,6 +3,14 @@ media:
   output: assets
   rename: safe
 
+settings:
+  commit:
+    templates:
+      create: "Crea {path} (desde Pages CMS)"
+      update: "Actualiza {path} (desde Pages CMS)"
+      delete: "Elimina {path} (desde Pages CMS)"
+      rename: "Renombra {oldFilename} a {newFilename} (desde Pages CMS)"
+
 content:
   - name: sitio
     label: Configuración del sitio
@@ -258,6 +266,8 @@ content:
           - { name: atencion, label: "Pie: título de atención", type: string }
           - { name: siguenos, label: "Pie: título de redes", type: string }
           - { name: whatsapp_texto, label: "Pie: enlace de WhatsApp", type: string }
+          - { name: saltar, label: "Accesibilidad: enlace «Saltar al contenido»", type: string }
+          - { name: imprimir_lista, label: "Requisitos: botón de imprimir la lista", type: string }
           - { name: buscar_label, label: "Lista de autos: etiqueta del buscador", type: string }
           - { name: buscar_placeholder, label: "Lista de autos: texto de ayuda del buscador", type: string }
           - { name: ordenar, label: "Lista de autos: etiqueta de ordenar", type: string }

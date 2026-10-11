@@ -44,7 +44,7 @@ Las listas de **Marca** y **Tipo** de Autos son fijas. Para sumar una:
 1. **Marca:** agrégala en **Marcas** (nombre y logo). Luego, en el menú de la izquierda, entra a **Configuration**, busca la lista `marca` dentro de `autos` y agrega el nombre, escrito igual que en Marcas, en orden alfabético.
 2. **Tipo:** agrégalo en **Configuración del sitio → grupo 3 (Buscador y filtros) → Tipos de auto** y también en **Configuration**, en la lista `tipo` de `autos`.
 
-Si prefieres no editar **Configuration**, pídele a quien administre el sitio que lo haga.
+**Forma rápida:** pídele a quien administre el repositorio que corra `python3 tools/sincronizar-listas.py`. El script copia a las listas del CMS (en los dos archivos `.pages.yml`) los nombres de **Marcas** y los **Tipos de auto** de Filtros; con `--revisar` solo informa si falta algo. Si prefieres no editar **Configuration** ni correr el script, pídele a quien administre el sitio que lo haga.
 
 ## Reglas que revisa el CMS
 - **Id:** solo minúsculas, números y guiones, sin espacios ni acentos, y no se puede repetir. Aplica en autos, financieras, perfiles de requisitos y anuncios.
@@ -138,7 +138,13 @@ Escríbelos en formato `#RRGGBB`, por ejemplo `#EE8A52`. Si eliges un naranja mu
 El CMS no reduce el tamaño de las fotos. Para aligerar las que pesan más de 150 KB, quien administre el repositorio puede correr `python3 tools/optimizar-fotos.py` (requiere Pillow). Las fotos PNG pesadas conviene guardarlas como JPG antes de subirlas.
 
 ## Lista de documentos de Requisitos
-Los documentos que marca cada visitante se recuerdan en su propio navegador; no se guardan en ningún servidor. El mensaje de preautorización incluye cuáles faltan.
+Los documentos que marca cada visitante se recuerdan en su propio navegador; no se guardan en ningún servidor. El mensaje de preautorización incluye cuáles faltan. El botón **Imprimir o guardar mi lista** abre la impresión del navegador (también sirve para guardarla como PDF): al imprimir solo salen el perfil y la lista, sin encabezado, panel de solicitud ni botones.
+
+## Teclado y accesibilidad
+Con la tecla **Tab**, lo primero que aparece es **Saltar al contenido**. La tecla **Esc** cierra el menú del celular y la ficha técnica. Si el visitante tiene activado "reducir movimiento" en su dispositivo, el sitio evita las animaciones.
+
+## Historial de cambios
+Cada vez que guardas en el CMS se crea un registro en GitHub con un mensaje en español, por ejemplo "Actualiza opciones/data/autos.json (desde Pages CMS)".
 
 ## Ten en cuenta
 - Los precios, tasas y requisitos que vienen de ejemplo deben validarse antes de publicar.

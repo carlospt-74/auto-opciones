@@ -1,5 +1,7 @@
 // Auto-Opciones · lógica del portal. Todo el contenido se lee de data/*.json (editable con Pages CMS).
 (function () {
+  if (window.__aoIniciado) return;
+  window.__aoIniciado = true;
   const D = { sitio: {}, marcas: [], autos: [], financieras: [], ofertas: [], noticias: [], perfiles: [], anuncios: [] };
   const ARCH = { sitio: 'sitio', marcas: 'marcas', autos: 'autos', financieras: 'financieras', ofertas: 'ofertas', noticias: 'noticias', perfiles: 'requisitos', anuncios: 'anuncios' };
   let listo = false; const subs = new Set();
@@ -103,7 +105,7 @@
     atencion: 'Atención personalizada', siguenos: 'Síguenos', inicio: 'Inicio', requisitos: 'Requisitos',
     leyenda_mensualidad: 'Pago mensual estimado con una tasa de referencia, sujeto a aprobación de crédito.',
     buscar_label: 'Buscar', buscar_placeholder: 'Marca o modelo', ordenar: 'Ordenar por', orden_relevancia: 'Más relevantes', orden_precio_asc: 'Precio: de menor a mayor', orden_precio_desc: 'Precio: de mayor a menor', orden_mensual: 'Mensualidad: de menor a mayor', mensual_hasta: 'Pago mensual hasta', limpiar_filtros: 'Limpiar filtros', horario: 'Horario',
-    whatsapp_texto: 'Escríbenos por WhatsApp', renta_cotizar: 'Renta a cotizar', noticias: 'Noticias', noticia_no_encontrada: 'No encontramos esta noticia.',
+    whatsapp_texto: 'Escríbenos por WhatsApp', saltar: 'Saltar al contenido', imprimir_lista: 'Imprimir o guardar mi lista', renta_cotizar: 'Renta a cotizar', noticias: 'Noticias', noticia_no_encontrada: 'No encontramos esta noticia.',
     volver_noticias: 'Ver más noticias y tips', min_lectura: 'min de lectura', cta_noticia: 'Cotizar mi auto'
   };
   // Mensajes que se envían al pedir una cotización o una preautorización (editables en el CMS).
@@ -177,6 +179,7 @@
   if (!window.__aoTeclado) {
     window.__aoTeclado = true;
     document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && window.__aoEsc) window.__aoEsc();
       const el = e.target;
       if ((e.key === 'Enter' || e.key === ' ') && el && el.getAttribute && /^(button|checkbox|link)$/.test(el.getAttribute('role') || '') && el.tagName !== 'BUTTON') { e.preventDefault(); el.click(); }
     });
@@ -248,7 +251,7 @@
     const cmp = (st.cmp || [AUTOS[0] && AUTOS[0].id, AUTOS[1] && AUTOS[1].id, null]).map(x => (x && byId(x)) ? x : null);
     const nCmp = cmp.filter(Boolean).length;
     const toggleCmp = id => { const a = cmp.slice(); const i = a.indexOf(id); if (i >= 0) a[i] = null; else { const j = a.indexOf(null); if (j < 0) return; a[j] = id; } set({ cmp: a }); };
-    const scrollA = id => setTimeout(() => { const el = document.getElementById('sec-' + id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' }); }, 60);
+    const scrollA = id => setTimeout(() => { const el = document.getElementById('sec-' + id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 90, behavior: window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }, 60);
     const ir = d => {
       d = String(d || '');
       if (/^(https?:|mailto:|tel:)/.test(d)) { window.open(d, /^https?:/.test(d) ? '_blank' : '_self'); return; }
@@ -257,6 +260,7 @@
       if (d.indexOf('seccion:') === 0) scrollA(d.slice(8)); else window.scrollTo(0, 0);
     };
 
+    window.__aoEsc = () => { if (st.menu) set({ menu: false }); else if (st.ficha) set({ ficha: null }); };
     const T = { ...TEXTOS, ...Object.fromEntries(Object.entries(S0.textos || {}).filter(([, v]) => typeof v === 'string' && v !== '')) };
     const MSG = { ...MENSAJES, ...Object.fromEntries(Object.entries({ auto: ct.mensaje_auto, marca: ct.mensaje_marca, credito: ct.mensaje_credito }).filter(([, v]) => v)) };
     const waNum = numMx(ct.whatsapp), correo1 = lst(ct.correos)[0];
@@ -319,7 +323,8 @@
     try { const base = S0.titulo_pagina || 'Auto-Opciones'; document.title = NOT ? NOT.titulo + ' | ' + base : base; ponerMeta('meta[name="description"]', 'content', NOT ? (NOT.resumen || S0.descripcion) : S0.descripcion); } catch (e) {}
 
     return {
-      T, hayPagina: true, rootRef: c._rootRef,
+      T, hayPagina: true,
+      saltar: e => { if (e && e.preventDefault) e.preventDefault(); const m = document.getElementById('contenido'); if (m) { m.focus(); m.scrollIntoView(); } }, imprimir: () => window.print(), rootRef: c._rootRef,
       heroPadTop: W < 760 ? '180px' : 'clamp(12px,2cqi,24px)', cmpCols: W < 760 ? 'repeat(3,max(250px,78cqi))' : 'repeat(3,minmax(240px,1fr))', cmpMin: W < 760 ? '0' : '760px', waBottom: st.page === 'inicio' ? '88px' : '20px',
       q: st.q || '', onQ: e => set({ q: e.target.value }), ordenSel, onOrden: e => set({ orden: e.target.value }),
       ordenOpts: [['', T.orden_relevancia], ['precio_asc', T.orden_precio_asc], ['precio_desc', T.orden_precio_desc], ['mensual', T.orden_mensual]].map(([v, t]) => ({ v, t })),
@@ -357,7 +362,7 @@
       eng: eng + '%', plazo: plazo + ' meses', calcNota: cal.nota || '',
       ofertas: D.ofertas.filter(o => o.mostrar !== false).map(o => ({ k: o.etiqueta, v: o.valor, d: o.detalle })),
       financieras: FIN,
-      noticias: NOTICIAS.map(n => ({ cat: n.categoria, t: n.titulo, d: n.resumen, foto: n.foto || '', icono: n.icono || '', slug: n.slug, clic: n.clic, cursor: n.clic ? 'pointer' : 'default', rol: n.clic ? 'link' : 'article', tab: n.clic ? '0' : '',
+      noticias: NOTICIAS.map(n => ({ cat: n.categoria, t: n.titulo, d: n.resumen, foto: n.foto || '', icono: n.icono || '', slug: n.slug, clic: n.clic, cursor: n.clic ? 'pointer' : 'default', rol: n.clic ? 'link' : 'group', tab: n.clic ? '0' : '',
         abrir: () => { if (n.tieneTexto) { set({ page: 'noticia', nid: n.slug, menu: false }); window.scrollTo(0, 0); } else if (n.tieneEnlace) window.open(n.enlace, /^https?:/.test(n.enlace) ? '_blank' : '_self', 'noopener'); } })),
       isNoticia: st.page === 'noticia', noticiaOk: !!NOT, noticiaNo: !NOT, art: NOT ? { t: NOT.titulo, cat: NOT.categoria, foto: NOT.foto || '', hayFoto: !!NOT.foto, d: NOT.resumen || '', hayMin: !!+NOT.minutos, min: NOT.minutos + ' ' + T.min_lectura, ps: String(NOT.contenido || '').split(/\n\s*\n/).map(x => x.trim()).filter(Boolean).map(t => ({ t, partes: t.split(/(https?:\/\/[^\s]+)/g).filter(Boolean).map(x => /^https?:\/\//.test(x) ? { t: x, link: true, nolink: false } : { t: x, link: false, nolink: true }) })) } : {},
       cotizarGeneral: () => lead('marca', llenar(MSG.marca, { marca: 'auto' })), goNoticias: () => { set({ page: 'inicio', nid: null, menu: false }); scrollA('noticias'); },
