@@ -2,6 +2,7 @@
 """Sincroniza las listas desplegables de Marca y Tipo (en .pages.yml) con los datos del sitio.
 
 Marca  <- nombres de opciones/data/marcas.json
+Anuncio <- ids de opciones/data/anuncios.json
 Tipo   <- 'Tipos de auto' de opciones/data/sitio.json (grupo Filtros)
 
 Uso:
@@ -26,6 +27,7 @@ def uno(x):
     return (x[0] if x else {}) if isinstance(x, list) else (x or {})
 
 marcas = [m['nombre'] for m in leer_json('opciones/data/marcas.json')['marcas'] if m.get('nombre')]
+anuncios = [x['id'] for x in leer_json('opciones/data/anuncios.json')['anuncios'] if x.get('id')]
 tipos = [t for t in uno(leer_json('opciones/data/sitio.json').get('filtros')).get('tipos', []) if t]
 
 def yaml_texto(v):
@@ -53,8 +55,9 @@ with open(ruta, encoding='utf-8') as f:
 lineas = texto.split('\n')
 lineas, am, qm = reemplazar(lineas, 'marca', marcas)
 lineas, at, qt = reemplazar(lineas, 'tipo', tipos)
+lineas, aa, qa = reemplazar(lineas, 'anuncio', anuncios)
 nuevo = '\n'.join(lineas)
-print('Marcas: +%s -%s | Tipos: +%s -%s' % (am or '0', qm or '0', at or '0', qt or '0'))
+print('Marcas: +%s -%s | Tipos: +%s -%s | Anuncios: +%s -%s' % (am or '0', qm or '0', at or '0', qt or '0', aa or '0', qa or '0'))
 if nuevo == texto:
     print('Todo sincronizado.'); sys.exit(0)
 if a.revisar:
