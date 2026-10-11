@@ -66,7 +66,7 @@
     return isFinite(r) ? r : 0;
   }
 
-  const TIPOS_SEC = ['banner', 'marcas', 'comparador', 'autos', 'ofertas', 'publicidad', 'info_credito', 'noticias'];
+  const TIPOS_SEC = ['banner', 'marcas', 'comparador', 'autos', 'ofertas', 'como_funciona', 'publicidad', 'info_credito', 'noticias', 'faq'];
   function secciones() {
     const L = Array.isArray(D.sitio.secciones) ? D.sitio.secciones : [];
     const S = {}; TIPOS_SEC.forEach(t => { S[t] = { show: false, order: 0 }; });
@@ -102,6 +102,7 @@
     condiciones: 'Condiciones generales', enviar_solicitud: 'Expediente completo · Enviar solicitud',
     atencion: 'Atención personalizada', siguenos: 'Síguenos', inicio: 'Inicio', requisitos: 'Requisitos',
     leyenda_mensualidad: 'Pago mensual estimado con una tasa de referencia, sujeto a aprobación de crédito.',
+    buscar_label: 'Buscar', buscar_placeholder: 'Marca o modelo', ordenar: 'Ordenar por', orden_relevancia: 'Más relevantes', orden_precio_asc: 'Precio: de menor a mayor', orden_precio_desc: 'Precio: de mayor a menor', orden_mensual: 'Mensualidad: de menor a mayor', mensual_hasta: 'Pago mensual hasta', limpiar_filtros: 'Limpiar filtros', horario: 'Horario',
     whatsapp_texto: 'Escríbenos por WhatsApp', renta_cotizar: 'Renta a cotizar', noticias: 'Noticias', noticia_no_encontrada: 'No encontramos esta noticia.',
     volver_noticias: 'Ver más noticias y tips', min_lectura: 'min de lectura', cta_noticia: 'Cotizar mi auto'
   };
@@ -109,7 +110,7 @@
   const MENSAJES = {
     auto: 'Hola, me interesa cotizar el {auto}{anio} (precio desde {precio}). {detalle} ¿Me pueden apoyar?',
     marca: 'Hola, busco un {marca}. ¿Me pueden ayudar a cotizarlo?',
-    credito: 'Hola, quiero iniciar mi preautorización de crédito. Perfil: {perfil}. Documentos listos: {listos}.'
+    credito: 'Hola, quiero iniciar mi preautorización de crédito. Perfil: {perfil}. Documentos listos: {listos}. {faltan}'
   };
   const llenar = (tpl, v) => String(tpl).replace(/\{(\w+)\}/g, (_, k) => v[k] != null ? v[k] : '').replace(/\s+([.,?!])/g, '$1').replace(/\s{2,}/g, ' ').trim();
   const norm = x => String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -140,11 +141,27 @@
     }
   }
   function ponerMeta(sel, attr, val) { const el = document.querySelector(sel); if (el && val) el.setAttribute(attr, val); }
+  // Datos estructurados (schema.org) para que los buscadores entiendan la organización y los autos.
+  function datosEstructurados() {
+    try {
+      const sd = D.sitio, ct = sd.contacto || {}, abs = u => { try { return new URL(u, location.href).href; } catch (e) { return undefined; } };
+      const org = { '@type': 'Organization', name: 'Auto-Opciones', url: location.origin + location.pathname, logo: sd.logo ? abs(sd.logo) : undefined };
+      const contactPoint = { '@type': 'ContactPoint', contactType: 'customer service', areaServed: 'MX', availableLanguage: 'es', telephone: telHref(ct.telefono).replace(/^tel:/, '') || undefined, email: lst(ct.correos)[0] || undefined };
+      if (contactPoint.telephone || contactPoint.email) org.contactPoint = contactPoint;
+      const sameAs = lst(ct.redes).filter(v => /^https?:\/\//i.test(v)); if (sameAs.length) org.sameAs = sameAs;
+      const autos = D.autos.filter(a => a.mostrar !== false && a.precio);
+      const lista = { '@type': 'ItemList', itemListElement: autos.map((a, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'Car', name: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), brand: { '@type': 'Brand', name: a.marca }, model: a.modelo, vehicleConfiguration: a.version || undefined, bodyType: a.tipo || undefined, vehicleModelDate: a.anio ? String(a.anio) : undefined, image: a.foto ? abs(a.foto) : undefined, offers: { '@type': 'Offer', price: a.precio, priceCurrency: 'MXN', itemCondition: 'https://schema.org/NewCondition' } } })) };
+      let el = document.getElementById('ao-jsonld');
+      if (!el) { el = document.createElement('script'); el.type = 'application/ld+json'; el.id = 'ao-jsonld'; document.head.appendChild(el); }
+      el.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': [org, lista] });
+    } catch (e) {}
+  }
   function prepararPagina() {
     const sd = D.sitio;
     if (sd.descripcion) { ponerMeta('meta[name="description"]', 'content', sd.descripcion); ponerMeta('meta[property="og:description"]', 'content', sd.descripcion); }
     if (sd.titulo_pagina) ponerMeta('meta[property="og:title"]', 'content', sd.titulo_pagina);
     cargarAnalitica(sd.analitica);
+    datosEstructurados();
   }
 
   // Dirección de cada vista (#/requisitos, #/auto/rav4) para poder compartirla y usar el botón Atrás.
@@ -165,8 +182,13 @@
     });
   }
 
+  // La lista de documentos marcados se recuerda en este navegador (si el navegador lo permite).
+  const LS_CHECKS = 'ao_checks_v1';
+  const leerChecks = () => { try { const j = JSON.parse(localStorage.getItem(LS_CHECKS) || '{}'); return j && typeof j === 'object' && !Array.isArray(j) ? j : {}; } catch (e) { return {}; } };
+  const guardarChecks = c => { try { localStorage.setItem(LS_CHECKS, JSON.stringify(c)); } catch (e) {} };
+
   function initState() {
-    return { page: 'inicio', nid: null, pago: null, menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, req: null, checks: {}, w: 1280 };
+    return { page: 'inicio', nid: null, pago: null, menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, req: null, checks: leerChecks(), q: '', orden: '', mmax: '', w: 1280 };
   }
 
   function vals(c) {
@@ -175,6 +197,7 @@
     const st = c.state || {};
     const set = p => {
       c.setState(p);
+      if ('checks' in p) guardarChecks(p.checks);
       if ('page' in p || 'req' in p || 'ficha' in p || 'nid' in p) {
         try { const h = hashDe({ ...c.state, ...p }); if (h !== (location.hash || '#/')) history.pushState(null, '', h); } catch (e) {}
       }
@@ -197,12 +220,13 @@
     const W = st.w || 1280;
     const { S, pubs } = secciones();
     const FICHA = lst(S0.ficha).length ? S0.ficha : FICHA_BASE;
-    const specs = a => FICHA.filter(f => a[f.campo] !== undefined && a[f.campo] !== '').map(f => ({ k: f.etiqueta, v: a[f.campo] + (f.unidad ? ' ' + f.unidad : '') }));
+    const specs = a => FICHA.filter(f => a[f.campo] !== undefined && a[f.campo] !== '').map(f => { const raw = a[f.campo], v = raw + (f.unidad ? ' ' + f.unidad : ''); return { k: f.etiqueta, v, v2: !f.unidad && /^\d+([.,]\d+)?$/.test(String(raw)) ? raw + ' ' + String(f.etiqueta).toLowerCase() : v }; });
     const AUTOS = D.autos.filter(a => a.mostrar !== false);
     const MARCAS = D.marcas.filter(m => m.mostrar !== false);
     const FIN = D.financieras.filter(f => f.mostrar !== false);
     const ENG = lst(cal.enganches).map(Number).filter(isFinite); if (!ENG.length) ENG.push(10, 20, 30, 40);
     const PLAZO = lst(cal.plazos).map(Number).filter(isFinite); if (!PLAZO.length) PLAZO.push(12, 24, 36, 48, 60);
+    const MMAX_OPTS = lst(fil.pagos_mensuales).map(Number).filter(n => n > 0).map(n => ({ v: String(n), t: 'Hasta ' + mxn(n) + '/mes' }));
     const PAGOS = lst(fil.pagos);
     const pagoSel = st.pago != null && PAGOS.includes(st.pago) ? st.pago : (PAGOS[0] || '');
     const esContado = /contado/.test(norm(pagoSel)), esArrend = /arrend/.test(norm(pagoSel));
@@ -212,10 +236,16 @@
     const PRES = lst(fil.presupuestos);
     const pr = st.pres !== '' && st.pres != null ? PRES[+st.pres] : null;
     const cnt = m => AUTOS.filter(a => a.marca === m).length;
-    const lista = AUTOS.filter(a => (!st.marca || a.marca === st.marca) && (st.tipo === '*' || a.tipo === st.tipo) &&
-      (!pr || ((!pr.min || a.precio >= +pr.min) && (!pr.max || a.precio <= +pr.max))));
+    const Q = norm(st.q || '').split(/\s+/).filter(Boolean), MMAX = +st.mmax || 0;
+    const mens = a => mensualidad(a.precio, eng, finTarjeta, plazo);
+    const lista0 = AUTOS.filter(a => (!st.marca || a.marca === st.marca) && (st.tipo === '*' || a.tipo === st.tipo) &&
+      (!pr || ((!pr.min || a.precio >= +pr.min) && (!pr.max || a.precio <= +pr.max))) &&
+      (!Q.length || Q.every(t => norm([a.marca, a.modelo, a.version, a.tipo].join(' ')).includes(t))) &&
+      (!MMAX || esContado || mens(a) <= MMAX));
+    const ordenSel = ['precio_asc', 'precio_desc', 'mensual'].includes(st.orden) ? st.orden : '';
+    const lista = ordenSel === 'precio_asc' ? [...lista0].sort((x, y) => x.precio - y.precio) : ordenSel === 'precio_desc' ? [...lista0].sort((x, y) => y.precio - x.precio) : ordenSel === 'mensual' ? [...lista0].sort((x, y) => mens(x) - mens(y)) : lista0;
     const byId = id => AUTOS.find(a => a.id === id);
-    const cmp = (st.cmp || [null, null, null]).map(x => (x && byId(x)) ? x : null);
+    const cmp = (st.cmp || [AUTOS[0] && AUTOS[0].id, AUTOS[1] && AUTOS[1].id, null]).map(x => (x && byId(x)) ? x : null);
     const nCmp = cmp.filter(Boolean).length;
     const toggleCmp = id => { const a = cmp.slice(); const i = a.indexOf(id); if (i >= 0) a[i] = null; else { const j = a.indexOf(null); if (j < 0) return; a[j] = id; } set({ cmp: a }); };
     const scrollA = id => setTimeout(() => { const el = document.getElementById('sec-' + id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' }); }, 60);
@@ -278,7 +308,7 @@
     const PER = D.perfiles;
     const req = PER.find(r => r.id === st.req) || PER[0] || { id: '-', titulo: '', para: '', documentos: [], condiciones: [] };
     const docs = lst(req.documentos), ck = st.checks[req.id] || {};
-    const hechos = docs.filter((_, i) => ck[i]).length;
+    const hechos = docs.filter(t => ck[t]).length, faltan = docs.filter(t => !ck[t]);
     const opt = (arr, cur, key, fmt) => arr.map(v => ({ label: fmt(v), active: v === cur, inactive: v !== cur, pick: () => set({ [key]: v }) }));
     const tipos = [{ label: fil.texto_todos || 'Todos', val: '*' }].concat(lst(fil.tipos).map(t => ({ label: t, val: t })));
     const pick = m => () => set({ marca: st.marca === m ? null : m, ficha: null });
@@ -289,18 +319,24 @@
     try { const base = S0.titulo_pagina || 'Auto-Opciones'; document.title = NOT ? NOT.titulo + ' | ' + base : base; ponerMeta('meta[name="description"]', 'content', NOT ? (NOT.resumen || S0.descripcion) : S0.descripcion); } catch (e) {}
 
     return {
-      T, rootRef: c._rootRef, narrow: W < 760, wide: W >= 760, navWide: W >= 1100, navNarrow: W < 1100,
+      T, hayPagina: true, rootRef: c._rootRef,
+      heroPadTop: W < 760 ? '180px' : 'clamp(12px,2cqi,24px)', cmpCols: W < 760 ? 'repeat(3,max(250px,78cqi))' : 'repeat(3,minmax(240px,1fr))', cmpMin: W < 760 ? '0' : '760px', waBottom: st.page === 'inicio' ? '88px' : '20px',
+      q: st.q || '', onQ: e => set({ q: e.target.value }), ordenSel, onOrden: e => set({ orden: e.target.value }),
+      ordenOpts: [['', T.orden_relevancia], ['precio_asc', T.orden_precio_asc], ['precio_desc', T.orden_precio_desc], ['mensual', T.orden_mensual]].map(([v, t]) => ({ v, t })),
+      mmaxSel: MMAX ? String(MMAX) : '', onMmax: e => set({ mmax: e.target.value }), mmaxOpts: MMAX_OPTS, verMmax: MMAX_OPTS.length > 0 && !esContado,
+      hayFiltros: !!(st.marca || st.tipo !== '*' || pr || Q.length || MMAX), limpiar: () => set({ marca: null, tipo: '*', pres: '', q: '', mmax: '', ficha: null }),
+      pasos: lst(S.como_funciona.pasos).map((x, i) => ({ n: i + 1, t: x.titulo, d: x.texto })), preguntas: lst(S.faq.preguntas).map(x => ({ q: x.pregunta, a: x.respuesta })), narrow: W < 760, wide: W >= 760, navWide: W >= 1100, navNarrow: W < 1100,
       isInicio: st.page === 'inicio', isReq: st.page === 'req',
       goInicio: () => ir('pagina:inicio'), goReq: () => ir('pagina:requisitos'),
       menuOpen: !!st.menu, toggleMenu: () => set({ menu: !st.menu }),
       S, pubs, logo: S0.logo || 'AutoOpciones_Logo/02_solo-texto/AutoOpciones_02_solo-texto.svg',
       menu: lst(S0.menu).map(m => ({ texto: m.texto, ir: () => ir(m.enlace || m.destino) })),
       btnMenu: { texto: bm.texto || 'Solicitar crédito', ir: () => ir(bm.enlace || bm.destino || 'pagina:requisitos') },
-      c: { telefono: ct.telefono || '', frase: ct.frase || '', telHref: telHref(ct.telefono), hayTel: !!telHref(ct.telefono), hayWa: !!waNum, waHref: waNum ? 'https://wa.me/' + waNum : '' },
+      c: { telefono: ct.telefono || '', frase: ct.frase || '', horario: ct.horario || '', hayHorario: !!ct.horario, direccion: ct.direccion || '', hayDir: !!ct.direccion, telHref: telHref(ct.telefono), hayTel: !!telHref(ct.telefono), hayWa: !!waNum, waHref: waNum ? 'https://wa.me/' + waNum : '' },
       correos: lst(ct.correos).map(v => ({ v, href: 'mailto:' + v })), legales: lst(ct.legales).filter(l => l && l.texto && l.enlace).map(l => ({ texto: l.texto, enlace: l.enlace })), hayLegales: lst(ct.legales).some(l => l && l.texto && l.enlace),
       sinAutosTxt: llenar(T.sin_autos, { marca: marcaTxt }), cotizarMarca: () => lead('marca', llenar(MSG.marca, { marca: st.marca || 'auto' })),
-      pedirCredito: () => lead('credito', llenar(MSG.credito, { perfil: req.titulo || req.pestana || '', listos: hechos + ' de ' + docs.length })),
-      redes: lst(ct.redes).map(v => ({ v })),
+      pedirCredito: () => lead('credito', llenar(MSG.credito, { perfil: req.titulo || req.pestana || '', listos: hechos + ' de ' + docs.length, faltan: faltan.length && faltan.length < docs.length ? 'Me faltan: ' + faltan.slice(0, 6).join('; ') + (faltan.length > 6 ? '; y otros' : '') + '.' : '' })),
+      redes: lst(ct.redes).map(v => { const href = /^https?:\/\//i.test(v) ? v : /^www\./i.test(v) ? 'https://' + v : ''; return { v, href, hayHref: !!href, noHref: !href }; }),
       marcas: MARCAS.map(m => { const n = cnt(m.nombre); return { m: m.nombre, logo: m.logo || '', hasLogo: !!m.logo, noLogo: !m.logo, n, nLabel: n ? n + (n === 1 ? ' modelo' : ' modelos') : 'Bajo pedido', active: st.marca === m.nombre, inactive: st.marca !== m.nombre, pick: pick(m.nombre) }; }),
       totalMarcas: MARCAS.length,
       marcaActiva: st.marca || 'Todas las marcas',
@@ -323,14 +359,14 @@
       financieras: FIN,
       noticias: NOTICIAS.map(n => ({ cat: n.categoria, t: n.titulo, d: n.resumen, foto: n.foto || '', icono: n.icono || '', slug: n.slug, clic: n.clic, cursor: n.clic ? 'pointer' : 'default', rol: n.clic ? 'link' : 'article', tab: n.clic ? '0' : '',
         abrir: () => { if (n.tieneTexto) { set({ page: 'noticia', nid: n.slug, menu: false }); window.scrollTo(0, 0); } else if (n.tieneEnlace) window.open(n.enlace, /^https?:/.test(n.enlace) ? '_blank' : '_self', 'noopener'); } })),
-      isNoticia: st.page === 'noticia', noticiaOk: !!NOT, noticiaNo: !NOT, art: NOT ? { t: NOT.titulo, cat: NOT.categoria, foto: NOT.foto || '', hayFoto: !!NOT.foto, d: NOT.resumen || '', hayMin: !!+NOT.minutos, min: NOT.minutos + ' ' + T.min_lectura, ps: String(NOT.contenido || '').split(/\n\s*\n/).map(x => x.trim()).filter(Boolean).map(t => ({ t })) } : {},
+      isNoticia: st.page === 'noticia', noticiaOk: !!NOT, noticiaNo: !NOT, art: NOT ? { t: NOT.titulo, cat: NOT.categoria, foto: NOT.foto || '', hayFoto: !!NOT.foto, d: NOT.resumen || '', hayMin: !!+NOT.minutos, min: NOT.minutos + ' ' + T.min_lectura, ps: String(NOT.contenido || '').split(/\n\s*\n/).map(x => x.trim()).filter(Boolean).map(t => ({ t, partes: t.split(/(https?:\/\/[^\s]+)/g).filter(Boolean).map(x => /^https?:\/\//.test(x) ? { t: x, link: true, nolink: false } : { t: x, link: false, nolink: true }) })) } : {},
       cotizarGeneral: () => lead('marca', llenar(MSG.marca, { marca: 'auto' })), goNoticias: () => { set({ page: 'inicio', nid: null, menu: false }); scrollA('noticias'); },
       reqTabs: PER.map(r => ({ label: r.pestana, active: r.id === req.id, inactive: r.id !== req.id, pick: () => set({ req: r.id }), ir: () => { set({ req: r.id }); ir('pagina:requisitos'); } })),
       rq: { titulo: rq.titulo || '', resaltado: rq.resaltado || '', nota: rq.nota || '', boton: rq.boton || 'Solicitar preautorización', aviso: rq.aviso || '' },
       hayLeyenda: !!String(T.leyenda_mensualidad || '').trim() && !esContado,
       hayReqPub: !!reqPub, reqPub: reqPub || {},
       req: { titulo: req.titulo, para: req.para, cond: lst(req.condiciones).map(t => ({ t })),
-        docs: docs.map((t, i) => ({ t, n: String(i + 1).padStart(2, '0'), on: !!ck[i], off: !ck[i], toggle: () => set({ checks: { ...st.checks, [req.id]: { ...ck, [i]: !ck[i] } } }) })) },
+        docs: docs.map((t, i) => ({ t, n: String(i + 1).padStart(2, '0'), on: !!ck[t], off: !ck[t], toggle: () => set({ checks: { ...st.checks, [req.id]: { ...ck, [t]: !ck[t] } } }) })) },
       reqProgreso: hechos + ' de ' + docs.length, reqPct: (docs.length ? Math.round(hechos / docs.length * 100) : 0) + '%',
       reqListo: docs.length > 0 && hechos === docs.length, reqFalta: !(docs.length > 0 && hechos === docs.length)
     };

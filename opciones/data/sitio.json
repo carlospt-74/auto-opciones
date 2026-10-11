@@ -64,6 +64,26 @@
       "mostrar_financieras": true
     },
     {
+      "tipo": "como_funciona",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Así funciona",
+      "pasos": [
+        {
+          "titulo": "Elige y compara",
+          "texto": "Explora las marcas, filtra por tipo, presupuesto o pago mensual, y compara hasta 3 autos con su mensualidad estimada."
+        },
+        {
+          "titulo": "Revisa tus requisitos",
+          "texto": "Consulta los documentos que pide cada perfil de crédito y ve marcando los que ya tienes listos."
+        },
+        {
+          "titulo": "Pide tu cotización",
+          "texto": "Envíanos tu solicitud por WhatsApp o correo y te ayudamos a avanzar con la agencia y la institución financiera."
+        }
+      ]
+    },
+    {
       "tipo": "publicidad",
       "mostrar": true,
       "fondo": "blanco",
@@ -83,6 +103,34 @@
       "fondo": "blanco",
       "titulo": "Noticias y tips",
       "mostrar_iconos": true
+    },
+    {
+      "tipo": "faq",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Preguntas frecuentes",
+      "preguntas": [
+        {
+          "pregunta": "¿La mensualidad que veo es la que voy a pagar?",
+          "respuesta": "Es una estimación con una tasa de referencia y está sujeta a aprobación de crédito. La mensualidad final depende de la institución financiera, el enganche, el plazo y otros cargos."
+        },
+        {
+          "pregunta": "¿Qué documentos necesito para pedir un crédito?",
+          "respuesta": "Depende de tu perfil: persona física, persona física con actividad empresarial, persona moral o arrendamiento. Revisa la página de Requisitos; cada institución puede pedir documentos adicionales."
+        },
+        {
+          "pregunta": "¿Puedo comparar varios autos?",
+          "respuesta": "Sí. Agrega hasta 3 autos al comparador y verás el enganche, el monto a financiar, la mensualidad estimada y la ficha técnica lado a lado."
+        },
+        {
+          "pregunta": "¿Los precios están actualizados?",
+          "respuesta": "Los precios son de referencia y pueden cambiar. Cuando un auto muestra «Precio vigente al», esa es la fecha de la última actualización; confirma el precio final con nosotros."
+        },
+        {
+          "pregunta": "¿Cómo pido una cotización?",
+          "respuesta": "Presiona «Cotizar este auto» y se abrirá WhatsApp (o tu correo) con un mensaje listo para enviar."
+        }
+      ]
     }
   ],
   "filtros": [
@@ -120,6 +168,13 @@
         "Crédito",
         "Arrendamiento",
         "Contado"
+      ],
+      "pagos_mensuales": [
+        8000,
+        10000,
+        12000,
+        15000,
+        20000
       ]
     }
   ],
