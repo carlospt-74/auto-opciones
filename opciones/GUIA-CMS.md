@@ -40,6 +40,20 @@ Las listas (autos, marcas, financieras, noticias, etc.) se abren **colapsadas** 
 
 Un auto nuevo nace con **Mostrar** encendido. Si no debe verse todavía, apágalo; no lo borres.
 
+## Importar muchos autos desde una hoja de cálculo
+Para cargar o actualizar varios autos a la vez (por ejemplo, con las listas de precios de una agencia):
+1. Llena `tools/plantilla-autos.xlsx` (o un `.csv` con las mismas columnas): una fila por versión. Marca, modelo, versión y precio son obligatorios; lo que no sepas se deja vacío.
+2. Revisa lo que cambiaría: `python3 tools/importar-autos.py mi-hoja.xlsx`. Muestra los autos nuevos, los precios o datos que cambian, los errores y los avisos. No escribe nada.
+3. Si todo está bien: `python3 tools/importar-autos.py mi-hoja.xlsx --aplicar`, y sube el cambio al repositorio.
+
+Cosas que debes saber:
+- Una celda vacía **nunca borra** un dato que ya existe.
+- No se tocan la foto, el enfoque de la foto ni "Mostrar" de un auto que ya está.
+- Un auto nuevo entra con **Mostrar apagado** hasta que le subas su foto en el CMS (el CMS exige foto).
+- Si una marca no está en el portal, el script avisa: agrégala primero en **Marcas**.
+- Anota en "vigencia" de qué fecha es el precio y en "fuente" de dónde lo sacaste (la fuente no se guarda en el portal).
+- Esto no sube fotos. Las fotos necesitan permiso de la marca o de la agencia.
+
 ## Agregar una marca o un tipo de auto nuevo
 Las listas de **Marca** y **Tipo** de Autos son fijas. Para sumar una:
 1. **Marca:** agrégala en **Marcas** (nombre y logo). Luego, en el menú de la izquierda, entra a **Configuration**, busca la lista `marca` dentro de `autos` y agrega el nombre, escrito igual que en Marcas, en orden alfabético.
