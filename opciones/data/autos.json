@@ -215,24 +215,6 @@
       "pas": 5,
       "cajuela": 334,
       "bolsas": 8
-    },
-    {
-      "id": "mi-coche",
-      "marca": "asda",
-      "modelo": "asdas",
-      "version": "asda",
-      "tipo": "asda",
-      "precio": 232133,
-      "foto": "assets/fotos/15223535.jpg",
-      "mostrar": false,
-      "motor": "3242",
-      "hp": 232,
-      "trans": "das",
-      "traccion": "asda",
-      "rend": 23,
-      "pas": 3,
-      "cajuela": 2,
-      "bolsas": 2
     }
   ]
 }
