@@ -12,11 +12,11 @@
       "motor": "2.5 L híbrido",
       "hp": 219,
       "trans": "e-CVT",
+      "traccion": "AWD",
       "rend": 20.1,
       "pas": 5,
       "cajuela": 580,
-      "bolsas": 8,
-      "traccion": "AWD"
+      "bolsas": 8
     },
     {
       "id": "cx5",
@@ -30,11 +30,11 @@
       "motor": "2.5 L",
       "hp": 187,
       "trans": "Automática 6 vel.",
+      "traccion": "FWD",
       "rend": 14.5,
       "pas": 5,
       "cajuela": 442,
-      "bolsas": 6,
-      "traccion": "FWD"
+      "bolsas": 6
     },
     {
       "id": "crv",
@@ -48,11 +48,11 @@
       "motor": "1.5 L turbo",
       "hp": 190,
       "trans": "CVT",
+      "traccion": "AWD",
       "rend": 15.4,
       "pas": 5,
       "cajuela": 586,
-      "bolsas": 8,
-      "traccion": "AWD"
+      "bolsas": 8
     },
     {
       "id": "sentra",
@@ -66,11 +66,11 @@
       "motor": "2.0 L",
       "hp": 149,
       "trans": "CVT",
+      "traccion": "FWD",
       "rend": 16.9,
       "pas": 5,
       "cajuela": 405,
-      "bolsas": 6,
-      "traccion": "FWD"
+      "bolsas": 6
     },
     {
       "id": "taos",
@@ -84,11 +84,11 @@
       "motor": "1.4 L turbo",
       "hp": 150,
       "trans": "Tiptronic 6 vel.",
+      "traccion": "FWD",
       "rend": 15,
       "pas": 5,
       "cajuela": 498,
-      "bolsas": 6,
-      "traccion": "FWD"
+      "bolsas": 6
     },
     {
       "id": "tucson",
@@ -102,11 +102,11 @@
       "motor": "2.5 L",
       "hp": 187,
       "trans": "Automática 8 vel.",
+      "traccion": "FWD",
       "rend": 13.2,
       "pas": 5,
       "cajuela": 620,
-      "bolsas": 6,
-      "traccion": "FWD"
+      "bolsas": 6
     },
     {
       "id": "ranger",
@@ -120,11 +120,11 @@
       "motor": "2.0 L turbo diésel",
       "hp": 170,
       "trans": "Automática 10 vel.",
+      "traccion": "4x4",
       "rend": 11.8,
       "pas": 5,
       "cajuela": 1200,
-      "bolsas": 6,
-      "traccion": "4x4"
+      "bolsas": 6
     },
     {
       "id": "x1",
@@ -138,11 +138,11 @@
       "motor": "2.0 L turbo",
       "hp": 204,
       "trans": "Doble embrague 7 vel.",
+      "traccion": "FWD",
       "rend": 14.2,
       "pas": 5,
       "cajuela": 540,
-      "bolsas": 8,
-      "traccion": "FWD"
+      "bolsas": 8
     },
     {
       "id": "clasea",
@@ -156,11 +156,11 @@
       "motor": "1.3 L turbo",
       "hp": 163,
       "trans": "Doble embrague 7 vel.",
+      "traccion": "FWD",
       "rend": 16.1,
       "pas": 5,
       "cajuela": 420,
-      "bolsas": 7,
-      "traccion": "FWD"
+      "bolsas": 7
     },
     {
       "id": "compass",
@@ -174,11 +174,11 @@
       "motor": "1.3 L turbo",
       "hp": 175,
       "trans": "Automática 6 vel.",
+      "traccion": "FWD",
       "rend": 13,
       "pas": 5,
       "cajuela": 438,
-      "bolsas": 6,
-      "traccion": "FWD"
+      "bolsas": 6
     },
     {
       "id": "sportage",
@@ -192,11 +192,11 @@
       "motor": "2.0 L",
       "hp": 154,
       "trans": "Automática 6 vel.",
+      "traccion": "FWD",
       "rend": 13.6,
       "pas": 5,
       "cajuela": 591,
-      "bolsas": 6,
-      "traccion": "FWD"
+      "bolsas": 6
     },
     {
       "id": "mazda3",
@@ -210,11 +210,29 @@
       "motor": "2.5 L turbo",
       "hp": 227,
       "trans": "Automática 6 vel.",
+      "traccion": "FWD",
       "rend": 13.4,
       "pas": 5,
       "cajuela": 334,
-      "bolsas": 8,
-      "traccion": "FWD"
+      "bolsas": 8
+    },
+    {
+      "id": "mi-coche",
+      "marca": "asda",
+      "modelo": "asdas",
+      "version": "asda",
+      "tipo": "asda",
+      "precio": 232133,
+      "foto": "assets/fotos/15223535.jpg",
+      "mostrar": false,
+      "motor": "3242",
+      "hp": 232,
+      "trans": "das",
+      "traccion": "asda",
+      "rend": 23,
+      "pas": 3,
+      "cajuela": 2,
+      "bolsas": 2
     }
   ]
 }
