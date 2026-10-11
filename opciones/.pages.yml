@@ -236,6 +236,7 @@ content:
           - { name: mensaje_auto, label: Mensaje al cotizar un auto, type: text, description: "Variables: {auto}, {anio}, {precio}, {enganche}, {plazo}, {mensualidad}. Si lo dejas vacío se usa el mensaje original." }
           - { name: mensaje_marca, label: Mensaje al pedir cotización de una marca, type: text, description: "Variable: {marca}." }
           - { name: mensaje_credito, label: Mensaje al solicitar preautorización, type: text, description: "Variables: {perfil}, {listos}." }
+          - { name: mensaje_compartir, label: Mensaje al compartir una comparación, type: string, description: "Primera línea del mensaje. Después se agregan los autos, sus precios y el enlace." }
           - name: legales
             label: Enlaces legales del pie (aviso de privacidad, términos)
             type: object
@@ -294,6 +295,7 @@ content:
           - { name: ver_mas_autos, label: "Celular: botón para ver más autos", type: string }
           - { name: volver_arriba, label: "Celular: botón para volver arriba", type: string }
           - { name: deslizar, label: "Celular: aviso para deslizar el comparador", type: string }
+          - { name: compartir_comparacion, label: "Comparador: botón para compartir por WhatsApp", type: string }
           - { name: noticia_no_encontrada, label: "Noticia: mensaje si no se encuentra", type: string }
       - name: ajustes
         label: false

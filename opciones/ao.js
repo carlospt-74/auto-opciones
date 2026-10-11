@@ -109,12 +109,13 @@
     leyenda_mensualidad: 'Pago mensual estimado con una tasa de referencia, sujeto a aprobación de crédito.',
     buscar_label: 'Buscar', buscar_placeholder: 'Marca o modelo', ordenar: 'Ordenar por', orden_relevancia: 'Más relevantes', orden_precio_asc: 'Precio: de menor a mayor', orden_precio_desc: 'Precio: de mayor a menor', orden_mensual: 'Mensualidad: de menor a mayor', mensual_hasta: 'Pago mensual hasta', limpiar_filtros: 'Limpiar filtros', horario: 'Horario',
     whatsapp_texto: 'Escríbenos por WhatsApp', saltar: 'Saltar al contenido', imprimir_lista: 'Imprimir o guardar mi lista', renta_cotizar: 'Renta a cotizar', noticias: 'Noticias', noticia_no_encontrada: 'No encontramos esta noticia.',
-    volver_noticias: 'Ver más noticias y tips', min_lectura: 'min de lectura', cta_noticia: 'Cotizar mi auto', ver_mas_autos: 'Ver más autos', volver_arriba: 'Volver arriba', deslizar: 'Desliza para ver los demás autos'
+    volver_noticias: 'Ver más noticias y tips', min_lectura: 'min de lectura', cta_noticia: 'Cotizar mi auto', ver_mas_autos: 'Ver más autos', volver_arriba: 'Volver arriba', deslizar: 'Desliza para ver los demás autos', compartir_comparacion: 'Compartir comparación por WhatsApp'
   };
   // Mensajes que se envían al pedir una cotización o una preautorización (editables en el CMS).
   const MENSAJES = {
     auto: 'Hola, me interesa cotizar el {auto}{anio} (precio desde {precio}). {detalle} ¿Me pueden apoyar?',
     marca: 'Hola, busco un {marca}. ¿Me pueden ayudar a cotizarlo?',
+    compartir: 'Mira esta comparación de autos en Auto-Opciones:',
     credito: 'Hola, quiero iniciar mi preautorización de crédito. Perfil: {perfil}. Documentos listos: {listos}. {faltan}'
   };
   const llenar = (tpl, v) => String(tpl).replace(/\{(\w+)\}/g, (_, k) => v[k] != null ? v[k] : '').replace(/\s+([.,?!])/g, '$1').replace(/\s{2,}/g, ' ').trim();
@@ -174,6 +175,7 @@
   const estadoDeHash = () => {
     const p = (location.hash || '').replace(/^#\/?/, '').split('/').filter(Boolean).map(x => { try { return decodeURIComponent(x); } catch (e) { return x; } });
     if (p[0] === 'requisitos') return { page: 'req', req: p[1] || null, ficha: null, menu: false };
+    if (p[0] === 'comparar' && p[1]) return { page: 'inicio', ficha: null, menu: false, cmp: [0, 1, 2].map(i => p[1].split(',')[i] || null), irCmp: true };
     if (p[0] === 'auto' && p[1]) return { page: 'inicio', ficha: p[1], menu: false };
     if (p[0] === 'noticia' && p[1]) return { page: 'noticia', nid: p[1], ficha: null, menu: false };
     return { page: 'inicio', ficha: null, menu: false };
@@ -210,7 +212,7 @@
     };
     if (!c._hashOn) {
       c._hashOn = true;
-      const aplicar = () => { const e = estadoDeHash(); if (e.page !== (c.state || {}).page) window.scrollTo(0, 0); c.setState(e); };
+      const aplicar = () => { const e = estadoDeHash(); const ir = e.irCmp; delete e.irCmp; if (e.page !== (c.state || {}).page) window.scrollTo(0, 0); c.setState(e); if (ir) scrollA('comparador'); };
       window.addEventListener('popstate', aplicar); window.addEventListener('hashchange', aplicar);
       if (location.hash && location.hash !== '#/') setTimeout(aplicar, 0);
     }
@@ -265,7 +267,7 @@
 
     window.__aoEsc = () => { if (st.menu) set({ menu: false }); else if (st.ficha) set({ ficha: null }); };
     const T = { ...TEXTOS, ...Object.fromEntries(Object.entries(S0.textos || {}).filter(([, v]) => typeof v === 'string' && v !== '')) };
-    const MSG = { ...MENSAJES, ...Object.fromEntries(Object.entries({ auto: ct.mensaje_auto, marca: ct.mensaje_marca, credito: ct.mensaje_credito }).filter(([, v]) => v)) };
+    const MSG = { ...MENSAJES, ...Object.fromEntries(Object.entries({ auto: ct.mensaje_auto, marca: ct.mensaje_marca, credito: ct.mensaje_credito, compartir: ct.mensaje_compartir }).filter(([, v]) => v)) };
     const waNum = numMx(ct.whatsapp), correo1 = lst(ct.correos)[0];
     const lead = (tipo, texto) => {
       track('lead', { tipo });
@@ -309,6 +311,15 @@
         onFin: e => { const fin = st.fin.slice(); fin[i] = e.target.value; set({ fin }); },
         quitar: () => { const cc = cmp.slice(); cc[i] = null; set({ cmp: cc }); } };
     });
+    const compartirCmp = () => {
+      const f = slots.filter(s => s.filled);
+      if (!f.length) return;
+      const url = location.origin + location.pathname + '#/comparar/' + f.map(s => encodeURIComponent(s.id)).join(',');
+      const lineas = f.map(s => '• ' + [s.nombre, s.version].filter(Boolean).join(' ') + ' · ' + s.precioF + (esContado ? '' : ' · ' + s.mensualF + '/mes*'));
+      const pie = esContado ? '' : '\n* ' + T.leyenda_mensualidad + ' (' + eng + '% de enganche, ' + plazo + ' meses)';
+      track('compartir', { autos: f.length });
+      window.open('https://wa.me/?text=' + encodeURIComponent(MSG.compartir + '\n' + lineas.join('\n') + pie + '\n' + url), '_blank', 'noopener');
+    };
     const pagos = slots.filter(s => s.filled).map(s => +s.mensualF.replace(/[^0-9]/g, ''));
     const maxP = Math.max(1, ...pagos), minP = Math.min(...pagos);
     slots.forEach(s => { if (s.filled) { const p = +s.mensualF.replace(/[^0-9]/g, ''); s.barPct = Math.round(p / maxP * 100) + '%'; s.masBaja = pagos.length > 1 && p === minP; } });
@@ -356,7 +367,7 @@
       verPres: fil.mostrar_presupuesto !== false && PRES.length > 0, verPago: fil.mostrar_pago !== false && lst(fil.pagos).length > 0,
       presOpts: PRES.map((p, i) => ({ i: String(i), texto: p.texto })), presSel: st.pres == null ? '' : String(st.pres), onPres: e => set({ pres: e.target.value }),
       pagoOpts: PAGOS.map(t => ({ t })), pagoSel, onPago: e => set({ pago: e.target.value }),
-      hayCmp: nCmp > 0, cmpFin: nCmp > 0 && !esContado, conFin: !esContado,
+      hayCmp: nCmp > 0, compartirCmp, txtCompartir: T.compartir_comparacion, cmpFin: nCmp > 0 && !esContado, conFin: !esContado,
       cardCols: S.autos.vista === 'cuadricula' ? 'repeat(auto-fit,minmax(min(100%,280px),1fr))' : W >= 760 ? 'minmax(300px,36%) minmax(0,1fr)' : 'minmax(0,1fr)', cardAlto: W >= 760 && S.autos.vista !== 'cuadricula' ? '260px' : '220px',
       buscar: () => scrollA('autos'), verCmp: () => scrollA('comparador'),
       tipos: tipos.map(t => ({ label: t.label, active: st.tipo === t.val, inactive: st.tipo !== t.val, pick: () => set({ tipo: t.val }) })),
