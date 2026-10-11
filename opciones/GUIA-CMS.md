@@ -21,22 +21,31 @@ Las listas (autos, marcas, financieras, noticias, etc.) se abren **colapsadas** 
 1. Entra a **Autos** y presiona **Add an item** al final de la lista.
 2. Llena al menos los campos marcados **Required**: Id, Marca, Modelo, Tipo, Precio y Foto.
    - **Id:** corto, único y solo con minúsculas, números y guiones. Ejemplo: `cx-5`.
-   - **Marca:** igual que aparece en **Marcas** (ejemplo: `Mazda`).
-   - **Tipo:** igual que en **Configuración del sitio → Filtros** (ejemplo: `SUV`).
+   - **Marca** y **Tipo:** se eligen de una lista desplegable (así no hay errores de escritura).
    - **Precio:** en pesos, sin símbolo ni comas. Ejemplo: `599900`.
 3. Sube la **Foto** (ver Fotos más abajo).
 4. Presiona **Save**. Si falta algo o hay un error, el campo se marca en rojo y no se guarda hasta corregirlo.
 
-Si un auto no debe verse todavía, apaga **Mostrar**. No lo borres.
+Un auto nuevo nace con **Mostrar** encendido. Si no debe verse todavía, apágalo; no lo borres.
+
+## Agregar una marca o un tipo de auto nuevo
+Las listas de **Marca** y **Tipo** de Autos son fijas. Para sumar una:
+1. **Marca:** agrégala en **Marcas** (nombre y logo). Luego, en el menú de la izquierda, entra a **Configuration**, busca la lista `marca` dentro de `autos` y agrega el nombre, escrito igual que en Marcas, en orden alfabético.
+2. **Tipo:** agrégalo en **Configuración del sitio → Filtros → Tipos de auto** y también en **Configuration**, en la lista `tipo` de `autos`.
+
+Si prefieres no editar **Configuration**, pídele a quien administre el sitio que lo haga.
 
 ## Reglas que revisa el CMS
 - **Id:** solo minúsculas, números y guiones, sin espacios ni acentos, y no se puede repetir. Aplica en autos, financieras, perfiles de requisitos y anuncios.
 - **Números:** precio mayor a 0, pasajeros entre 1 y 9, bolsas de aire entre 0 y 20, tasa y comisión entre 0 y 100. Los decimales están permitidos (por ejemplo, rendimiento `15.4`).
 
 ## Cambiar el orden de las secciones
-En **Configuración del sitio → Secciones**, arrastra los bloques. El interruptor **Mostrar** oculta una sección sin borrarla. El campo **Fondo** cambia entre blanco y naranja suave.
+En **Configuración del sitio → Secciones de la página de inicio**, arrastra los bloques. Cada tipo de sección muestra solo los campos que le corresponden. El interruptor **Mostrar** oculta una sección sin borrarla. El campo **Fondo** cambia entre blanco y naranja suave.
 
-Para poner otro anuncio, crea el anuncio en **Publicidad**, luego agrega un bloque de tipo *Publicidad* en Secciones y escribe el **Id del anuncio**.
+Para agregar una sección, presiona **Add an item** y elige su tipo. Los tipos se usan una sola vez, salvo **Publicidad**, que puedes repetir. Para poner otro anuncio, crea el anuncio en **Publicidad**, luego agrega una sección de tipo *Publicidad* y escribe el **Id del anuncio**.
+
+## Menú y botón con enlace externo
+En **Configuración del sitio → Menú superior** (y en **Botón del menú**), el campo **Lleva a** elige un lugar del propio sitio. Si quieres abrir un enlace externo, llena **Enlace externo** con `https://…`, `mailto:…` o `tel:…`. Cuando tiene un enlace, se usa ese en lugar de **Lleva a**.
 
 ## Fórmula de mensualidad
 Está en **Configuración del sitio → Cálculo de mensualidad**. La fórmula actual es:

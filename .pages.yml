@@ -40,9 +40,8 @@ content:
             name: destino
             label: Lleva a
             type: select
-            description: "También puedes escribir un enlace que empiece con https://, mailto: o tel:"
+            description: "Lugar del sitio al que lleva. Para abrir un enlace externo usa el campo de abajo."
             options:
-              creatable: true
               values:
                 - { value: "pagina:inicio", label: "Inicio" }
                 - { value: "pagina:requisitos", label: "Página de requisitos" }
@@ -53,12 +52,19 @@ content:
                 - { value: "seccion:ofertas", label: "Sección: Ofertas de crédito" }
                 - { value: "seccion:info_credito", label: "Sección: Información de crédito" }
                 - { value: "seccion:noticias", label: "Sección: Noticias y tips" }
+          - &enlace
+            name: enlace
+            label: Enlace externo (opcional)
+            type: string
+            description: "Si lo llenas, se usa en lugar de 'Lleva a'. Debe empezar con https://, mailto: o tel:"
+            pattern: { regex: "^$|^(https?://|mailto:|tel:)[^ ]+$", message: "Debe empezar con https://, mailto: o tel: y no llevar espacios" }
       - name: boton_menu
         label: Botón del menú
         type: object
         fields:
           - { name: texto, label: Texto, type: string }
           - *destino
+          - *enlace
       - name: filtros
         label: Filtros
         type: object
@@ -116,43 +122,68 @@ content:
           - { name: aviso, label: Aviso bajo el botón, type: string }
       - name: secciones
         label: Secciones de la página de inicio (arrastra para cambiar el orden)
-        type: object
+        type: block
+        blockKey: tipo
         list: { collapsible: { collapsed: true, summary: "{tipo}: {titulo}" } }
-        description: "Puedes repetir el bloque Publicidad con distintos anuncios. Los demás tipos se usan una vez."
-        fields:
-          - name: tipo
-            label: Tipo de sección
-            type: select
-            options:
-              values:
-                - { value: banner, label: Banner inicial }
-                - { value: marcas, label: Explora tu marca }
-                - { value: comparador, label: Comparador }
-                - { value: autos, label: Autos }
-                - { value: ofertas, label: Ofertas de crédito }
-                - { value: publicidad, label: Publicidad }
-                - { value: info_credito, label: Información de crédito }
-                - { value: noticias, label: Noticias y tips }
-          - { name: mostrar, label: Mostrar, type: boolean }
-          - name: fondo
-            label: Fondo
-            type: select
-            options: { values: [blanco, suave] }
-          - { name: etiqueta, label: "Etiqueta pequeña (comparador, información de crédito)", type: string }
-          - { name: titulo, label: Título, type: string }
-          - { name: resaltado, label: Palabra resaltada (banner), type: string }
-          - { name: titulo_fin, label: Final del título (banner), type: string }
-          - { name: texto, label: Texto (información de crédito), type: string }
-          - { name: foto, label: Foto (banner), type: image, options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
-          - { name: boton, label: Texto del botón (banner), type: string }
-          - name: vista
-            label: Vista (autos)
-            type: select
-            options: { values: [lista, cuadricula] }
-          - { name: texto_disponibles, label: "Texto después del número de autos", type: string }
-          - { name: mostrar_financieras, label: Mostrar financieras (ofertas), type: boolean }
-          - { name: mostrar_iconos, label: Mostrar íconos (noticias), type: boolean }
-          - { name: anuncio, label: "Id del anuncio (publicidad)", type: string }
+        description: "Para agregar una sección presiona Add an item y elige su tipo. Puedes repetir Publicidad con distintos anuncios; los demás tipos se usan una vez."
+        blocks:
+          - name: banner
+            label: Banner inicial
+            fields:
+              - &sec_mostrar { name: mostrar, label: Mostrar, type: boolean, default: true }
+              - &sec_fondo { name: fondo, label: Fondo, type: select, default: blanco, options: { values: [blanco, suave] } }
+              - { name: titulo, label: Título (primera parte), type: string }
+              - { name: resaltado, label: Palabra resaltada, type: string }
+              - { name: titulo_fin, label: Final del título, type: string }
+              - { name: foto, label: Foto, type: image, options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+              - { name: boton, label: Texto del botón, type: string }
+          - name: marcas
+            label: Explora tu marca
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+          - name: comparador
+            label: Comparador
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+          - name: autos
+            label: Autos
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: vista, label: Vista, type: select, default: lista, options: { values: [lista, cuadricula] } }
+              - { name: texto_disponibles, label: "Texto después del número de autos", type: string }
+          - name: ofertas
+            label: Ofertas de crédito
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+              - { name: mostrar_financieras, label: Mostrar financieras, type: boolean, default: true }
+          - name: publicidad
+            label: Publicidad
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: anuncio, label: "Id del anuncio (el que pusiste en Publicidad)", type: string }
+          - name: info_credito
+            label: Información de crédito
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: etiqueta, label: Etiqueta pequeña, type: string }
+              - { name: titulo, label: Título, type: string }
+              - { name: texto, label: Texto, type: string }
+          - name: noticias
+            label: Noticias y tips
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+              - { name: mostrar_iconos, label: Mostrar íconos, type: boolean, default: true }
 
   - name: autos
     label: Autos
@@ -166,13 +197,57 @@ content:
         list: { collapsible: { collapsed: true, summary: "{marca} {modelo} {version}" } }
         fields:
           - { name: id, label: Id único (sin espacios), type: string, required: true, description: "No se puede repetir. Solo minúsculas, números y guiones.", pattern: { regex: "^[a-z0-9]+(-[a-z0-9]+)*$", message: "Solo minúsculas, números y guiones, sin espacios ni acentos (ej. cx-5)" } }
-          - { name: marca, label: Marca (igual que en Marcas), type: string, required: true }
+          - name: marca
+            label: Marca
+            type: select
+            required: true
+            description: "Si la marca no aparece, agrégala primero en Marcas y luego en la configuración (ver GUIA-CMS.md)."
+            options:
+              values:
+                - Acura
+                - Alfa Romeo
+                - Audi
+                - BMW
+                - Cadillac
+                - Chevrolet
+                - Chrysler
+                - Dodge
+                - Fiat
+                - Ford
+                - Honda
+                - Hyundai
+                - Jeep
+                - Kia
+                - Land Rover
+                - Mazda
+                - Mercedes Benz
+                - Mini Cooper
+                - Mitsubishi
+                - Nissan
+                - Peugeot
+                - RAM
+                - Renault
+                - Seat
+                - Smart
+                - Suzuki
+                - Toyota
+                - Volkswagen
           - { name: modelo, label: Modelo, type: string, required: true }
           - { name: version, label: Versión, type: string }
-          - { name: tipo, label: Tipo (igual que en Filtros), type: string, required: true }
+          - name: tipo
+            label: Tipo
+            type: select
+            required: true
+            description: "Debe ser uno de los tipos de Configuración del sitio → Filtros."
+            options:
+              values:
+                - SUV
+                - Sedán
+                - Hatchback
+                - Pickup
           - { name: precio, label: Precio (MXN), type: number, required: true, description: "En pesos, sin símbolo ni comas. Ej. 689900", options: { step: any, min: 1 } }
           - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1200 px de ancho. Formatos: JPG, PNG o WEBP.", options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
-          - { name: mostrar, label: Mostrar, type: boolean }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
           - { name: motor, label: Motor, type: string }
           - { name: hp, label: Potencia (hp), type: number, options: { min: 1 } }
           - { name: trans, label: Transmisión, type: string }
@@ -195,7 +270,7 @@ content:
         fields:
           - { name: nombre, label: Nombre, type: string, required: true }
           - { name: logo, label: Logo, type: image, description: "Mejor en SVG de un solo color (azul #1B2A4A), como los demás.", options: { path: opciones/assets/marcas, extensions: [svg, png, webp] } }
-          - { name: mostrar, label: Mostrar, type: boolean }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
 
   - name: financieras
     label: Financieras
@@ -213,7 +288,7 @@ content:
           - { name: tasa, label: Tasa anual (%), type: number, description: "Ej. 13.9", options: { step: any, min: 0, max: 100 } }
           - { name: apertura, label: Comisión por apertura (%), type: number, options: { step: any, min: 0, max: 100 } }
           - { name: seguro, label: Seguro mensual (MXN), type: number, description: "Pesos por mes. Pon 0 si no aplica.", options: { step: any, min: 0 } }
-          - { name: mostrar, label: Mostrar, type: boolean }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
 
   - name: ofertas
     label: Ofertas de crédito
@@ -229,7 +304,7 @@ content:
           - { name: etiqueta, label: Etiqueta, type: string }
           - { name: valor, label: Valor destacado, type: string }
           - { name: detalle, label: Detalle, type: string }
-          - { name: mostrar, label: Mostrar, type: boolean }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
 
   - name: noticias
     label: Noticias y tips
@@ -249,7 +324,7 @@ content:
           - { name: foto, label: Foto, type: image, options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
           - { name: icono, label: Ícono (SVG), type: image, options: { path: opciones/assets/iconos, extensions: [svg] } }
           - { name: enlace, label: Enlace (opcional), type: string }
-          - { name: mostrar, label: Mostrar, type: boolean }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
 
   - name: requisitos
     label: Requisitos de crédito
@@ -289,4 +364,4 @@ content:
             label: Dónde aparece
             type: select
             options: { values: [inicio, requisitos] }
-          - { name: mostrar, label: Mostrar, type: boolean }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
