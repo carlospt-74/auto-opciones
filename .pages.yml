@@ -92,6 +92,7 @@ content:
             fields:
               - *sec_mostrar
               - *sec_fondo
+              - { name: titulo, label: Nombre en el CMS, type: string, description: "Solo para identificar la sección en el CMS; no se muestra en el portal." }
               - { name: vista, label: Vista, type: select, default: lista, options: { values: [lista, cuadricula] } }
               - { name: texto_disponibles, label: "Texto después del número de autos", type: string }
           - name: ofertas
@@ -119,6 +120,7 @@ content:
             fields:
               - *sec_mostrar
               - *sec_fondo
+              - { name: titulo, label: Nombre en el CMS, type: string, description: "Solo para identificar la sección en el CMS; no se muestra en el portal." }
               - name: anuncio
                 label: Anuncio a mostrar (los creas en Publicidad)
                 description: "Los anuncios se crean en el menú Publicidad. Puedes repetir esta sección con distintos anuncios."
