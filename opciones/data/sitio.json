@@ -11,7 +11,7 @@
   "contacto": {
     "telefono": "999 414 5826",
     "correos": [
-      "atencion.clientes@auto-opciones.com",
+      "hola@auto-opciones.com",
       "direccion@auto-opciones.com"
     ],
     "redes": [
@@ -152,50 +152,38 @@
       "resaltado": "opciones",
       "titulo_fin": "sobre la mesa.",
       "foto": "assets/fotos/33437141.jpg",
-      "boton": "Buscar",
-      "mostrar_financieras": false,
-      "mostrar_iconos": false
+      "boton": "Buscar"
     },
     {
       "tipo": "marcas",
       "mostrar": true,
       "fondo": "blanco",
-      "titulo": "Explora por marca",
-      "mostrar_financieras": false,
-      "mostrar_iconos": false
+      "titulo": "Explora por marca"
     },
     {
       "tipo": "comparador",
       "mostrar": true,
       "fondo": "blanco",
-      "etiqueta": "Comparador",
-      "titulo": "¿Cuál te conviene más?",
-      "mostrar_financieras": false,
-      "mostrar_iconos": false
+      "titulo": "¿Cuál te conviene más?"
     },
     {
       "tipo": "autos",
       "mostrar": true,
       "fondo": "blanco",
       "vista": "lista",
-      "texto_disponibles": "disponibles",
-      "mostrar_financieras": false,
-      "mostrar_iconos": false
+      "texto_disponibles": "disponibles"
     },
     {
       "tipo": "ofertas",
       "mostrar": true,
       "fondo": "blanco",
       "titulo": "Ofertas de crédito vigentes",
-      "mostrar_financieras": true,
-      "mostrar_iconos": false
+      "mostrar_financieras": true
     },
     {
       "tipo": "publicidad",
       "mostrar": true,
       "fondo": "blanco",
-      "mostrar_financieras": false,
-      "mostrar_iconos": false,
       "anuncio": "afirme"
     },
     {
@@ -204,16 +192,13 @@
       "fondo": "blanco",
       "etiqueta": "Información de crédito",
       "titulo": "Ten listos tus documentos antes de ir a la agencia.",
-      "texto": "Requisitos para cada perfil, en una lista que puedes ir marcando.",
-      "mostrar_financieras": false,
-      "mostrar_iconos": false
+      "texto": "Requisitos para cada perfil, en una lista que puedes ir marcando."
     },
     {
       "tipo": "noticias",
       "mostrar": true,
       "fondo": "blanco",
       "titulo": "Noticias y tips",
-      "mostrar_financieras": false,
       "mostrar_iconos": true
     }
   ]
