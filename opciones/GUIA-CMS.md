@@ -14,6 +14,25 @@ Cada vez que guardas, el cambio se publica solo en 1 o 2 minutos. Si no lo ves, 
 - **Financieras:** tasa, comisión por apertura y seguro que usa el comparador.
 - **Ofertas de crédito, Noticias y tips, Requisitos de crédito y Publicidad:** su contenido.
 
+## Cómo se ven las listas
+Las listas (autos, marcas, financieras, noticias, etc.) se abren **colapsadas** y cada registro muestra su nombre, por ejemplo "Toyota RAV4 XLE Híbrida". Haz clic en un registro para abrirlo, o en **Expand all** para abrirlos todos. Arrastra el ícono de puntos para cambiar el orden y usa el bote de basura para borrar.
+
+## Agregar un auto nuevo
+1. Entra a **Autos** y presiona **Add an item** al final de la lista.
+2. Llena al menos los campos marcados **Required**: Id, Marca, Modelo, Tipo, Precio y Foto.
+   - **Id:** corto, único y solo con minúsculas, números y guiones. Ejemplo: `cx-5`.
+   - **Marca:** igual que aparece en **Marcas** (ejemplo: `Mazda`).
+   - **Tipo:** igual que en **Configuración del sitio → Filtros** (ejemplo: `SUV`).
+   - **Precio:** en pesos, sin símbolo ni comas. Ejemplo: `599900`.
+3. Sube la **Foto** (ver Fotos más abajo).
+4. Presiona **Save**. Si falta algo o hay un error, el campo se marca en rojo y no se guarda hasta corregirlo.
+
+Si un auto no debe verse todavía, apaga **Mostrar**. No lo borres.
+
+## Reglas que revisa el CMS
+- **Id:** solo minúsculas, números y guiones, sin espacios ni acentos, y no se puede repetir. Aplica en autos, financieras, perfiles de requisitos y anuncios.
+- **Números:** precio mayor a 0, pasajeros entre 1 y 9, bolsas de aire entre 0 y 20, tasa y comisión entre 0 y 100. Los decimales están permitidos (por ejemplo, rendimiento `15.4`).
+
 ## Cambiar el orden de las secciones
 En **Configuración del sitio → Secciones**, arrastra los bloques. El interruptor **Mostrar** oculta una sección sin borrarla. El campo **Fondo** cambia entre blanco y naranja suave.
 
@@ -33,8 +52,11 @@ Si la fórmula tiene un error, el sitio usa la fórmula de respaldo y sigue func
 ## Colores
 Escríbelos en formato `#RRGGBB`, por ejemplo `#EE8A52`. Si eliges un naranja muy claro, el texto blanco de los botones se leerá mal.
 
-## Fotos
-Al editar una foto puedes subir una nueva desde tu computadora. Se guarda en `assets/fotos`. Usa fotos horizontales de unos 1200 px de ancho.
+## Fotos y logos
+- **Fotos** (autos, noticias y banner): puedes subir una nueva desde tu computadora. Se guarda en `assets/fotos`. Formatos: JPG, PNG o WEBP. Usa fotos horizontales de unos 1200 px de ancho; el CMS no las redimensiona.
+- **Logos de marca:** se guardan en `assets/marcas`. Lo ideal es un SVG de un solo color (azul `#1B2A4A`), como los demás. También se aceptan PNG y WEBP.
+- **Íconos de noticias:** solo SVG, en `assets/iconos`.
+- Al subir un archivo, el CMS limpia su nombre: lo pasa a minúsculas y quita espacios y acentos (`Mi Foto.JPG` queda `mi-foto.jpg`).
 
 ## Ten en cuenta
 - Los precios, tasas y requisitos que vienen de ejemplo deben validarse antes de publicar.
