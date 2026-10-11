@@ -1,6 +1,7 @@
 media:
   input: assets
   output: assets
+  rename: safe
 
 content:
   - name: sitio
@@ -142,7 +143,7 @@ content:
           - { name: resaltado, label: Palabra resaltada (banner), type: string }
           - { name: titulo_fin, label: Final del título (banner), type: string }
           - { name: texto, label: Texto (información de crédito), type: string }
-          - { name: foto, label: Foto (banner), type: image }
+          - { name: foto, label: Foto (banner), type: image, options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
           - { name: boton, label: Texto del botón (banner), type: string }
           - name: vista
             label: Vista (autos)
@@ -170,7 +171,7 @@ content:
           - { name: version, label: Versión, type: string }
           - { name: tipo, label: Tipo (igual que en Filtros), type: string, required: true }
           - { name: precio, label: Precio (MXN), type: number, required: true, description: "En pesos, sin símbolo ni comas. Ej. 689900", options: { step: any, min: 1 } }
-          - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1200 px de ancho.", options: { path: assets/fotos } }
+          - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1200 px de ancho. Formatos: JPG, PNG o WEBP.", options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
           - { name: mostrar, label: Mostrar, type: boolean }
           - { name: motor, label: Motor, type: string }
           - { name: hp, label: Potencia (hp), type: number, options: { min: 1 } }
@@ -193,7 +194,7 @@ content:
         list: { collapsible: { collapsed: true, summary: "{nombre}" } }
         fields:
           - { name: nombre, label: Nombre, type: string, required: true }
-          - { name: logo, label: Logo, type: image, options: { path: assets/marcas } }
+          - { name: logo, label: Logo, type: image, description: "Mejor en SVG de un solo color (azul #1B2A4A), como los demás.", options: { path: assets/marcas, extensions: [svg, png, webp] } }
           - { name: mostrar, label: Mostrar, type: boolean }
 
   - name: financieras
@@ -245,8 +246,8 @@ content:
           - { name: titulo, label: Título, type: string }
           - { name: resumen, label: Resumen, type: text }
           - { name: minutos, label: Minutos de lectura, type: number }
-          - { name: foto, label: Foto, type: image, options: { path: assets/fotos } }
-          - { name: icono, label: Ícono (SVG), type: image, options: { path: assets/iconos } }
+          - { name: foto, label: Foto, type: image, options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+          - { name: icono, label: Ícono (SVG), type: image, options: { path: assets/iconos, extensions: [svg] } }
           - { name: enlace, label: Enlace (opcional), type: string }
           - { name: mostrar, label: Mostrar, type: boolean }
 
