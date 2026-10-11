@@ -23,7 +23,7 @@ Las listas (autos, marcas, financieras, noticias, etc.) se abren **colapsadas** 
    - **Id:** corto, único y solo con minúsculas, números y guiones. Ejemplo: `cx-5`.
    - **Marca** y **Tipo:** se eligen de una lista desplegable (así no hay errores de escritura).
    - **Precio:** en pesos, sin símbolo ni comas. Ejemplo: `599900`.
-3. Sube la **Foto** (ver Fotos más abajo).
+3. Sube la **Foto** (ver Fotos más abajo). Opcional pero recomendable: **Año modelo** y **Precio vigente al** (se muestran en la tarjeta del auto).
 4. Presiona **Save**. Si falta algo o hay un error, el campo se marca en rojo y no se guarda hasta corregirlo.
 
 Un auto nuevo nace con **Mostrar** encendido. Si no debe verse todavía, apágalo; no lo borres.
@@ -38,6 +38,26 @@ Si prefieres no editar **Configuration**, pídele a quien administre el sitio qu
 ## Reglas que revisa el CMS
 - **Id:** solo minúsculas, números y guiones, sin espacios ni acentos, y no se puede repetir. Aplica en autos, financieras, perfiles de requisitos y anuncios.
 - **Números:** precio mayor a 0, pasajeros entre 1 y 9, bolsas de aire entre 0 y 20, tasa y comisión entre 0 y 100. Los decimales están permitidos (por ejemplo, rendimiento `15.4`).
+
+## Cotizaciones y solicitudes (WhatsApp o correo)
+Los botones **Cotizar este auto**, **Pedir cotización**, **Solicitar preautorización** y **Expediente completo** envían un mensaje ya escrito con los datos del auto o del perfil elegido (por ejemplo, auto, precio, enganche, plazo y mensualidad).
+- En **Configuración del sitio → Contacto y pie de página**, escribe tu **WhatsApp** (10 dígitos). Los mensajes llegarán a ese número.
+- Si **no** llenas el WhatsApp, el mensaje se abre en el correo del visitante, dirigido al **primer correo** de la lista.
+- Puedes cambiar el texto de los mensajes en los campos **Mensaje al cotizar…**. Las palabras entre llaves, como `{auto}` o `{precio}`, se reemplazan solas.
+
+## Textos del sitio
+En **Configuración del sitio → Textos del sitio** puedes cambiar los textos de botones y etiquetas que no están en otras secciones (por ejemplo, "Cotizar este auto" o los pasos de Requisitos). Si dejas un campo vacío se usa el texto original.
+
+La **leyenda del asterisco (*)** aclara bajo los autos que la mensualidad es estimada. Revisa con tu asesor que el texto cumpla con lo que necesitas. Para ocultarla, escribe un espacio en ese campo.
+
+## Avisos legales
+En **Contacto y pie de página → Enlaces legales** agrega, por ejemplo, el **Aviso de privacidad** y los **Términos** con su enlace. Aparecen en el pie de página solo cuando existen. Pide a un asesor legal que revise su contenido.
+
+## Estadísticas de visitas (opcional)
+En **Configuración del sitio → Estadísticas de visitas** puedes poner el dominio de **Plausible** o el ID de **Google Analytics 4** (`G-…`). Si los dejas vacíos, el sitio no usa estadísticas. Google Analytics usa cookies y puede requerir un aviso a los visitantes.
+
+## Direcciones de cada vista
+Cada vista tiene su propio enlace, por ejemplo `…/#/requisitos` o `…/#/auto/rav4` (el `id` del auto). Sirven para compartir y para que el botón Atrás del navegador funcione.
 
 ## Cambiar el orden de las secciones
 En **Configuración del sitio → Secciones de la página de inicio**, arrastra los bloques. Cada tipo de sección muestra solo los campos que le corresponden. El interruptor **Mostrar** oculta una sección sin borrarla. El campo **Fondo** cambia entre blanco y naranja suave.

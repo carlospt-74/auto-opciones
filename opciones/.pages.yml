@@ -11,6 +11,7 @@ content:
     format: json
     fields:
       - { name: titulo_pagina, label: Título de la pestaña del navegador, type: string }
+      - { name: descripcion, label: Descripción para Google y redes (1-2 frases), type: text, description: "Es el texto que aparece al compartir el sitio o en los resultados de búsqueda." }
       - { name: logo, label: Logo del sitio, type: image }
       - name: colores
         label: Colores
@@ -30,6 +31,54 @@ content:
           - { name: correos, label: Correos, type: string, list: true }
           - { name: redes, label: Redes y sitios, type: string, list: true }
           - { name: frase, label: Frase del pie de página, type: string }
+          - { name: whatsapp, label: WhatsApp para recibir cotizaciones y solicitudes, type: string, description: "10 dígitos. Si lo dejas vacío, las solicitudes se envían por correo al primer correo de la lista.", pattern: { regex: "^$|^[0-9 +()-]{10,18}$", message: "Escribe el número con 10 dígitos, por ejemplo 81 1234 5678" } }
+          - { name: mensaje_auto, label: Mensaje al cotizar un auto, type: text, description: "Variables: {auto}, {anio}, {precio}, {enganche}, {plazo}, {mensualidad}. Si lo dejas vacío se usa el mensaje original." }
+          - { name: mensaje_marca, label: Mensaje al pedir cotización de una marca, type: text, description: "Variable: {marca}." }
+          - { name: mensaje_credito, label: Mensaje al solicitar preautorización, type: text, description: "Variables: {perfil}, {listos}." }
+          - name: legales
+            label: Enlaces legales del pie (aviso de privacidad, términos)
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{texto}" } }
+            description: "Aparecen en el pie de página solo si llenas texto y enlace."
+            fields:
+              - { name: texto, label: Texto, type: string }
+              - { name: enlace, label: Enlace, type: string, pattern: { regex: "^$|^https?://[^ ]+$", message: "Debe empezar con https://" } }
+      - name: analitica
+        label: Estadísticas de visitas (opcional)
+        type: object
+        description: "Déjalo vacío si no usarás estadísticas. Google Analytics usa cookies y puede requerir un aviso."
+        fields:
+          - { name: plausible_dominio, label: Dominio en Plausible, type: string, description: "Ej. auto-opciones.com", pattern: { regex: "^$|^[A-Za-z0-9.-]+$", message: "Solo el dominio, sin https://" } }
+          - { name: ga4_id, label: ID de medición de Google Analytics 4, type: string, description: "Ej. G-XXXXXXXXXX", pattern: { regex: "^$|^G-[A-Za-z0-9]+$", message: "Debe empezar con G-" } }
+      - name: textos
+        label: Textos del sitio (botones y etiquetas)
+        type: object
+        description: "Si dejas un campo vacío se usa el texto original."
+        fields:
+          - { name: cotizar_auto, label: "Botón: cotizar este auto", type: string }
+          - { name: ver_ficha, label: "Botón: ver ficha técnica", type: string }
+          - { name: ficha, label: "Título de la ficha técnica", type: string }
+          - { name: precio_desde, label: "Etiqueta del precio", type: string }
+          - { name: leyenda_mensualidad, label: "Leyenda del asterisco (*) bajo los autos", type: text, description: "Aclara que la mensualidad es estimada. Si la borras y escribes un espacio, no se muestra." }
+          - { name: pedir_cotizacion, label: "Botón cuando no hay autos", type: string }
+          - { name: sin_autos, label: "Mensaje cuando no hay autos", type: string, description: "{marca} se reemplaza por la marca elegida." }
+          - { name: comparar, label: "Botón: comparar", type: string }
+          - { name: en_comparador, label: "Botón: auto ya en el comparador", type: string }
+          - { name: comparador_lleno, label: "Botón: comparador lleno", type: string }
+          - { name: ver_comparacion, label: "Botón de la barra del comparador", type: string }
+          - { name: enganche, label: "Etiqueta: enganche", type: string }
+          - { name: plazo, label: "Etiqueta: plazo", type: string }
+          - { name: mensualidad_estimada, label: "Etiqueta: mensualidad estimada", type: string }
+          - { name: paso1, label: "Requisitos: paso 1", type: string }
+          - { name: paso2, label: "Requisitos: paso 2", type: string }
+          - { name: paso3, label: "Requisitos: paso 3", type: string }
+          - { name: condiciones, label: "Requisitos: condiciones generales", type: string }
+          - { name: enviar_solicitud, label: "Requisitos: botón con expediente completo", type: string }
+          - { name: inicio, label: "Ruta: inicio", type: string }
+          - { name: requisitos, label: "Ruta: requisitos", type: string }
+          - { name: atencion, label: "Pie: título de atención", type: string }
+          - { name: siguenos, label: "Pie: título de redes", type: string }
+          - { name: whatsapp_texto, label: "Pie: enlace de WhatsApp", type: string }
       - name: menu
         label: Menú superior
         type: object
@@ -245,7 +294,9 @@ content:
                 - Sedán
                 - Hatchback
                 - Pickup
+          - { name: anio, label: Año modelo, type: number, description: "Ej. 2026. Opcional: se muestra en la tarjeta.", options: { min: 1990, max: 2100 } }
           - { name: precio, label: Precio (MXN), type: number, required: true, description: "En pesos, sin símbolo ni comas. Ej. 689900", options: { step: any, min: 1 } }
+          - { name: vigencia, label: Precio vigente al, type: string, description: "Fecha en texto. Ej. 30 de octubre de 2026. Opcional: se muestra bajo el precio." }
           - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1200 px de ancho. Formatos: JPG, PNG o WEBP.", options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
           - { name: mostrar, label: Mostrar, type: boolean, default: true }
           - { name: motor, label: Motor, type: string }
