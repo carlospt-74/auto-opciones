@@ -6,7 +6,7 @@
   const notify = () => subs.forEach(c => { try { c.setState({ _d: Date.now() }); } catch (e) {} });
 
   const VARS_COLOR = { principal: '--ao-1', principal_hover: '--ao-1h', texto_acento: '--ao-tx', fondo_suave: '--ao-suave', azul: '--ao-azul' };
-  const COLOR_BASE = { principal: '#C35213', principal_hover: '#A74710', texto_acento: '#9C4A1E', fondo_suave: '#FEF3EB', azul: '#1F3466' };
+  const COLOR_BASE = { principal: '#EE8A52', principal_hover: '#DE7840', texto_acento: '#9C4A1E', fondo_suave: '#FEF3EB', azul: '#1F3466' };
   function aplicarColores(c) {
     const r = document.documentElement.style;
     for (const k in VARS_COLOR) { const v = c && c[k]; r.setProperty(VARS_COLOR[k], /^#[0-9a-f]{6}$/i.test(v || '') ? v : COLOR_BASE[k]); }

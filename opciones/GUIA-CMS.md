@@ -60,7 +60,7 @@ También se incluye en el mensaje de cotización. Para que funcione, escribe las
 
 ## Foto del banner y colores
 - La **foto del banner** se cambia en **Secciones de la página de inicio → Banner → Foto** (horizontal, de unos 1600 × 900 px).
-- El **naranja de los botones** debe tener buen contraste con el texto blanco (mínimo 4.5:1). El actual, `#C35213`, lo cumple; el naranja anterior, `#EE8A52`, no.
+- Los colores de la marca están en **Colores**. El naranja de los botones es `#EE8A52` (hover `#DE7840`).
 
 ## Ofertas de crédito
 Muestra solo ofertas que puedas respaldar. Cada oferta tiene un interruptor **Mostrar** para ocultarla sin borrarla.

@@ -18,7 +18,7 @@ content:
         type: object
         description: "Usa formato #RRGGBB. Si el naranja es muy claro, el texto blanco de los botones se leerá mal."
         fields:
-          - { name: principal, label: Naranja principal (botones), type: string, description: "Con texto blanco necesita contraste mínimo 4.5:1. El actual (#C35213) lo cumple; #EE8A52 no.", pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: principal, label: Naranja principal (botones), type: string, description: "Color de los botones. El texto de los botones es blanco.", pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
           - { name: principal_hover, label: Naranja al pasar el mouse, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
           - { name: texto_acento, label: Naranja oscuro para textos, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
           - { name: fondo_suave, label: Fondo suave, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
