@@ -10,7 +10,7 @@ Cada vez que guardas, el cambio se publica solo en 1 o 2 minutos. Si no lo ves, 
 ## Qué se edita en cada sección
 - **Configuración del sitio:** está dividida en **10 grupos numerados** en el mismo orden en que aparecen en el portal, y cada uno se abre y se cierra con la flecha. Entran cerrados; abre solo el que quieras ajustar y guarda con **Save**:
   1. **Encabezado:** logo, menú superior y botón del menú.
-  2. **Secciones de la página de inicio:** banner, marcas, comparador, autos, ofertas, publicidad, información de crédito y noticias, en orden de aparición (arrastra para cambiar el orden).
+  2. **Secciones de la página de inicio:** banner, marcas, comparador, autos, ofertas, cómo funciona, publicidad, información de crédito, noticias y preguntas frecuentes, en orden de aparición (arrastra para cambiar el orden).
   3. **Buscador del banner y filtros de autos:** tipos de auto, presupuestos y formas de pago.
   4. **Comparador y cálculo de mensualidad:** enganches, plazos, tasa y fórmula.
   5. **Ficha técnica de los autos:** qué datos se muestran.
@@ -56,11 +56,27 @@ Los botones **Cotizar este auto**, **Pedir cotización**, **Solicitar preautoriz
 - Si **no** llenas el WhatsApp, el mensaje se abre en el correo del visitante, dirigido al **primer correo** de la lista.
 - Puedes cambiar el texto de los mensajes en los campos **Mensaje al cotizar…**. Las palabras entre llaves, como `{auto}` o `{precio}`, se reemplazan solas.
 
+## Cómo funciona y Preguntas frecuentes
+Son dos secciones de **grupo 2**:
+- **Cómo funciona:** pasos con título y texto.
+- **Preguntas frecuentes:** pregunta y respuesta; en el sitio se abren al presionarlas.
+Los textos que traen son una **propuesta basada en lo que hace el sitio**; revísalos y ajústalos. Para ocultar una sección sin borrarla, apaga **Mostrar**.
+
+## Buscar, ordenar y pago mensual
+La lista de autos tiene un **buscador** (marca, modelo, versión o tipo), un selector de **orden** (precio o mensualidad) y el filtro **Pago mensual hasta**, que usa el enganche y el plazo del comparador. Los montos del filtro se editan en **grupo 3 → Opciones de «Pago mensual hasta»**; si lo dejas vacío, el filtro no aparece. Con la forma de pago **Contado** ese filtro se oculta.
+
+## Botón flotante de WhatsApp, horario y dirección
+- Cuando escribes el **WhatsApp** (grupo 7), aparece un botón redondo de WhatsApp en la esquina del sitio. Sin número, no aparece.
+- En el mismo grupo puedes agregar **Horario de atención** y **Dirección**, que se muestran en el pie de página solo si los llenas.
+- En **Redes y sitios**, las direcciones que empiezan con `https://` o `www.` se vuelven enlaces.
+
 ## Noticias y tips con su propia página
 En **Noticias y tips**, cada tarjeta se comporta según lo que llenes:
 - **Texto completo del artículo:** la noticia se abre en su propia página (con enlace compartible). Separa los párrafos con una línea en blanco.
 - **Enlace externo** (solo si no hay texto completo): la tarjeta abre ese enlace.
 - Si no llenas ninguno de los dos, la tarjeta es solo informativa y no se puede presionar.
+- En el texto, las direcciones que empiezan con `https://` se vuelven enlaces.
+- Las 4 noticias actuales traen un **texto sugerido** con sus fuentes al final. Es informativo y debe revisarse antes de lanzar el sitio; no sustituye asesoría financiera, fiscal ni legal.
 
 ## Forma de pago
 El filtro **Pago** del banner cambia lo que muestran las tarjetas de autos:
@@ -117,6 +133,12 @@ Escríbelos en formato `#RRGGBB`, por ejemplo `#EE8A52`. Si eliges un naranja mu
 - **Logos de marca:** se guardan en `assets/marcas`. Lo ideal es un SVG de un solo color (azul `#1B2A4A`), como los demás. También se aceptan PNG y WEBP.
 - **Íconos de noticias:** solo SVG, en `assets/iconos`.
 - Al subir un archivo, el CMS limpia su nombre: lo pasa a minúsculas y quita espacios y acentos (`Mi Foto.JPG` queda `mi-foto.jpg`).
+
+## Optimizar fotos
+El CMS no reduce el tamaño de las fotos. Para aligerar las que pesan más de 150 KB, quien administre el repositorio puede correr `python3 tools/optimizar-fotos.py` (requiere Pillow). Las fotos PNG pesadas conviene guardarlas como JPG antes de subirlas.
+
+## Lista de documentos de Requisitos
+Los documentos que marca cada visitante se recuerdan en su propio navegador; no se guardan en ningún servidor. El mensaje de preautorización incluye cuáles faltan.
 
 ## Ten en cuenta
 - Los precios, tasas y requisitos que vienen de ejemplo deben validarse antes de publicar.

@@ -27,14 +27,14 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;800&display=swap">
-<script src="ao.js?v=cms6"></script>
-<style>body{margin:0;background:#fff}*{box-sizing:border-box}a{color:var(--ao-tx)}a:hover{color:var(--ao-1)}select,button,input{font-family:inherit}[role=button]:focus-visible,[role=checkbox]:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid var(--ao-1);outline-offset:2px}</style>
+<script src="ao.js?v=cms8"></script>
+<style>body{margin:0;background:#fff}*{box-sizing:border-box}a{color:var(--ao-tx)}a:hover{color:var(--ao-1)}select,button,input{font-family:inherit}[role=button]:focus-visible,[role=checkbox]:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid var(--ao-1);outline-offset:2px}details>summary{cursor:pointer;list-style:none}details>summary::-webkit-details-marker{display:none}@media (max-width:760px),(pointer:coarse){button,select,input,[role=button]{min-height:44px}img[role=button]{min-height:0;padding:7px 0;box-sizing:content-box}footer a{display:inline-block;padding:12px 0}}</style>
 </helmet>
 <div ref="{{ rootRef }}" style="container-type:inline-size;position:relative;background:#fff;color:var(--ao-azul);font-family:Archivo,system-ui,sans-serif;font-size:15px;line-height:1.55">
 
 <div style="position:sticky;top:0;z-index:30;box-shadow:0 6px 18px rgba(31,52,102,.06)">
 <header style="display:flex;align-items:center;gap:28px;padding:18px clamp(16px,5cqi,80px);border-bottom:1px solid rgba(31,52,102,.12);background:#fff">
-<img src="{{ logo }}" alt="Auto-Opciones" role="button" tabindex="0" onClick="{{ goInicio }}" style="height:38px;width:auto;cursor:pointer">
+<img src="{{ logo }}" alt="Auto-Opciones" role="button" tabindex="0" onClick="{{ goInicio }}" style="height:clamp(28px,8cqi,38px);width:auto;cursor:pointer;max-width:calc(100cqi - 96px)">
 <sc-if value="{{ navWide }}" hint-placeholder-val="{{ true }}">
 <nav style="display:flex;gap:28px;font-size:14px;margin-right:auto;white-space:nowrap">
 <sc-for list="{{ menu }}" as="m" hint-placeholder-count="4"><span role="button" tabindex="0" onClick="{{ m.ir }}" style="cursor:pointer;padding:4px 0;border-bottom:2px solid transparent" style-hover="border-bottom-color:var(--ao-1)">{{ m.texto }}</span></sc-for>
@@ -60,7 +60,7 @@
 <sc-if value="{{ S.banner.show }}" hint-placeholder-val="{{ true }}"><div id="sec-banner" style="order:{{ S.banner.order }};background:{{ S.banner.bg }};padding-bottom:{{ S.banner.pb }}">
 <section style="padding:clamp(24px,4cqi,56px) clamp(16px,5cqi,80px) 0;display:flex;flex-direction:column;gap:clamp(16px,2cqi,24px)">
 <h1 style="margin:0;font-weight:400;font-size:clamp(34px,4.8cqi,68px);line-height:1.02;letter-spacing:-.03em;max-width:22ch;text-wrap:balance">{{ S.banner.titulo }} <span style="color:var(--ao-1);font-weight:600">{{ S.banner.resaltado }}</span> {{ S.banner.titulo_fin }}</h1>
-<div style="border-radius:32px;overflow:hidden;position:relative;min-height:clamp(300px,32cqi,440px);background:repeating-linear-gradient(135deg,#FBF9F7 0 14px,#F3EEE9 14px 28px);display:flex;align-items:flex-end;padding:clamp(12px,2cqi,24px)">
+<div style="border-radius:32px;overflow:hidden;position:relative;min-height:clamp(300px,32cqi,440px);background:repeating-linear-gradient(135deg,#FBF9F7 0 14px,#F3EEE9 14px 28px);display:flex;align-items:flex-end;padding:clamp(12px,2cqi,24px);padding-top:{{ heroPadTop }}">
 <img src="{{ heroFoto }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit">
 <div style="border-radius:24px;position:relative;z-index:1;background:#fff;padding:clamp(16px,2cqi,24px);display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;width:min(100%,760px);box-shadow:0 12px 32px rgba(31,52,102,.14);align-items:end">
 <label style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#56607A">Marca</span>
@@ -102,16 +102,16 @@
 <sc-if value="{{ s.filled }}" hint-placeholder-val="{{ true }}">
 <div style="display:grid;grid-template-columns:minmax(110px,180px) 1fr;gap:12px;align-items:center">
 <span style="font-size:14px;font-weight:600;line-height:1.2">{{ s.nombre }}<br><span style="font-size:12px;font-weight:400;color:#56607A">{{ s.finNombre }} · {{ s.tasaF }}</span></span>
-<div style="display:flex;align-items:center;gap:10px"><div style="border-radius:14px;height:28px;background:var(--ao-1);width:{{ s.barPct }};min-width:8px;transition:width .3s"></div><strong style="font-size:17px;font-weight:600;white-space:nowrap">{{ s.mensualF }}</strong><sc-if value="{{ s.masBaja }}"><span style="font-size:11px;background:var(--ao-suave);color:var(--ao-tx);padding:3px 8px;font-weight:600;white-space:nowrap">Más baja</span></sc-if></div>
+<div style="display:flex;align-items:center;gap:10px"><div style="border-radius:14px;height:28px;background:var(--ao-1);width:{{ s.barPct }};min-width:8px;transition:width .3s"></div><strong style="font-size:17px;font-weight:600;white-space:nowrap">{{ s.mensualF }}</strong><sc-if value="{{ s.masBaja }}"><span style="font-size:12px;background:var(--ao-suave);color:var(--ao-tx);padding:3px 8px;font-weight:600;white-space:nowrap">Más baja</span></sc-if></div>
 </div>
 </sc-if>
 </sc-for>
 </div></sc-if>
-<div style="overflow-x:auto"><div style="display:grid;grid-template-columns:repeat(3,minmax(240px,1fr));gap:16px;min-width:760px">
+<div style="overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px"><div style="display:grid;grid-template-columns:{{ cmpCols }};gap:16px;min-width:{{ cmpMin }}">
 <sc-for list="{{ slots }}" as="s" hint-placeholder-count="3">
 <sc-if value="{{ s.filled }}" hint-placeholder-val="{{ true }}">
-<div style="border-radius:24px;overflow:hidden;background:#FBF9F7;border:1px solid rgba(31,52,102,.1);display:flex;flex-direction:column">
-<div style="position:relative;aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#F7F3EF 0 10px,#EFE9E3 10px 20px)"><img src="{{ s.foto }}" alt="{{ s.nombre }}" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit"><button onClick="{{ s.quitar }}" style="border-radius:14px;position:absolute;right:8px;top:8px;background:#fff;border:0;color:var(--ao-azul);font-size:12px;padding:5px 9px;cursor:pointer">Quitar</button></div>
+<div style="border-radius:24px;overflow:hidden;background:#FBF9F7;border:1px solid rgba(31,52,102,.1);display:flex;flex-direction:column;scroll-snap-align:start">
+<div style="position:relative;aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#F7F3EF 0 10px,#EFE9E3 10px 20px)"><img src="{{ s.foto }}" alt="{{ s.nombre }}" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit"><button onClick="{{ s.quitar }}" style="border-radius:14px;position:absolute;right:8px;top:8px;background:#fff;border:0;color:var(--ao-azul);font-size:13px;padding:9px 14px;cursor:pointer">Quitar</button></div>
 <div style="padding:16px;display:flex;flex-direction:column;gap:8px">
 <div style="line-height:1.2"><span style="font-size:12px;color:var(--ao-tx);font-weight:600">{{ s.marca }}</span><br><strong style="font-size:21px;font-weight:500">{{ s.modelo }}</strong><br><span style="font-size:13px;color:#56607A">{{ s.version }} · {{ s.precioF }}</span></div>
 <select value="{{ s.finId }}" onChange="{{ s.onFin }}" style="border-radius:12px;border-radius:12px;border:1px solid rgba(31,52,102,.3);background:#fff;color:var(--ao-azul);padding:8px;font-size:14px"><sc-for list="{{ s.fins }}" as="f"><option value="{{ f.id }}">{{ f.nombre }}</option></sc-for></select>
@@ -124,7 +124,7 @@
 </div>
 </sc-if>
 <sc-if value="{{ s.empty }}">
-<div style="border-radius:24px;border:1px dashed rgba(31,52,102,.35);padding:20px;display:flex;flex-direction:column;gap:10px;min-height:300px">
+<div style="border-radius:24px;border:1px dashed rgba(31,52,102,.35);padding:20px;display:flex;flex-direction:column;gap:10px;min-height:300px;scroll-snap-align:start">
 <strong style="font-size:17px;font-weight:500">Agregar auto {{ s.n }}</strong>
 <select value="{{ s.marcaSel }}" onChange="{{ s.onMarca }}" style="border-radius:12px;border:1px solid rgba(31,52,102,.3);background:#fff;color:var(--ao-azul);padding:9px;font-size:14px"><option value="">Elige marca</option><sc-for list="{{ s.marcas }}" as="m"><option value="{{ m.m }}">{{ m.m }}</option></sc-for></select>
 <sc-if value="{{ s.hasMarca }}"><select onChange="{{ s.onModelo }}" style="border-radius:12px;border:1px solid rgba(31,52,102,.3);background:#fff;color:var(--ao-azul);padding:9px;font-size:14px"><option value="">Elige modelo</option><sc-for list="{{ s.modelos }}" as="m"><option value="{{ m.id }}">{{ m.label }}</option></sc-for></select></sc-if>
@@ -145,6 +145,12 @@
 <sc-if value="{{ t.inactive }}" hint-placeholder-val="{{ true }}"><span role="button" tabindex="0" aria-pressed="false" onClick="{{ t.pick }}" style="border-radius:14px;padding:8px 14px;font-size:13px;background:#FBF9F7;border:1px solid rgba(31,52,102,.12);cursor:pointer" style-hover="border-color:var(--ao-1)">{{ t.label }}</span></sc-if>
 </sc-for></div>
 </div>
+<div style="display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end;margin-bottom:20px">
+<label style="flex:2 1 220px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#56607A">{{ T.buscar_label }}</span><input type="search" value="{{ q }}" onChange="{{ onQ }}" placeholder="{{ T.buscar_placeholder }}" style="border:0;border-bottom:1px solid rgba(31,52,102,.3);background:transparent;font-size:16px;color:var(--ao-azul);padding:8px 0;outline:none;width:100%"></label>
+<label style="flex:1 1 140px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#56607A">{{ T.ordenar }}</span><select value="{{ ordenSel }}" onChange="{{ onOrden }}" style="border:0;border-bottom:1px solid rgba(31,52,102,.3);background:transparent;font-size:16px;color:var(--ao-azul);padding:8px 0;outline:none"><sc-for list="{{ ordenOpts }}" as="o"><option value="{{ o.v }}">{{ o.t }}</option></sc-for></select></label>
+<sc-if value="{{ verMmax }}"><label style="flex:1 1 140px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#56607A">{{ T.mensual_hasta }}</span><select value="{{ mmaxSel }}" onChange="{{ onMmax }}" style="border:0;border-bottom:1px solid rgba(31,52,102,.3);background:transparent;font-size:16px;color:var(--ao-azul);padding:8px 0;outline:none"><option value="">{{ fl.cualquiera }}</option><sc-for list="{{ mmaxOpts }}" as="o"><option value="{{ o.v }}">{{ o.t }}</option></sc-for></select></label></sc-if>
+<sc-if value="{{ hayFiltros }}"><button onClick="{{ limpiar }}" style="border-radius:14px;background:#fff;color:var(--ao-azul);border:1px solid rgba(31,52,102,.3);padding:10px 14px;font-weight:600;font-size:13px;cursor:pointer">{{ T.limpiar_filtros }}</button></sc-if>
+</div>
 <sc-if value="{{ sinAutos }}"><div style="border-radius:24px;padding:28px;background:#FBF9F7;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:17px">{{ sinAutosTxt }}</span><button onClick="{{ cotizarMarca }}" style="border-radius:14px;background:var(--ao-1);color:#fff;border:0;padding:12px 16px;font-weight:600;cursor:pointer">{{ T.pedir_cotizacion }}</button></div></sc-if>
 <div style="display:grid;grid-template-columns:{{ autosCols }};gap:16px">
 <sc-for list="{{ autos }}" as="a" hint-placeholder-count="5">
@@ -162,9 +168,9 @@
 <div style="padding:clamp(16px,2.4cqi,28px);display:flex;flex-direction:column;gap:12px;justify-content:space-between">
 <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
 <div style="line-height:1.2"><span style="font-size:13px;color:var(--ao-tx);font-weight:600">{{ a.marca }}</span><br><strong style="font-size:clamp(22px,2.6cqi,30px);font-weight:500;letter-spacing:-.02em">{{ a.modelo }}</strong><br><span style="font-size:14px;color:#56607A">{{ a.version }} · {{ a.tipo }}</span><sc-if value="{{ a.hayAnio }}"><br><span style="font-size:12px;color:#56607A">{{ a.anioF }}</span></sc-if></div>
-<div style="text-align:right;line-height:1.25"><span style="font-size:12px;color:#56607A">{{ T.precio_desde }}</span><br><strong style="font-size:22px;font-weight:600">{{ a.precioF }}</strong><sc-if value="{{ a.hayMensualTxt }}"><br><span style="font-size:13px;color:var(--ao-tx);font-weight:600">{{ a.mensualTxt }}</span></sc-if><sc-if value="{{ a.hayVig }}"><br><span style="font-size:11px;color:#56607A">{{ a.vigF }}</span></sc-if></div>
+<div style="text-align:right;line-height:1.25"><span style="font-size:12px;color:#56607A">{{ T.precio_desde }}</span><br><strong style="font-size:22px;font-weight:600">{{ a.precioF }}</strong><sc-if value="{{ a.hayMensualTxt }}"><br><span style="font-size:13px;color:var(--ao-tx);font-weight:600">{{ a.mensualTxt }}</span></sc-if><sc-if value="{{ a.hayVig }}"><br><span style="font-size:12px;color:#56607A">{{ a.vigF }}</span></sc-if></div>
 </div>
-<div style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:#56607A"><sc-for list="{{ a.specs }}" as="s" hint-placeholder-count="4"><span style="white-space:nowrap">{{ s.v }}</span></sc-for></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:#56607A"><sc-for list="{{ a.specs }}" as="s" hint-placeholder-count="4"><span style="white-space:nowrap">{{ s.v2 }}</span></sc-for></div>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
 <sc-if value="{{ a.notInCmp }}" hint-placeholder-val="{{ true }}"><button onClick="{{ a.toggleCmp }}" disabled="{{ a.cmpDisabled }}" style="border-radius:14px;background:#fff;border:1px solid rgba(31,52,102,.3);color:var(--ao-azul);padding:10px 14px;font-weight:600;font-size:13px;cursor:pointer" style-hover="border-color:var(--ao-1)">+ {{ a.cmpLabel }}</button></sc-if>
 <sc-if value="{{ a.inCmp }}"><button onClick="{{ a.toggleCmp }}" style="border-radius:14px;background:var(--ao-suave);border:1px solid var(--ao-1);color:var(--ao-tx);padding:10px 14px;font-weight:600;font-size:13px;cursor:pointer">✓ {{ a.cmpLabel }}</button></sc-if>
@@ -188,10 +194,19 @@
 </section>
 </div></sc-if>
 
+<sc-if value="{{ S.como_funciona.show }}"><div id="sec-como_funciona" style="order:{{ S.como_funciona.order }};background:{{ S.como_funciona.bg }};padding-bottom:{{ S.como_funciona.pb }}">
+<section style="padding:clamp(40px,6cqi,80px) clamp(16px,5cqi,80px) 0">
+<h2 style="margin:0 0 20px;font-weight:500;font-size:clamp(24px,3cqi,34px);letter-spacing:-.02em">{{ S.como_funciona.titulo }}</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px">
+<sc-for list="{{ pasos }}" as="p" hint-placeholder-count="3"><div style="border-radius:20px;background:#FBF9F7;border:1px solid rgba(31,52,102,.1);padding:22px;display:flex;flex-direction:column;gap:8px"><span style="width:38px;height:38px;border-radius:50%;background:var(--ao-suave);color:var(--ao-tx);display:grid;place-items:center;font-weight:700">{{ p.n }}</span><strong style="font-size:19px;font-weight:500;line-height:1.25">{{ p.t }}</strong><span style="font-size:14px;color:#56607A">{{ p.d }}</span></div></sc-for>
+</div>
+</section>
+</div></sc-if>
+
 <sc-for list="{{ pubs }}" as="p" hint-placeholder-count="1"><div style="order:{{ p.order }};background:{{ p.bg }};padding-bottom:{{ p.pb }}">
 <section style="padding:clamp(40px,6cqi,80px) clamp(16px,5cqi,80px) 0">
 <div style="border-radius:20px;background:var(--ao-suave);padding:18px 22px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px">
-<div style="display:flex;flex-direction:column"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#56607A">Publicidad · {{ p.anunciante }}</span><strong style="font-size:19px;font-weight:600">{{ p.texto }}</strong></div>
+<div style="display:flex;flex-direction:column"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#56607A">Publicidad · {{ p.anunciante }}</span><strong style="font-size:19px;font-weight:600">{{ p.texto }}</strong></div>
 <sc-if value="{{ p.hayEnlace }}"><a href="{{ p.enlace }}" target="_blank" rel="noopener" style="border-radius:14px;background:var(--ao-1);color:#fff;padding:10px 16px;font-weight:600;font-size:14px;text-decoration:none">{{ p.texto_boton }}</a></sc-if>
 </div>
 </section>
@@ -209,12 +224,12 @@
 <sc-if value="{{ S.noticias.show }}" hint-placeholder-val="{{ true }}"><div id="sec-noticias" style="order:{{ S.noticias.order }};background:{{ S.noticias.bg }};padding-bottom:{{ S.noticias.pb }}">
 <section style="padding:clamp(40px,6cqi,80px) clamp(16px,5cqi,80px) 0">
 <h2 style="margin:0 0 20px;font-weight:500;font-size:clamp(24px,3cqi,34px);letter-spacing:-.02em">{{ S.noticias.titulo }}</h2>
-<sc-if value="{{ S.noticias.verIconos }}"><div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:28px"><sc-for list="{{ noticias }}" as="n" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:84px"><span style="width:72px;height:72px;border-radius:18px;border:2.5px solid var(--ao-1);background:var(--ao-suave);display:grid;place-items:center"><span style="width:32px;height:32px;display:block;background:var(--ao-1);-webkit-mask:url({{ n.icono }}) center/contain no-repeat;mask:url({{ n.icono }}) center/contain no-repeat"></span></span><span style="font-size:13px;font-weight:600;color:var(--ao-azul)">{{ n.cat }}</span></div></sc-for></div></sc-if>
+<sc-if value="{{ S.noticias.verIconos }}"><div style="display:flex;flex-wrap:wrap;gap:10px 12px;margin-bottom:28px"><sc-for list="{{ noticias }}" as="n" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:84px"><span style="width:72px;height:72px;border-radius:18px;border:2.5px solid var(--ao-1);background:var(--ao-suave);display:grid;place-items:center"><span style="width:32px;height:32px;display:block;background:var(--ao-1);-webkit-mask:url({{ n.icono }}) center/contain no-repeat;mask:url({{ n.icono }}) center/contain no-repeat"></span></span><span style="font-size:13px;font-weight:600;color:var(--ao-azul)">{{ n.cat }}</span></div></sc-for></div></sc-if>
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:24px">
 <sc-for list="{{ noticias }}" as="n" hint-placeholder-count="4">
 <article role="{{ n.rol }}" tabindex="{{ n.tab }}" onClick="{{ n.abrir }}" style="display:flex;flex-direction:column;gap:10px;cursor:{{ n.cursor }}" style-hover="color:var(--ao-tx)">
 <div style="position:relative;border-radius:20px;aspect-ratio:3/2;background:repeating-linear-gradient(135deg,#F7F3EF 0 10px,#EFE9E3 10px 20px)"><img src="{{ n.foto }}" alt="" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit"></div>
-<span style="font-size:11px;align-self:flex-start;background:var(--ao-suave);color:var(--ao-tx);padding:3px 8px;font-weight:600">{{ n.cat }}</span>
+<span style="font-size:12px;align-self:flex-start;background:var(--ao-suave);color:var(--ao-tx);padding:3px 8px;font-weight:600">{{ n.cat }}</span>
 <strong style="font-size:18px;font-weight:500;line-height:1.25;text-wrap:balance">{{ n.t }}</strong>
 <span style="font-size:14px;color:#56607A">{{ n.d }}</span>
 </article>
@@ -223,17 +238,24 @@
 </section>
 </div></sc-if>
 
-<sc-if value="{{ hayCmp }}"><div style="order:9999;height:120px"></div>
+<sc-if value="{{ S.faq.show }}"><div id="sec-faq" style="order:{{ S.faq.order }};background:{{ S.faq.bg }};padding-bottom:{{ S.faq.pb }}">
+<section style="padding:clamp(40px,6cqi,80px) clamp(16px,5cqi,80px) 0;max-width:900px">
+<h2 style="margin:0 0 20px;font-weight:500;font-size:clamp(24px,3cqi,34px);letter-spacing:-.02em">{{ S.faq.titulo }}</h2>
+<sc-for list="{{ preguntas }}" as="f" hint-placeholder-count="4"><details style="border-bottom:1px solid rgba(31,52,102,.12);padding:4px 0"><summary style="padding:14px 0;font-size:17px;font-weight:500;display:flex;justify-content:space-between;gap:12px;align-items:center;min-height:44px"><span>{{ f.q }}</span><span aria-hidden="true" style="color:var(--ao-tx);font-size:22px;line-height:1">+</span></summary><p style="margin:0 0 16px;font-size:15px;line-height:1.65;color:#56607A;max-width:68ch">{{ f.a }}</p></details></sc-for>
+</section>
+</div></sc-if>
+
+<div style="order:9999;height:120px"></div>
 <div style="order:10000;position:sticky;bottom:16px;z-index:5;margin:0 clamp(12px,3cqi,40px);border-radius:14px;box-shadow:0 12px 32px rgba(31,52,102,.3);background:var(--ao-azul);color:#fff;padding:8px 8px 8px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
 <span style="font-size:13px;white-space:nowrap">{{ cmpEtiqueta }} · {{ nCmpLabel }}</span>
-<div style="display:flex;gap:6px;flex:1;min-width:0;overflow-x:auto">
+<sc-if value="{{ wide }}"><div style="display:flex;gap:6px;flex:1;min-width:0;overflow-x:auto">
 <sc-for list="{{ slots }}" as="s" hint-placeholder-count="3">
 <sc-if value="{{ s.filled }}" hint-placeholder-val="{{ true }}"><span style="border-radius:14px;background:rgba(255,255,255,.12);padding:6px 12px;font-size:13px;white-space:nowrap;display:flex;gap:8px;align-items:center">{{ s.nombre }}<span role="button" tabindex="0" onClick="{{ s.quitar }}" style="cursor:pointer;opacity:.8">×</span></span></sc-if>
 <sc-if value="{{ s.empty }}"><span style="border-radius:14px;border:1px dashed rgba(255,255,255,.4);padding:6px 12px;font-size:13px;white-space:nowrap;opacity:.8">Espacio {{ s.n }}</span></sc-if>
 </sc-for>
-</div>
+</div></sc-if><sc-if value="{{ narrow }}"><span style="flex:1"></span></sc-if>
 <button style="border-radius:14px;background:var(--ao-1);color:#fff;border:0;padding:10px 16px;font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap" style-hover="background:var(--ao-1h)" onClick="{{ verCmp }}">{{ T.ver_comparacion }}</button>
-</div></sc-if>
+</div>
 </div>
 
 </sc-if>
@@ -243,11 +265,11 @@
 <div style="font-size:13px;color:#56607A;display:flex;gap:6px;flex-wrap:wrap"><span role="button" tabindex="0" onClick="{{ goInicio }}" style="cursor:pointer;text-decoration:underline">{{ T.inicio }}</span><span>/</span><span role="button" tabindex="0" onClick="{{ goNoticias }}" style="cursor:pointer;text-decoration:underline">{{ T.noticias }}</span></div>
 <sc-if value="{{ noticiaNo }}"><div style="border-radius:24px;padding:28px;background:#FBF9F7;display:flex;flex-direction:column;gap:12px"><span style="font-size:17px">{{ T.noticia_no_encontrada }}</span><button onClick="{{ goNoticias }}" style="align-self:flex-start;border-radius:14px;background:var(--ao-1);color:#fff;border:0;padding:12px 16px;font-weight:600;cursor:pointer">{{ T.volver_noticias }}</button></div></sc-if>
 <sc-if value="{{ noticiaOk }}">
-<span style="font-size:11px;align-self:flex-start;background:var(--ao-suave);color:var(--ao-tx);padding:3px 8px;font-weight:600">{{ art.cat }}</span>
+<span style="font-size:12px;align-self:flex-start;background:var(--ao-suave);color:var(--ao-tx);padding:3px 8px;font-weight:600">{{ art.cat }}</span>
 <h1 style="margin:0;font-weight:500;font-size:clamp(30px,4.4cqi,52px);line-height:1.08;letter-spacing:-.02em;text-wrap:balance">{{ art.t }}</h1>
 <sc-if value="{{ art.hayMin }}"><span style="font-size:13px;color:#56607A">{{ art.min }}</span></sc-if>
 <sc-if value="{{ art.hayFoto }}"><div style="position:relative;border-radius:24px;overflow:hidden;aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#F7F3EF 0 10px,#EFE9E3 10px 20px)"><img src="{{ art.foto }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div></sc-if>
-<sc-for list="{{ art.ps }}" as="p"><p style="margin:0;font-size:18px;line-height:1.7;max-width:68ch;text-wrap:pretty">{{ p.t }}</p></sc-for>
+<sc-for list="{{ art.ps }}" as="p"><p style="margin:0;font-size:18px;line-height:1.7;max-width:68ch;text-wrap:pretty;white-space:pre-line;overflow-wrap:anywhere"><sc-for list="{{ p.partes }}" as="x"><sc-if value="{{ x.link }}"><a href="{{ x.t }}" target="_blank" rel="noopener">{{ x.t }}</a></sc-if><sc-if value="{{ x.nolink }}"><span>{{ x.t }}</span></sc-if></sc-for></p></sc-for>
 <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px"><button onClick="{{ cotizarGeneral }}" style="border-radius:14px;background:var(--ao-1);color:#fff;border:0;padding:12px 18px;font-weight:600;cursor:pointer" style-hover="background:var(--ao-1h)">{{ T.cta_noticia }}</button><button onClick="{{ goNoticias }}" style="border-radius:14px;background:#fff;color:var(--ao-azul);border:1px solid rgba(31,52,102,.3);padding:12px 18px;font-weight:600;cursor:pointer">{{ T.volver_noticias }}</button></div>
 </sc-if>
 </section>
@@ -293,17 +315,18 @@
 <sc-if value="{{ reqFalta }}" hint-placeholder-val="{{ true }}"><button onClick="{{ pedirCredito }}" style="border-radius:14px;background:var(--ao-1);color:#fff;border:0;padding:16px 18px;font-weight:600;font-size:16px;cursor:pointer;text-align:left" style-hover="background:var(--ao-1h)">{{ rq.boton }}</button></sc-if>
 <sc-if value="{{ reqListo }}"><button onClick="{{ pedirCredito }}" style="border-radius:14px;background:var(--ao-azul);color:#fff;border:0;padding:16px 18px;font-weight:600;font-size:16px;cursor:pointer;text-align:left">{{ T.enviar_solicitud }}</button></sc-if>
 <span style="font-size:13px;color:#56607A">{{ rq.aviso }}</span>
-<sc-if value="{{ hayReqPub }}"><div style="border-radius:20px;background:var(--ao-suave);padding:16px;display:flex;flex-direction:column;gap:2px"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#56607A">Publicidad · {{ reqPub.anunciante }}</span><strong style="font-size:16px;font-weight:600">{{ reqPub.texto }}</strong></div></sc-if>
+<sc-if value="{{ hayReqPub }}"><div style="border-radius:20px;background:var(--ao-suave);padding:16px;display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#56607A">Publicidad · {{ reqPub.anunciante }}</span><strong style="font-size:16px;font-weight:600">{{ reqPub.texto }}</strong></div></sc-if>
 </aside>
 </section>
 </sc-if>
 
-<footer style="background:#FBF9F7;padding:clamp(32px,5cqi,64px) clamp(16px,5cqi,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px;border-top:1px solid rgba(31,52,102,.1)">
+<sc-if value="{{ hayPagina }}"><footer style="background:#FBF9F7;padding:clamp(32px,5cqi,64px) clamp(16px,5cqi,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px;border-top:1px solid rgba(31,52,102,.1)">
 <div style="display:flex;flex-direction:column;gap:14px"><img src="{{ logo }}" alt="Auto-Opciones" style="height:34px;width:auto;align-self:flex-start"><span style="font-size:20px;font-weight:400;line-height:1.25;letter-spacing:-.01em;max-width:24ch">{{ c.frase }}</span></div>
-<div style="display:flex;flex-direction:column;gap:4px;font-size:14px"><strong style="font-weight:600;margin-bottom:4px">{{ T.atencion }}</strong><sc-if value="{{ c.hayTel }}"><span>Tel. <a href="{{ c.telHref }}">{{ c.telefono }}</a></span></sc-if><sc-for list="{{ correos }}" as="e"><a href="{{ e.href }}">{{ e.v }}</a></sc-for><sc-if value="{{ c.hayWa }}"><a href="{{ c.waHref }}" target="_blank" rel="noopener">{{ T.whatsapp_texto }}</a></sc-if></div>
-<div style="display:flex;flex-direction:column;gap:4px;font-size:14px"><strong style="font-weight:600;margin-bottom:4px">{{ T.siguenos }}</strong><sc-for list="{{ redes }}" as="e"><span>{{ e.v }}</span></sc-for><sc-if value="{{ hayLegales }}"><sc-for list="{{ legales }}" as="l"><a href="{{ l.enlace }}" target="_blank" rel="noopener" style="font-size:13px">{{ l.texto }}</a></sc-for></sc-if></div>
-</footer>
+<div style="display:flex;flex-direction:column;gap:4px;font-size:14px"><strong style="font-weight:600;margin-bottom:4px">{{ T.atencion }}</strong><sc-if value="{{ c.hayTel }}"><span>Tel. <a href="{{ c.telHref }}">{{ c.telefono }}</a></span></sc-if><sc-for list="{{ correos }}" as="e"><a href="{{ e.href }}">{{ e.v }}</a></sc-for><sc-if value="{{ c.hayWa }}"><a href="{{ c.waHref }}" target="_blank" rel="noopener">{{ T.whatsapp_texto }}</a></sc-if><sc-if value="{{ c.hayHorario }}"><span>{{ T.horario }}: {{ c.horario }}</span></sc-if><sc-if value="{{ c.hayDir }}"><span>{{ c.direccion }}</span></sc-if></div>
+<div style="display:flex;flex-direction:column;gap:4px;font-size:14px"><strong style="font-weight:600;margin-bottom:4px">{{ T.siguenos }}</strong><sc-for list="{{ redes }}" as="e"><sc-if value="{{ e.hayHref }}"><a href="{{ e.href }}" target="_blank" rel="noopener">{{ e.v }}</a></sc-if><sc-if value="{{ e.noHref }}"><span>{{ e.v }}</span></sc-if></sc-for><sc-if value="{{ hayLegales }}"><sc-for list="{{ legales }}" as="l"><a href="{{ l.enlace }}" target="_blank" rel="noopener" style="font-size:13px">{{ l.texto }}</a></sc-for></sc-if></div>
+</footer></sc-if>
 </div>
+<sc-if value="{{ c.hayWa }}"><a href="{{ c.waHref }}" target="_blank" rel="noopener" aria-label="{{ T.whatsapp_texto }}" style="position:fixed;right:16px;bottom:{{ waBottom }};z-index:40;width:56px;height:56px;border-radius:50%;background:var(--ao-1);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px rgba(31,52,102,.3);text-decoration:none" style-hover="background:var(--ao-1h);color:#fff"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 20l1.1-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg></a></sc-if>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {

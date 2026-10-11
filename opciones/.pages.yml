@@ -94,6 +94,19 @@ content:
               - *sec_fondo
               - { name: titulo, label: Título, type: string }
               - { name: mostrar_financieras, label: Mostrar financieras, type: boolean, default: true }
+          - name: como_funciona
+            label: Cómo funciona
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+              - name: pasos
+                label: Pasos
+                type: object
+                list: { collapsible: { collapsed: true, summary: "{titulo}" } }
+                fields:
+                  - { name: titulo, label: Título del paso, type: string }
+                  - { name: texto, label: Texto, type: text }
           - name: publicidad
             label: Publicidad
             fields:
@@ -115,6 +128,19 @@ content:
               - *sec_fondo
               - { name: titulo, label: Título, type: string }
               - { name: mostrar_iconos, label: Mostrar íconos, type: boolean, default: true }
+          - name: faq
+            label: Preguntas frecuentes
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+              - name: preguntas
+                label: Preguntas
+                type: object
+                list: { collapsible: { collapsed: true, summary: "{pregunta}" } }
+                fields:
+                  - { name: pregunta, label: Pregunta, type: string }
+                  - { name: respuesta, label: Respuesta, type: text }
       - name: filtros
         label: false
         type: object
@@ -136,6 +162,7 @@ content:
           - { name: mostrar_pago, label: Mostrar filtro de pago, type: boolean }
           - { name: texto_pago, label: Nombre del filtro de pago, type: string }
           - { name: pagos, label: Formas de pago, type: string, list: true }
+          - { name: pagos_mensuales, label: "Opciones de «Pago mensual hasta» (MXN)", type: number, list: true, description: "Montos para el filtro de pago mensual en la lista de autos. Si lo dejas vacío, el filtro no se muestra." }
       - name: calculo
         label: false
         type: object
@@ -187,6 +214,8 @@ content:
           - { name: correos, label: Correos, type: string, list: true }
           - { name: redes, label: Redes y sitios, type: string, list: true }
           - { name: frase, label: Frase del pie de página, type: string }
+          - { name: horario, label: Horario de atención (opcional), type: string, description: "Ej. Lunes a viernes de 9:00 a 18:00. Se muestra en el pie de página." }
+          - { name: direccion, label: Dirección (opcional), type: string, description: "Se muestra en el pie de página." }
           - { name: whatsapp, label: WhatsApp para recibir cotizaciones y solicitudes, type: string, description: "10 dígitos. Si lo dejas vacío, las solicitudes se envían por correo al primer correo de la lista.", pattern: { regex: "^$|^[0-9 +()-]{10,18}$", message: "Escribe el número con 10 dígitos, por ejemplo 81 1234 5678" } }
           - { name: mensaje_auto, label: Mensaje al cotizar un auto, type: text, description: "Variables: {auto}, {anio}, {precio}, {enganche}, {plazo}, {mensualidad}. Si lo dejas vacío se usa el mensaje original." }
           - { name: mensaje_marca, label: Mensaje al pedir cotización de una marca, type: text, description: "Variable: {marca}." }
@@ -229,6 +258,16 @@ content:
           - { name: atencion, label: "Pie: título de atención", type: string }
           - { name: siguenos, label: "Pie: título de redes", type: string }
           - { name: whatsapp_texto, label: "Pie: enlace de WhatsApp", type: string }
+          - { name: buscar_label, label: "Lista de autos: etiqueta del buscador", type: string }
+          - { name: buscar_placeholder, label: "Lista de autos: texto de ayuda del buscador", type: string }
+          - { name: ordenar, label: "Lista de autos: etiqueta de ordenar", type: string }
+          - { name: orden_relevancia, label: "Orden: más relevantes", type: string }
+          - { name: orden_precio_asc, label: "Orden: precio de menor a mayor", type: string }
+          - { name: orden_precio_desc, label: "Orden: precio de mayor a menor", type: string }
+          - { name: orden_mensual, label: "Orden: mensualidad de menor a mayor", type: string }
+          - { name: mensual_hasta, label: "Etiqueta: pago mensual hasta", type: string }
+          - { name: limpiar_filtros, label: "Botón: limpiar filtros", type: string }
+          - { name: horario, label: "Pie: etiqueta de horario", type: string }
           - { name: renta_cotizar, label: "Tarjeta: texto si la forma de pago es arrendamiento", type: string }
           - { name: noticias, label: "Ruta: noticias", type: string }
           - { name: volver_noticias, label: "Noticia: botón para ver más", type: string }

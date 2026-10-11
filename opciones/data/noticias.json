@@ -4,21 +4,23 @@
       "categoria": "Crédito",
       "titulo": "CAT, tasa y comisión: qué revisar antes de firmar",
       "resumen": "La tasa más baja no siempre es el crédito más barato. Te explicamos cómo leer el Costo Anual Total.",
-      "minutos": 4,
+      "minutos": 3,
       "foto": "assets/fotos/3760067.jpg",
       "icono": "assets/iconos/credito.svg",
       "enlace": "",
-      "mostrar": true
+      "mostrar": true,
+      "contenido": "Cuando comparas créditos para tu auto, la tasa de interés es solo una parte de lo que vas a pagar. El Costo Anual Total (CAT) es un indicador, expresado en porcentaje anual, que reúne en una sola cifra el costo de un crédito para que puedas compararlo con otros. Según las fuentes consultadas, lo estableció el Banco de México.\n\nEl CAT incluye la tasa de interés, la comisión por apertura, las anualidades, los seguros obligatorios, los costos de administración y el plazo. Por eso no es lo mismo que la tasa: dos créditos con la misma tasa pueden tener un CAT distinto.\n\nPara compararlo bien, pide a cada institución una cotización por escrito con el mismo precio del auto, el mismo enganche y el mismo plazo. Revisa el CAT, la comisión por apertura y si el seguro viene incluido o va por separado. Pregunta también qué otros cargos pueden aparecer durante el crédito.\n\nAntes de firmar, lee el contrato completo y confirma que las cifras coinciden con lo que te cotizaron. Si algo no queda claro, pregunta.\n\nEste texto es informativo y no sustituye la asesoría financiera, fiscal o legal.\n\nFuentes consultadas:\nKavak, «¿Qué es el CAT y por qué importa al comprar auto?»: https://www.kavak.com/mx/blog/que-es-el-cat-y-por-que-importa-al-comprar-auto\nEl Imparcial, «¿Qué es el CAT y por qué es la clave para elegir el mejor crédito en México?»: https://www.elimparcial.com/dinero/2025/12/02/que-es-el-cat-y-por-que-es-la-clave-para-elegir-el-mejor-credito-en-mexico/"
     },
     {
       "categoria": "Empresas",
       "titulo": "Arrendamiento puro o crédito: cuál conviene a tu negocio",
       "resumen": "Diferencias en deducción, flujo de efectivo y propiedad del auto al final del plazo.",
-      "minutos": 6,
+      "minutos": 3,
       "foto": "assets/fotos/7144207.jpg",
       "icono": "assets/iconos/empresas.svg",
       "enlace": "",
-      "mostrar": true
+      "mostrar": true,
+      "contenido": "La diferencia de fondo es la propiedad del auto. Con un crédito, el auto es tuyo desde el primer día y pagas el financiamiento en mensualidades. Con el arrendamiento puro, la arrendadora conserva la propiedad y tú pagas una renta por usarlo; al terminar el plazo se devuelve la unidad o, según el contrato, puedes decidir comprarla.\n\nEn impuestos, las rentas del arrendamiento puro pueden deducirse, y la compra de un auto se deduce por depreciación. En ambos casos la ley fija topes. Las fuentes consultadas no coinciden en las cifras vigentes, así que confírmalas con tu contador en el artículo 28 de la Ley del Impuesto sobre la Renta antes de decidir.\n\nAlgunas preguntas que ayudan a decidir: ¿te interesa ser dueño del auto o solo usarlo? ¿Cuántos años piensas conservarlo? ¿Cuántos kilómetros recorres al año? ¿Qué pasa al terminar el plazo y qué cargos puede haber por daños o por uso? ¿El seguro va incluido o lo contratas aparte?\n\nCompara las dos opciones con el mismo auto y el mismo plazo, y pide las condiciones por escrito.\n\nEste texto es informativo y no sustituye la asesoría financiera, fiscal o legal.\n\nFuentes consultadas:\nExpansión, «¿Comprar un auto es deducible de impuestos ante el SAT?»: https://expansion.mx/finanzas-personales/2026/07/30/comprar-auto-es-deducible-impuestos-sat\nEl Financiero, «¿Conviene el arrendamiento de un auto?»: https://www.elfinanciero.com.mx/opinion/alberto-tovar/conviene-el-arrendamiento-de-un-auto/"
     },
     {
       "categoria": "Manejo",
@@ -28,17 +30,19 @@
       "foto": "assets/fotos/14782133.jpg",
       "icono": "assets/iconos/manejo.svg",
       "enlace": "",
-      "mostrar": true
+      "mostrar": true,
+      "contenido": "En una ciudad calurosa como Monterrey conviene revisar tu auto antes del verano. Estas son revisiones sencillas que recomiendan organismos de seguridad vial y talleres.\n\nLlantas: revisa la presión con las llantas frías. La presión correcta es la que indica el manual del auto o la etiqueta del marco de la puerta del conductor, no la que viene grabada en la llanta. La NHTSA, agencia de seguridad vial de Estados Unidos, señala que el inflado insuficiente es la principal causa de fallas en las llantas.\n\nBatería: verifica que las conexiones estén firmes, limpias y sin corrosión. El calor también puede descargarla; si tiene varios años de uso, pide a un taller que la pruebe.\n\nRefrigerante y motor: revisa el nivel del refrigerante y pide que inspeccionen mangueras y correas por si tienen grietas. Usar solo agua en lugar de refrigerante puede provocar sobrecalentamiento.\n\nAire acondicionado: si ya no enfría como antes, pide a un técnico que lo revise. Al subir al auto, abrir las ventanillas unos segundos ayuda a que salga el aire caliente de la cabina.\n\nEste texto es informativo y no sustituye la asesoría financiera, fiscal o legal.\n\nFuentes consultadas:\nNHTSA, «Consejos para manejar seguros en el verano»: https://www.nhtsa.gov/document/consejos-para-manejar-seguros-en-el-verano\nABC13, «AAA gives tips on how to preserve your car in severe heat»: https://abc13.com/post/car-care-tips-extreme-heat-aaa-triple-digit-temperatures/12068154/\nC3 Care Car Center, «Cuidado del auto en verano»: https://www.c3carecarcenter.com/blog/cuidado-del-auto-en-verano/"
     },
     {
       "categoria": "Seguro",
       "titulo": "Cobertura amplia o limitada",
       "resumen": "Qué cubre cada una y por qué tu financiera puede exigir cobertura amplia.",
-      "minutos": 5,
+      "minutos": 3,
       "foto": "assets/fotos/10341357.jpg",
       "icono": "assets/iconos/seguro.svg",
       "enlace": "",
-      "mostrar": true
+      "mostrar": true,
+      "contenido": "Según la Condusef, existen distintos niveles de seguro de auto. La cobertura amplia protege contra robo, choques, volcaduras, rotura de cristales, responsabilidad civil y fenómenos naturales.\n\nLa cobertura limitada incluye robo total, responsabilidad civil (daños a terceros) y asistencia médica para el conductor y los ocupantes, pero no cubre los daños materiales de tu propio auto. Las fuentes consultadas no coinciden en si este nivel cubre fenómenos naturales, así que revisa tu póliza.\n\nLa cobertura de responsabilidad civil se limita a los daños que causes a terceros; no cubre tu auto.\n\nSegún una nota de Expansión, los vehículos que transitan por vías, caminos y puentes federales deben contar con un seguro que garantice a terceros los daños a bienes y personas.\n\nSi compras a crédito, pregunta a tu institución financiera qué cobertura te pide mientras el crédito esté vigente. Y al comparar aseguradoras, pide cotizaciones con las mismas coberturas y el mismo deducible.\n\nEste texto es informativo y no sustituye la asesoría financiera, fiscal o legal.\n\nFuentes consultadas:\nUnoTV, «Seguro de auto: Condusef explica qué coberturas hay»: https://www.unotv.com/nota-utilitaria/seguro-de-auto-condusef-explica-que-coberturas-hay-basica-limitda-amplia-que-incluyen/\nExpansión, «Condusef: no todos los seguros de auto cubren inundaciones»: https://expansion.mx/finanzas-personales/2025/10/18/condusef-no-todos-los-seguros-de-auto-cubren-inundaciones"
     }
   ]
 }

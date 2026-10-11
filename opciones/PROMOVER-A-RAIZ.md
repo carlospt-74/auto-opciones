@@ -7,6 +7,6 @@ Este documento es para quien administre el repositorio. Todavía **no** se ha pr
 3. **Reemplazar `.pages.yml`.** Copiar `opciones/.pages.yml` sobre el `.pages.yml` de la raíz (sus rutas ya no llevan `opciones/`). Borrar el de `opciones/`.
 4. **Conservar `CNAME`** (`auto-opciones.com`).
 5. **Revisar las rutas del favicon** en `index.html` (`AutoOpciones_Logo/06_favicon/...`) y la imagen de redes `og:image` (`https://auto-opciones.com/assets/AutoOpciones_og.png`).
-6. **Agregar** `robots.txt` y `sitemap.xml` en la raíz, y una página `404.html` si se desea.
+6. **Agregar** `robots.txt` y `sitemap.xml` en la raíz, y una página `404.html` si se desea. El sitio ya incluye datos estructurados (schema.org) de la organización y los autos, y cada noticia con texto tiene su dirección `#/noticia/<slug>`; como las rutas usan `#`, las páginas de noticias no se listan por separado en un sitemap.
 7. **Configurar en el CMS** el WhatsApp, los enlaces legales y, si se usan, las estadísticas (ver `GUIA-CMS.md`).
 8. **Probar** en una vista previa antes de publicar: menú, requisitos (`#/requisitos`), una ficha (`#/auto/<id>`), cotizar un auto y el botón Atrás.
