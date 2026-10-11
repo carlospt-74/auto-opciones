@@ -384,7 +384,19 @@ content:
           - { name: anio, label: Año modelo, type: number, description: "Ej. 2026. Opcional: se muestra en la tarjeta.", options: { min: 1990, max: 2100 } }
           - { name: precio, label: Precio (MXN), type: number, required: true, description: "En pesos, sin símbolo ni comas. Ej. 689900", options: { step: any, min: 1 } }
           - { name: vigencia, label: Precio vigente al, type: string, description: "Fecha en texto. Ej. 30 de octubre de 2026. Opcional: se muestra bajo el precio." }
-          - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1200 px de ancho. Formatos: JPG, PNG o WEBP.", options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+          - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1000 px de ancho y proporción 3:2. El auto debe verse completo, centrado y con aire alrededor, porque la tarjeta recorta la foto. Formatos: JPG, PNG o WEBP.", options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+          - name: enfoque_foto
+            label: Enfoque de la foto
+            type: select
+            default: centro
+            description: "Si en la tarjeta se corta el auto, elige hacia dónde mover el recorte (Arriba si el auto está en la parte alta de la foto)."
+            options:
+              values:
+                - { value: arriba, label: Arriba }
+                - { value: arriba-centro, label: Un poco arriba }
+                - { value: centro, label: Centro (recomendado) }
+                - { value: abajo-centro, label: Un poco abajo }
+                - { value: abajo, label: Abajo }
           - { name: mostrar, label: Mostrar, type: boolean, default: true }
           - { name: motor, label: Motor, type: string }
           - { name: hp, label: Potencia (hp), type: number, options: { min: 1 } }
