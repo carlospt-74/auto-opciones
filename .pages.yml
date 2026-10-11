@@ -18,7 +18,7 @@ content:
         type: object
         description: "Usa formato #RRGGBB. Si el naranja es muy claro, el texto blanco de los botones se leerá mal."
         fields:
-          - { name: principal, label: Naranja principal (botones), type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: principal, label: Naranja principal (botones), type: string, description: "Con texto blanco necesita contraste mínimo 4.5:1. El actual (#C35213) lo cumple; #EE8A52 no.", pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
           - { name: principal_hover, label: Naranja al pasar el mouse, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
           - { name: texto_acento, label: Naranja oscuro para textos, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
           - { name: fondo_suave, label: Fondo suave, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
@@ -79,6 +79,12 @@ content:
           - { name: atencion, label: "Pie: título de atención", type: string }
           - { name: siguenos, label: "Pie: título de redes", type: string }
           - { name: whatsapp_texto, label: "Pie: enlace de WhatsApp", type: string }
+          - { name: renta_cotizar, label: "Tarjeta: texto si la forma de pago es arrendamiento", type: string }
+          - { name: noticias, label: "Ruta: noticias", type: string }
+          - { name: volver_noticias, label: "Noticia: botón para ver más", type: string }
+          - { name: min_lectura, label: "Noticia: texto después de los minutos de lectura", type: string }
+          - { name: cta_noticia, label: "Noticia: botón para cotizar", type: string }
+          - { name: noticia_no_encontrada, label: "Noticia: mensaje si no se encuentra", type: string }
       - name: menu
         label: Menú superior
         type: object
@@ -184,7 +190,7 @@ content:
               - { name: titulo, label: Título (primera parte), type: string }
               - { name: resaltado, label: Palabra resaltada, type: string }
               - { name: titulo_fin, label: Final del título, type: string }
-              - { name: foto, label: Foto, type: image, options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+              - { name: foto, label: Foto, type: image, description: "Horizontal, de unos 1600 × 900 px. Mejor una foto de autos o de Monterrey.", options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
               - { name: boton, label: Texto del botón, type: string }
           - name: marcas
             label: Explora tu marca
@@ -371,10 +377,11 @@ content:
           - { name: categoria, label: Categoría, type: string }
           - { name: titulo, label: Título, type: string }
           - { name: resumen, label: Resumen, type: text }
+          - { name: contenido, label: Texto completo del artículo (opcional), type: text, description: "Separa los párrafos con una línea en blanco. Si lo llenas, la noticia se abre en su propia página. Si lo dejas vacío y hay enlace, abre el enlace; si no hay ninguno, la tarjeta no es clicable." }
           - { name: minutos, label: Minutos de lectura, type: number }
           - { name: foto, label: Foto, type: image, options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
           - { name: icono, label: Ícono (SVG), type: image, options: { path: opciones/assets/iconos, extensions: [svg] } }
-          - { name: enlace, label: Enlace (opcional), type: string }
+          - { name: enlace, label: Enlace externo (opcional), type: string, description: "Se usa solo si no hay texto completo. Debe empezar con https://, mailto: o tel:." }
           - { name: mostrar, label: Mostrar, type: boolean, default: true }
 
   - name: requisitos
