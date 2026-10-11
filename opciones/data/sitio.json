@@ -2,8 +2,8 @@
   "titulo_pagina": "Auto-Opciones",
   "logo": "AutoOpciones_Logo/02_solo-texto/AutoOpciones_02_solo-texto.svg",
   "colores": {
-    "principal": "#C35213",
-    "principal_hover": "#A74710",
+    "principal": "#EE8A52",
+    "principal_hover": "#DE7840",
     "texto_acento": "#9C4A1E",
     "fondo_suave": "#FEF3EB",
     "azul": "#1F3466"
