@@ -109,7 +109,7 @@ Cada vista tiene su propio enlace, por ejemplo `…/#/requisitos` o `…/#/auto/
 ## Cambiar el orden de las secciones
 En **Configuración del sitio → grupo 2 (Secciones de la página de inicio)**, arrastra los bloques. Cada tipo de sección muestra solo los campos que le corresponden. El interruptor **Mostrar** oculta una sección sin borrarla. El campo **Fondo** cambia entre blanco y naranja suave.
 
-Para agregar una sección, presiona **Add an item** y elige su tipo. Los tipos se usan una sola vez, salvo **Publicidad**, que puedes repetir. Para poner otro anuncio, crea el anuncio en **Publicidad**, luego agrega una sección de tipo *Publicidad* y escribe el **Id del anuncio**.
+Para agregar una sección, presiona **Add an item** y elige su tipo. Los tipos se usan una sola vez, salvo **Publicidad**, que puedes repetir. Para poner otro anuncio, crea el anuncio en **Publicidad**, luego agrega una sección de tipo *Publicidad* y elige el anuncio en la lista.
 
 ## Menú y botón con enlace externo
 En **Configuración del sitio → grupo 1 (Encabezado) → Menú superior** (y en **Botón del menú**), el campo **Lleva a** elige un lugar del propio sitio. Si quieres abrir un enlace externo, llena **Enlace externo** con `https://…`, `mailto:…` o `tel:…`. Cuando tiene un enlace, se usa ese en lugar de **Lleva a**.

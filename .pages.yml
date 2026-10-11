@@ -64,7 +64,6 @@ content:
         type: block
         blockKey: tipo
         list: { collapsible: { collapsed: true, summary: "{tipo}: {titulo}" } }
-        description: "Para agregar una sección presiona Add an item y elige su tipo. Puedes repetir Publicidad con distintos anuncios; los demás tipos se usan una vez."
         blocks:
           - name: banner
             label: Banner inicial
@@ -122,6 +121,7 @@ content:
               - *sec_fondo
               - name: anuncio
                 label: Anuncio a mostrar (los creas en Publicidad)
+                description: "Los anuncios se crean en el menú Publicidad. Puedes repetir esta sección con distintos anuncios."
                 type: select
                 options:
                   values:
