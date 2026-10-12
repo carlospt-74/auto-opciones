@@ -39,6 +39,14 @@
       "apertura": 2,
       "seguro": 0,
       "mostrar": true
+    },
+    {
+      "id": "banregio",
+      "nombre": "Banregio",
+      "tasa": 12,
+      "apertura": 2,
+      "seguro": 0,
+      "mostrar": true
     }
   ]
 }
