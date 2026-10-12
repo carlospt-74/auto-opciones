@@ -55,7 +55,9 @@
       "fondo": "blanco",
       "titulo": "Lista de autos",
       "vista": "lista",
-      "texto_disponibles": "disponibles"
+      "texto_disponibles": "disponibles",
+      "autos_iniciales": 4,
+      "autos_por_pagina": 10
     },
     {
       "tipo": "ofertas",

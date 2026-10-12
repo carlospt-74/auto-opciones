@@ -22,7 +22,7 @@ Cada vez que guardas, el cambio se publica solo en 1 o 2 minutos. Si no lo ves, 
   Cada grupo muestra una flecha y, a la derecha, un bote de basura: **no lo uses**; si borras un grupo, el CMS no te dejará guardar hasta que lo recuperes.
 - **Autos:** agrega, edita u oculta autos. La marca y el tipo deben escribirse igual que en Marcas y en Filtros.
 - **Marcas:** nombre y logo de cada marca.
-- **Financieras:** tasa, comisión por apertura y seguro que usa el comparador.
+- **Financieras:** tasa, comisión por apertura y seguro que usa el comparador, más datos opcionales (enganche desde, plazos, detalle, enlace y logo) que se muestran al tocar la financiera en Ofertas de crédito.
 - **Ofertas de crédito, Noticias y tips, Requisitos de crédito y Publicidad:** su contenido.
 
 ## Cómo se ven las listas
@@ -79,6 +79,24 @@ Los textos que traen son una **propuesta basada en lo que hace el sitio**; reví
 
 ## Buscar, ordenar y pago mensual
 La lista de autos tiene un **buscador** (marca, modelo, versión o tipo), un selector de **orden** (precio o mensualidad) y el filtro **Pago mensual hasta**, que usa el enganche y el plazo del comparador. Los montos del filtro se editan en **grupo 3 → Opciones de «Pago mensual hasta»**; si lo dejas vacío, el filtro no aparece. Con la forma de pago **Contado** ese filtro se oculta.
+
+## Cuántos autos se muestran y «Ver más»
+La lista de autos no muestra todos de golpe. En **Configuración del sitio → grupo 2 → Autos** hay dos números:
+- **Autos que se muestran al inicio** (por omisión 4).
+- **Autos que se agregan cada vez que se presiona «Ver más»** (por omisión 10).
+
+Debajo de la lista aparece "Mostrando X de N" y el botón **Ver más autos**. Cada clic agrega más autos **en la misma página** (no abre otra), y el botón desaparece cuando ya se ven todos. Si la persona cambia un filtro, la búsqueda o el orden, la lista vuelve a mostrar la cantidad inicial. El texto del botón y del contador se cambia en el **grupo 8**.
+
+## Botón «Quiero esta opción» del comparador
+Cada auto elegido en el comparador tiene su botón **Quiero esta opción**. Abre WhatsApp (o el correo, si no hay WhatsApp) con un mensaje que incluye el auto, la financiera elegida en ese auto, el enganche, el plazo y la mensualidad estimada. Con la forma de pago *Contado* o *Arrendamiento* el mensaje lo dice y no menciona financiera.
+- El texto del botón se cambia en el **grupo 8** ("Comparador: botón «Quiero esta opción»").
+- El mensaje se cambia en el **grupo 7** ("Mensaje al presionar «Quiero esta opción»"). Variables: `{auto}`, `{anio}`, `{precio}`, `{financiera}`, `{enganche}`, `{plazo}`, `{mensualidad}` y `{detalle}`.
+
+## Financieras: toca una para ver sus condiciones
+En **Ofertas de crédito vigentes**, cada financiera de la fila inferior es un botón. Al tocarla, las tarjetas de arriba cambian a las condiciones de esa financiera; al tocarla otra vez, o con **Ver ofertas generales**, vuelven las ofertas normales.
+- Siempre muestra, si están llenos: **tasa anual**, **comisión por apertura** y **seguro mensual** (solo si es mayor a 0).
+- Campos opcionales nuevos en **Financieras**: **Enganche desde (%)**, **Plazos disponibles**, **Detalle**, **Enlace para más información** (aparece como botón «Más información») y **Logo**. Los que dejes vacíos no se muestran.
+- Las etiquetas ("Tasa anual", "Ver ofertas generales", etc.) y la leyenda se cambian en el **grupo 8**. Las condiciones son de referencia: revisa la leyenda con tu asesor.
 
 ## Botón flotante de WhatsApp, horario y dirección
 - Cuando escribes el **WhatsApp** (grupo 7), aparece un botón redondo de WhatsApp en la esquina del sitio. Sin número, no aparece.

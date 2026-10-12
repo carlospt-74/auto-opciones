@@ -95,6 +95,8 @@ content:
               - { name: titulo, label: Nombre en el CMS, type: string, description: "Solo para identificar la sección en el CMS; no se muestra en el portal." }
               - { name: vista, label: Vista, type: select, default: lista, options: { values: [lista, cuadricula] } }
               - { name: texto_disponibles, label: "Texto después del número de autos", type: string }
+              - { name: autos_iniciales, label: "Autos que se muestran al inicio", type: number, default: 4, description: "Cuántos autos se ven antes de presionar «Ver más». Recomendado: 3 o 4.", options: { min: 1, max: 50 } }
+              - { name: autos_por_pagina, label: "Autos que se agregan cada vez que se presiona «Ver más»", type: number, default: 10, options: { min: 1, max: 50 } }
           - name: ofertas
             label: Ofertas de crédito
             fields:
@@ -236,6 +238,7 @@ content:
           - { name: mensaje_auto, label: Mensaje al cotizar un auto, type: text, description: "Variables: {auto}, {anio}, {precio}, {enganche}, {plazo}, {mensualidad}. Si lo dejas vacío se usa el mensaje original." }
           - { name: mensaje_marca, label: Mensaje al pedir cotización de una marca, type: text, description: "Variable: {marca}." }
           - { name: mensaje_credito, label: Mensaje al solicitar preautorización, type: text, description: "Variables: {perfil}, {listos}." }
+          - { name: mensaje_opcion, label: "Mensaje al presionar «Quiero esta opción» en el comparador", type: text, description: "Variables: {auto}, {anio}, {precio}, {financiera}, {enganche}, {plazo}, {mensualidad}, {detalle}. Si lo dejas vacío se usa el mensaje original." }
           - { name: mensaje_compartir, label: Mensaje al compartir una comparación, type: string, description: "Primera línea del mensaje. Después se agregan los autos, sus precios y el enlace." }
           - name: legales
             label: Enlaces legales del pie (aviso de privacidad, términos)
@@ -292,10 +295,21 @@ content:
           - { name: volver_noticias, label: "Noticia: botón para ver más", type: string }
           - { name: min_lectura, label: "Noticia: texto después de los minutos de lectura", type: string }
           - { name: cta_noticia, label: "Noticia: botón para cotizar", type: string }
-          - { name: ver_mas_autos, label: "Celular: botón para ver más autos", type: string }
+          - { name: ver_mas_autos, label: "Lista de autos: botón «Ver más»", type: string }
           - { name: volver_arriba, label: "Celular: botón para volver arriba", type: string }
           - { name: deslizar, label: "Celular: aviso para deslizar el comparador", type: string }
           - { name: compartir_comparacion, label: "Comparador: botón para compartir por WhatsApp", type: string }
+          - { name: quiero_opcion, label: "Comparador: botón «Quiero esta opción»", type: string }
+          - { name: mostrando_autos, label: "Lista de autos: contador", type: string, description: "Variables: {n} (autos visibles) y {total}. Ej. Mostrando {n} de {total}" }
+          - { name: fin_ayuda, label: "Ofertas: ayuda bajo las financieras", type: string }
+          - { name: fin_volver, label: "Ofertas: botón para volver a las ofertas generales", type: string }
+          - { name: fin_info, label: "Ofertas: botón «Más información» de una financiera", type: string }
+          - { name: fin_tasa, label: "Financiera: etiqueta de la tasa anual", type: string }
+          - { name: fin_apertura, label: "Financiera: etiqueta de la comisión por apertura", type: string }
+          - { name: fin_seguro, label: "Financiera: etiqueta del seguro mensual", type: string }
+          - { name: fin_enganche, label: "Financiera: etiqueta del enganche mínimo", type: string }
+          - { name: fin_plazos, label: "Financiera: etiqueta de los plazos", type: string }
+          - { name: fin_leyenda, label: "Financiera: leyenda bajo sus condiciones", type: text }
           - { name: noticia_no_encontrada, label: "Noticia: mensaje si no se encuentra", type: string }
       - name: ajustes
         label: false
@@ -440,6 +454,11 @@ content:
           - { name: tasa, label: Tasa anual (%), type: number, description: "Ej. 13.9", options: { step: any, min: 0, max: 100 } }
           - { name: apertura, label: Comisión por apertura (%), type: number, options: { step: any, min: 0, max: 100 } }
           - { name: seguro, label: Seguro mensual (MXN), type: number, description: "Pesos por mes. Pon 0 si no aplica.", options: { step: any, min: 0 } }
+          - { name: enganche_desde, label: "Enganche desde (%) — opcional", type: number, description: "Se muestra en el banner de Ofertas de crédito al tocar la financiera.", options: { step: any, min: 0, max: 100 } }
+          - { name: plazos, label: "Plazos disponibles — opcional", type: string, description: "Texto libre. Ej. 12 a 60 meses" }
+          - { name: detalle, label: "Detalle — opcional", type: text, description: "Texto breve que se muestra en el banner al tocar la financiera." }
+          - { name: enlace, label: "Enlace para más información — opcional", type: string, description: "Debe empezar con https://", pattern: { regex: "^$|^https?://[^ ]+$", message: "Debe empezar con https:// y no llevar espacios" } }
+          - { name: logo, label: "Logo — opcional", type: image, description: "Mejor en SVG o PNG con fondo transparente.", options: { path: opciones/assets/financieras, extensions: [svg, png, webp] } }
           - { name: mostrar, label: Mostrar, type: boolean, default: true }
 
   - name: ofertas
