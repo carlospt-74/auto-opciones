@@ -139,6 +139,11 @@
       "nombre": "Volkswagen",
       "logo": "assets/marcas/volkswagen.svg",
       "mostrar": true
+    },
+    {
+      "nombre": "Tesla",
+      "logo": "assets/marcas/tesla.webp",
+      "mostrar": true
     }
   ]
 }
