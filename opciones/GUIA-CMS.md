@@ -56,7 +56,7 @@ Cosas que debes saber:
 
 ## Agregar una marca o un tipo de auto nuevo
 Las listas de **Marca** y **Tipo** de Autos son fijas. Para sumar una:
-1. **Marca:** agrégala en **Marcas** (nombre y logo). Luego, en el menú de la izquierda, entra a **Configuration**, busca la lista `marca` dentro de `autos` y agrega el nombre, escrito igual que en Marcas, en orden alfabético.
+1. **Marca:** agrégala en **Marcas** (nombre y logo). Luego, en el menú de la izquierda, entra a **Configuration**, busca la lista `marca` dentro de `autos` y agrega el nombre, escrito igual que en Marcas (el orden da igual: el portal siempre muestra las marcas en orden alfabético).
 2. **Tipo:** agrégalo en **Configuración del sitio → grupo 3 (Buscador y filtros) → Tipos de auto** y también en **Configuration**, en la lista `tipo` de `autos`.
 
 **Forma rápida:** pídele a quien administre el repositorio que corra `python3 tools/sincronizar-listas.py`. El script copia a las listas del CMS (en los dos archivos `.pages.yml`) los nombres de **Marcas** y los **Tipos de auto** de Filtros; con `--revisar` solo informa si falta algo. Si prefieres no editar **Configuration** ni correr el script, pídele a quien administre el sitio que lo haga.

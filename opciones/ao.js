@@ -235,7 +235,8 @@
     const FICHA = lst(S0.ficha).length ? S0.ficha : FICHA_BASE;
     const specs = a => FICHA.filter(f => a[f.campo] !== undefined && a[f.campo] !== '').map(f => { const raw = a[f.campo], v = raw + (f.unidad ? ' ' + f.unidad : ''); return { k: f.etiqueta, v, v2: !f.unidad && /^\d+([.,]\d+)?$/.test(String(raw)) ? raw + ' ' + String(f.etiqueta).toLowerCase() : v }; });
     const AUTOS = D.autos.filter(a => a.mostrar !== false);
-    const MARCAS = D.marcas.filter(m => m.mostrar !== false);
+    // Las marcas se ordenan alfabéticamente (sin distinguir mayúsculas ni acentos), sin importar el orden en que estén en marcas.json.
+    const MARCAS = D.marcas.filter(m => m.mostrar !== false).sort((a, b) => String(a.nombre).localeCompare(String(b.nombre), 'es', { sensitivity: 'base' }));
     const FIN = D.financieras.filter(f => f.mostrar !== false);
     const ENG = lst(cal.enganches).map(Number).filter(isFinite); if (!ENG.length) ENG.push(10, 20, 30, 40);
     const PLAZO = lst(cal.plazos).map(Number).filter(isFinite); if (!PLAZO.length) PLAZO.push(12, 24, 36, 48, 60);
