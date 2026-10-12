@@ -384,6 +384,7 @@ content:
                 - Suzuki
                 - Toyota
                 - Volkswagen
+                - Tesla
           - { name: modelo, label: Modelo, type: string, required: true }
           - { name: version, label: Versión, type: string }
           - name: tipo
