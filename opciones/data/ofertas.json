@@ -10,7 +10,7 @@
       "etiqueta": "Comisión por apertura",
       "valor": "1%, 2% o 3%",
       "detalle": "Compara antes de elegir financiera.",
-      "mostrar": true
+      "mostrar": false
     },
     {
       "etiqueta": "Meses sin intereses",
