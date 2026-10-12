@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Sincroniza las listas desplegables de Marca y Tipo (en .pages.yml) con los datos del sitio.
 
-Marca  <- nombres de opciones/data/marcas.json
+Marca  <- nombres de opciones/data/marcas.json (en orden alfabético)
 Anuncio <- ids de opciones/data/anuncios.json
 Tipo   <- 'Tipos de auto' de opciones/data/sitio.json (grupo Filtros)
 
@@ -11,7 +11,7 @@ Uso:
 
 Ejecútalo después de agregar, quitar o renombrar una marca o un tipo, y sube el cambio al repositorio.
 """
-import argparse, json, os, re, sys
+import argparse, json, os, re, sys, unicodedata
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--raiz', default='.', help='carpeta raíz del repositorio')
@@ -26,7 +26,11 @@ def leer_json(ruta):
 def uno(x):
     return (x[0] if x else {}) if isinstance(x, list) else (x or {})
 
-marcas = [m['nombre'] for m in leer_json('opciones/data/marcas.json')['marcas'] if m.get('nombre')]
+def clave_orden(nombre):
+    # Alfabético sin distinguir mayúsculas ni acentos (igual que el portal).
+    return ''.join(c for c in unicodedata.normalize('NFD', nombre.casefold()) if not unicodedata.combining(c))
+
+marcas = sorted((m['nombre'] for m in leer_json('opciones/data/marcas.json')['marcas'] if m.get('nombre')), key=clave_orden)
 anuncios = [x['id'] for x in leer_json('opciones/data/anuncios.json')['anuncios'] if x.get('id')]
 tipos = [t for t in uno(leer_json('opciones/data/sitio.json').get('filtros')).get('tipos', []) if t]
 
