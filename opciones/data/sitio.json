@@ -51,9 +51,9 @@
     },
     {
       "tipo": "autos",
-      "titulo": "Lista de autos",
       "mostrar": true,
       "fondo": "blanco",
+      "titulo": "Lista de autos",
       "vista": "lista",
       "texto_disponibles": "disponibles"
     },
@@ -86,9 +86,9 @@
     },
     {
       "tipo": "publicidad",
-      "titulo": "Anuncio de Afirme",
       "mostrar": true,
       "fondo": "blanco",
+      "titulo": "Anuncio de Afirme",
       "anuncio": "afirme"
     },
     {
@@ -122,7 +122,7 @@
         },
         {
           "pregunta": "¿Puedo comparar varios autos?",
-          "respuesta": "Sí. Agrega hasta 3 autos al comparador y verás el enganche, el monto a financiar, la mensualidad estimada y la ficha técnica lado a lado."
+          "respuesta": "Sí. En el portal (www.auto-opciones.com) agrega hasta 3 autos al comparador y verás el enganche, el monto a financiar, la mensualidad estimada y la ficha técnica lado a lado."
         },
         {
           "pregunta": "¿Los precios están actualizados?",
@@ -130,7 +130,7 @@
         },
         {
           "pregunta": "¿Cómo pido una cotización?",
-          "respuesta": "Presiona «Cotizar este auto» y se abrirá WhatsApp (o tu correo) con un mensaje listo para enviar."
+          "respuesta": "En el portal, presiona «Cotizar este auto». Por WhatsApp, elige en el menú «Quiero que me contacten (cotización / visita)» y déjanos tus datos; un asesor te contactará en horario de atención."
         }
       ]
     }
@@ -256,7 +256,6 @@
   "contacto": [
     {
       "telefono": "999 414 5826",
-      "whatsapp": "812 021 4644",
       "correos": [
         "hola@auto-opciones.com",
         "direccion@auto-opciones.com"
@@ -265,8 +264,12 @@
         "Facebook: Auto-Opciones.com",
         "www.auto-opciones.com"
       ],
-      "frase": "Nosotros te damos las opciones, usted su confianza."
+      "frase": "Nosotros te damos las opciones, usted su confianza.",
+      "whatsapp": "812 021 4644"
     }
+  ],
+  "textos": [
+    {}
   ],
   "ajustes": [
     {
