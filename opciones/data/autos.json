@@ -122,7 +122,7 @@
       "tipo": "Pickup",
       "precio": 849900,
       "foto": "assets/fotos/rnger.webp",
-      "enfoque_foto": "arriba",
+      "enfoque_foto": "abajo",
       "mostrar": true,
       "motor": "2.0 L turbo diésel",
       "hp": 170,
