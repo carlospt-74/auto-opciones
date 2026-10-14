@@ -402,7 +402,7 @@ content:
                 - Hatchback
                 - Pickup
           - { name: anio, label: Año modelo, type: number, description: "Ej. 2026. Opcional: se muestra en la tarjeta.", options: { min: 1990, max: 2100 } }
-          - { name: precio, label: Precio (MXN), type: number, required: true, description: "En pesos, sin símbolo ni comas. Ej. 689900", options: { step: any, min: 1 } }
+          - { name: precio, label: Precio (MXN), type: number, required: true, description: "En pesos, sin símbolo ni comas. Ej. 689900. Revisa los ceros: el CMS solo acepta de 100,000 a 15,000,000.", options: { step: any, min: 100000, max: 15000000 } }
           - { name: vigencia, label: Precio vigente al, type: string, description: "Fecha en texto. Ej. 30 de octubre de 2026. Opcional: se muestra bajo el precio." }
           - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1000 px de ancho y proporción 3:2. El auto debe verse completo, centrado y con aire alrededor, porque la tarjeta recorta la foto. Formatos: JPG, PNG o WEBP.", options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
           - name: enfoque_foto

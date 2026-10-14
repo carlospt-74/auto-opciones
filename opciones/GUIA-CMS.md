@@ -63,7 +63,7 @@ Las listas de **Marca** y **Tipo** de Autos son fijas. Para sumar una:
 
 ## Reglas que revisa el CMS
 - **Id:** solo minúsculas, números y guiones, sin espacios ni acentos, y no se puede repetir. Aplica en autos, financieras, perfiles de requisitos y anuncios.
-- **Números:** precio mayor a 0, pasajeros entre 1 y 9, bolsas de aire entre 0 y 20, tasa y comisión entre 0 y 100. Los decimales están permitidos (por ejemplo, rendimiento `15.4`).
+- **Números:** precio de 100,000 a 15,000,000, pasajeros entre 1 y 9, bolsas de aire entre 0 y 20, tasa y comisión entre 0 y 100. Los decimales están permitidos (por ejemplo, rendimiento `15.4`).
 
 ## Cotizaciones y solicitudes (WhatsApp o correo)
 Los botones **Cotizar este auto**, **Pedir cotización**, **Solicitar preautorización** y **Expediente completo** envían un mensaje ya escrito con los datos del auto o del perfil elegido (por ejemplo, auto, precio, enganche, plazo y mensualidad).
@@ -189,6 +189,16 @@ Con la tecla **Tab**, lo primero que aparece es **Saltar al contenido**. La tecl
 
 ## Historial de cambios
 Cada vez que guardas en el CMS se crea un registro en GitHub con un mensaje en español, por ejemplo "Actualiza opciones/data/autos.json (desde Pages CMS)".
+
+## Precio mal capturado: cómo evitarlo y cómo corregirlo
+**Antes de guardar.** El campo **Precio** solo acepta de 100,000 a 15,000,000. Revisa los ceros y compara con la lista de la agencia. Anota siempre en **Precio vigente al** la fecha del precio.
+
+**Después de guardar.** Cada cambio en `autos.json` activa la revisión automática **Revisar precios** (pestaña Actions de GitHub). Falla si un precio sale del rango o cambia más de 25 % contra el guardado anterior. Un salto real y correcto también la hace fallar: en ese caso solo confirma el precio. **La revisión avisa, pero no frena la publicación**: el precio mal capturado ya está en el sitio hasta que lo corrijas. Por eso, después de editar precios, abre el sitio publicado y compáralos; lo ideal es que lo haga una segunda persona.
+
+**Cómo corregir.**
+1. Lo más rápido: vuelve a abrir el auto en el CMS, escribe el precio correcto y guarda.
+2. Si no sabes cuál era el correcto, en GitHub abre `opciones/data/autos.json`, pulsa **History**, abre el último guardado que estaba bien y copia el contenido del archivo en ese guardado. Luego edita el archivo actual, pega ese contenido y guarda (commit). Los nombres de los botones de GitHub pueden variar un poco.
+3. Si quieres, pide ayuda y comparte el enlace del guardado equivocado.
 
 ## Ten en cuenta
 - Los precios, tasas y requisitos que vienen de ejemplo deben validarse antes de publicar.
