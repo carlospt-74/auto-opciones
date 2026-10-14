@@ -277,7 +277,8 @@
     {
       "titulo_pagina": "Auto-Opciones",
       "analitica": {
-        "umami_id": "2d0fa512-e080-44eb-8b79-723a3b9fc118"
+        "umami_id": "2d0fa512-e080-44eb-8b79-723a3b9fc118",
+        "cloudflare_token": "4169196b2f33479cb0123b373db6e660"
       }
     }
   ],
