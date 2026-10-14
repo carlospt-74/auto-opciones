@@ -134,7 +134,18 @@ La **leyenda del asterisco (*)** aclara bajo los autos que la mensualidad es est
 En **grupo 7 → Enlaces legales** agrega, por ejemplo, el **Aviso de privacidad** y los **Términos** con su enlace. Aparecen en el pie de página solo cuando existen. Pide a un asesor legal que revise su contenido.
 
 ## Estadísticas de visitas (opcional)
-En **Configuración del sitio → grupo 9 (Título, descripción y estadísticas)** puedes poner el dominio de **Plausible** o el ID de **Google Analytics 4** (`G-…`). Si los dejas vacíos, el sitio no usa estadísticas. Google Analytics usa cookies y puede requerir un aviso a los visitantes.
+En **Configuración del sitio → grupo 9 (Título, descripción y estadísticas)** puedes activar una o varias herramientas. Si dejas todo vacío, el sitio no mide nada.
+
+- **Umami** (recomendada para empezar; plan gratis): crea tu sitio en umami.is, entra a *Websites → Edit* y copia el **Website ID** en "ID del sitio en Umami". Mide visitas, **cada página interna** (requisitos, fichas, noticias) y los eventos: `lead` (cotizar o pedir preautorización), `compartir`, `financiera`, `whatsapp` (clic en un enlace de WhatsApp), `llamada` y `correo`.
+- **Cloudflare Web Analytics** (gratis): en Cloudflare, *Web Analytics → Add a site* con `auto-opciones.com`, y copia el valor de **token** del fragmento de código en "Código (token) de Cloudflare". Mide visitas y velocidad; no tiene eventos propios.
+- **Plausible** (de pago) o **Google Analytics 4** (usa cookies): también disponibles.
+
+Notas:
+- Umami solo mide en los dominios de "Umami: dominios donde se mide" (por defecto `auto-opciones.com` y `www.auto-opciones.com`), así que las vistas previas y pruebas no cuentan. El portal en `/opciones` sí cuenta si se abre desde auto-opciones.com.
+- Umami respeta la opción "No rastrear" del navegador de quien visita.
+- Cada evento y cada propiedad de un evento cuenta para el límite mensual del plan gratis de Umami (100,000 eventos).
+- Para que tus propias visitas no cuenten, en Umami se puede excluir tu IP o usar un navegador aparte para administrar.
+- **Cualquier herramienta que actives debe mencionarse en el aviso de privacidad.** Pide al asesor que lo revise.
 
 ## Direcciones de cada vista
 Cada vista tiene su propio enlace, por ejemplo `…/#/requisitos` o `…/#/auto/rav4` (el `id` del auto). Sirven para compartir y para que el botón Atrás del navegador funcione.

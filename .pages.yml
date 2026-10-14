@@ -321,10 +321,13 @@ content:
           - name: analitica
             label: Estadísticas de visitas (opcional)
             type: object
-            description: "Déjalo vacío si no usarás estadísticas. Google Analytics usa cookies y puede requerir un aviso."
+            description: "Déjalo vacío si no usarás estadísticas. Puedes usar Umami y Cloudflare a la vez. Google Analytics usa cookies y puede requerir un aviso. Cualquier herramienta que actives debe mencionarse en el aviso de privacidad."
             fields:
               - { name: plausible_dominio, label: Dominio en Plausible, type: string, description: "Ej. auto-opciones.com", pattern: { regex: "^$|^[A-Za-z0-9.-]+$", message: "Solo el dominio, sin https://" } }
               - { name: ga4_id, label: ID de medición de Google Analytics 4, type: string, description: "Ej. G-XXXXXXXXXX", pattern: { regex: "^$|^G-[A-Za-z0-9]+$", message: "Debe empezar con G-" } }
+              - { name: umami_id, label: ID del sitio en Umami (Website ID), type: string, description: "En Umami: Websites → Edit → copia el Website ID. Ej. 94db1cb1-74f4-4a40-ad6c-962362670409", pattern: { regex: "^$|^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$", message: "Debe tener el formato de 36 caracteres con guiones (UUID)" } }
+              - { name: umami_dominios, label: "Umami: dominios donde se mide (opcional)", type: string, description: "Separados por coma, sin https://. Si lo dejas vacío se usa auto-opciones.com,www.auto-opciones.com. Así las pruebas y vistas previas no cuentan.", pattern: { regex: "^$|^[A-Za-z0-9.,-]+$", message: "Solo dominios separados por coma, sin https:// ni espacios" } }
+              - { name: cloudflare_token, label: Código (token) de Cloudflare Web Analytics, type: string, description: "En Cloudflare: Web Analytics → Add a site → copia el valor de token del fragmento de código.", pattern: { regex: "^$|^[A-Za-z0-9]{16,64}$", message: "Solo letras y números (16 a 64 caracteres)" } }
       - name: colores
         label: false
         type: object

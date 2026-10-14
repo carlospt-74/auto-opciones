@@ -136,10 +136,43 @@
       if (window.plausible) window.plausible(evento, { props: props || {} });
       if (window.gtag) window.gtag('event', evento === 'lead' ? 'generate_lead' : evento, props || {});
     } catch (e) {}
+    enUmami(u => u.track(evento, props || {}));
+  }
+  // Umami se maneja a mano (data-auto-track="false") porque el portal usa rutas con "#": cada vista se manda con una ruta propia.
+  let umamiCola = [], ultimaVista = '';
+  function enUmami(fn) {
+    try {
+      if (window.umami) fn(window.umami);
+      else if (window.__aoUmami && umamiCola.length < 50) umamiCola.push(fn);
+    } catch (e) {}
+  }
+  function rutaVirtual() {
+    const p = (location.hash || '').replace(/^#\/?/, '').split('/').filter(Boolean).map(x => { try { return decodeURIComponent(x); } catch (e) { return x; } });
+    if (p[0] === 'requisitos') return { url: '/requisitos' + (p[1] ? '/' + p[1] : ''), titulo: 'Requisitos de crédito' };
+    if (p[0] === 'auto' && p[1]) { const a = D.autos.find(x => x.id === p[1]); return { url: '/auto/' + p[1], titulo: a ? [a.marca, a.modelo].join(' ') : 'Ficha de auto' }; }
+    if (p[0] === 'noticia' && p[1]) return { url: '/noticia/' + p[1], titulo: 'Noticia' };
+    if (p[0] === 'comparar') return { url: '/comparar', titulo: 'Comparador' };
+    return { url: '/', titulo: 'Inicio' };
+  }
+  function registrarVista() {
+    try {
+      const r = rutaVirtual(), base = location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, ''), url = base + r.url;
+      if (url === ultimaVista) return;
+      ultimaVista = url;
+      enUmami(u => u.track(props => ({ ...props, url, title: 'Auto-Opciones · ' + r.titulo })));
+    } catch (e) {}
+  }
+  function clicsDeContacto(e) {
+    const a = e.target && e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    const h = a.getAttribute('href') || '';
+    if (/^https:\/\/wa\.me\//.test(h)) track('whatsapp', { origen: a.closest('aside[aria-label="WhatsApp"]') ? 'flotante' : a.closest('footer') ? 'pie' : 'pagina' });
+    else if (/^tel:/.test(h)) track('llamada');
+    else if (/^mailto:/.test(h)) track('correo');
   }
   function cargarAnalitica(an) {
     an = an || {};
-    const add = (src, attrs) => { const s = document.createElement('script'); s.src = src; s.async = true; Object.keys(attrs || {}).forEach(k => s.setAttribute(k, attrs[k])); document.head.appendChild(s); };
+    const add = (src, attrs) => { const s = document.createElement('script'); s.src = src; s.async = true; Object.keys(attrs || {}).forEach(k => s.setAttribute(k, attrs[k])); document.head.appendChild(s); return s; };
     if (/^[a-z0-9.-]+$/i.test(an.plausible_dominio || '') && !window.plausible) {
       window.plausible = function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
       add('https://plausible.io/js/script.js', { defer: '', 'data-domain': an.plausible_dominio });
@@ -150,6 +183,17 @@
       window.gtag('js', new Date()); window.gtag('config', an.ga4_id);
       add('https://www.googletagmanager.com/gtag/js?id=' + an.ga4_id);
     }
+    const umamiId = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(an.umami_id || '') ? an.umami_id : '';
+    if (umamiId && !window.__aoUmami) {
+      window.__aoUmami = true;
+      const dom = /^[a-z0-9.,-]+$/i.test(an.umami_dominios || '') && an.umami_dominios ? an.umami_dominios : 'auto-opciones.com,www.auto-opciones.com';
+      const s = add('https://cloud.umami.is/script.js', { defer: '', 'data-website-id': umamiId, 'data-auto-track': 'false', 'data-domains': dom, 'data-do-not-track': 'true' });
+      s.onload = () => { umamiCola.splice(0).forEach(enUmami); };
+      window.addEventListener('hashchange', registrarVista); window.addEventListener('popstate', registrarVista);
+      registrarVista();
+    }
+    if (/^[A-Za-z0-9]{16,64}$/.test(an.cloudflare_token || '')) add('https://static.cloudflareinsights.com/beacon.min.js', { type: 'module', 'data-cf-beacon': JSON.stringify({ token: an.cloudflare_token }) });
+    if ((umamiId || window.plausible || window.gtag) && !window.__aoClics) { window.__aoClics = true; document.addEventListener('click', clicsDeContacto, true); }
   }
   function ponerMeta(sel, attr, val) { const el = document.querySelector(sel); if (el && val) el.setAttribute(attr, val); }
   // Datos estructurados (schema.org) para que los buscadores entiendan la organización y los autos.
@@ -212,7 +256,7 @@
       c.setState(p);
       if ('checks' in p) guardarChecks(p.checks);
       if ('page' in p || 'req' in p || 'ficha' in p || 'nid' in p) {
-        try { const h = hashDe({ ...c.state, ...p }); if (h !== (location.hash || '#/')) history.pushState(null, '', h); } catch (e) {}
+        try { const h = hashDe({ ...c.state, ...p }); if (h !== (location.hash || '#/')) { history.pushState(null, '', h); registrarVista(); } } catch (e) {}
       }
     };
     if (!c._hashOn) {
