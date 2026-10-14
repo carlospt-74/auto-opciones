@@ -275,7 +275,10 @@
   ],
   "ajustes": [
     {
-      "titulo_pagina": "Auto-Opciones"
+      "titulo_pagina": "Auto-Opciones",
+      "analitica": {
+        "umami_id": "2d0fa512-e080-44eb-8b79-723a3b9fc118"
+      }
     }
   ],
   "colores": [
