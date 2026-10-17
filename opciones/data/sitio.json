@@ -202,6 +202,8 @@
       ],
       "plazo_inicial": 48,
       "tasa_tarjetas": 13.9,
+      "seguro_porcentaje": 2,
+      "seguro_incluir_inicial": true,
       "iva": 16,
       "nota": "*Cifras ilustrativas. Sujetas a aprobación de crédito de cada institución."
     }
