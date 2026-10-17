@@ -36,8 +36,8 @@
   )).then(() => { listo = true; aplicarColores(D.sitio.colores); if (D.sitio.titulo_pagina) document.title = D.sitio.titulo_pagina; prepararPagina(); notify(); });
 
   // Fórmula de mensualidad editable. Si tiene un error, se usa la de respaldo.
-  const FORMULA_BASE = 'monto * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)';
-  const VARS = ['precio', 'enganche', 'monto', 'tasa', 'tasa_mensual', 'plazo', 'apertura', 'seguro', 'iva'];
+  const FORMULA_BASE = '(monto + seguro_anual) * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)';
+  const VARS = ['precio', 'enganche', 'monto', 'tasa', 'tasa_mensual', 'plazo', 'apertura', 'seguro', 'seguro_anual', 'iva'];
   const FUN = ['min', 'max', 'round', 'pow', 'abs', 'ceil', 'floor'];
   function compilar(f) {
     if (typeof f !== 'string' || !f.trim() || !/^[\w\s.+\-*/()^,]*$/.test(f)) throw new Error('caracteres no permitidos');
@@ -53,16 +53,16 @@
       fAct = s;
       try {
         const fn = compilar(s);
-        const t = fn({ precio: 500000, enganche: 100000, monto: 400000, tasa: 14, tasa_mensual: 14 / 1200, plazo: 48, apertura: 2, seguro: 0, iva: 16 });
+        const t = fn({ precio: 500000, enganche: 100000, monto: 400000, tasa: 14, tasa_mensual: 14 / 1200, plazo: 48, apertura: 2, seguro: 0, seguro_anual: 0, iva: 16 });
         if (!isFinite(t) || t <= 0) throw new Error('el resultado no es válido');
         fnAct = fn;
       } catch (e) { console.warn('Fórmula de mensualidad con error; se usa la de respaldo.', e.message); fnAct = fnBase; }
     }
     return fnAct;
   }
-  function mensualidad(precio, engPct, fin, plazo) {
+  function mensualidad(precio, engPct, fin, plazo, seguroAnual) {
     const enganche = precio * engPct / 100, monto = precio - enganche, tasa = +fin.tasa || 0;
-    const v = { precio, enganche, monto, tasa, tasa_mensual: tasa / 1200, plazo, apertura: +fin.apertura || 0, seguro: +fin.seguro || 0, iva: +((D.sitio.calculo || {}).iva) || 16 };
+    const v = { precio, enganche, monto, tasa, tasa_mensual: tasa / 1200, plazo, apertura: +fin.apertura || 0, seguro: +fin.seguro || 0, seguro_anual: +seguroAnual || 0, iva: +((D.sitio.calculo || {}).iva) || 16 };
     let r; try { r = formula()(v); } catch (e) { r = NaN; }
     if (!isFinite(r)) { try { r = fnBase(v); } catch (e) { r = 0; } }
     return isFinite(r) ? r : 0;
@@ -107,6 +107,7 @@
     condiciones: 'Condiciones generales', enviar_solicitud: 'Expediente completo · Enviar solicitud',
     atencion: 'Atención personalizada', siguenos: 'Síguenos', inicio: 'Inicio', requisitos: 'Requisitos',
     leyenda_mensualidad: 'Pago mensual estimado con una tasa de referencia, sujeto a aprobación de crédito.',
+    seguro_interruptor: 'Incluir seguro del primer año (estimado)', leyenda_seguro: 'Incluye un seguro de auto del primer año, estimado y financiado con el crédito. Si ya tienes seguro, desactívalo.',
     buscar_label: 'Buscar', buscar_placeholder: 'Marca o modelo', ordenar: 'Ordenar por', orden_relevancia: 'Más relevantes', orden_precio_asc: 'Precio: de menor a mayor', orden_precio_desc: 'Precio: de mayor a menor', orden_mensual: 'Mensualidad: de menor a mayor', mensual_hasta: 'Pago mensual hasta', limpiar_filtros: 'Limpiar filtros', horario: 'Horario',
     whatsapp_texto: 'Escríbenos por WhatsApp', saltar: 'Saltar al contenido', imprimir_lista: 'Imprimir o guardar mi lista', renta_cotizar: 'Renta a cotizar', noticias: 'Noticias', noticia_no_encontrada: 'No encontramos esta noticia.',
     volver_noticias: 'Ver más noticias y tips', min_lectura: 'min de lectura', cta_noticia: 'Cotizar mi auto', ver_mas_autos: 'Ver más autos', volver_arriba: 'Volver arriba', deslizar: 'Desliza para ver los demás autos', compartir_comparacion: 'Compartir comparación por WhatsApp',
@@ -245,7 +246,7 @@
   const guardarChecks = c => { try { localStorage.setItem(LS_CHECKS, JSON.stringify(c)); } catch (e) {} };
 
   function initState() {
-    return { page: 'inicio', nid: null, pago: null, menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, req: null, checks: leerChecks(), q: '', orden: '', mmax: '', nVer: 0, finVer: null, cmpPos: 0, w: 1280 };
+    return { page: 'inicio', nid: null, pago: null, menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, seg: null, req: null, checks: leerChecks(), q: '', orden: '', mmax: '', nVer: 0, finVer: null, cmpPos: 0, w: 1280 };
   }
 
   function vals(c) {
@@ -291,11 +292,19 @@
     const eng = st.eng != null ? st.eng : (+cal.enganche_inicial || ENG[0]);
     const plazo = st.plazo != null ? st.plazo : (+cal.plazo_inicial || PLAZO[PLAZO.length - 1]);
     const finTarjeta = { tasa: +cal.tasa_tarjetas || (FIN[0] && FIN[0].tasa) || 14, apertura: 0, seguro: 0 };
+    // Seguro del primer año: % del precio de lista (o el monto propio del auto), financiado dentro del crédito. Solo con financiamiento y si la fórmula usa seguro_anual.
+    const segPct = +cal.seguro_porcentaje || 0;
+    formula();
+    const fVigente = fnAct !== fnBase && cal.formula ? cal.formula : FORMULA_BASE;
+    const haySeguro = segPct > 0 && /seguro_anual/.test(fVigente) && !esContado && !esArrend;
+    const segOn = haySeguro && (st.seg != null ? !!st.seg : cal.seguro_incluir_inicial !== false);
+    const segDe = a => segOn ? (+a.seguro_anual > 0 ? +a.seguro_anual : Math.round(a.precio * segPct / 100)) : 0;
+    const segTxt = segOn ? ' Incluye un seguro del primer año estimado.' : '';
     const PRES = lst(fil.presupuestos);
     const pr = st.pres !== '' && st.pres != null ? PRES[+st.pres] : null;
     const cnt = m => AUTOS.filter(a => a.marca === m).length;
     const Q = norm(st.q || '').split(/\s+/).filter(Boolean), MMAX = +st.mmax || 0;
-    const mens = a => mensualidad(a.precio, eng, finTarjeta, plazo);
+    const mens = a => mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a));
     const lista0 = AUTOS.filter(a => (!st.marca || a.marca === st.marca) && (st.tipo === '*' || a.tipo === st.tipo) &&
       (!pr || ((!pr.min || a.precio >= +pr.min) && (!pr.max || a.precio <= +pr.max))) &&
       (!Q.length || Q.every(t => norm([a.marca, a.modelo, a.version, a.tipo].join(' ')).includes(t))) &&
@@ -337,13 +346,13 @@
     const autos = lista.slice(0, visibles).map(a => {
       const inC = cmp.includes(a.id);
       return { ...a, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', precioF: mxn(a.precio), nombre: a.marca + ' ' + a.modelo,
-        mensual: mxn(mensualidad(a.precio, eng, finTarjeta, plazo)), specs: specs(a),
-        mensualTxt: esContado ? '' : esArrend ? T.renta_cotizar : mxn(mensualidad(a.precio, eng, finTarjeta, plazo)) + '/mes*', hayMensualTxt: !esContado,
+        mensual: mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))), specs: specs(a),
+        mensualTxt: esContado ? '' : esArrend ? T.renta_cotizar : mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))) + '/mes*', hayMensualTxt: !esContado,
         ficha: st.ficha === a.id, noFicha: st.ficha !== a.id, abrirFicha: () => set({ ficha: a.id }), cerrarFicha: () => set({ ficha: null }),
         inCmp: inC, notInCmp: !inC, cmpDisabled: !inC && nCmp >= 3,
         cmpLabel: inC ? T.en_comparador : (nCmp >= 3 ? T.comparador_lleno : T.comparar), toggleCmp: () => toggleCmp(a.id),
         hayAnio: !!a.anio, anioF: a.anio ? 'Modelo ' + a.anio : '', hayVig: !!a.vigencia, vigF: a.vigencia ? 'Precio vigente al ' + a.vigencia : '',
-        cotizar: () => lead('auto', llenar(MSG.auto, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), enganche: eng + '%', plazo: plazo + ' meses', pago: pagoSel, detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, finTarjeta, plazo)) + ' al mes.', mensualidad: mxn(mensualidad(a.precio, eng, finTarjeta, plazo)) + ' al mes' })) };
+        cotizar: () => lead('auto', llenar(MSG.auto, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), enganche: eng + '%', plazo: plazo + ' meses', pago: pagoSel, detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))) + ' al mes.' + segTxt, mensualidad: mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))) + ' al mes' })) };
     });
 
     const marcasConAutos = MARCAS.filter(m => cnt(m.nombre) > 0);
@@ -362,11 +371,11 @@
       return { n: i + 1, filled: true, empty: false, id: a.id, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', marca: a.marca, modelo: a.modelo, version: a.version, nombre: a.marca + ' ' + a.modelo,
         precioF: mxn(a.precio), engF: mxn(engM), montoF: mxn(monto),
         aperturaF: mxn(monto * (+f.apertura || 0) / 100) + ' (' + (+f.apertura || 0) + '%)', tasaF: (+f.tasa || 0).toFixed(1) + '% anual',
-        mensualF: mxn(mensualidad(a.precio, eng, f, plazo)), finId: f.id || '', finNombre: f.nombre || '',
+        mensualF: mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))), finId: f.id || '', finNombre: f.nombre || '',
         fins: FIN.map(x => ({ id: x.id, nombre: x.nombre })), specs: specs(a),
         onFin: e => { const fin = st.fin.slice(); fin[i] = e.target.value; set({ fin }); },
-        quiero: () => lead('opcion', llenar(MSG.opcion, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), financiera: esContado || esArrend ? '' : (f.nombre || ''), enganche: eng + '%', plazo: plazo + ' meses', mensualidad: mxn(mensualidad(a.precio, eng, f, plazo)) + ' al mes',
-          detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con ' + (f.nombre ? f.nombre + ', ' : '') + 'enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, f, plazo)) + ' al mes.' })),
+        quiero: () => lead('opcion', llenar(MSG.opcion, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), financiera: esContado || esArrend ? '' : (f.nombre || ''), enganche: eng + '%', plazo: plazo + ' meses', mensualidad: mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))) + ' al mes',
+          detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con ' + (f.nombre ? f.nombre + ', ' : '') + 'enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))) + ' al mes.' + segTxt })),
         quitar: () => { const cc = cmp.slice(); cc[i] = null; set({ cmp: cc }); } };
     });
     const compartirCmp = () => {
@@ -374,7 +383,7 @@
       if (!f.length) return;
       const url = location.origin + location.pathname + '#/comparar/' + f.map(s => encodeURIComponent(s.id)).join(',');
       const lineas = f.map(s => '• ' + [s.nombre, s.version].filter(Boolean).join(' ') + ' · ' + s.precioF + (esContado ? '' : ' · ' + s.mensualF + '/mes*'));
-      const pie = esContado ? '' : '\n* ' + T.leyenda_mensualidad + ' (' + eng + '% de enganche, ' + plazo + ' meses)';
+      const pie = esContado ? '' : '\n* ' + T.leyenda_mensualidad + ' (' + eng + '% de enganche, ' + plazo + ' meses' + (segOn ? ', con seguro del primer año estimado' : '') + ')';
       track('compartir', { autos: f.length });
       window.open('https://wa.me/?text=' + encodeURIComponent(MSG.compartir + '\n' + lineas.join('\n') + pie + '\n' + url), '_blank', 'noopener');
     };
@@ -437,7 +446,8 @@
       verPres: fil.mostrar_presupuesto !== false && PRES.length > 0, verPago: fil.mostrar_pago !== false && lst(fil.pagos).length > 0,
       presOpts: PRES.map((p, i) => ({ i: String(i), texto: p.texto })), presSel: st.pres == null ? '' : String(st.pres), onPres: e => setFiltro({ pres: e.target.value }),
       pagoOpts: PAGOS.map(t => ({ t })), pagoSel, onPago: e => setFiltro({ pago: e.target.value }),
-      hayCmp: nCmp > 0, compartirCmp, txtCompartir: T.compartir_comparacion, cmpFin: nCmp > 0 && !esContado, conFin: !esContado,
+      hayCmp: nCmp > 0, compartirCmp, txtCompartir: T.compartir_comparacion, cmpFin: nCmp > 0 && !esContado, conFin: !esContado, haySeguro, leyendaSeguro: segOn ? ' ' + T.leyenda_seguro : '', segTitulo: T.seguro_interruptor,
+      segOpts: [{ label: 'Sí', active: segOn, inactive: !segOn, pick: () => set({ seg: true }) }, { label: 'No', active: !segOn, inactive: segOn, pick: () => set({ seg: false }) }],
       cardCols: S.autos.vista === 'cuadricula' ? 'repeat(auto-fit,minmax(min(100%,280px),1fr))' : W >= 760 ? 'minmax(300px,36%) minmax(0,1fr)' : 'minmax(0,1fr)', cardAlto: W >= 760 && S.autos.vista !== 'cuadricula' ? '260px' : '220px',
       buscar: () => scrollA('autos'), verCmp: () => scrollA('comparador'),
       tipos: tipos.map(t => ({ label: t.label, active: st.tipo === t.val, inactive: st.tipo !== t.val, pick: () => setFiltro({ tipo: t.val }) })),

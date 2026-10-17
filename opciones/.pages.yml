@@ -189,13 +189,15 @@ content:
           - name: formula
             label: Fórmula
             type: string
-            description: "Variables: precio, enganche, monto, tasa (anual %), tasa_mensual, plazo (meses), apertura (%), seguro (mensual), iva (%). Usa ^ para potencia. Si hay un error se usa la fórmula de respaldo."
+            description: "Variables: precio, enganche, monto, tasa (anual %), tasa_mensual, plazo (meses), apertura (%), seguro (mensual), seguro_anual (MXN, seguro del primer año de cada auto), iva (%). Usa ^ para potencia. Para incluir el seguro financiado: (monto + seguro_anual) * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo). Si hay un error se usa la fórmula de respaldo."
           - { name: enganches, label: Opciones de enganche (%), type: number, list: true, options: { step: any } }
           - { name: enganche_inicial, label: Enganche inicial (%), type: number, options: { step: any } }
           - { name: plazos, label: Opciones de plazo (meses), type: number, list: true }
           - { name: plazo_inicial, label: Plazo inicial (meses), type: number }
           - { name: tasa_tarjetas, label: Tasa anual para la mensualidad de las tarjetas de autos (%), type: number, options: { step: any } }
           - { name: iva, label: IVA (%), type: number, options: { step: any } }
+          - { name: seguro_porcentaje, label: Seguro del primer año (% del precio de lista), type: number, description: "Estimado para todos los autos. Ej. 2. Pon 0 para quitar el seguro del cálculo y ocultar el interruptor. Un auto con su propio monto (campo Seguro anual) usa ese monto.", options: { step: any, min: 0, max: 20 } }
+          - { name: seguro_incluir_inicial, label: El seguro empieza incluido, type: boolean, default: true, description: "Si está apagado, el visitante tiene que activarlo con el interruptor." }
           - { name: nota, label: Nota bajo el comparador, type: string }
       - name: ficha
         label: false
@@ -258,6 +260,8 @@ content:
           - { name: ver_ficha, label: "Botón: ver ficha técnica", type: string }
           - { name: ficha, label: "Título de la ficha técnica", type: string }
           - { name: precio_desde, label: "Etiqueta del precio", type: string }
+          - { name: seguro_interruptor, label: "Interruptor del seguro: título", type: string }
+          - { name: leyenda_seguro, label: "Leyenda cuando el seguro está incluido", type: text }
           - { name: leyenda_mensualidad, label: "Leyenda del asterisco (*) bajo los autos", type: text, description: "Aclara que la mensualidad es estimada. Si la borras y escribes un espacio, no se muestra." }
           - { name: pedir_cotizacion, label: "Botón cuando no hay autos", type: string }
           - { name: sin_autos, label: "Mensaje cuando no hay autos", type: string, description: "{marca} se reemplaza por la marca elegida." }
@@ -403,6 +407,7 @@ content:
                 - Pickup
           - { name: anio, label: Año modelo, type: number, description: "Ej. 2026. Opcional: se muestra en la tarjeta.", options: { min: 1990, max: 2100 } }
           - { name: precio, label: Precio (MXN), type: number, required: true, description: "En pesos, sin símbolo ni comas. Ej. 689900. Revisa los ceros: el CMS solo acepta de 100,000 a 15,000,000.", options: { step: any, min: 100000, max: 15000000 } }
+          - { name: seguro_anual, label: Seguro anual propio (MXN), type: number, description: "Opcional. Si lo dejas vacío o en 0, se usa el porcentaje general sobre el precio. Pon aquí la cotización real de este auto.", options: { step: any, min: 0, max: 500000 } }
           - { name: vigencia, label: Precio vigente al, type: string, description: "Fecha en texto. Ej. 30 de octubre de 2026. Opcional: se muestra bajo el precio." }
           - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1000 px de ancho y proporción 3:2. El auto debe verse completo, centrado y con aire alrededor, porque la tarjeta recorta la foto. Formatos: JPG, PNG o WEBP.", options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
           - name: enfoque_foto
