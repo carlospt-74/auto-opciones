@@ -261,6 +261,9 @@ content:
           - { name: ficha, label: "Título de la ficha técnica", type: string }
           - { name: precio_desde, label: "Etiqueta del precio", type: string }
           - { name: seguro_interruptor, label: "Interruptor del seguro: título", type: string }
+          - { name: pago_inicial, label: "Pago inicial: título", type: string }
+          - { name: seguro_pago_unico, label: "Seguro pagado al inicio: título del campo", type: string }
+          - { name: leyenda_pago_inicial, label: "Leyenda del pago inicial", type: text }
           - { name: leyenda_seguro, label: "Leyenda cuando el seguro está incluido", type: text }
           - { name: leyenda_mensualidad, label: "Leyenda del asterisco (*) bajo los autos", type: text, description: "Aclara que la mensualidad es estimada. Si la borras y escribes un espacio, no se muestra." }
           - { name: pedir_cotizacion, label: "Botón cuando no hay autos", type: string }
