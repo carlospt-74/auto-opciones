@@ -107,7 +107,8 @@
     condiciones: 'Condiciones generales', enviar_solicitud: 'Expediente completo · Enviar solicitud',
     atencion: 'Atención personalizada', siguenos: 'Síguenos', inicio: 'Inicio', requisitos: 'Requisitos',
     leyenda_mensualidad: 'Pago mensual estimado con una tasa de referencia, sujeto a aprobación de crédito.',
-    seguro_interruptor: 'Incluir seguro del primer año (estimado)', leyenda_seguro: 'Incluye un seguro de auto del primer año, estimado y financiado con el crédito. Si ya tienes seguro, desactívalo.',
+    seguro_interruptor: 'Financiar el seguro del primer año (estimado)', leyenda_seguro: 'Incluye un seguro de auto del primer año, estimado y financiado con el crédito. Si ya tienes seguro, elige No y deja el campo vacío.',
+    pago_inicial: 'Pago inicial', seguro_pago_unico: 'Seguro (pago único)', leyenda_pago_inicial: 'Pago inicial estimado: enganche, comisión por apertura y, si no financias el seguro, el monto que captures.',
     buscar_label: 'Buscar', buscar_placeholder: 'Marca o modelo', ordenar: 'Ordenar por', orden_relevancia: 'Más relevantes', orden_precio_asc: 'Precio: de menor a mayor', orden_precio_desc: 'Precio: de mayor a menor', orden_mensual: 'Mensualidad: de menor a mayor', mensual_hasta: 'Pago mensual hasta', limpiar_filtros: 'Limpiar filtros', horario: 'Horario',
     whatsapp_texto: 'Escríbenos por WhatsApp', saltar: 'Saltar al contenido', imprimir_lista: 'Imprimir o guardar mi lista', renta_cotizar: 'Renta a cotizar', noticias: 'Noticias', noticia_no_encontrada: 'No encontramos esta noticia.',
     volver_noticias: 'Ver más noticias y tips', min_lectura: 'min de lectura', cta_noticia: 'Cotizar mi auto', ver_mas_autos: 'Ver más autos', volver_arriba: 'Volver arriba', deslizar: 'Desliza para ver los demás autos', compartir_comparacion: 'Compartir comparación por WhatsApp',
@@ -246,7 +247,7 @@
   const guardarChecks = c => { try { localStorage.setItem(LS_CHECKS, JSON.stringify(c)); } catch (e) {} };
 
   function initState() {
-    return { page: 'inicio', nid: null, pago: null, menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, seg: null, req: null, checks: leerChecks(), q: '', orden: '', mmax: '', nVer: 0, finVer: null, cmpPos: 0, w: 1280 };
+    return { page: 'inicio', nid: null, pago: null, menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, seg: null, segMonto: ['', '', ''], req: null, checks: leerChecks(), q: '', orden: '', mmax: '', nVer: 0, finVer: null, cmpPos: 0, w: 1280 };
   }
 
   function vals(c) {
@@ -368,15 +369,20 @@
       }
       const f = FIN.find(x => x.id === st.fin[i]) || FIN[0] || finTarjeta;
       const engM = a.precio * eng / 100, monto = a.precio - engM;
+      const segFin = segDe(a), segAparte = haySeguro && !segOn, segUnico = segAparte ? Math.min(500000, parseInt(st.segMonto[i], 10) || 0) : 0;
+      const aperturaM = monto * (+f.apertura || 0) / 100;
+      const pagoIni = Math.round(engM) + Math.round(aperturaM) + segUnico;
       return { n: i + 1, filled: true, empty: false, id: a.id, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', marca: a.marca, modelo: a.modelo, version: a.version, nombre: a.marca + ' ' + a.modelo,
-        precioF: mxn(a.precio), engF: mxn(engM), montoF: mxn(monto),
-        aperturaF: mxn(monto * (+f.apertura || 0) / 100) + ' (' + (+f.apertura || 0) + '%)', tasaF: (+f.tasa || 0).toFixed(1) + '% anual',
+        precioF: mxn(a.precio), engF: mxn(engM), montoF: mxn(monto + segFin),
+        incluyeSeg: segOn, segFinF: mxn(segFin), pideSeg: segAparte, segVal: segUnico ? String(segUnico) : '', onSegMonto: e => { const v = String(e.target.value).replace(/[^0-9]/g, '').slice(0, 6); const m = st.segMonto.slice(); m[i] = v; set({ segMonto: m }); },
+        pagoIniF: mxn(pagoIni),
+        aperturaF: mxn(aperturaM), tasaF: (+f.tasa || 0).toFixed(1) + '% anual',
         mensualF: mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))), finId: f.id || '', finNombre: f.nombre || '',
         fins: FIN.map(x => ({ id: x.id, nombre: x.nombre })), specs: specs(a),
         onFin: e => { const fin = st.fin.slice(); fin[i] = e.target.value; set({ fin }); },
         quiero: () => lead('opcion', llenar(MSG.opcion, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), financiera: esContado || esArrend ? '' : (f.nombre || ''), enganche: eng + '%', plazo: plazo + ' meses', mensualidad: mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))) + ' al mes',
-          detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con ' + (f.nombre ? f.nombre + ', ' : '') + 'enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))) + ' al mes.' + segTxt })),
-        quitar: () => { const cc = cmp.slice(); cc[i] = null; set({ cmp: cc }); } };
+          detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con ' + (f.nombre ? f.nombre + ', ' : '') + 'enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))) + ' al mes.' + segTxt + ' Pago inicial estimado: ' + mxn(pagoIni) + ' (enganche, comisión por apertura' + (segUnico ? ' y seguro' : '') + ').' })),
+        quitar: () => { const cc = cmp.slice(); cc[i] = null; const m = st.segMonto.slice(); m[i] = ''; set({ cmp: cc, segMonto: m }); } };
     });
     const compartirCmp = () => {
       const f = slots.filter(s => s.filled);
@@ -464,7 +470,7 @@
       autosCols: S.autos.vista === 'cuadricula' ? 'repeat(auto-fill,minmax(min(100%,340px),1fr))' : 'minmax(0,1fr)',
       slots, nCmp, nCmpLabel: nCmp + ' de 3', cmpEtiqueta: S.comparador.etiqueta || 'Comparador',
       engOpts: opt(ENG, eng, 'eng', v => v + '%'), plazoOpts: opt(PLAZO, plazo, 'plazo', v => v + ' meses'),
-      eng: eng + '%', plazo: plazo + ' meses', calcNota: cal.nota || '',
+      eng: eng + '%', plazo: plazo + ' meses', calcNota: cal.nota || '', leyendaPago: T.leyenda_pago_inicial,
       ofertas: D.ofertas.filter(o => o.mostrar !== false).map(o => ({ k: o.etiqueta, v: o.valor, d: o.detalle })),
       financieras: FIN.map(f => ({ ...f, active: st.finVer === f.id, inactive: st.finVer !== f.id, pick: () => { track('financiera', { id: f.id }); set({ finVer: st.finVer === f.id ? null : f.id }); } })),
       hayFinSel: !!finSel, noFinSel: !finSel, finNombre: finSel ? finSel.nombre : '', finCards,
