@@ -184,7 +184,7 @@
   ],
   "calculo": [
     {
-      "formula": "monto * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)",
+      "formula": "(monto + seguro_anual) * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)",
       "enganches": [
         10,
         20,
@@ -201,6 +201,8 @@
       ],
       "plazo_inicial": 48,
       "tasa_tarjetas": 13.9,
+      "seguro_porcentaje": 2,
+      "seguro_incluir_inicial": true,
       "iva": 16,
       "nota": "*Cifras ilustrativas. Sujetas a aprobación de crédito de cada institución."
     }

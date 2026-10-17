@@ -161,13 +161,21 @@ En **Configuración del sitio → grupo 1 (Encabezado) → Menú superior** (y e
 ## Fórmula de mensualidad
 Está en **Configuración del sitio → grupo 4 (Comparador y cálculo de mensualidad)**. La fórmula actual es:
 
-`monto * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)`
+`(monto + seguro_anual) * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)`
 
-Variables que puedes usar: `precio`, `enganche`, `monto` (precio menos enganche), `tasa` (anual en %), `tasa_mensual`, `plazo` (meses), `apertura` (%), `seguro` (mensual), `iva` (%). Para potencias usa `^`.
-
-Ejemplo con seguro: `monto * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo) + seguro`
+Variables que puedes usar: `precio`, `enganche`, `monto` (precio menos enganche), `tasa` (anual en %), `tasa_mensual`, `plazo` (meses), `apertura` (%), `seguro` (mensual), `seguro_anual` (pesos del seguro del primer año de ese auto), `iva` (%). Para potencias usa `^`.
 
 Si la fórmula tiene un error, el sitio usa la fórmula de respaldo y sigue funcionando.
+
+### Seguro del primer año
+El seguro se **suma al monto financiado** (mismo plazo y tasa del crédito) y se muestra como estimado.
+- **Porcentaje general:** en el grupo 4, **Seguro del primer año (% del precio de lista)**. Hoy es 2: el seguro de cada auto es el 2 % de su precio de lista (por ejemplo, $439,900 → $8,798). Es una referencia, no una cotización. Valídalo de vez en cuando con cotizaciones reales.
+- **Monto propio de un auto:** en el auto, el campo **Seguro anual propio (MXN)**. Si lo dejas vacío o en 0, se usa el porcentaje.
+- **Interruptor para el visitante:** en el comparador aparece "Incluir seguro del primer año (estimado)" con Sí o No, para quien ya tiene seguro. **El seguro empieza incluido** se controla con la casilla del mismo nombre en el grupo 4.
+- **Quitarlo por completo:** pon el porcentaje en 0. El interruptor desaparece y la mensualidad se calcula sin seguro.
+- **Si cambias la fórmula** y no usa `seguro_anual`, el interruptor se oculta, porque no tendría efecto.
+- No aparece con pago de contado ni con arrendamiento.
+- Los textos del interruptor y de la leyenda se editan en el grupo de textos del sitio.
 
 ## Colores
 Escríbelos en formato `#RRGGBB`, por ejemplo `#EE8A52`. Si eliges un naranja muy claro, el texto blanco de los botones se leerá mal.
