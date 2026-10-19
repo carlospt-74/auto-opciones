@@ -58,6 +58,10 @@ for name,idxp in index:
         elif tag=='infer_all': q='Inferido: celda combinada; valor aplicado a todas las versiones de la tabla (confirmar visualmente en el PDF)'
         elif tag=='blank': q='REVISAR: fila con celdas combinadas; el valor puede aplicar a varias versiones'
         ws2.append([model,int(year),sec,con.replace('\\*','*'),ver,val,q,PDF%slug,tsr]); nspec+=1
+
+for v,p in (('ADVANCE 2 ROW',529900),('EXCLUSIVE 2 ROW',591900),('PLATINUM 2 ROW',638900),('PLATINUM 3 ROW',661900),('PLATINUM PLUS 2 ROW',708900)):
+    ws.append(['X-TRAIL',2026,v,p,f'Desde ${p:,} MXN',None,None,'Precio proporcionado por el usuario el 2026-10-19; no verificado en la página (solo se leyó la pestaña 2027). Sin equipamiento capturado.','','Proporcionado por el usuario (pestaña 2026 de la página del X-Trail, no leída por el scraping)',BASE%'x-trail-2027',PDF%'x-trail-2027','2026-10-19'])
+    nver+=1
 for w,H,widths in((ws,H1,[22,8,28,13,18,18,18,40,70,34,52,52,22]),(ws2,H2,[22,8,26,60,34,30,40,52,22])):
     for c in w[1]: c.font=Font(bold=True,color='FFFFFF'); c.fill=PatternFill('solid',fgColor='C3002F'); c.alignment=Alignment(wrap_text=True,vertical='center')
     for i,wd in enumerate(widths,1): w.column_dimensions[get_column_letter(i)].width=wd
