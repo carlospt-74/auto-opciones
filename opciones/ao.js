@@ -364,7 +364,7 @@
       track('lead', { tipo });
       if (!esCel() && (waNum || correo1)) { set({ leadModal: { texto, tipo }, copiado: false }); return; }
       if (waNum) window.open('https://wa.me/' + waNum + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
-      else if (correo1) window.location.href = 'mailto:' + correo1 + '?subject=' + encodeURIComponent('Solicitud desde el portal Auto-Opciones') + '&body=' + encodeURIComponent(texto);
+      else if (correo1) window.location.href = 'mailto:' + para + '?subject=' + encodeURIComponent('Solicitud desde el portal Auto-Opciones') + '&body=' + encodeURIComponent(texto);
       else if (telHref(ct.telefono)) window.location.href = telHref(ct.telefono);
     };
     const marcaTxt = st.marca || 'auto';
@@ -436,7 +436,10 @@
       const lineas = f.map(s => '• ' + [s.nombre, s.version].filter(Boolean).join(' ') + ' · ' + s.precioF + (esContado ? '' : ' · ' + s.mensualF + '/mes*'));
       const pie = esContado ? '' : '\n* ' + T.leyenda_mensualidad + ' (' + eng + '% de enganche, ' + plazo + ' meses' + (segOn ? ', con seguro del primer año estimado' : '') + ')';
       track('compartir', { autos: f.length });
-      window.open('https://wa.me/?text=' + encodeURIComponent(MSG.compartir + '\n' + lineas.join('\n') + pie + '\n' + url), '_blank', 'noopener');
+      const texto = MSG.compartir + '\n' + lineas.join('\n') + pie + '\n' + url;
+      // Celular: WhatsApp directo. Computadora o tablet: recuadro con varias vías para compartir.
+      if (esCel()) window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+      else set({ leadModal: { texto, tipo: 'compartir', compartir: true }, copiado: false });
     };
     const pagos = slots.filter(s => s.filled).map(s => +s.mensualF.replace(/[^0-9]/g, ''));
     const maxP = Math.max(1, ...pagos), minP = Math.min(...pagos);
@@ -498,17 +501,19 @@
       presOpts: PRES.map((p, i) => ({ i: String(i), texto: p.texto })), presSel: st.pres == null ? '' : String(st.pres), onPres: e => setFiltro({ pres: e.target.value }),
       pagoOpts: PAGOS.map(t => ({ t })), pagoSel, onPago: e => setFiltro({ pago: e.target.value }),
       ...(() => {
-        const lm = st.leadModal, tx = lm ? lm.texto : '', asunto = 'Solicitud desde el portal Auto-Opciones', canal = n => track('lead_canal', { canal: n, tipo: lm ? lm.tipo : '' });
+        const lm = st.leadModal, tx = lm ? lm.texto : '', comp = !!(lm && lm.compartir), para = comp ? '' : (correo1 || ''), asunto = comp ? 'Comparación de autos en Auto-Opciones' : 'Solicitud desde el portal Auto-Opciones', canal = n => track('lead_canal', { canal: n, tipo: lm ? lm.tipo : '' });
         const abre = (url, n) => { canal(n); window.open(url, '_blank', 'noopener'); };
         return {
           leadAbierto: !!lm, leadStop: e => { try { e.stopPropagation(); } catch (x) {} }, leadTexto: tx, leadCerrar: () => set({ leadModal: null }),
-          hayLeadWa: !!waNum, hayLeadCorreo: !!correo1, leadCorreo: correo1 || '',
-          leadWa: () => abre('https://wa.me/' + waNum + '?text=' + encodeURIComponent(tx), 'whatsapp'),
-          leadGmail: () => abre('https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(correo1 || '') + '&su=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx), 'gmail'),
-          leadOutlook: () => abre('https://outlook.live.com/mail/0/deeplink/compose?to=' + encodeURIComponent(correo1 || '') + '&subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx), 'outlook'),
-          leadMailto: () => { canal('mailto'); window.location.href = 'mailto:' + correo1 + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx); },
+          leadTitulo: comp ? '¿Cómo quieres compartir tu comparación?' : '¿Cómo quieres enviar tu solicitud?', leadSub: comp ? 'Elige cómo enviarla. El mensaje y el enlace ya van escritos.' : 'Elige la opción que te quede más cómoda. El mensaje ya va escrito.',
+          hayLeadWa: comp || !!waNum, hayLeadCorreo: comp || !!correo1, leadCorreoEt: comp ? 'Por correo:' : 'Por correo a ' + (correo1 || '') + ':',
+          hayLeadNativo: comp && typeof navigator.share === 'function', leadNativo: () => { canal('compartir_sistema'); try { navigator.share({ title: asunto, text: tx }).catch(() => {}); } catch (e) {} },
+          leadWa: () => abre('https://wa.me/' + (comp ? '' : waNum) + '?text=' + encodeURIComponent(tx), 'whatsapp'),
+          leadGmail: () => abre('https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(para) + '&su=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx), 'gmail'),
+          leadOutlook: () => abre('https://outlook.live.com/mail/0/deeplink/compose?to=' + encodeURIComponent(para) + '&subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx), 'outlook'),
+          leadMailto: () => { canal('mailto'); window.location.href = 'mailto:' + para + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx); },
           leadCopiar: () => { canal('copiar'); const ok = () => set({ copiado: true }); try { navigator.clipboard.writeText(tx).then(ok, () => {}); } catch (e) {} },
-          leadCopiadoTxt: st.copiado ? 'Mensaje copiado ✓' : 'Copiar mensaje'
+          leadCopiadoTxt: st.copiado ? (comp ? 'Mensaje y enlace copiados ✓' : 'Mensaje copiado ✓') : (comp ? 'Copiar mensaje y enlace' : 'Copiar mensaje')
         };
       })(),
       hayCmp: nCmp > 0, compartirCmp, txtCompartir: T.compartir_comparacion, cmpFin: nCmp > 0 && !esContado, conFin: !esContado, haySeguro, leyendaSeguro: segOn ? ' ' + T.leyenda_seguro : '', segTitulo: T.seguro_interruptor,
