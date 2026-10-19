@@ -362,7 +362,7 @@
     const waNum = numMx(ct.whatsapp), correo1 = lst(ct.correos)[0];
     const lead = (tipo, texto) => {
       track('lead', { tipo });
-      if (!esCel() && (waNum || correo1 || telHref(ct.telefono))) { set({ leadModal: { texto, tipo }, copiado: false }); return; }
+      if (!esCel() && (waNum || correo1)) { set({ leadModal: { texto, tipo }, copiado: false }); return; }
       if (waNum) window.open('https://wa.me/' + waNum + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
       else if (correo1) window.location.href = 'mailto:' + correo1 + '?subject=' + encodeURIComponent('Solicitud desde el portal Auto-Opciones') + '&body=' + encodeURIComponent(texto);
       else if (telHref(ct.telefono)) window.location.href = telHref(ct.telefono);
@@ -502,12 +502,11 @@
         const abre = (url, n) => { canal(n); window.open(url, '_blank', 'noopener'); };
         return {
           leadAbierto: !!lm, leadStop: e => { try { e.stopPropagation(); } catch (x) {} }, leadTexto: tx, leadCerrar: () => set({ leadModal: null }),
-          hayLeadWa: !!waNum, hayLeadCorreo: !!correo1, hayLeadTel: !!telHref(ct.telefono), leadTelHref: telHref(ct.telefono), leadTel: ct.telefono || '', leadCorreo: correo1 || '',
+          hayLeadWa: !!waNum, hayLeadCorreo: !!correo1, leadCorreo: correo1 || '',
           leadWa: () => abre('https://wa.me/' + waNum + '?text=' + encodeURIComponent(tx), 'whatsapp'),
           leadGmail: () => abre('https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(correo1 || '') + '&su=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx), 'gmail'),
           leadOutlook: () => abre('https://outlook.live.com/mail/0/deeplink/compose?to=' + encodeURIComponent(correo1 || '') + '&subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx), 'outlook'),
           leadMailto: () => { canal('mailto'); window.location.href = 'mailto:' + correo1 + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx); },
-          leadLlamar: () => canal('llamar'),
           leadCopiar: () => { canal('copiar'); const ok = () => set({ copiado: true }); try { navigator.clipboard.writeText(tx).then(ok, () => {}); } catch (e) {} },
           leadCopiadoTxt: st.copiado ? 'Mensaje copiado ✓' : 'Copiar mensaje'
         };
