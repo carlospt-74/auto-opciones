@@ -1,0 +1,15 @@
+{
+  "id": "nissan-frontier-platinum-le-diesel-4x4-ta",
+  "marca": "Nissan",
+  "modelo": "Frontier",
+  "version": "Platinum LE Diesel 4X4 TA",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 769990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-frontier.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "4x4"
+}

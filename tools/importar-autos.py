@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Pasa una hoja de cálculo (Excel o CSV) con autos a opciones/data/autos.json.
+"""Pasa una hoja de cálculo (Excel o CSV) con autos a opciones/data/autos/<marca>/ (un archivo por auto) y regenera autos.json.
 
 Uso:
     python3 tools/importar-autos.py --plantilla hoja.xlsx      # crea la plantilla vacía para llenar
     python3 tools/importar-autos.py hoja.xlsx                  # solo revisa: muestra qué agregaría y cambiaría
-    python3 tools/importar-autos.py hoja.xlsx --aplicar        # escribe opciones/data/autos.json
+    python3 tools/importar-autos.py hoja.xlsx --aplicar        # escribe opciones/data/autos/*.json y regenera autos.json
 
 Reglas:
   * Una fila = una versión de auto. Las filas vacías o que empiezan con # se ignoran.
@@ -14,7 +14,7 @@ Reglas:
   * Si hay errores en alguna fila no se aplica nada (usa --ignorar-errores para aplicar solo las filas buenas).
 Requiere openpyxl solo para leer o crear archivos .xlsx (pip install openpyxl). Los .csv no lo necesitan.
 """
-import argparse, csv, difflib, json, os, re, sys, unicodedata
+import argparse, csv, difflib, glob, json, os, re, subprocess, sys, unicodedata
 
 COLUMNAS = [  # (nombre en la hoja, campo en autos.json, ayuda)
     ('marca', 'marca', 'Elige de la lista. Obligatoria.'),
@@ -155,7 +155,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('hoja', nargs='?', help='archivo .xlsx o .csv con los autos')
     ap.add_argument('--raiz', default='.', help='carpeta raíz del repositorio')
-    ap.add_argument('--aplicar', action='store_true', help='escribe opciones/data/autos.json (sin esto solo revisa)')
+    ap.add_argument('--aplicar', action='store_true', help='escribe los archivos de opciones/data/autos/ y regenera autos.json (sin esto solo revisa)')
     ap.add_argument('--ignorar-errores', action='store_true', help='aplica las filas buenas aunque otras tengan errores')
     ap.add_argument('--plantilla', metavar='ARCHIVO.xlsx', help='crea la plantilla vacía y termina')
     a = ap.parse_args()
@@ -169,8 +169,13 @@ def main():
     if not a.hoja:
         ap.error('indica la hoja .xlsx o .csv (o usa --plantilla)')
 
-    ruta_autos = os.path.join(R, 'opciones/data/autos.json')
-    datos = leer_json(ruta_autos); autos = datos['autos']
+    carpeta_autos = os.path.join(R, 'opciones/data/autos')
+    if not os.path.isdir(carpeta_autos):
+        sys.exit('No encuentro opciones/data/autos/<marca>/ (un archivo por auto).')
+    archivos = sorted(glob.glob(os.path.join(carpeta_autos, '**', '*.json'), recursive=True))
+    autos = [leer_json(f) for f in archivos]
+    rutas = {x['id']: f for x, f in zip(autos, archivos)}
+    tocados = set()
     por_marca = {norm(m): m for m in marcas}
     por_tipo = {norm(t): t for t in tipos}
     por_tipo.update({'pickup': 'Pickup', 'pickups': 'Pickup', 'suv': 'SUV', 'sedan': 'Sedán', 'hatchback': 'Hatchback'})
@@ -266,6 +271,7 @@ def main():
                 if a.aplicar:
                     for campo, _, v in dif:
                         ex[campo] = v
+                    tocados.add(ex['id'])
             continue
         # auto nuevo
         faltan = [c for c in ('version', 'tipo', 'precio') if c not in vals]
@@ -307,10 +313,13 @@ def main():
     if not a.aplicar:
         print('\nSolo revisión. Para escribir los cambios, agrega --aplicar.')
         return
-    autos.extend(nuevos_dicts)
-    with open(ruta_autos, 'w', encoding='utf-8') as f:
-        json.dump(datos, f, ensure_ascii=False, indent=2)
-    print('\nActualizado %s (%d autos en total).' % (ruta_autos, len(autos)))
+    for x in [x for x in autos if x['id'] in tocados] + nuevos_dicts:
+        destino = rutas.get(x['id']) or os.path.join(carpeta_autos, slug(x['marca']), x['id'] + '.json')
+        os.makedirs(os.path.dirname(destino), exist_ok=True)
+        with open(destino, 'w', encoding='utf-8') as f:
+            json.dump(x, f, ensure_ascii=False, indent=2)
+    subprocess.run([sys.executable, os.path.join(R, 'tools/generar-autos.py'), '--raiz', R], check=True)
+    print('\nActualizados %d autos y creados %d en opciones/data/autos/ (%d en total).' % (len(tocados), len(nuevos_dicts), len(autos) + len(nuevos_dicts)))
 
 
 if __name__ == '__main__':

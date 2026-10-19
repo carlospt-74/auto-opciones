@@ -144,7 +144,9 @@
         "SUV",
         "Sedán",
         "Hatchback",
-        "Pickup"
+        "Pickup",
+        "Van",
+        "Deportivo"
       ],
       "mostrar_presupuesto": true,
       "texto_presupuesto": "Presupuesto",

@@ -1,0 +1,13 @@
+{
+  "id": "nissan-frontier-hibrida-platinum",
+  "marca": "Nissan",
+  "modelo": "Frontier Híbrida",
+  "version": "Platinum",
+  "anio": 2027,
+  "tipo": "Pickup",
+  "precio": 969900,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-frontier-hibrida.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

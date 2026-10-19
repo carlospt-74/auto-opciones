@@ -1,0 +1,14 @@
+{
+  "id": "nissan-magnite-advance-cvt",
+  "marca": "Nissan",
+  "modelo": "Magnite",
+  "version": "Advance CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 384990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-magnite.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

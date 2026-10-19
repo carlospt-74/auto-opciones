@@ -1,0 +1,14 @@
+{
+  "id": "nissan-kicks-advance-cvt",
+  "marca": "Nissan",
+  "modelo": "Kicks",
+  "version": "Advance CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 476990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-kicks.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

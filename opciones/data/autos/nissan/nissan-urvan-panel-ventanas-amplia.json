@@ -1,0 +1,13 @@
+{
+  "id": "nissan-urvan-panel-ventanas-amplia",
+  "marca": "Nissan",
+  "modelo": "Urvan",
+  "version": "Panel Ventanas Amplia",
+  "anio": 2026,
+  "tipo": "Van",
+  "precio": 550900,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-urvan.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

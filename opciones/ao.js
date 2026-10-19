@@ -127,6 +127,7 @@
   };
   const llenar = (tpl, v) => String(tpl).replace(/\{(\w+)\}/g, (_, k) => v[k] != null ? v[k] : '').replace(/\s+([.,?!])/g, '$1').replace(/\s{2,}/g, ' ').trim();
   const norm = x => String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const compacto = x => norm(x).replace(/[^a-z0-9]/g, '');  // sin espacios ni guiones: "xtrail" encuentra "X-Trail"
   const slug = x => norm(x).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
   const soloDigitos = x => String(x || '').replace(/\D/g, '');
   const numMx = x => { const d = soloDigitos(x); return d.length === 10 ? '52' + d : d; };
@@ -303,12 +304,12 @@
     const segTxt = segOn ? ' Incluye un seguro del primer año estimado.' : '';
     const PRES = lst(fil.presupuestos);
     const pr = st.pres !== '' && st.pres != null ? PRES[+st.pres] : null;
-    const cnt = m => AUTOS.filter(a => a.marca === m).length;
+    const cnt = m => new Set(AUTOS.filter(a => a.marca === m).map(a => norm(a.modelo))).size;  // modelos distintos (no versiones)
     const Q = norm(st.q || '').split(/\s+/).filter(Boolean), MMAX = +st.mmax || 0;
     const mens = a => mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a));
     const lista0 = AUTOS.filter(a => (!st.marca || a.marca === st.marca) && (st.tipo === '*' || a.tipo === st.tipo) &&
       (!pr || ((!pr.min || a.precio >= +pr.min) && (!pr.max || a.precio <= +pr.max))) &&
-      (!Q.length || Q.every(t => norm([a.marca, a.modelo, a.version, a.tipo].join(' ')).includes(t))) &&
+      (!Q.length || Q.every(t => { const h = [a.marca, a.modelo, a.version, a.tipo].join(' '); return norm(h).includes(t) || (compacto(t) !== '' && compacto(h).includes(compacto(t))); })) &&
       (!MMAX || esContado || mens(a) <= MMAX));
     const ordenSel = ['precio_asc', 'precio_desc', 'mensual'].includes(st.orden) ? st.orden : '';
     const lista = ordenSel === 'precio_asc' ? [...lista0].sort((x, y) => x.precio - y.precio) : ordenSel === 'precio_desc' ? [...lista0].sort((x, y) => y.precio - x.precio) : ordenSel === 'mensual' ? [...lista0].sort((x, y) => mens(x) - mens(y)) : lista0;
@@ -317,7 +318,9 @@
     const AUTOS_INICIALES = Math.max(1, Math.floor(+S.autos.autos_iniciales) || 4);
     const AUTOS_POR_VEZ = Math.max(1, Math.floor(+S.autos.autos_por_pagina) || 10);
     const setFiltro = p => set({ ...p, nVer: 0 });
-    const visibles = Math.min(Math.max(st.nVer || 0, AUTOS_INICIALES), lista.length);
+    // Si se abre una ficha por enlace (#/auto/<id>), la lista debe incluir ese auto aunque quede después de los primeros.
+    const iFicha = st.ficha ? lista.findIndex(a => a.id === st.ficha) : -1;
+    const visibles = Math.min(Math.max(st.nVer || 0, AUTOS_INICIALES, iFicha + 1), lista.length);
     const hayMas = lista.length > visibles;
     const byId = id => AUTOS.find(a => a.id === id);
     const cmp = (st.cmp || [AUTOS[0] && AUTOS[0].id, AUTOS[1] && AUTOS[1].id, null]).map(x => (x && byId(x)) ? x : null);
@@ -332,7 +335,7 @@
       if (d.indexOf('seccion:') === 0) scrollA(d.slice(8)); else window.scrollTo(0, 0);
     };
 
-    window.__aoEsc = () => { if (st.menu) set({ menu: false }); else if (st.ficha) set({ ficha: null }); };
+    window.__aoEsc = () => { if (st.menu) set({ menu: false }); else if (st.ficha) set({ ficha: null, nVer: visibles }); };
     const T = { ...TEXTOS, ...Object.fromEntries(Object.entries(S0.textos || {}).filter(([, v]) => typeof v === 'string' && v !== '')) };
     const MSG = { ...MENSAJES, ...Object.fromEntries(Object.entries({ auto: ct.mensaje_auto, opcion: ct.mensaje_opcion, marca: ct.mensaje_marca, credito: ct.mensaje_credito, compartir: ct.mensaje_compartir }).filter(([, v]) => v)) };
     const waNum = numMx(ct.whatsapp), correo1 = lst(ct.correos)[0];
@@ -349,7 +352,7 @@
       return { ...a, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', precioF: mxn(a.precio), nombre: a.marca + ' ' + a.modelo,
         mensual: mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))), specs: specs(a),
         mensualTxt: esContado ? '' : esArrend ? T.renta_cotizar : mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))) + '/mes*', hayMensualTxt: !esContado,
-        ficha: st.ficha === a.id, noFicha: st.ficha !== a.id, abrirFicha: () => set({ ficha: a.id }), cerrarFicha: () => set({ ficha: null }),
+        ficha: st.ficha === a.id, noFicha: st.ficha !== a.id, abrirFicha: () => set({ ficha: a.id }), cerrarFicha: () => set({ ficha: null, nVer: visibles }),
         inCmp: inC, notInCmp: !inC, cmpDisabled: !inC && nCmp >= 3,
         cmpLabel: inC ? T.en_comparador : (nCmp >= 3 ? T.comparador_lleno : T.comparar), toggleCmp: () => toggleCmp(a.id),
         hayAnio: !!a.anio, anioF: a.anio ? 'Modelo ' + a.anio : '', hayVig: !!a.vigencia, vigF: a.vigencia ? 'Precio vigente al ' + a.vigencia : '',

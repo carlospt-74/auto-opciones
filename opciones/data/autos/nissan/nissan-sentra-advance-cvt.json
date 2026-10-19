@@ -1,0 +1,14 @@
+{
+  "id": "nissan-sentra-advance-cvt",
+  "marca": "Nissan",
+  "modelo": "Sentra",
+  "version": "Advance CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 421990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-sentra.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

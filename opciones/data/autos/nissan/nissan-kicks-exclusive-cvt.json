@@ -1,0 +1,14 @@
+{
+  "id": "nissan-kicks-exclusive-cvt",
+  "marca": "Nissan",
+  "modelo": "Kicks",
+  "version": "Exclusive CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 506990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-kicks.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

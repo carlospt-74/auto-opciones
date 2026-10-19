@@ -1,0 +1,14 @@
+{
+  "id": "nissan-kicks-play-advance-mt",
+  "marca": "Nissan",
+  "modelo": "Kicks Play",
+  "version": "Advance MT",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 437900,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-kicks-play.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

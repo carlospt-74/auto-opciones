@@ -1,0 +1,14 @@
+{
+  "id": "nissan-versa-exclusive-cvt",
+  "marca": "Nissan",
+  "modelo": "Versa",
+  "version": "Exclusive CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 406990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-versa.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

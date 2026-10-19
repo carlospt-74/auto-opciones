@@ -1,0 +1,14 @@
+{
+  "id": "nissan-frontier-xe-tm",
+  "marca": "Nissan",
+  "modelo": "Frontier",
+  "version": "XE TM",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 458990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-frontier.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

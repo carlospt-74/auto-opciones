@@ -1,0 +1,20 @@
+{
+  "id": "crv",
+  "marca": "Honda",
+  "modelo": "CR-V",
+  "version": "Touring",
+  "tipo": "SUV",
+  "precio": 729900,
+  "foto": "assets/fotos/crv.jpeg",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "motor": "1.5 L turbo",
+  "hp": 190,
+  "trans": "CVT",
+  "traccion": "AWD",
+  "rend": 15.4,
+  "pas": 5,
+  "cajuela": 586,
+  "bolsas": 8,
+  "orden": 30
+}

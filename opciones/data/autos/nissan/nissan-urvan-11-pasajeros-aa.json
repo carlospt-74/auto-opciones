@@ -1,0 +1,13 @@
+{
+  "id": "nissan-urvan-11-pasajeros-aa",
+  "marca": "Nissan",
+  "modelo": "Urvan",
+  "version": "11 Pasajeros AA",
+  "anio": 2026,
+  "tipo": "Van",
+  "precio": 670900,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-urvan.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

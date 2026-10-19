@@ -1,0 +1,14 @@
+{
+  "id": "nissan-frontier-le-ta",
+  "marca": "Nissan",
+  "modelo": "Frontier",
+  "version": "LE TA",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 599990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-frontier.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

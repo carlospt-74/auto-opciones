@@ -1,0 +1,14 @@
+{
+  "id": "nissan-march-sense-tm",
+  "marca": "Nissan",
+  "modelo": "March",
+  "version": "Sense TM",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 245990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-march.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}
