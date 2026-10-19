@@ -32,6 +32,8 @@ for name,idxp in index:
         if p==min(prices):
             if num(idxp)!=p: notes.append(f'El listado del catálogo dice desde ${num(idxp):,}; la versión más barata en la página es ${p:,}')
             if head and head!=p: notes.append(f'Encabezado de la página dice desde ${head:,}')
+        if slug=='v-drive-2026': notes.append('El PDF de catálogo del sitio es de Nissan Colombia y no lista las versiones BASE TM / MT')
+        if slug=='kait-2027': notes.append('El PDF incluye también la versión ADVANCE, que no aparece en la página')
         if not x.get('caracteristicas'): notes.append('La página no lista equipamiento para esta versión')
         ws.append([model,int(year),v,p,x['precio'],num(idxp),head,'; '.join(notes),'\n'.join(x.get('caracteristicas',[])),'nissanrivero.com – página del modelo (pestaña de versión, vía Firecrawl interact)',BASE%slug,PDF%slug,t]); nver+=1
     # fichas
@@ -45,12 +47,15 @@ for name,idxp in index:
         ws2.append([model,int(year),'Motor','Motorización (texto del PDF)','Todas las versiones',val,q,PDF%slug,tsr]); nspec+=1
         continue
     rows,iss=parse(slug)
-    for sec,con,ver,val,blank in rows:
-        bad=(ver=='' or ver.startswith('col') or ver in('•','-','–','✓') or (slug in('v-drive-2026',) ))
+    for sec,con,ver,val,tag in rows:
+        bad=(ver=='' or ver.startswith('col') or ver in('•','-','–','✓'))
         q='OK'
-        if bad: q='REVISAR: columna sin encabezado / tabla con celdas combinadas en la extracción'
+        if slug=='v-drive-2026': q='REVISAR: PDF de Nissan Colombia (solo V-DRIVE MT, cód. 67.101); puede no aplicar a las versiones mexicanas BASE TM / MT'
+        elif bad: q='REVISAR: columna sin encabezado en la extracción'
         elif val=='': q='Celda vacía en la extracción (posible celda combinada del PDF)'
-        elif blank: q='REVISAR: fila con celdas combinadas; el valor puede aplicar a varias versiones'
+        elif tag=='iconlost': q='NO CONFIABLE: en el PDF esta tabla usa íconos y la extracción devolvió "-" en todas las versiones; no indica si el equipo está o no incluido'
+        elif tag=='infer_all': q='Inferido: celda combinada; valor aplicado a todas las versiones de la tabla (confirmar visualmente en el PDF)'
+        elif tag=='blank': q='REVISAR: fila con celdas combinadas; el valor puede aplicar a varias versiones'
         ws2.append([model,int(year),sec,con.replace('\\*','*'),ver,val,q,PDF%slug,tsr]); nspec+=1
 for w,H,widths in((ws,H1,[22,8,28,13,18,18,18,40,70,34,52,52,22]),(ws2,H2,[22,8,26,60,34,30,40,52,22])):
     for c in w[1]: c.font=Font(bold=True,color='FFFFFF'); c.fill=PatternFill('solid',fgColor='C3002F'); c.alignment=Alignment(wrap_text=True,vertical='center')
