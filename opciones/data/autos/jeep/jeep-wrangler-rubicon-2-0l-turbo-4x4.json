@@ -1,0 +1,14 @@
+{
+  "id": "jeep-wrangler-rubicon-2-0l-turbo-4x4",
+  "marca": "Jeep",
+  "modelo": "Wrangler",
+  "version": "Rubicon 2.0L Turbo 4x4",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1336900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jeep-wrangler-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "buick-enclave-sport-touring",
+  "marca": "Buick",
+  "modelo": "Enclave",
+  "version": "Sport Touring",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1260500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/buick-enclave-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

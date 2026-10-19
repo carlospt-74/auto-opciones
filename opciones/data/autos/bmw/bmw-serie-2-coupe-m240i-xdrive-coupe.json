@@ -1,0 +1,14 @@
+{
+  "id": "bmw-serie-2-coupe-m240i-xdrive-coupe",
+  "marca": "BMW",
+  "modelo": "Serie 2 Coupé",
+  "version": "M240i xDrive Coupé",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 1286900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-2-coupe-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "toyota-corolla-cross-xle",
+  "marca": "Toyota",
+  "modelo": "Corolla Cross",
+  "version": "XLE",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 617900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-corolla-cross-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

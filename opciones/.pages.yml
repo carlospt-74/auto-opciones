@@ -431,7 +431,7 @@ content:
       - { name: anio, label: Año modelo, type: number, description: "Ej. 2026. Opcional: se muestra en la tarjeta.", options: { min: 1990, max: 2100 } }
       - { name: precio, label: Precio, type: number, required: true, description: "En pesos, sin símbolo ni comas. Ej. 689900. Revisa los ceros: el CMS solo acepta de 100,000 a 15,000,000.", options: { step: any, min: 100000, max: 15000000 } }
       - { name: seguro_anual, label: Seguro anual propio (MXN), type: number, description: "Opcional. Si lo dejas vacío o en 0, se usa el porcentaje general sobre el precio. Pon aquí la cotización real de este auto.", options: { step: any, min: 0, max: 500000 } }
-      - { name: vigencia, label: Precio vigente al, type: string, description: "Fecha en texto. Ej. 30 de octubre de 2026. Opcional: se muestra bajo el precio." }
+      - { name: vigencia, label: Precio vigente, type: string, description: "Fecha o mes en texto. Ej. octubre de 2026 o 30 de octubre de 2026. Opcional: se muestra bajo el precio." }
       - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1000 px de ancho y proporción 3:2. El auto debe verse completo, centrado y con aire alrededor, porque la tarjeta recorta la foto. Formatos: JPG, PNG o WEBP.", options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
       - name: enfoque_foto
         label: Enfoque de la foto

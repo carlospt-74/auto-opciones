@@ -1,0 +1,13 @@
+{
+  "id": "toyota-hilux-doble-cabina-diesel-mt",
+  "marca": "Toyota",
+  "modelo": "Hilux",
+  "version": "Doble Cabina Diesel MT",
+  "anio": 2027,
+  "tipo": "Pickup",
+  "precio": 720900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-hilux-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "chirey-arrizo-8-luxury",
+  "marca": "Chirey",
+  "modelo": "Arrizo 8",
+  "version": "Luxury",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 569900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chirey-arrizo-8-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

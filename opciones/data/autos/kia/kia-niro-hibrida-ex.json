@@ -1,0 +1,13 @@
+{
+  "id": "kia-niro-hibrida-ex",
+  "marca": "Kia",
+  "modelo": "Niro Híbrida",
+  "version": "EX",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 729200,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-niro-hibrida-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

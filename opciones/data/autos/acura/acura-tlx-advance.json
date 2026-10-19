@@ -1,0 +1,15 @@
+{
+  "id": "acura-tlx-advance",
+  "marca": "Acura",
+  "modelo": "TLX",
+  "version": "Advance",
+  "anio": 2025,
+  "tipo": "Sedán",
+  "precio": 1134900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/acura-tlx-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "FWD"
+}

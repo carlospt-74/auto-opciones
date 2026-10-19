@@ -1,0 +1,14 @@
+{
+  "id": "jac-frison-t8-unica",
+  "marca": "JAC",
+  "modelo": "Frison T8",
+  "version": "Única",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 459000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-frison-t8-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "MT"
+}

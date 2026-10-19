@@ -1,0 +1,15 @@
+{
+  "id": "acura-mdx-advance",
+  "marca": "Acura",
+  "modelo": "MDX",
+  "version": "Advance",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1633900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/acura-mdx-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "SH-AWD"
+}

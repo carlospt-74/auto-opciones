@@ -1,0 +1,13 @@
+{
+  "id": "byd-shark-gl",
+  "marca": "BYD",
+  "modelo": "Shark",
+  "version": "GL",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 899980,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/byd-shark-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

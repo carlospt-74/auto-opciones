@@ -1,0 +1,13 @@
+{
+  "id": "kia-k3-sedan-ex-ta",
+  "marca": "Kia",
+  "modelo": "K3 Sedán",
+  "version": "EX TA",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 400500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-k3-sedan-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

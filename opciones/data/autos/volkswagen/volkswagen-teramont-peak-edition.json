@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-teramont-peak-edition",
+  "marca": "Volkswagen",
+  "modelo": "Teramont",
+  "version": "Peak Edition",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1082190,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-teramont-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

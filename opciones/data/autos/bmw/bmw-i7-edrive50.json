@@ -1,0 +1,13 @@
+{
+  "id": "bmw-i7-edrive50",
+  "marca": "BMW",
+  "modelo": "i7",
+  "version": "eDrive50",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 2738900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-i7-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

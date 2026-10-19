@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-montana-lt",
+  "marca": "Chevrolet",
+  "modelo": "Montana",
+  "version": "LT",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 571700,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-montana-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

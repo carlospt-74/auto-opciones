@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-mercedes-amg-glc-version-de-entrada-precio-des",
+  "marca": "Mercedes Benz",
+  "modelo": "Mercedes-AMG GLC",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1660000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-mercedes-amg-glc-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

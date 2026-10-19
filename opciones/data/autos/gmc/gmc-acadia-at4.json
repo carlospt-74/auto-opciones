@@ -1,0 +1,13 @@
+{
+  "id": "gmc-acadia-at4",
+  "marca": "GMC",
+  "modelo": "Acadia",
+  "version": "AT4",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1432000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-acadia-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

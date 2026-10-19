@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-onix-lt-automatica",
+  "marca": "Chevrolet",
+  "modelo": "Onix",
+  "version": "LT Automatica",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 436100,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-onix-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

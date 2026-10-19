@@ -1,0 +1,14 @@
+{
+  "id": "porsche-cayenne-s-e-hybrid-black-edition",
+  "marca": "Porsche",
+  "modelo": "Cayenne",
+  "version": "S E-Hybrid Black Edition",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2658000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-cayenne-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

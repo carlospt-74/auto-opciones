@@ -1,0 +1,13 @@
+{
+  "id": "kia-sorento-ex-pack",
+  "marca": "Kia",
+  "modelo": "Sorento",
+  "version": "EX Pack",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 897600,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-sorento-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

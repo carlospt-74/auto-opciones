@@ -1,0 +1,14 @@
+{
+  "id": "byd-atto-8-dm-p",
+  "marca": "BYD",
+  "modelo": "Atto 8",
+  "version": "DM-p",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1199800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/byd-atto-8-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "Integral (AWD)"
+}

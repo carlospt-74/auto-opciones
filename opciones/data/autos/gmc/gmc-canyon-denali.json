@@ -1,0 +1,13 @@
+{
+  "id": "gmc-canyon-denali",
+  "marca": "GMC",
+  "modelo": "Canyon",
+  "version": "Denali",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1328000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-canyon-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

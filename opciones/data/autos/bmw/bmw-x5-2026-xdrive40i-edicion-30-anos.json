@@ -1,0 +1,14 @@
+{
+  "id": "bmw-x5-2026-xdrive40i-edicion-30-anos",
+  "marca": "BMW",
+  "modelo": "X5 (2026)",
+  "version": "xDrive40i Edición 30 Años",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1809900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x5-2026-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

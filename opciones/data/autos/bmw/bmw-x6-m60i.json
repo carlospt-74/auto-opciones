@@ -1,0 +1,13 @@
+{
+  "id": "bmw-x6-m60i",
+  "marca": "BMW",
+  "modelo": "X6",
+  "version": "M60i",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2290900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x6-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

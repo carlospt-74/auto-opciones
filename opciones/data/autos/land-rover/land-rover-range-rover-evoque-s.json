@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-range-rover-evoque-s",
+  "marca": "Land Rover",
+  "modelo": "Range Rover Evoque",
+  "version": "S",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1300000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-range-rover-evoque-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

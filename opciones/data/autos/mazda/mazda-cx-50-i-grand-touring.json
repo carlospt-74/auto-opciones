@@ -1,0 +1,13 @@
+{
+  "id": "mazda-cx-50-i-grand-touring",
+  "marca": "Mazda",
+  "modelo": "CX-50",
+  "version": "i Grand Touring",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 758900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-cx-50-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

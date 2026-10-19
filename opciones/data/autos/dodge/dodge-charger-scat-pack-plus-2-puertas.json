@@ -1,0 +1,15 @@
+{
+  "id": "dodge-charger-scat-pack-plus-2-puertas",
+  "marca": "Dodge",
+  "modelo": "Charger",
+  "version": "Scat Pack Plus 2 Puertas",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 1489900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/dodge-charger-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "AWD"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "jeep-compass-limited-premium-4x2-atx6-1-3l-turbo",
+  "marca": "Jeep",
+  "modelo": "Compass",
+  "version": "Limited Premium 4X2 ATX6 1.3L Turbo",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 546900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jeep-compass-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "4x2"
+}

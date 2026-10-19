@@ -1,0 +1,15 @@
+{
+  "id": "gac-gs8-hev-gx-awd",
+  "marca": "GAC",
+  "modelo": "GS8",
+  "version": "HEV GX AWD",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 999900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-gs8-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "AWD"
+}

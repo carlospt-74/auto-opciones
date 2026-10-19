@@ -1,0 +1,14 @@
+{
+  "id": "jeep-recon-moab-ev-4x4",
+  "marca": "Jeep",
+  "modelo": "Recon",
+  "version": "Moab EV 4x4",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1619900,
+  "vigencia": "octubre de 2026",
+  "foto": "",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "traccion": "4x4"
+}

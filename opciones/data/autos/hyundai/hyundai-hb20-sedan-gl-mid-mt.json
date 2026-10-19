@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-hb20-sedan-gl-mid-mt",
+  "marca": "Hyundai",
+  "modelo": "HB20 Sedán",
+  "version": "GL Mid MT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 411100,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-hb20-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "porsche-911-spirit-70-spirit-70",
+  "marca": "Porsche",
+  "modelo": "911 Spirit 70",
+  "version": "Spirit 70",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 4518000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-911-spirit-70-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

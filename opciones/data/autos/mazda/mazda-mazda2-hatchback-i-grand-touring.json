@@ -1,0 +1,14 @@
+{
+  "id": "mazda-mazda2-hatchback-i-grand-touring",
+  "marca": "Mazda",
+  "modelo": "Mazda2 Hatchback",
+  "version": "i Grand Touring",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 371900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-mazda2-hatchback-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

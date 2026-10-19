@@ -1,0 +1,13 @@
+{
+  "id": "ford-expedition-active-max",
+  "marca": "Ford",
+  "modelo": "Expedition",
+  "version": "Active Max",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1795500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-expedition-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "ford-bronco-outer-banks",
+  "marca": "Ford",
+  "modelo": "Bronco",
+  "version": "Outer Banks",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1300500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-bronco-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

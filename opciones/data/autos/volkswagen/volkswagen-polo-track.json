@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-polo-track",
+  "marca": "Volkswagen",
+  "modelo": "Polo",
+  "version": "Track",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 339990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-polo-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

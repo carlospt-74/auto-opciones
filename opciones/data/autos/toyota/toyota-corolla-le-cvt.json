@@ -1,0 +1,13 @@
+{
+  "id": "toyota-corolla-le-cvt",
+  "marca": "Toyota",
+  "modelo": "Corolla",
+  "version": "LE CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 466100,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-corolla-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

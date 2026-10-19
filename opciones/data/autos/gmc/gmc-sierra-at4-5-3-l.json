@@ -1,0 +1,13 @@
+{
+  "id": "gmc-sierra-at4-5-3-l",
+  "marca": "GMC",
+  "modelo": "Sierra",
+  "version": "AT4 5.3 L",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1656500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-sierra-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

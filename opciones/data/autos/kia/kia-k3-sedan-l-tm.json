@@ -1,0 +1,13 @@
+{
+  "id": "kia-k3-sedan-l-tm",
+  "marca": "Kia",
+  "modelo": "K3 Sedán",
+  "version": "L TM",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 305100,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-k3-sedan-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-tahoe-rst",
+  "marca": "Chevrolet",
+  "modelo": "Tahoe",
+  "version": "RST",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 2058500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-tahoe-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

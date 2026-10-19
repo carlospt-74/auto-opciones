@@ -1,0 +1,13 @@
+{
+  "id": "jac-traveler-phev-dual-e-drive",
+  "marca": "JAC",
+  "modelo": "Traveler PHEV",
+  "version": "Dual e-drive",
+  "anio": 2026,
+  "tipo": "Van",
+  "precio": 899000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-traveler-phev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

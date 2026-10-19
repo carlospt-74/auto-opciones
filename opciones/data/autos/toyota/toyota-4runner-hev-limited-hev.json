@@ -1,0 +1,13 @@
+{
+  "id": "toyota-4runner-hev-limited-hev",
+  "marca": "Toyota",
+  "modelo": "4Runner HEV",
+  "version": "Limited HEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1251700,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-4runner-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

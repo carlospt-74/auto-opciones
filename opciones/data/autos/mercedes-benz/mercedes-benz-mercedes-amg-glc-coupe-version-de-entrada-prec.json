@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-mercedes-amg-glc-coupe-version-de-entrada-prec",
+  "marca": "Mercedes Benz",
+  "modelo": "Mercedes-AMG GLC Coupé",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1716000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-mercedes-amg-glc-coupe-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

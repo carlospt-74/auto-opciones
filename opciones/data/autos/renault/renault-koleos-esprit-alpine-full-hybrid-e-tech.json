@@ -1,0 +1,14 @@
+{
+  "id": "renault-koleos-esprit-alpine-full-hybrid-e-tech",
+  "marca": "Renault",
+  "modelo": "Koleos",
+  "version": "Esprit Alpine (full hybrid E-Tech)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 823500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/renault-koleos-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

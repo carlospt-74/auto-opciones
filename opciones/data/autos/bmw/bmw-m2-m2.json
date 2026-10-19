@@ -1,0 +1,14 @@
+{
+  "id": "bmw-m2-m2",
+  "marca": "BMW",
+  "modelo": "M2",
+  "version": "M2",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 1775900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-m2-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

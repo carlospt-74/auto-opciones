@@ -1,0 +1,14 @@
+{
+  "id": "mazda-cx-30-i",
+  "marca": "Mazda",
+  "modelo": "CX-30",
+  "version": "i",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 451900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-cx-30-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

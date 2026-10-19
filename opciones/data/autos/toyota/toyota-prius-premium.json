@@ -1,0 +1,13 @@
+{
+  "id": "toyota-prius-premium",
+  "marca": "Toyota",
+  "modelo": "Prius",
+  "version": "Premium",
+  "anio": 2027,
+  "tipo": "Hatchback",
+  "precio": 599500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-prius-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

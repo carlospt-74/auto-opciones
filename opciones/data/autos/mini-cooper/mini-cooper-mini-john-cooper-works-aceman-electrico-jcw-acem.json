@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-john-cooper-works-aceman-electrico-jcw-acem",
+  "marca": "Mini Cooper",
+  "modelo": "MINI John Cooper Works Aceman Eléctrico",
+  "version": "JCW Aceman E (Eléctrico/Aut.)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 962000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-john-cooper-works-aceman-electrico-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

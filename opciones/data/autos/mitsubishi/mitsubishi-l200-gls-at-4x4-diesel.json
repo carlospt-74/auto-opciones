@@ -1,0 +1,15 @@
+{
+  "id": "mitsubishi-l200-gls-at-4x4-diesel",
+  "marca": "Mitsubishi",
+  "modelo": "L200",
+  "version": "GLS AT 4x4 Diésel",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 823900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mitsubishi-l200-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "4x4"
+}

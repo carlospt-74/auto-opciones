@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-grand-i10-sedan-gl-tm",
+  "marca": "Hyundai",
+  "modelo": "Grand i10 Sedán",
+  "version": "GL TM",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 307900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-grand-i10-sedan-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

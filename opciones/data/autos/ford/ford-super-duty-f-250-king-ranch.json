@@ -1,0 +1,13 @@
+{
+  "id": "ford-super-duty-f-250-king-ranch",
+  "marca": "Ford",
+  "modelo": "Super Duty F-250",
+  "version": "King Ranch",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1962400,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-super-duty-f-250-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "gac-emkoo-hev-hibrida",
+  "marca": "GAC",
+  "modelo": "EMKOO",
+  "version": "HEV (Híbrida)",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 629900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-emkoo-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

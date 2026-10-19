@@ -1,0 +1,13 @@
+{
+  "id": "bmw-serie-5-sedan-520i",
+  "marca": "BMW",
+  "modelo": "Serie 5 Sedán",
+  "version": "520i",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 1314900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-5-sedan-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

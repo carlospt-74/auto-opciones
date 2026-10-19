@@ -1,0 +1,14 @@
+{
+  "id": "porsche-taycan-cross-turismo-4s",
+  "marca": "Porsche",
+  "modelo": "Taycan Cross Turismo",
+  "version": "4S",
+  "anio": 2027,
+  "tipo": "Hatchback",
+  "precio": 2848000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-taycan-cross-turismo-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

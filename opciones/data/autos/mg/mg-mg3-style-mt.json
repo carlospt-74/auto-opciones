@@ -1,0 +1,14 @@
+{
+  "id": "mg-mg3-style-mt",
+  "marca": "MG",
+  "modelo": "MG3",
+  "version": "STYLE MT",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 306000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-mg3-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

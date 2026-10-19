@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-aveo-sedan-ls-manual",
+  "marca": "Chevrolet",
+  "modelo": "Aveo Sedán",
+  "version": "LS Manual",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 332800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-aveo-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

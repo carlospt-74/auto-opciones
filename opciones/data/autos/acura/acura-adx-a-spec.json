@@ -1,0 +1,15 @@
+{
+  "id": "acura-adx-a-spec",
+  "marca": "Acura",
+  "modelo": "ADX",
+  "version": "A-SPEC",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 949900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/acura-adx-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT",
+  "traccion": "AWD"
+}

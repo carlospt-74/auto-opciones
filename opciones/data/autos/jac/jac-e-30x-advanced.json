@@ -1,0 +1,14 @@
+{
+  "id": "jac-e-30x-advanced",
+  "marca": "JAC",
+  "modelo": "E 30X",
+  "version": "Advanced",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 515000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-e-30x-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "porsche-taycan-4s-black-edition",
+  "marca": "Porsche",
+  "modelo": "Taycan",
+  "version": "4S Black Edition",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 2788000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-taycan-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "suzuki-swift-sport-glx-tm",
+  "marca": "Suzuki",
+  "modelo": "Swift Sport",
+  "version": "GLX TM",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 397990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/suzuki-swift-sport-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

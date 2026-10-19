@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-aveo-hb-lt-black-edition",
+  "marca": "Chevrolet",
+  "modelo": "Aveo HB",
+  "version": "LT Black Edition",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 352600,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-aveo-hb-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

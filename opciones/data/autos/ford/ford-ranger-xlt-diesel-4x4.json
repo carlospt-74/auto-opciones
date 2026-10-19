@@ -1,0 +1,14 @@
+{
+  "id": "ford-ranger-xlt-diesel-4x4",
+  "marca": "Ford",
+  "modelo": "Ranger",
+  "version": "XLT Diésel 4x4",
+  "anio": 2027,
+  "tipo": "Pickup",
+  "precio": 907000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-ranger-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

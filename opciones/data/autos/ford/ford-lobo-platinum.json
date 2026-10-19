@@ -1,0 +1,13 @@
+{
+  "id": "ford-lobo-platinum",
+  "marca": "Ford",
+  "modelo": "Lobo",
+  "version": "Platinum",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1645500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-lobo-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

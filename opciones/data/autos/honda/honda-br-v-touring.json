@@ -1,0 +1,13 @@
+{
+  "id": "honda-br-v-touring",
+  "marca": "Honda",
+  "modelo": "BR-V",
+  "version": "TOURING",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 539900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-br-v-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

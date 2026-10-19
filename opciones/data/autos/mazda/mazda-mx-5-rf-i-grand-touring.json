@@ -1,0 +1,13 @@
+{
+  "id": "mazda-mx-5-rf-i-grand-touring",
+  "marca": "Mazda",
+  "modelo": "MX-5 RF",
+  "version": "i Grand Touring",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 646900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-mx-5-rf-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

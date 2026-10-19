@@ -1,0 +1,14 @@
+{
+  "id": "mazda-bt-50-signature",
+  "marca": "Mazda",
+  "modelo": "BT-50",
+  "version": "Signature",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 785900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-bt-50-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

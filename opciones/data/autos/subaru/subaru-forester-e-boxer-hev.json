@@ -1,0 +1,13 @@
+{
+  "id": "subaru-forester-e-boxer-hev",
+  "marca": "Subaru",
+  "modelo": "Forester",
+  "version": "e-BOXER HEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 849900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/subaru-forester-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

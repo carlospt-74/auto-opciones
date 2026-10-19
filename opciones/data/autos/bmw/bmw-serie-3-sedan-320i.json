@@ -1,0 +1,14 @@
+{
+  "id": "bmw-serie-3-sedan-320i",
+  "marca": "BMW",
+  "modelo": "Serie 3 Sedán",
+  "version": "320i",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 1002900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-3-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

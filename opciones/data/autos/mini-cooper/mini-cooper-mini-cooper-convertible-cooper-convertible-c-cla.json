@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-cooper-convertible-cooper-convertible-c-cla",
+  "marca": "Mini Cooper",
+  "modelo": "MINI Cooper Convertible",
+  "version": "Cooper Convertible C (Classic Trim)",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 802000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-cooper-convertible-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

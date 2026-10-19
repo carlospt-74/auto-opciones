@@ -1,0 +1,13 @@
+{
+  "id": "toyota-gr-yaris-aero-performance-package",
+  "marca": "Toyota",
+  "modelo": "GR Yaris",
+  "version": "Aero Performance Package",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 898200,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-gr-yaris-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

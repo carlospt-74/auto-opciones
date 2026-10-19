@@ -1,0 +1,13 @@
+{
+  "id": "honda-city-sport-cvt",
+  "marca": "Honda",
+  "modelo": "City",
+  "version": "SPORT CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 408900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-city-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,14 @@
+{
+  "id": "porsche-macan-gts",
+  "marca": "Porsche",
+  "modelo": "Macan",
+  "version": "GTS",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1978000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-macan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

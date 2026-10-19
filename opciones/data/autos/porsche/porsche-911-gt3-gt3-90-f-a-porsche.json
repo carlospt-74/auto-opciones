@@ -1,0 +1,14 @@
+{
+  "id": "porsche-911-gt3-gt3-90-f-a-porsche",
+  "marca": "Porsche",
+  "modelo": "911 GT3",
+  "version": "GT3 90 F. A. Porsche",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 7298000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-911-gt3-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

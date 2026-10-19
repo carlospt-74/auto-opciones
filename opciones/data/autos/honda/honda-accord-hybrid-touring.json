@@ -1,0 +1,13 @@
+{
+  "id": "honda-accord-hybrid-touring",
+  "marca": "Honda",
+  "modelo": "Accord Hybrid",
+  "version": "Touring",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 935900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-accord-hybrid-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

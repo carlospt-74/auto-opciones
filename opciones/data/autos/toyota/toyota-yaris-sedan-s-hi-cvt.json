@@ -1,0 +1,13 @@
+{
+  "id": "toyota-yaris-sedan-s-hi-cvt",
+  "marca": "Toyota",
+  "modelo": "Yaris Sedán",
+  "version": "S Hi CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 403800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-yaris-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

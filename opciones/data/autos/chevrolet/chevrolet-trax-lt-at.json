@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-trax-lt-at",
+  "marca": "Chevrolet",
+  "modelo": "Trax",
+  "version": "LT AT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 599300,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-trax-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

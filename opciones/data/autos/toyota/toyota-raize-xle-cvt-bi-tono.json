@@ -1,0 +1,13 @@
+{
+  "id": "toyota-raize-xle-cvt-bi-tono",
+  "marca": "Toyota",
+  "modelo": "Raize",
+  "version": "XLE CVT Bi-tono",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 418200,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-raize-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

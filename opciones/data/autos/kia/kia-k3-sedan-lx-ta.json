@@ -1,0 +1,13 @@
+{
+  "id": "kia-k3-sedan-lx-ta",
+  "marca": "Kia",
+  "modelo": "K3 Sedán",
+  "version": "LX TA",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 372800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-k3-sedan-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

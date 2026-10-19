@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-tiguan-edicion-especial-goal",
+  "marca": "Volkswagen",
+  "modelo": "Tiguan",
+  "version": "Edición Especial GOAL",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 629990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-tiguan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

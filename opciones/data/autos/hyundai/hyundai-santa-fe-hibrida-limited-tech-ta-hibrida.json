@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-santa-fe-hibrida-limited-tech-ta-hibrida",
+  "marca": "Hyundai",
+  "modelo": "Santa Fe Híbrida",
+  "version": "Limited Tech TA Híbrida",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1175100,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-santa-fe-hibrida-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

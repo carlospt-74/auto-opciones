@@ -1,0 +1,13 @@
+{
+  "id": "honda-br-v-uniq",
+  "marca": "Honda",
+  "modelo": "BR-V",
+  "version": "UNIQ",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 498900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-br-v-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

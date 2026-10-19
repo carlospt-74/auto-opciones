@@ -1,0 +1,13 @@
+{
+  "id": "kia-telluride-sx",
+  "marca": "Kia",
+  "modelo": "Telluride",
+  "version": "SX",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 1191300,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-telluride-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

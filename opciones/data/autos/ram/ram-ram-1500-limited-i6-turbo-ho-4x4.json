@@ -1,0 +1,14 @@
+{
+  "id": "ram-ram-1500-limited-i6-turbo-ho-4x4",
+  "marca": "RAM",
+  "modelo": "RAM 1500",
+  "version": "Limited I6 Turbo HO 4x4",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1713700,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ram-ram-1500-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

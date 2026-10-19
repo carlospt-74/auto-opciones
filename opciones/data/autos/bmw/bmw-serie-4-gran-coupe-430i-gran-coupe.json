@@ -1,0 +1,14 @@
+{
+  "id": "bmw-serie-4-gran-coupe-430i-gran-coupe",
+  "marca": "BMW",
+  "modelo": "Serie 4 Gran Coupé",
+  "version": "430i Gran Coupé",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 1231900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-4-gran-coupe-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

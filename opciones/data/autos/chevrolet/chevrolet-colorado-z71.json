@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-colorado-z71",
+  "marca": "Chevrolet",
+  "modelo": "Colorado",
+  "version": "Z71",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1122000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-colorado-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

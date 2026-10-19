@@ -1,0 +1,13 @@
+{
+  "id": "honda-hr-v-touring",
+  "marca": "Honda",
+  "modelo": "HR-V",
+  "version": "TOURING",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 688900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-hr-v-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,15 @@
+{
+  "id": "ram-ram-2500-hd-power-wagon-6-4l-v8-8a-t",
+  "marca": "RAM",
+  "modelo": "RAM 2500 HD",
+  "version": "Power Wagon 6.4L V8 8A/T",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1953700,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ram-ram-2500-hd-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "4x4"
+}

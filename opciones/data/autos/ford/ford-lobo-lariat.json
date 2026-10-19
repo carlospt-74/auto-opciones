@@ -1,0 +1,13 @@
+{
+  "id": "ford-lobo-lariat",
+  "marca": "Ford",
+  "modelo": "Lobo",
+  "version": "Lariat",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1453500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-lobo-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

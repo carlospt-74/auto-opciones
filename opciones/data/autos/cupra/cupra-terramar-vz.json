@@ -1,0 +1,13 @@
+{
+  "id": "cupra-terramar-vz",
+  "marca": "Cupra",
+  "modelo": "Terramar",
+  "version": "VZ",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 974900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/cupra-terramar-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

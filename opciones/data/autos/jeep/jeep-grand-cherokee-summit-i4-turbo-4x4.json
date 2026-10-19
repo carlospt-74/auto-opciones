@@ -1,0 +1,14 @@
+{
+  "id": "jeep-grand-cherokee-summit-i4-turbo-4x4",
+  "marca": "Jeep",
+  "modelo": "Grand Cherokee",
+  "version": "Summit I4 Turbo 4X4",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1603900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jeep-grand-cherokee-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

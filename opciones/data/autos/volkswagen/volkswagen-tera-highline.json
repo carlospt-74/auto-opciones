@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-tera-highline",
+  "marca": "Volkswagen",
+  "modelo": "Tera",
+  "version": "Highline",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 467990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-tera-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

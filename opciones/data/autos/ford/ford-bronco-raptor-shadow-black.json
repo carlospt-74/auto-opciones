@@ -1,0 +1,13 @@
+{
+  "id": "ford-bronco-raptor-shadow-black",
+  "marca": "Ford",
+  "modelo": "Bronco Raptor",
+  "version": "Shadow Black",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 2220500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-bronco-raptor-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

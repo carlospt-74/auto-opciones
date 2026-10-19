@@ -1,0 +1,13 @@
+{
+  "id": "toyota-sienna-hev-xse-hev",
+  "marca": "Toyota",
+  "modelo": "Sienna HEV",
+  "version": "XSE HEV",
+  "anio": 2026,
+  "tipo": "Van",
+  "precio": 1162200,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-sienna-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

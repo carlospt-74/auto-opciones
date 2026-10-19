@@ -1,0 +1,14 @@
+{
+  "id": "suzuki-swift-sport-final-edition-glx-tm",
+  "marca": "Suzuki",
+  "modelo": "Swift Sport Final Edition",
+  "version": "GLX TM",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 429990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/suzuki-swift-sport-final-edition-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

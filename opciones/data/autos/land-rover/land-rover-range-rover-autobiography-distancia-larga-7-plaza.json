@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-range-rover-autobiography-distancia-larga-7-plaza",
+  "marca": "Land Rover",
+  "modelo": "Range Rover",
+  "version": "Autobiography (distancia larga, 7 plazas)",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 4575000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-range-rover-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

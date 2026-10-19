@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-tiguan-r-line",
+  "marca": "Volkswagen",
+  "modelo": "Tiguan",
+  "version": "R-Line",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 795790,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-tiguan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

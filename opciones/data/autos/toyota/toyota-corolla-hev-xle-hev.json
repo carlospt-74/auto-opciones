@@ -1,0 +1,13 @@
+{
+  "id": "toyota-corolla-hev-xle-hev",
+  "marca": "Toyota",
+  "modelo": "Corolla HEV",
+  "version": "XLE HEV",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 576400,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-corolla-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

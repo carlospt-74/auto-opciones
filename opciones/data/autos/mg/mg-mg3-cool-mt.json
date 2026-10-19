@@ -1,0 +1,14 @@
+{
+  "id": "mg-mg3-cool-mt",
+  "marca": "MG",
+  "modelo": "MG3",
+  "version": "COOL MT",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 249000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-mg3-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

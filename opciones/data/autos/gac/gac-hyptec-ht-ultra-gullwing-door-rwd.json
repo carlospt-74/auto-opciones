@@ -1,0 +1,14 @@
+{
+  "id": "gac-hyptec-ht-ultra-gullwing-door-rwd",
+  "marca": "GAC",
+  "modelo": "HYPTEC HT",
+  "version": "Ultra Gullwing Door RWD",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 999900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-hyptec-ht-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "RWD"
+}

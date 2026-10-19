@@ -1,0 +1,13 @@
+{
+  "id": "bmw-serie-1-118",
+  "marca": "BMW",
+  "modelo": "Serie 1",
+  "version": "118",
+  "anio": 2027,
+  "tipo": "Hatchback",
+  "precio": 801400,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-1-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

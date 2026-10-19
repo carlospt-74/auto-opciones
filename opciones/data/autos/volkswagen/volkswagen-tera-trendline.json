@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-tera-trendline",
+  "marca": "Volkswagen",
+  "modelo": "Tera",
+  "version": "Trendline",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 387990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-tera-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-cross-sport-r-line",
+  "marca": "Volkswagen",
+  "modelo": "Cross Sport",
+  "version": "R-Line",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1175190,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-cross-sport-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

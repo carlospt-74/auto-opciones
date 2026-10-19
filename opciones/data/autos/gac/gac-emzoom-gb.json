@@ -1,0 +1,13 @@
+{
+  "id": "gac-emzoom-gb",
+  "marca": "GAC",
+  "modelo": "EMZOOM",
+  "version": "GB",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 398900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-emzoom-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

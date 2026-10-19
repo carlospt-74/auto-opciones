@@ -1,0 +1,13 @@
+{
+  "id": "cupra-leon-vz",
+  "marca": "Cupra",
+  "modelo": "León",
+  "version": "VZ",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 800900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/cupra-leon-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

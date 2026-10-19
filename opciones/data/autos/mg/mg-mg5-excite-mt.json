@@ -1,0 +1,14 @@
+{
+  "id": "mg-mg5-excite-mt",
+  "marca": "MG",
+  "modelo": "MG5",
+  "version": "EXCITE MT",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 344000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-mg5-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

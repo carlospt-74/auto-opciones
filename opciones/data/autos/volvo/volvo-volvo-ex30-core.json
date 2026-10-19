@@ -1,0 +1,13 @@
+{
+  "id": "volvo-volvo-ex30-core",
+  "marca": "Volvo",
+  "modelo": "Volvo EX30",
+  "version": "Core",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 749900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volvo-volvo-ex30-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

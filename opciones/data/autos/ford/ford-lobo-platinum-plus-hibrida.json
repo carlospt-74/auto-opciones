@@ -1,0 +1,13 @@
+{
+  "id": "ford-lobo-platinum-plus-hibrida",
+  "marca": "Ford",
+  "modelo": "Lobo",
+  "version": "Platinum Plus Híbrida",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1821500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-lobo-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

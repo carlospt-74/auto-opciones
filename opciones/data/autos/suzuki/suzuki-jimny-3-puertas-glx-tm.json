@@ -1,0 +1,14 @@
+{
+  "id": "suzuki-jimny-3-puertas-glx-tm",
+  "marca": "Suzuki",
+  "modelo": "Jimny 3 puertas",
+  "version": "GLX TM",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 475990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/suzuki-jimny-3-puertas-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

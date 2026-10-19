@@ -1,0 +1,14 @@
+{
+  "id": "mitsubishi-l200-gsr-gsr",
+  "marca": "Mitsubishi",
+  "modelo": "L200 GSR",
+  "version": "GSR",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 870900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mitsubishi-l200-gsr-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

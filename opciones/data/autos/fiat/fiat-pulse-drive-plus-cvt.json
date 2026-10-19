@@ -1,0 +1,15 @@
+{
+  "id": "fiat-pulse-drive-plus-cvt",
+  "marca": "Fiat",
+  "modelo": "Pulse",
+  "version": "Drive Plus CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 369000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/fiat-pulse-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

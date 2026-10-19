@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-hb20-hatchback-gl-mid-at",
+  "marca": "Hyundai",
+  "modelo": "HB20 Hatchback",
+  "version": "GL Mid AT",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 451600,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-hb20-hatchback-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

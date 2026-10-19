@@ -6,8 +6,8 @@
   "anio": 2026,
   "tipo": "SUV",
   "precio": 379990,
-  "vigencia": "19 de octubre de 2026",
-  "foto": "assets/fotos/nissan-magnite.webp",
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/nissan-magnite-2026.webp",
   "enfoque_foto": "centro",
   "mostrar": true,
   "trans": "Manual"

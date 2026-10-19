@@ -1,0 +1,13 @@
+{
+  "id": "byd-king-dm-i-gs",
+  "marca": "BYD",
+  "modelo": "King DM-i",
+  "version": "GS",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 579900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/byd-king-dm-i-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

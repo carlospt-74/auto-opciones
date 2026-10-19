@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-aveo-hb-lt-plus",
+  "marca": "Chevrolet",
+  "modelo": "Aveo HB",
+  "version": "LT Plus",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 378900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-aveo-hb-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

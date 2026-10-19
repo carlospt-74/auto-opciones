@@ -1,0 +1,13 @@
+{
+  "id": "ford-mustang-mach-e-rally",
+  "marca": "Ford",
+  "modelo": "Mustang Mach-E",
+  "version": "Rally",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1395500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-mustang-mach-e-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

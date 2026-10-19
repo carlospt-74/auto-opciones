@@ -1,0 +1,13 @@
+{
+  "id": "ford-maverick-hibrida-xlt-hibrida",
+  "marca": "Ford",
+  "modelo": "Maverick Híbrida",
+  "version": "XLT Híbrida",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 770700,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-maverick-hibrida-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "toyota-yaris-hatchback-s-mt",
+  "marca": "Toyota",
+  "modelo": "Yaris Hatchback",
+  "version": "S MT",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 357000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-yaris-hatchback-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "ford-bronco-raptor-bronco-raptor",
+  "marca": "Ford",
+  "modelo": "Bronco Raptor",
+  "version": "Bronco Raptor",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 2140500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-bronco-raptor-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

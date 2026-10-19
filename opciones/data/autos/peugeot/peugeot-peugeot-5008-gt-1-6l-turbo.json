@@ -1,0 +1,13 @@
+{
+  "id": "peugeot-peugeot-5008-gt-1-6l-turbo",
+  "marca": "Peugeot",
+  "modelo": "Peugeot 5008",
+  "version": "GT 1.6L Turbo",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 792900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/peugeot-peugeot-5008-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

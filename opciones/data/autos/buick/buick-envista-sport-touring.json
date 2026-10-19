@@ -1,0 +1,13 @@
+{
+  "id": "buick-envista-sport-touring",
+  "marca": "Buick",
+  "modelo": "Envista",
+  "version": "Sport Touring",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 529000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/buick-envista-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

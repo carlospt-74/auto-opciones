@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-grand-i10-hatchback-gls-ta",
+  "marca": "Hyundai",
+  "modelo": "Grand i10 Hatchback",
+  "version": "GLS TA",
+  "anio": 2027,
+  "tipo": "Hatchback",
+  "precio": 369000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-grand-i10-hatchback-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

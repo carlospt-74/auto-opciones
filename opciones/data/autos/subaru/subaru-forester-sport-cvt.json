@@ -1,0 +1,14 @@
+{
+  "id": "subaru-forester-sport-cvt",
+  "marca": "Subaru",
+  "modelo": "Forester",
+  "version": "Sport CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 749900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/subaru-forester-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "kia-sonet-ex-ivt",
+  "marca": "Kia",
+  "modelo": "Sonet",
+  "version": "EX IVT",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 433000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-sonet-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

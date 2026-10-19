@@ -1,0 +1,14 @@
+{
+  "id": "jeep-grand-cherokee-limited-l-i4-turbo-4x4-2027",
+  "marca": "Jeep",
+  "modelo": "Grand Cherokee",
+  "version": "Limited L I4 Turbo 4X4",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1476900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jeep-grand-cherokee-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

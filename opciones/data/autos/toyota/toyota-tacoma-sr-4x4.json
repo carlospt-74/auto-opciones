@@ -1,0 +1,13 @@
+{
+  "id": "toyota-tacoma-sr-4x4",
+  "marca": "Toyota",
+  "modelo": "Tacoma",
+  "version": "SR 4x4",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 849500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-tacoma-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

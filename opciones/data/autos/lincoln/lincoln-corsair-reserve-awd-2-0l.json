@@ -1,0 +1,14 @@
+{
+  "id": "lincoln-corsair-reserve-awd-2-0l",
+  "marca": "Lincoln",
+  "modelo": "Corsair",
+  "version": "Reserve AWD 2.0L",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1132000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/lincoln-corsair-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "AWD"
+}

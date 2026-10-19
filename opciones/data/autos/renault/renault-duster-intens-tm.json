@@ -1,0 +1,14 @@
+{
+  "id": "renault-duster-intens-tm",
+  "marca": "Renault",
+  "modelo": "Duster",
+  "version": "Intens TM",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 403500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/renault-duster-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

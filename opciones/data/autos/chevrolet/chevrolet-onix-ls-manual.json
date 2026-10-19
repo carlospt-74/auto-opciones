@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-onix-ls-manual",
+  "marca": "Chevrolet",
+  "modelo": "Onix",
+  "version": "LS Manual",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 353100,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-onix-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

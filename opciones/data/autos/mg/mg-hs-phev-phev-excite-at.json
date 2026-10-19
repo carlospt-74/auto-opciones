@@ -1,0 +1,13 @@
+{
+  "id": "mg-hs-phev-phev-excite-at",
+  "marca": "MG",
+  "modelo": "HS PHEV",
+  "version": "PHEV EXCITE AT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 714900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-hs-phev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "ford-bronco-sport-big-bend",
+  "marca": "Ford",
+  "modelo": "Bronco Sport",
+  "version": "Big Bend",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 773500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-bronco-sport-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

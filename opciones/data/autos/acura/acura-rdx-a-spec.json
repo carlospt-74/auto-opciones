@@ -1,0 +1,15 @@
+{
+  "id": "acura-rdx-a-spec",
+  "marca": "Acura",
+  "modelo": "RDX",
+  "version": "A-SPEC",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1279900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/acura-rdx-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "SH-AWD"
+}

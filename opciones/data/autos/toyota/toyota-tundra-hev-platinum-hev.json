@@ -1,0 +1,13 @@
+{
+  "id": "toyota-tundra-hev-platinum-hev",
+  "marca": "Toyota",
+  "modelo": "Tundra HEV",
+  "version": "Platinum HEV",
+  "anio": 2025,
+  "tipo": "Pickup",
+  "precio": 1660500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-tundra-hev-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

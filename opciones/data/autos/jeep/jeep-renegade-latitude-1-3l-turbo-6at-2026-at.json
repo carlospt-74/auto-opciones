@@ -1,0 +1,14 @@
+{
+  "id": "jeep-renegade-latitude-1-3l-turbo-6at-2026-at",
+  "marca": "Jeep",
+  "modelo": "Renegade",
+  "version": "Latitude 1.3L Turbo 6AT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 461900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jeep-renegade-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT"
+}

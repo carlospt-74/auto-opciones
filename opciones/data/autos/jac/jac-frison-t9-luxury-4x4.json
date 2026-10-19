@@ -1,0 +1,14 @@
+{
+  "id": "jac-frison-t9-luxury-4x4",
+  "marca": "JAC",
+  "modelo": "Frison T9",
+  "version": "Luxury 4x4",
+  "anio": 2027,
+  "tipo": "Pickup",
+  "precio": 639000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-frison-t9-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT"
+}

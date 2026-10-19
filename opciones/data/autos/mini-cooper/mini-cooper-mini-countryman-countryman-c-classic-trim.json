@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-countryman-countryman-c-classic-trim",
+  "marca": "Mini Cooper",
+  "modelo": "MINI Countryman",
+  "version": "Countryman C (Classic Trim)",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 853000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-countryman-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

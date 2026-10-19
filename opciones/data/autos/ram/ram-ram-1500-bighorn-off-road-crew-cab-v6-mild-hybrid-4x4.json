@@ -1,0 +1,14 @@
+{
+  "id": "ram-ram-1500-bighorn-off-road-crew-cab-v6-mild-hybrid-4x4",
+  "marca": "RAM",
+  "modelo": "RAM 1500",
+  "version": "Bighorn Off Road Crew Cab V6 Mild-Hybrid 4x4",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1293700,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ram-ram-1500-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

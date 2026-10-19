@@ -1,0 +1,13 @@
+{
+  "id": "gac-emkoo-gl",
+  "marca": "GAC",
+  "modelo": "EMKOO",
+  "version": "GL",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 569900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-emkoo-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "bmw-x6-m-x6-m-competition",
+  "marca": "BMW",
+  "modelo": "X6 M",
+  "version": "X6 M Competition",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2976900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x6-m-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

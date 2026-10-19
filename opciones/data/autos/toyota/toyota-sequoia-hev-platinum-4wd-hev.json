@@ -1,0 +1,13 @@
+{
+  "id": "toyota-sequoia-hev-platinum-4wd-hev",
+  "marca": "Toyota",
+  "modelo": "Sequoia HEV",
+  "version": "Platinum 4WD HEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1901100,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-sequoia-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-groove-lt-mt",
+  "marca": "Chevrolet",
+  "modelo": "Groove",
+  "version": "LT MT",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 421500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-groove-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

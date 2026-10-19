@@ -1,0 +1,14 @@
+{
+  "id": "dodge-attitude-sport",
+  "marca": "Dodge",
+  "modelo": "Attitude",
+  "version": "SPORT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 424900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/dodge-attitude-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT"
+}

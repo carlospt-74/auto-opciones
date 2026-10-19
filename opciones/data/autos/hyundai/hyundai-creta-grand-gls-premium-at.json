@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-creta-grand-gls-premium-at",
+  "marca": "Hyundai",
+  "modelo": "Creta Grand",
+  "version": "GLS Premium AT",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 566200,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-creta-grand-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

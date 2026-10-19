@@ -1,0 +1,14 @@
+{
+  "id": "gmc-sierra-regular-cabina-regular",
+  "marca": "GMC",
+  "modelo": "Sierra",
+  "version": "Regular (Cabina Regular)",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1332500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-sierra-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

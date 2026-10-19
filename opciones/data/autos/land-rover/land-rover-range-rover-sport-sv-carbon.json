@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-range-rover-sport-sv-carbon",
+  "marca": "Land Rover",
+  "modelo": "Range Rover Sport",
+  "version": "SV Carbon",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 4515000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-range-rover-sport-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "cupra-formentor-190-hp",
+  "marca": "Cupra",
+  "modelo": "Formentor",
+  "version": "190 HP",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 699900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/cupra-formentor-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "honda-hr-v-sport",
+  "marca": "Honda",
+  "modelo": "HR-V",
+  "version": "SPORT",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 658900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-hr-v-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

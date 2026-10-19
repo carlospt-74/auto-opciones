@@ -1,0 +1,13 @@
+{
+  "id": "toyota-4runner-hev-trd-pro-hev",
+  "marca": "Toyota",
+  "modelo": "4Runner HEV",
+  "version": "TRD PRO HEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1395300,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-4runner-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

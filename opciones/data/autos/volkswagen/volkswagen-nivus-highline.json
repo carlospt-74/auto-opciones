@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-nivus-highline",
+  "marca": "Volkswagen",
+  "modelo": "Nivus",
+  "version": "Highline",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 491190,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-nivus-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

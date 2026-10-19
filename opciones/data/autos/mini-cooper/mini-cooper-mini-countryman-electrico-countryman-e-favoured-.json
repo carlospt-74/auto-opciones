@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-countryman-electrico-countryman-e-favoured-",
+  "marca": "Mini Cooper",
+  "modelo": "MINI Countryman Eléctrico",
+  "version": "Countryman E Favoured Trim",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1041100,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-countryman-electrico-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

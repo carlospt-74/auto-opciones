@@ -1,0 +1,13 @@
+{
+  "id": "cupra-formentor-vz",
+  "marca": "Cupra",
+  "modelo": "Formentor",
+  "version": "VZ",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 913900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/cupra-formentor-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

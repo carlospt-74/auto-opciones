@@ -1,0 +1,13 @@
+{
+  "id": "toyota-yaris-sedan-hev-hev",
+  "marca": "Toyota",
+  "modelo": "Yaris Sedán HEV",
+  "version": "HEV",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 450000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-yaris-sedan-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

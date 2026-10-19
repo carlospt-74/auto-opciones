@@ -1,0 +1,13 @@
+{
+  "id": "bmw-x5-m-x5-m-competition",
+  "marca": "BMW",
+  "modelo": "X5 M",
+  "version": "X5 M Competition",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 2917900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x5-m-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

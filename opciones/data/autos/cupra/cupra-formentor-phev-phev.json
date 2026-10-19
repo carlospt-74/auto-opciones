@@ -1,0 +1,13 @@
+{
+  "id": "cupra-formentor-phev-phev",
+  "marca": "Cupra",
+  "modelo": "Formentor PHEV",
+  "version": "PHEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 899900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/cupra-formentor-phev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

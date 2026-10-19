@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-john-cooper-works-countryman-all4-jcw-count",
+  "marca": "Mini Cooper",
+  "modelo": "MINI John Cooper Works Countryman ALL4",
+  "version": "JCW Countryman ALL4",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1112000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-john-cooper-works-countryman-all4-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Integral (ALL4)"
+}

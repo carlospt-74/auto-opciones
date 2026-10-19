@@ -1,0 +1,13 @@
+{
+  "id": "renault-megane-e-tech-e-tech",
+  "marca": "Renault",
+  "modelo": "Megane E-Tech",
+  "version": "E-Tech",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 825000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/renault-megane-e-tech-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

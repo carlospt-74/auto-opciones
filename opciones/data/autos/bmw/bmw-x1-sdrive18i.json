@@ -1,0 +1,13 @@
+{
+  "id": "bmw-x1-sdrive18i",
+  "marca": "BMW",
+  "modelo": "X1",
+  "version": "sDrive18i",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 971900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x1-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

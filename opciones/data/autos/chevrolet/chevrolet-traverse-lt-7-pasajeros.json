@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-traverse-lt-7-pasajeros",
+  "marca": "Chevrolet",
+  "modelo": "Traverse",
+  "version": "LT (7 Pasajeros)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1208600,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-traverse-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

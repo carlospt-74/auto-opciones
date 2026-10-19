@@ -1,0 +1,13 @@
+{
+  "id": "toyota-tacoma-trd-sport-4x4",
+  "marca": "Toyota",
+  "modelo": "Tacoma",
+  "version": "TRD Sport 4x4",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 979900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-tacoma-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

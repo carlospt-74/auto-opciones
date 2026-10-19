@@ -1,0 +1,13 @@
+{
+  "id": "toyota-yaris-hatchback-base-cvt",
+  "marca": "Toyota",
+  "modelo": "Yaris Hatchback",
+  "version": "Base CVT",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 326500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-yaris-hatchback-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

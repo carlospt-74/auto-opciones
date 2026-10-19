@@ -1,0 +1,14 @@
+{
+  "id": "suzuki-ertiga-xl7-boostergreen-glx-ta",
+  "marca": "Suzuki",
+  "modelo": "Ertiga XL7 BoosterGreen",
+  "version": "GLX TA",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 466990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/suzuki-ertiga-xl7-boostergreen-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

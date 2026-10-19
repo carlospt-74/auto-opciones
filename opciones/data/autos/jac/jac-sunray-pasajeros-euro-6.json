@@ -1,0 +1,13 @@
+{
+  "id": "jac-sunray-pasajeros-euro-6",
+  "marca": "JAC",
+  "modelo": "Sunray Pasajeros",
+  "version": "Euro 6",
+  "anio": 2027,
+  "tipo": "Van",
+  "precio": 849000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-sunray-pasajeros-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

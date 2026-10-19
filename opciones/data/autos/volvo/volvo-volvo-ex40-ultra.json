@@ -1,0 +1,13 @@
+{
+  "id": "volvo-volvo-ex40-ultra",
+  "marca": "Volvo",
+  "modelo": "Volvo EX40",
+  "version": "Ultra",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1145900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volvo-volvo-ex40-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

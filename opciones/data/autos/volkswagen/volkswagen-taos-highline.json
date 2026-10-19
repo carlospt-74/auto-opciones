@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-taos-highline",
+  "marca": "Volkswagen",
+  "modelo": "Taos",
+  "version": "Highline",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 616190,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-taos-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

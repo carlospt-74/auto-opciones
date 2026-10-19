@@ -6,8 +6,8 @@
   "anio": 2026,
   "tipo": "SUV",
   "precio": 1199990,
-  "vigencia": "19 de octubre de 2026",
-  "foto": "assets/fotos/nissan-pathfinder.webp",
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/nissan-pathfinder-2026.webp",
   "enfoque_foto": "centro",
   "mostrar": true,
   "traccion": "4WD"

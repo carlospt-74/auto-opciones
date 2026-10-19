@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-taigun-comfortline",
+  "marca": "Volkswagen",
+  "modelo": "Taigun",
+  "version": "Comfortline",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 475990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-taigun-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

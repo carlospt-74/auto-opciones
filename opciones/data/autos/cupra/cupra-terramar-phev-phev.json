@@ -1,0 +1,13 @@
+{
+  "id": "cupra-terramar-phev-phev",
+  "marca": "Cupra",
+  "modelo": "Terramar PHEV",
+  "version": "PHEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1043900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/cupra-terramar-phev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,14 @@
+{
+  "id": "porsche-911-targa-targa-4-gts",
+  "marca": "Porsche",
+  "modelo": "911 Targa",
+  "version": "Targa 4 GTS",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 3838000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-911-targa-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

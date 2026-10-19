@@ -1,0 +1,13 @@
+{
+  "id": "ford-mustang-ecoboost",
+  "marca": "Ford",
+  "modelo": "Mustang",
+  "version": "EcoBoost",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 951500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-mustang-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

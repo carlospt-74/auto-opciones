@@ -1,0 +1,14 @@
+{
+  "id": "gac-gs4-max-gl",
+  "marca": "GAC",
+  "modelo": "GS4 MAX",
+  "version": "GL",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 589900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-gs4-max-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT"
+}

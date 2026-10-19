@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-defender-90-x-dynamic-se",
+  "marca": "Land Rover",
+  "modelo": "Defender 90",
+  "version": "X-Dynamic SE",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2355000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-defender-90-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

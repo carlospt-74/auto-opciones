@@ -1,0 +1,13 @@
+{
+  "id": "kia-seltos-hibrida-sxl",
+  "marca": "Kia",
+  "modelo": "Seltos Híbrida",
+  "version": "SXL",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 649900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-seltos-hibrida-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

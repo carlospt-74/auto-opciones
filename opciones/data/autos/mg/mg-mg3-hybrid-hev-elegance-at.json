@@ -1,0 +1,14 @@
+{
+  "id": "mg-mg3-hybrid-hev-elegance-at",
+  "marca": "MG",
+  "modelo": "MG3 Hybrid+",
+  "version": "HEV ELEGANCE AT",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 464000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-mg3-hybrid-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

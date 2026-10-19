@@ -1,0 +1,13 @@
+{
+  "id": "toyota-sequoia-hev-limited-2wd-hev",
+  "marca": "Toyota",
+  "modelo": "Sequoia HEV",
+  "version": "Limited 2WD HEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1735000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-sequoia-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,14 @@
+{
+  "id": "gac-gs7-phev-2wd",
+  "marca": "GAC",
+  "modelo": "GS7 PHEV",
+  "version": "2WD",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 899900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-gs7-phev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "2WD"
+}

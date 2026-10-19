@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-equinox-ev-rs",
+  "marca": "Chevrolet",
+  "modelo": "Equinox EV",
+  "version": "RS",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 900000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-equinox-ev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

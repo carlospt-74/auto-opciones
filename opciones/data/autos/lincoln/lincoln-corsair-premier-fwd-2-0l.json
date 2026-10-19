@@ -1,0 +1,14 @@
+{
+  "id": "lincoln-corsair-premier-fwd-2-0l",
+  "marca": "Lincoln",
+  "modelo": "Corsair",
+  "version": "Premier FWD 2.0L",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1022000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/lincoln-corsair-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "FWD"
+}

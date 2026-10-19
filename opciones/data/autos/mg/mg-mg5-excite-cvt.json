@@ -1,0 +1,14 @@
+{
+  "id": "mg-mg5-excite-cvt",
+  "marca": "MG",
+  "modelo": "MG5",
+  "version": "EXCITE CVT",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 378000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-mg5-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

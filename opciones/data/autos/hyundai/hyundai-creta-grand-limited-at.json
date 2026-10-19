@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-creta-grand-limited-at",
+  "marca": "Hyundai",
+  "modelo": "Creta Grand",
+  "version": "Limited AT",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 623300,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-creta-grand-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

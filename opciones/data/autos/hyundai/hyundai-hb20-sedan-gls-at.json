@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-hb20-sedan-gls-at",
+  "marca": "Hyundai",
+  "modelo": "HB20 Sedán",
+  "version": "GLS AT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 454200,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-hb20-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

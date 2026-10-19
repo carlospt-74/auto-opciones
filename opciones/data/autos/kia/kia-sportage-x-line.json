@@ -1,0 +1,13 @@
+{
+  "id": "kia-sportage-x-line",
+  "marca": "Kia",
+  "modelo": "Sportage",
+  "version": "X-LINE",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 775900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-sportage-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

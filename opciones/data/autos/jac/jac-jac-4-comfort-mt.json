@@ -1,0 +1,14 @@
+{
+  "id": "jac-jac-4-comfort-mt",
+  "marca": "JAC",
+  "modelo": "JAC 4",
+  "version": "Comfort MT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 358000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-jac-4-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "MT"
+}

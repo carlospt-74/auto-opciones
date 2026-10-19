@@ -1,0 +1,15 @@
+{
+  "id": "jeep-compass-high-altitude-awd-atx8-2-0l-turbo",
+  "marca": "Jeep",
+  "modelo": "Compass",
+  "version": "High Altitude AWD ATX8 2.0L Turbo",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 702900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jeep-compass-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "AWD"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ford-mustang-gt-manual",
+  "marca": "Ford",
+  "modelo": "Mustang",
+  "version": "GT Manual",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 1333500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-mustang-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

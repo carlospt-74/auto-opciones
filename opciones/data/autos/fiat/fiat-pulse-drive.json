@@ -1,0 +1,15 @@
+{
+  "id": "fiat-pulse-drive",
+  "marca": "Fiat",
+  "modelo": "Pulse",
+  "version": "Drive",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 349500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/fiat-pulse-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual",
+  "traccion": "Delantera"
+}

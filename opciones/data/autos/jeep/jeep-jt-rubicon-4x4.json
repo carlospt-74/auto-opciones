@@ -1,0 +1,14 @@
+{
+  "id": "jeep-jt-rubicon-4x4",
+  "marca": "Jeep",
+  "modelo": "JT",
+  "version": "Rubicon 4x4",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1450900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jeep-jt-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

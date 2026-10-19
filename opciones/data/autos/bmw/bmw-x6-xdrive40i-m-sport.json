@@ -1,0 +1,14 @@
+{
+  "id": "bmw-x6-xdrive40i-m-sport",
+  "marca": "BMW",
+  "modelo": "X6",
+  "version": "xDrive40i M Sport",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1836900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x6-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

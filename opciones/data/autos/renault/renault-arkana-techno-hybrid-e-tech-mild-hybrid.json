@@ -1,0 +1,14 @@
+{
+  "id": "renault-arkana-techno-hybrid-e-tech-mild-hybrid",
+  "marca": "Renault",
+  "modelo": "Arkana",
+  "version": "Techno Hybrid E-Tech (mild hybrid)",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 515500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/renault-arkana-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

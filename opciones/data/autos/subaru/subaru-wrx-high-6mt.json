@@ -1,0 +1,14 @@
+{
+  "id": "subaru-wrx-high-6mt",
+  "marca": "Subaru",
+  "modelo": "WRX",
+  "version": "High 6MT",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 829900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/subaru-wrx-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "MT"
+}

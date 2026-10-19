@@ -1,0 +1,14 @@
+{
+  "id": "jac-frison-t9-advance-4x2",
+  "marca": "JAC",
+  "modelo": "Frison T9",
+  "version": "Advance 4x2",
+  "anio": 2027,
+  "tipo": "Pickup",
+  "precio": 570000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-frison-t9-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT"
+}

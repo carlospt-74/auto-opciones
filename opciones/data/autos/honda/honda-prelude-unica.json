@@ -1,0 +1,13 @@
+{
+  "id": "honda-prelude-unica",
+  "marca": "Honda",
+  "modelo": "Prelude",
+  "version": "Única",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 949900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-prelude-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

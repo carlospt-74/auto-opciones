@@ -1,0 +1,14 @@
+{
+  "id": "mazda-cx-5-signature",
+  "marca": "Mazda",
+  "modelo": "CX-5",
+  "version": "Signature",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 734900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-cx-5-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

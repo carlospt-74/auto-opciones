@@ -1,0 +1,13 @@
+{
+  "id": "ford-mustang-mach-e-premium",
+  "marca": "Ford",
+  "modelo": "Mustang Mach-E",
+  "version": "Premium",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1250500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-mustang-mach-e-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

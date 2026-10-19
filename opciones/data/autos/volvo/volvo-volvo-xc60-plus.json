@@ -1,0 +1,13 @@
+{
+  "id": "volvo-volvo-xc60-plus",
+  "marca": "Volvo",
+  "modelo": "Volvo XC60",
+  "version": "Plus",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1399900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volvo-volvo-xc60-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

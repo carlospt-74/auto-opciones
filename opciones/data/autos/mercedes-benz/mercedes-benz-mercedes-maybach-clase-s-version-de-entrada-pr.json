@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-mercedes-maybach-clase-s-version-de-entrada-pr",
+  "marca": "Mercedes Benz",
+  "modelo": "Mercedes-Maybach Clase S",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 5099000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-mercedes-maybach-clase-s-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

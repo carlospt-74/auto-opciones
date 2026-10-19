@@ -1,0 +1,13 @@
+{
+  "id": "kia-k4-sedan-gt-line-turbo-ta",
+  "marca": "Kia",
+  "modelo": "K4 Sedán",
+  "version": "GT-LINE TURBO TA",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 576600,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-k4-sedan-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

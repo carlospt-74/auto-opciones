@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-creta-gls-ivt",
+  "marca": "Hyundai",
+  "modelo": "Creta",
+  "version": "GLS IVT",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 499000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-creta-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

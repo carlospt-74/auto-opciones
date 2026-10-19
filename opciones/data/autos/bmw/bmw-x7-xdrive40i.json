@@ -1,0 +1,14 @@
+{
+  "id": "bmw-x7-xdrive40i",
+  "marca": "BMW",
+  "modelo": "X7",
+  "version": "xDrive40i",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2223900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x7-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

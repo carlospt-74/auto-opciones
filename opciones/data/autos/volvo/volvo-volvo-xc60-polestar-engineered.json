@@ -1,0 +1,13 @@
+{
+  "id": "volvo-volvo-xc60-polestar-engineered",
+  "marca": "Volvo",
+  "modelo": "Volvo XC60",
+  "version": "Polestar Engineered",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1599900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volvo-volvo-xc60-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

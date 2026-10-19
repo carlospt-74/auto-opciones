@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-tera-comfortline",
+  "marca": "Volkswagen",
+  "modelo": "Tera",
+  "version": "Comfortline",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 428990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-tera-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

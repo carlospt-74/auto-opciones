@@ -1,0 +1,14 @@
+{
+  "id": "renault-boreal-techno",
+  "marca": "Renault",
+  "modelo": "Boreal",
+  "version": "Techno",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 560500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/renault-boreal-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

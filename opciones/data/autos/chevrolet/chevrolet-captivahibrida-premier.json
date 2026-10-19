@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-captivahibrida-premier",
+  "marca": "Chevrolet",
+  "modelo": "Captiva Híbrida",
+  "version": "Premier",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 608000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-captivahibrida-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "gmc-yukon-denali",
+  "marca": "GMC",
+  "modelo": "Yukon",
+  "version": "Denali",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 2374500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-yukon-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

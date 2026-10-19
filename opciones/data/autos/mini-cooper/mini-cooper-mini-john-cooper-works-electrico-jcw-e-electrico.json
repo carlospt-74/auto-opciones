@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-john-cooper-works-electrico-jcw-e-electrico",
+  "marca": "Mini Cooper",
+  "modelo": "MINI John Cooper Works Eléctrico",
+  "version": "JCW E (Eléctrico/Aut.)",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 908000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-john-cooper-works-electrico-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "mazda-cx-90-signature-mhev",
+  "marca": "Mazda",
+  "modelo": "CX-90",
+  "version": "Signature MHEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1011900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-cx-90-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

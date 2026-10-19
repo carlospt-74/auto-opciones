@@ -1,0 +1,15 @@
+{
+  "id": "ram-ram-1200-tradesman-rc-2-0t-6m-t",
+  "marca": "RAM",
+  "modelo": "RAM 1200",
+  "version": "Tradesman RC 2.0T 6M/T",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 413900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ram-ram-1200-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual",
+  "traccion": "4x2"
+}

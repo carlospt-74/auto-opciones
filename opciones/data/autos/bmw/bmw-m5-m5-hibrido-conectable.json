@@ -1,0 +1,14 @@
+{
+  "id": "bmw-m5-m5-hibrido-conectable",
+  "marca": "BMW",
+  "modelo": "M5",
+  "version": "M5 Híbrido Conectable",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 2982900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-m5-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

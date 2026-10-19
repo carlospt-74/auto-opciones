@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-mercedes-amg-clase-a-hatchback-version-de-entr",
+  "marca": "Mercedes Benz",
+  "modelo": "Mercedes-AMG Clase A Hatchback",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 1199000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-mercedes-amg-clase-a-hatchback-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

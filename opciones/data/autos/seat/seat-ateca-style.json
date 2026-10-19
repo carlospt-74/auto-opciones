@@ -1,0 +1,13 @@
+{
+  "id": "seat-ateca-style",
+  "marca": "Seat",
+  "modelo": "Ateca",
+  "version": "Style",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 492900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/seat-ateca-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

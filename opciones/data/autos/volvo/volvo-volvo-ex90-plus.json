@@ -1,0 +1,13 @@
+{
+  "id": "volvo-volvo-ex90-plus",
+  "marca": "Volvo",
+  "modelo": "Volvo EX90",
+  "version": "Plus",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 1899900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volvo-volvo-ex90-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

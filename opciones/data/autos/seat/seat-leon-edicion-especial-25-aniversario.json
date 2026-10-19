@@ -1,0 +1,13 @@
+{
+  "id": "seat-leon-edicion-especial-25-aniversario",
+  "marca": "Seat",
+  "modelo": "León",
+  "version": "Edición Especial 25 aniversario",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 545900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/seat-leon-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

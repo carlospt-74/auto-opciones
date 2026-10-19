@@ -1,0 +1,14 @@
+{
+  "id": "byd-seal-awd-520-km",
+  "marca": "BYD",
+  "modelo": "Seal",
+  "version": "AWD 520 km",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 888800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/byd-seal-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "Integral (AWD)"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-eqs-suv-version-de-entrada-precio-desde-el-sit",
+  "marca": "Mercedes Benz",
+  "modelo": "EQS SUV",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 2450000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-eqs-suv-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

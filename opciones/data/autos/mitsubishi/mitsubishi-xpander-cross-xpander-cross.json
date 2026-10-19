@@ -1,0 +1,15 @@
+{
+  "id": "mitsubishi-xpander-cross-xpander-cross",
+  "marca": "Mitsubishi",
+  "modelo": "Xpander Cross",
+  "version": "Xpander Cross",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 475900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mitsubishi-xpander-cross-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática (4 vel.)",
+  "traccion": "Delantera"
+}

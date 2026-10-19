@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-cheyenne-cabina-regular-4x4-lt",
+  "marca": "Chevrolet",
+  "modelo": "Cheyenne",
+  "version": "Cabina Regular 4X4 LT",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1240100,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-cheyenne-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

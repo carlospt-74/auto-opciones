@@ -1,0 +1,14 @@
+{
+  "id": "lincoln-nautilus-reserve-2-0l-awd-gasolina",
+  "marca": "Lincoln",
+  "modelo": "Nautilus",
+  "version": "Reserve 2.0L AWD (gasolina)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1382900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/lincoln-nautilus-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "AWD"
+}

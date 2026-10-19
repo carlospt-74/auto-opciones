@@ -1,0 +1,13 @@
+{
+  "id": "ford-edge-hibrida-trend",
+  "marca": "Ford",
+  "modelo": "Edge Híbrida",
+  "version": "Trend",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 897000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-edge-hibrida-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

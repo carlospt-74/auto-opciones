@@ -1,0 +1,13 @@
+{
+  "id": "bmw-serie-3-sedan-330e-hibrido-conectable",
+  "marca": "BMW",
+  "modelo": "Serie 3 Sedán",
+  "version": "330e Híbrido Conectable",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 1323900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-3-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

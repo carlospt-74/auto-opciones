@@ -1,0 +1,13 @@
+{
+  "id": "hyundai-tucson-hibrida-limited-tech-hibrida",
+  "marca": "Hyundai",
+  "modelo": "Tucson Híbrida",
+  "version": "Limited Tech Híbrida",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 890500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-tucson-hibrida-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

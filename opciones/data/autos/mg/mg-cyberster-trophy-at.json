@@ -1,0 +1,14 @@
+{
+  "id": "mg-cyberster-trophy-at",
+  "marca": "MG",
+  "modelo": "Cyberster",
+  "version": "TROPHY AT",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 1399000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-cyberster-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

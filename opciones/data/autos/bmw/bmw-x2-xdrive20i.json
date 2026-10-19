@@ -1,0 +1,14 @@
+{
+  "id": "bmw-x2-xdrive20i",
+  "marca": "BMW",
+  "modelo": "X2",
+  "version": "xDrive20i",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1158900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x2-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

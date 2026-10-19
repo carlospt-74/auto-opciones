@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-taigun-gt",
+  "marca": "Volkswagen",
+  "modelo": "Taigun",
+  "version": "GT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 501990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-taigun-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}
