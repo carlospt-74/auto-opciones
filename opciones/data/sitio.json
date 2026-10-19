@@ -1,0 +1,297 @@
+{
+  "encabezado": [
+    {
+      "logo": "AutoOpciones_Logo/02_solo-texto/AutoOpciones_02_solo-texto.svg",
+      "menu": [
+        {
+          "texto": "Marcas y modelos",
+          "destino": "seccion:marcas"
+        },
+        {
+          "texto": "Ofertas",
+          "destino": "seccion:ofertas"
+        },
+        {
+          "texto": "Requisitos",
+          "destino": "pagina:requisitos"
+        },
+        {
+          "texto": "Noticias y tips",
+          "destino": "seccion:noticias"
+        }
+      ],
+      "boton_menu": {
+        "texto": "Solicitar crédito",
+        "destino": "pagina:requisitos"
+      }
+    }
+  ],
+  "secciones": [
+    {
+      "tipo": "banner",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Tu auto nuevo, con todas las",
+      "resaltado": "opciones",
+      "titulo_fin": "sobre la mesa.",
+      "foto": "assets/fotos/fotomty2.jpg",
+      "boton": "Buscar"
+    },
+    {
+      "tipo": "marcas",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Explora por marca"
+    },
+    {
+      "tipo": "comparador",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "¿Cuál te conviene más?"
+    },
+    {
+      "tipo": "autos",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Lista de autos",
+      "vista": "lista",
+      "texto_disponibles": "disponibles",
+      "autos_iniciales": 4,
+      "autos_por_pagina": 10
+    },
+    {
+      "tipo": "ofertas",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Ofertas de crédito vigentes",
+      "mostrar_financieras": true
+    },
+    {
+      "tipo": "como_funciona",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Así funciona",
+      "pasos": [
+        {
+          "titulo": "Elige y compara",
+          "texto": "Explora las marcas, filtra por tipo, presupuesto o pago mensual, y compara hasta 3 autos con su mensualidad estimada."
+        },
+        {
+          "titulo": "Revisa tus requisitos",
+          "texto": "Consulta los documentos que pide cada perfil de crédito y ve marcando los que ya tienes listos."
+        },
+        {
+          "titulo": "Pide tu cotización",
+          "texto": "Envíanos tu solicitud por WhatsApp o correo y te ayudamos a avanzar con la agencia y la institución financiera."
+        }
+      ]
+    },
+    {
+      "tipo": "publicidad",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Anuncio de Afirme",
+      "anuncio": "afirme"
+    },
+    {
+      "tipo": "info_credito",
+      "mostrar": true,
+      "fondo": "blanco",
+      "etiqueta": "Información de crédito",
+      "titulo": "Ten listos tus documentos antes de ir a la agencia.",
+      "texto": "Requisitos para cada perfil, en una lista que puedes ir marcando."
+    },
+    {
+      "tipo": "noticias",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Noticias y tips",
+      "mostrar_iconos": true
+    },
+    {
+      "tipo": "faq",
+      "mostrar": true,
+      "fondo": "blanco",
+      "titulo": "Preguntas frecuentes",
+      "preguntas": [
+        {
+          "pregunta": "¿La mensualidad que veo es la que voy a pagar?",
+          "respuesta": "Es una estimación con una tasa de referencia y está sujeta a aprobación de crédito. La mensualidad final depende de la institución financiera, el enganche, el plazo y otros cargos."
+        },
+        {
+          "pregunta": "¿Qué documentos necesito para pedir un crédito?",
+          "respuesta": "Depende de tu perfil: persona física, persona física con actividad empresarial, persona moral o arrendamiento. Revisa la página de Requisitos; cada institución puede pedir documentos adicionales."
+        },
+        {
+          "pregunta": "¿Puedo comparar varios autos?",
+          "respuesta": "Sí. En el portal (www.auto-opciones.com) agrega hasta 3 autos al comparador y verás el enganche, el monto a financiar, la mensualidad estimada y la ficha técnica lado a lado."
+        },
+        {
+          "pregunta": "¿Los precios están actualizados?",
+          "respuesta": "Los precios son de referencia y pueden cambiar. Cuando un auto muestra «Precio vigente al», esa es la fecha de la última actualización; confirma el precio final con nosotros."
+        },
+        {
+          "pregunta": "¿Cómo pido una cotización?",
+          "respuesta": "En el portal, presiona «Cotizar este auto». Por WhatsApp, elige en el menú «Quiero que me contacten (cotización / visita)» y déjanos tus datos; un asesor te contactará en horario de atención."
+        }
+      ]
+    }
+  ],
+  "filtros": [
+    {
+      "texto_todos": "Todos",
+      "tipos": [
+        "SUV",
+        "Sedán",
+        "Hatchback",
+        "Pickup"
+      ],
+      "mostrar_presupuesto": true,
+      "texto_presupuesto": "Presupuesto",
+      "texto_cualquiera": "Cualquiera",
+      "presupuestos": [
+        {
+          "texto": "Hasta $500 mil",
+          "min": 0,
+          "max": 500000
+        },
+        {
+          "texto": "$500 mil – $800 mil",
+          "min": 500000,
+          "max": 800000
+        },
+        {
+          "texto": "Más de $800 mil",
+          "min": 800000,
+          "max": 0
+        }
+      ],
+      "mostrar_pago": true,
+      "texto_pago": "Pago",
+      "pagos": [
+        "Crédito",
+        "Arrendamiento",
+        "Contado"
+      ],
+      "pagos_mensuales": [
+        8000,
+        10000,
+        12000,
+        15000,
+        20000
+      ]
+    }
+  ],
+  "calculo": [
+    {
+      "formula": "(monto + seguro_anual) * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)",
+      "enganches": [
+        10,
+        20,
+        30,
+        40
+      ],
+      "enganche_inicial": 20,
+      "plazos": [
+        12,
+        24,
+        36,
+        48,
+        60,
+        72
+      ],
+      "plazo_inicial": 48,
+      "tasa_tarjetas": 13.9,
+      "seguro_porcentaje": 2,
+      "seguro_incluir_inicial": true,
+      "iva": 16,
+      "nota": "*Cifras ilustrativas. Sujetas a aprobación de crédito de cada institución."
+    }
+  ],
+  "ficha": [
+    {
+      "campos": [
+        {
+          "etiqueta": "Motor",
+          "campo": "motor"
+        },
+        {
+          "etiqueta": "Potencia",
+          "campo": "hp",
+          "unidad": "hp"
+        },
+        {
+          "etiqueta": "Transmisión",
+          "campo": "trans"
+        },
+        {
+          "etiqueta": "Tracción",
+          "campo": "traccion"
+        },
+        {
+          "etiqueta": "Rendimiento combinado",
+          "campo": "rend",
+          "unidad": "km/l"
+        },
+        {
+          "etiqueta": "Pasajeros",
+          "campo": "pas"
+        },
+        {
+          "etiqueta": "Cajuela",
+          "campo": "cajuela",
+          "unidad": "L"
+        },
+        {
+          "etiqueta": "Bolsas de aire",
+          "campo": "bolsas"
+        }
+      ]
+    }
+  ],
+  "requisitos": [
+    {
+      "titulo": "Información de crédito y",
+      "resaltado": "requisitos",
+      "nota": "Requisitos de referencia. Cada institución puede solicitar documentos adicionales.",
+      "boton": "Solicitar preautorización",
+      "aviso": "Al aprobarse, recibes tu certificado de autorización con vigencia de 30 días hábiles."
+    }
+  ],
+  "contacto": [
+    {
+      "telefono": "999 414 5826",
+      "correos": [
+        "hola@auto-opciones.com",
+        "direccion@auto-opciones.com"
+      ],
+      "redes": [
+        "Facebook: Auto-Opciones.com",
+        "www.auto-opciones.com"
+      ],
+      "frase": "Nosotros te damos las opciones, usted su confianza.",
+      "whatsapp": "812 021 4644"
+    }
+  ],
+  "textos": [
+    {}
+  ],
+  "ajustes": [
+    {
+      "titulo_pagina": "Auto-Opciones",
+      "analitica": {
+        "umami_id": "2d0fa512-e080-44eb-8b79-723a3b9fc118",
+        "cloudflare_token": "4169196b2f33479cb0123b373db6e660"
+      }
+    }
+  ],
+  "colores": [
+    {
+      "principal": "#EE8A52",
+      "principal_hover": "#DE7840",
+      "texto_acento": "#9C4A1E",
+      "fondo_suave": "#FEF3EB",
+      "azul": "#1F3466"
+    }
+  ]
+}

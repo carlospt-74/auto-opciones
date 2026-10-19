@@ -1,0 +1,106 @@
+{
+  "perfiles": [
+    {
+      "id": "pf",
+      "pestana": "Persona física",
+      "titulo": "Persona física",
+      "para": "Asalariados que compran a su nombre.",
+      "documentos": [
+        "Identificación oficial vigente (INE o pasaporte)",
+        "CURP",
+        "Comprobante de domicilio no mayor a 3 meses",
+        "Comprobantes de ingresos de los últimos 3 meses (recibos de nómina o estados de cuenta)",
+        "Constancia de situación fiscal (RFC)",
+        "Solicitud de crédito firmada",
+        "Autorización de consulta al Buró de Crédito",
+        "Dos referencias personales"
+      ],
+      "condiciones": [
+        "Edad de 21 a 70 años",
+        "Antigüedad laboral mínima de 1 año",
+        "Enganche desde 10%"
+      ]
+    },
+    {
+      "id": "pfae",
+      "pestana": "Persona física con actividad empresarial",
+      "titulo": "Persona física con actividad empresarial",
+      "para": "Profesionistas y negocios que facturan a su nombre.",
+      "documentos": [
+        "Identificación oficial vigente",
+        "Comprobante de domicilio fiscal y particular no mayor a 3 meses",
+        "Constancia de situación fiscal",
+        "Opinión de cumplimiento del SAT (32-D) positiva",
+        "Declaraciones anuales de los últimos 2 ejercicios",
+        "Estados de cuenta bancarios de los últimos 6 meses",
+        "Solicitud de crédito firmada",
+        "Autorización de consulta al Buró de Crédito"
+      ],
+      "condiciones": [
+        "Antigüedad mínima de 2 años en la actividad",
+        "Ingresos comprobables vía declaraciones o estados de cuenta",
+        "Factura del auto a nombre del contribuyente"
+      ]
+    },
+    {
+      "id": "pm",
+      "pestana": "Persona moral",
+      "titulo": "Persona moral",
+      "para": "Empresas constituidas que compran para su flotilla o directivos.",
+      "documentos": [
+        "Acta constitutiva inscrita en el Registro Público",
+        "Poderes del representante legal",
+        "Identificación oficial del representante legal y del aval",
+        "Constancia de situación fiscal de la empresa",
+        "Comprobante de domicilio fiscal no mayor a 3 meses",
+        "Estados financieros de los últimos 2 ejercicios y parcial reciente",
+        "Declaraciones anuales de los últimos 2 ejercicios",
+        "Estados de cuenta bancarios de los últimos 6 meses",
+        "Autorización de consulta al Buró de Crédito de la empresa y del aval"
+      ],
+      "condiciones": [
+        "Antigüedad mínima de 2 años de operación",
+        "Aval u obligado solidario, generalmente un accionista",
+        "Opinión de cumplimiento del SAT positiva"
+      ]
+    },
+    {
+      "id": "ap",
+      "pestana": "Arrendamiento puro",
+      "titulo": "Arrendamiento puro",
+      "para": "Personas físicas con actividad empresarial y personas morales que prefieren rentar el auto.",
+      "documentos": [
+        "Documentación de persona física con actividad empresarial o persona moral, según el caso",
+        "Cotización del vehículo elegido",
+        "Opinión de cumplimiento del SAT (32-D) positiva",
+        "Estados de cuenta bancarios de los últimos 6 meses",
+        "Autorización de consulta al Buró de Crédito"
+      ],
+      "condiciones": [
+        "Las rentas pueden ser deducibles conforme a la Ley del ISR",
+        "El auto es propiedad de la arrendadora durante el plazo",
+        "Al final puedes renovar, devolver o comprar a valor de mercado",
+        "Depósito en garantía y primera renta al firmar"
+      ]
+    },
+    {
+      "id": "af",
+      "pestana": "Arrendamiento financiero",
+      "titulo": "Arrendamiento financiero",
+      "para": "Empresas y personas con actividad empresarial que quieren quedarse con el auto.",
+      "documentos": [
+        "Documentación de persona física con actividad empresarial o persona moral, según el caso",
+        "Cotización del vehículo elegido",
+        "Estados financieros recientes",
+        "Estados de cuenta bancarios de los últimos 6 meses",
+        "Autorización de consulta al Buró de Crédito"
+      ],
+      "condiciones": [
+        "Opción de compra pactada desde el inicio del contrato",
+        "El auto se deduce vía depreciación",
+        "IVA de cada renta acreditable",
+        "Pago inicial desde 10%"
+      ]
+    }
+  ]
+}

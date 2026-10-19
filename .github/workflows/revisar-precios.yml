@@ -1,0 +1,23 @@
+# Alerta cuando un cambio en autos.json trae un precio fuera de rango o un salto de más de 25 %.
+# No bloquea la publicación del sitio: avisa para corregir o revertir rápido (ver opciones/GUIA-CMS.md).
+name: Revisar precios
+
+on:
+  push:
+    branches: [main]
+    paths: ['opciones/data/autos.json']
+
+permissions:
+  contents: read
+
+jobs:
+  precios:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Revisar precios contra el commit anterior
+        run: |
+          git show HEAD~1:opciones/data/autos.json > /tmp/anterior.json 2>/dev/null || rm -f /tmp/anterior.json
+          python3 .github/scripts/revisar_precios.py /tmp/anterior.json opciones/data/autos.json | tee -a "$GITHUB_STEP_SUMMARY"

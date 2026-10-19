@@ -1,0 +1,22 @@
+{
+  "anuncios": [
+    {
+      "id": "afirme",
+      "anunciante": "Afirme",
+      "texto": "Arrendamiento puro para tu empresa, con rentas deducibles.",
+      "texto_boton": "",
+      "enlace": "",
+      "ubicacion": "inicio",
+      "mostrar": true
+    },
+    {
+      "id": "hsbc",
+      "anunciante": "HSBC",
+      "texto": "Preautorización en línea para clientes HSBC.",
+      "texto_boton": "",
+      "enlace": "",
+      "ubicacion": "requisitos",
+      "mostrar": true
+    }
+  ]
+}

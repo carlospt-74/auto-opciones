@@ -1,45 +1,580 @@
+media:
+  input: opciones/assets
+  output: assets
+  rename: safe
+
+settings:
+  commit:
+    templates:
+      create: "Crea {path} (desde Pages CMS)"
+      update: "Actualiza {path} (desde Pages CMS)"
+      delete: "Elimina {path} (desde Pages CMS)"
+      rename: "Renombra {oldFilename} a {newFilename} (desde Pages CMS)"
+
 content:
+  - name: sitio
+    label: Configuración del sitio
+    type: file
+    path: opciones/data/sitio.json
+    format: json
+    fields:
+      - name: encabezado
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "1 · Encabezado: logo, menú superior y botón del menú" } }
+        fields:
+          - { name: logo, label: Logo del sitio, type: image }
+          - name: menu
+            label: Menú superior
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{texto}" } }
+            fields:
+              - { name: texto, label: Texto, type: string }
+              - &destino
+                name: destino
+                label: Lleva a
+                type: select
+                description: "Lugar del sitio al que lleva. Para abrir un enlace externo usa el campo de abajo."
+                options:
+                  values:
+                    - { value: "pagina:inicio", label: "Inicio" }
+                    - { value: "pagina:requisitos", label: "Página de requisitos" }
+                    - { value: "seccion:banner", label: "Sección: Banner" }
+                    - { value: "seccion:marcas", label: "Sección: Explora tu marca" }
+                    - { value: "seccion:comparador", label: "Sección: Comparador" }
+                    - { value: "seccion:autos", label: "Sección: Autos" }
+                    - { value: "seccion:ofertas", label: "Sección: Ofertas de crédito" }
+                    - { value: "seccion:info_credito", label: "Sección: Información de crédito" }
+                    - { value: "seccion:noticias", label: "Sección: Noticias y tips" }
+              - &enlace
+                name: enlace
+                label: Enlace externo (opcional)
+                type: string
+                description: "Si lo llenas, se usa en lugar de 'Lleva a'. Debe empezar con https://, mailto: o tel:"
+                pattern: { regex: "^$|^(https?://|mailto:|tel:)[^ ]+$", message: "Debe empezar con https://, mailto: o tel: y no llevar espacios" }
+          - name: boton_menu
+            label: Botón del menú
+            type: object
+            fields:
+              - { name: texto, label: Texto, type: string }
+              - *destino
+              - *enlace
+      - name: secciones
+        label: "2 · Secciones de la página de inicio (en orden de aparición; arrastra para cambiar el orden)"
+        type: block
+        blockKey: tipo
+        list: { collapsible: { collapsed: true, summary: "{tipo}: {titulo}" } }
+        blocks:
+          - name: banner
+            label: Banner inicial
+            fields:
+              - &sec_mostrar { name: mostrar, label: Mostrar, type: boolean, default: true }
+              - &sec_fondo { name: fondo, label: Fondo, type: select, default: blanco, options: { values: [blanco, suave] } }
+              - { name: titulo, label: Título (primera parte), type: string }
+              - { name: resaltado, label: Palabra resaltada, type: string }
+              - { name: titulo_fin, label: Final del título, type: string }
+              - { name: foto, label: Foto, type: image, description: "Horizontal, de unos 1600 × 900 px. Mejor una foto de autos o de Monterrey.", options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+              - { name: boton, label: Texto del botón, type: string }
+          - name: marcas
+            label: Explora tu marca
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+          - name: comparador
+            label: Comparador
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+          - name: autos
+            label: Autos
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Nombre en el CMS, type: string, description: "Solo para identificar la sección en el CMS; no se muestra en el portal." }
+              - { name: vista, label: Vista, type: select, default: lista, options: { values: [lista, cuadricula] } }
+              - { name: texto_disponibles, label: "Texto después del número de autos", type: string }
+              - { name: autos_iniciales, label: "Autos que se muestran al inicio", type: number, default: 4, description: "Cuántos autos se ven antes de presionar «Ver más». Recomendado: 3 o 4.", options: { min: 1, max: 50 } }
+              - { name: autos_por_pagina, label: "Autos que se agregan cada vez que se presiona «Ver más»", type: number, default: 10, options: { min: 1, max: 50 } }
+          - name: ofertas
+            label: Ofertas de crédito
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+              - { name: mostrar_financieras, label: Mostrar financieras, type: boolean, default: true }
+          - name: como_funciona
+            label: Cómo funciona
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+              - name: pasos
+                label: Pasos
+                type: object
+                list: { collapsible: { collapsed: true, summary: "{titulo}" } }
+                fields:
+                  - { name: titulo, label: Título del paso, type: string }
+                  - { name: texto, label: Texto, type: text }
+          - name: publicidad
+            label: Publicidad
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Nombre en el CMS, type: string, description: "Solo para identificar la sección en el CMS; no se muestra en el portal." }
+              - name: anuncio
+                label: Anuncio a mostrar (los creas en Publicidad)
+                description: "Los anuncios se crean en el menú Publicidad. Puedes repetir esta sección con distintos anuncios."
+                type: select
+                options:
+                  values:
+                    - afirme
+                    - hsbc
+          - name: info_credito
+            label: Información de crédito
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: etiqueta, label: Etiqueta pequeña, type: string }
+              - { name: titulo, label: Título, type: string }
+              - { name: texto, label: Texto, type: string }
+          - name: noticias
+            label: Noticias y tips
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+              - { name: mostrar_iconos, label: Mostrar íconos, type: boolean, default: true }
+          - name: faq
+            label: Preguntas frecuentes
+            fields:
+              - *sec_mostrar
+              - *sec_fondo
+              - { name: titulo, label: Título, type: string }
+              - name: preguntas
+                label: Preguntas
+                type: object
+                list: { collapsible: { collapsed: true, summary: "{pregunta}" } }
+                fields:
+                  - { name: pregunta, label: Pregunta, type: string }
+                  - { name: respuesta, label: Respuesta, type: text }
+      - name: filtros
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "3 · Buscador del banner y filtros de autos" } }
+        fields:
+          - { name: texto_todos, label: "Texto de la opción 'Todos'", type: string }
+          - { name: tipos, label: Tipos de auto, type: string, list: true }
+          - { name: mostrar_presupuesto, label: Mostrar filtro de presupuesto, type: boolean }
+          - { name: texto_presupuesto, label: Nombre del filtro de presupuesto, type: string }
+          - { name: texto_cualquiera, label: "Texto de la opción 'Cualquiera'", type: string }
+          - name: presupuestos
+            label: Rangos de presupuesto
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{texto}" } }
+            fields:
+              - { name: texto, label: Texto, type: string }
+              - { name: min, label: Desde (0 = sin mínimo), type: number }
+              - { name: max, label: Hasta (0 = sin máximo), type: number }
+          - { name: mostrar_pago, label: Mostrar filtro de pago, type: boolean }
+          - { name: texto_pago, label: Nombre del filtro de pago, type: string }
+          - { name: pagos, label: Formas de pago, type: string, list: true }
+          - { name: pagos_mensuales, label: "Opciones de «Pago mensual hasta» (MXN)", type: number, list: true, description: "Montos para el filtro de pago mensual en la lista de autos. Si lo dejas vacío, el filtro no se muestra." }
+      - name: calculo
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "4 · Comparador y cálculo de mensualidad" } }
+        fields:
+          - name: formula
+            label: Fórmula
+            type: string
+            description: "Variables: precio, enganche, monto, tasa (anual %), tasa_mensual, plazo (meses), apertura (%), seguro (mensual), seguro_anual (MXN, seguro del primer año de cada auto), iva (%). Usa ^ para potencia. Para incluir el seguro financiado: (monto + seguro_anual) * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo). Si hay un error se usa la fórmula de respaldo."
+          - { name: enganches, label: Opciones de enganche (%), type: number, list: true, options: { step: any } }
+          - { name: enganche_inicial, label: Enganche inicial (%), type: number, options: { step: any } }
+          - { name: plazos, label: Opciones de plazo (meses), type: number, list: true }
+          - { name: plazo_inicial, label: Plazo inicial (meses), type: number }
+          - { name: tasa_tarjetas, label: Tasa anual para la mensualidad de las tarjetas de autos (%), type: number, options: { step: any } }
+          - { name: iva, label: IVA (%), type: number, options: { step: any } }
+          - { name: seguro_porcentaje, label: Seguro del primer año (% del precio de lista), type: number, description: "Estimado para todos los autos. Ej. 2. Pon 0 para quitar el seguro del cálculo y ocultar el interruptor. Un auto con su propio monto (campo Seguro anual) usa ese monto.", options: { step: any, min: 0, max: 20 } }
+          - { name: seguro_incluir_inicial, label: El seguro empieza incluido, type: boolean, default: true, description: "Si está apagado, el visitante tiene que activarlo con el interruptor." }
+          - { name: nota, label: Nota bajo el comparador, type: string }
+      - name: ficha
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "5 · Ficha técnica de los autos" } }
+        fields:
+          - name: campos
+            label: Datos que se muestran en la ficha técnica
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{etiqueta}" } }
+            fields:
+              - { name: etiqueta, label: Etiqueta, type: string }
+              - name: campo
+                label: Dato del auto
+                type: select
+                options: { values: [motor, hp, trans, traccion, rend, pas, cajuela, bolsas] }
+              - { name: unidad, label: Unidad, type: string }
+      - name: requisitos
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "6 · Página de requisitos (textos)" } }
+        fields:
+          - { name: titulo, label: Título, type: string }
+          - { name: resaltado, label: Palabra resaltada, type: string }
+          - { name: nota, label: Nota bajo los documentos, type: string }
+          - { name: boton, label: Texto del botón, type: string }
+          - { name: aviso, label: Aviso bajo el botón, type: string }
+      - name: contacto
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "7 · Pie de página, contacto y WhatsApp" } }
+        fields:
+          - { name: telefono, label: Teléfono, type: string }
+          - { name: correos, label: Correos, type: string, list: true }
+          - { name: redes, label: Redes y sitios, type: string, list: true }
+          - { name: frase, label: Frase del pie de página, type: string }
+          - { name: horario, label: Horario de atención (opcional), type: string, description: "Ej. Lunes a viernes de 9:00 a 18:00. Se muestra en el pie de página." }
+          - { name: direccion, label: Dirección (opcional), type: string, description: "Se muestra en el pie de página." }
+          - { name: whatsapp, label: WhatsApp para recibir cotizaciones y solicitudes, type: string, description: "10 dígitos. Si lo dejas vacío, las solicitudes se envían por correo al primer correo de la lista.", pattern: { regex: "^$|^[0-9 +()-]{10,18}$", message: "Escribe el número con 10 dígitos, por ejemplo 81 1234 5678" } }
+          - { name: mensaje_auto, label: Mensaje al cotizar un auto, type: text, description: "Variables: {auto}, {anio}, {precio}, {enganche}, {plazo}, {mensualidad}. Si lo dejas vacío se usa el mensaje original." }
+          - { name: mensaje_marca, label: Mensaje al pedir cotización de una marca, type: text, description: "Variable: {marca}." }
+          - { name: mensaje_credito, label: Mensaje al solicitar preautorización, type: text, description: "Variables: {perfil}, {listos}." }
+          - { name: mensaje_opcion, label: "Mensaje al presionar «Quiero esta opción» en el comparador", type: text, description: "Variables: {auto}, {anio}, {precio}, {financiera}, {enganche}, {plazo}, {mensualidad}, {detalle}. Si lo dejas vacío se usa el mensaje original." }
+          - { name: mensaje_compartir, label: Mensaje al compartir una comparación, type: string, description: "Primera línea del mensaje. Después se agregan los autos, sus precios y el enlace." }
+          - name: legales
+            label: Enlaces legales del pie (aviso de privacidad, términos)
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{texto}" } }
+            description: "Aparecen en el pie de página solo si llenas texto y enlace."
+            fields:
+              - { name: texto, label: Texto, type: string }
+              - { name: enlace, label: Enlace, type: string, pattern: { regex: "^$|^https?://[^ ]+$", message: "Debe empezar con https://" } }
+      - name: textos
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "8 · Textos de botones y etiquetas" } }
+        description: "Si dejas un campo vacío se usa el texto original."
+        fields:
+          - { name: cotizar_auto, label: "Botón: cotizar este auto", type: string }
+          - { name: ver_ficha, label: "Botón: ver ficha técnica", type: string }
+          - { name: ficha, label: "Título de la ficha técnica", type: string }
+          - { name: precio_desde, label: "Etiqueta del precio", type: string }
+          - { name: seguro_interruptor, label: "Interruptor del seguro: título", type: string }
+          - { name: pago_inicial, label: "Pago inicial: título", type: string }
+          - { name: seguro_pago_unico, label: "Seguro pagado al inicio: título del campo", type: string }
+          - { name: leyenda_pago_inicial, label: "Leyenda del pago inicial", type: text }
+          - { name: leyenda_seguro, label: "Leyenda cuando el seguro está incluido", type: text }
+          - { name: leyenda_mensualidad, label: "Leyenda del asterisco (*) bajo los autos", type: text, description: "Aclara que la mensualidad es estimada. Si la borras y escribes un espacio, no se muestra." }
+          - { name: pedir_cotizacion, label: "Botón cuando no hay autos", type: string }
+          - { name: sin_autos, label: "Mensaje cuando no hay autos", type: string, description: "{marca} se reemplaza por la marca elegida." }
+          - { name: comparar, label: "Botón: comparar", type: string }
+          - { name: en_comparador, label: "Botón: auto ya en el comparador", type: string }
+          - { name: comparador_lleno, label: "Botón: comparador lleno", type: string }
+          - { name: ver_comparacion, label: "Botón de la barra del comparador", type: string }
+          - { name: enganche, label: "Etiqueta: enganche", type: string }
+          - { name: plazo, label: "Etiqueta: plazo", type: string }
+          - { name: mensualidad_estimada, label: "Etiqueta: mensualidad estimada", type: string }
+          - { name: paso1, label: "Requisitos: paso 1", type: string }
+          - { name: paso2, label: "Requisitos: paso 2", type: string }
+          - { name: paso3, label: "Requisitos: paso 3", type: string }
+          - { name: condiciones, label: "Requisitos: condiciones generales", type: string }
+          - { name: enviar_solicitud, label: "Requisitos: botón con expediente completo", type: string }
+          - { name: inicio, label: "Ruta: inicio", type: string }
+          - { name: requisitos, label: "Ruta: requisitos", type: string }
+          - { name: atencion, label: "Pie: título de atención", type: string }
+          - { name: siguenos, label: "Pie: título de redes", type: string }
+          - { name: whatsapp_texto, label: "Pie: enlace de WhatsApp", type: string }
+          - { name: saltar, label: "Accesibilidad: enlace «Saltar al contenido»", type: string }
+          - { name: imprimir_lista, label: "Requisitos: botón de imprimir la lista", type: string }
+          - { name: buscar_label, label: "Lista de autos: etiqueta del buscador", type: string }
+          - { name: buscar_placeholder, label: "Lista de autos: texto de ayuda del buscador", type: string }
+          - { name: ordenar, label: "Lista de autos: etiqueta de ordenar", type: string }
+          - { name: orden_relevancia, label: "Orden: más relevantes", type: string }
+          - { name: orden_precio_asc, label: "Orden: precio de menor a mayor", type: string }
+          - { name: orden_precio_desc, label: "Orden: precio de mayor a menor", type: string }
+          - { name: orden_mensual, label: "Orden: mensualidad de menor a mayor", type: string }
+          - { name: mensual_hasta, label: "Etiqueta: pago mensual hasta", type: string }
+          - { name: limpiar_filtros, label: "Botón: limpiar filtros", type: string }
+          - { name: horario, label: "Pie: etiqueta de horario", type: string }
+          - { name: renta_cotizar, label: "Tarjeta: texto si la forma de pago es arrendamiento", type: string }
+          - { name: noticias, label: "Ruta: noticias", type: string }
+          - { name: volver_noticias, label: "Noticia: botón para ver más", type: string }
+          - { name: min_lectura, label: "Noticia: texto después de los minutos de lectura", type: string }
+          - { name: cta_noticia, label: "Noticia: botón para cotizar", type: string }
+          - { name: ver_mas_autos, label: "Lista de autos: botón «Ver más»", type: string }
+          - { name: volver_arriba, label: "Celular: botón para volver arriba", type: string }
+          - { name: deslizar, label: "Celular: aviso para deslizar el comparador", type: string }
+          - { name: compartir_comparacion, label: "Comparador: botón para compartir por WhatsApp", type: string }
+          - { name: quiero_opcion, label: "Comparador: botón «Quiero esta opción»", type: string }
+          - { name: mostrando_autos, label: "Lista de autos: contador", type: string, description: "Variables: {n} (autos visibles) y {total}. Ej. Mostrando {n} de {total}" }
+          - { name: fin_ayuda, label: "Ofertas: ayuda bajo las financieras", type: string }
+          - { name: fin_volver, label: "Ofertas: botón para volver a las ofertas generales", type: string }
+          - { name: fin_info, label: "Ofertas: botón «Más información» de una financiera", type: string }
+          - { name: fin_tasa, label: "Financiera: etiqueta de la tasa anual", type: string }
+          - { name: fin_apertura, label: "Financiera: etiqueta de la comisión por apertura", type: string }
+          - { name: fin_seguro, label: "Financiera: etiqueta del seguro mensual", type: string }
+          - { name: fin_enganche, label: "Financiera: etiqueta del enganche mínimo", type: string }
+          - { name: fin_plazos, label: "Financiera: etiqueta de los plazos", type: string }
+          - { name: fin_leyenda, label: "Financiera: leyenda bajo sus condiciones", type: text }
+          - { name: noticia_no_encontrada, label: "Noticia: mensaje si no se encuentra", type: string }
+      - name: ajustes
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "9 · Título, descripción y estadísticas del sitio" } }
+        fields:
+          - { name: titulo_pagina, label: Título de la pestaña del navegador, type: string }
+          - { name: descripcion, label: Descripción para Google y redes (1-2 frases), type: text, description: "Es el texto que aparece al compartir el sitio o en los resultados de búsqueda." }
+          - name: analitica
+            label: Estadísticas de visitas (opcional)
+            type: object
+            description: "Déjalo vacío si no usarás estadísticas. Puedes usar Umami y Cloudflare a la vez. Google Analytics usa cookies y puede requerir un aviso. Cualquier herramienta que actives debe mencionarse en el aviso de privacidad."
+            fields:
+              - { name: plausible_dominio, label: Dominio en Plausible, type: string, description: "Ej. auto-opciones.com", pattern: { regex: "^$|^[A-Za-z0-9.-]+$", message: "Solo el dominio, sin https://" } }
+              - { name: ga4_id, label: ID de medición de Google Analytics 4, type: string, description: "Ej. G-XXXXXXXXXX", pattern: { regex: "^$|^G-[A-Za-z0-9]+$", message: "Debe empezar con G-" } }
+              - { name: umami_id, label: ID del sitio en Umami (Website ID), type: string, description: "En Umami: Websites → Edit → copia el Website ID. Ej. 94db1cb1-74f4-4a40-ad6c-962362670409", pattern: { regex: "^$|^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$", message: "Debe tener el formato de 36 caracteres con guiones (UUID)" } }
+              - { name: umami_dominios, label: "Umami: dominios donde se mide (opcional)", type: string, description: "Separados por coma, sin https://. Si lo dejas vacío se usa auto-opciones.com,www.auto-opciones.com. Así las pruebas y vistas previas no cuentan.", pattern: { regex: "^$|^[A-Za-z0-9.,-]+$", message: "Solo dominios separados por coma, sin https:// ni espacios" } }
+              - { name: cloudflare_token, label: Código (token) de Cloudflare Web Analytics, type: string, description: "En Cloudflare: Web Analytics → Add a site → copia el valor de token del fragmento de código.", pattern: { regex: "^$|^[A-Za-z0-9]{16,64}$", message: "Solo letras y números (16 a 64 caracteres)" } }
+      - name: colores
+        label: false
+        type: object
+        list: { min: 1, max: 1, collapsible: { collapsed: true, summary: "10 · Colores" } }
+        description: "Usa formato #RRGGBB. Si el naranja es muy claro, el texto blanco de los botones se leerá mal."
+        fields:
+          - { name: principal, label: Naranja principal (botones), type: string, description: "Color de los botones. El texto de los botones es blanco.", pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: principal_hover, label: Naranja al pasar el mouse, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: texto_acento, label: Naranja oscuro para textos, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: fondo_suave, label: Fondo suave, type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+          - { name: azul, label: Azul marino (textos), type: string, pattern: { regex: "^#[0-9A-Fa-f]{6}$", message: "Formato #RRGGBB" } }
+
+  - name: autos
+    label: Autos
+    type: file
+    path: opciones/data/autos.json
+    format: json
+    fields:
+      - name: autos
+        label: Autos
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{marca} {modelo} {version}" } }
+        fields:
+          - { name: id, label: Id único (sin espacios), type: string, required: true, description: "No se puede repetir. Solo minúsculas, números y guiones.", pattern: { regex: "^[a-z0-9]+(-[a-z0-9]+)*$", message: "Solo minúsculas, números y guiones, sin espacios ni acentos (ej. cx-5)" } }
+          - name: marca
+            label: Marca
+            type: select
+            required: true
+            description: "Si la marca no aparece, agrégala primero en Marcas y luego en la configuración (ver GUIA-CMS.md)."
+            options:
+              values:
+                - Acura
+                - Alfa Romeo
+                - Audi
+                - BMW
+                - Cadillac
+                - Chevrolet
+                - Chrysler
+                - Dodge
+                - Fiat
+                - Ford
+                - Honda
+                - Hyundai
+                - Jeep
+                - Kia
+                - Land Rover
+                - Mazda
+                - Mercedes Benz
+                - Mini Cooper
+                - Mitsubishi
+                - Nissan
+                - Peugeot
+                - RAM
+                - Renault
+                - Seat
+                - Smart
+                - Suzuki
+                - Tesla
+                - Toyota
+                - Volkswagen
+          - { name: modelo, label: Modelo, type: string, required: true }
+          - { name: version, label: Versión, type: string }
+          - name: tipo
+            label: Tipo
+            type: select
+            required: true
+            description: "Debe ser uno de los tipos de Configuración del sitio → Filtros."
+            options:
+              values:
+                - SUV
+                - Sedán
+                - Hatchback
+                - Pickup
+          - { name: anio, label: Año modelo, type: number, description: "Ej. 2026. Opcional: se muestra en la tarjeta.", options: { min: 1990, max: 2100 } }
+          - { name: precio, label: Precio (MXN), type: number, required: true, description: "En pesos, sin símbolo ni comas. Ej. 689900. Revisa los ceros: el CMS solo acepta de 100,000 a 15,000,000.", options: { step: any, min: 100000, max: 15000000 } }
+          - { name: seguro_anual, label: Seguro anual propio (MXN), type: number, description: "Opcional. Si lo dejas vacío o en 0, se usa el porcentaje general sobre el precio. Pon aquí la cotización real de este auto.", options: { step: any, min: 0, max: 500000 } }
+          - { name: vigencia, label: Precio vigente al, type: string, description: "Fecha en texto. Ej. 30 de octubre de 2026. Opcional: se muestra bajo el precio." }
+          - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1000 px de ancho y proporción 3:2. El auto debe verse completo, centrado y con aire alrededor, porque la tarjeta recorta la foto. Formatos: JPG, PNG o WEBP.", options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+          - name: enfoque_foto
+            label: Enfoque de la foto
+            type: select
+            default: centro
+            description: "Si en la tarjeta se corta el auto, elige hacia dónde mover el recorte (Arriba si el auto está en la parte alta de la foto)."
+            options:
+              values:
+                - { value: arriba, label: Arriba }
+                - { value: arriba-centro, label: Un poco arriba }
+                - { value: centro, label: Centro (recomendado) }
+                - { value: abajo-centro, label: Un poco abajo }
+                - { value: abajo, label: Abajo }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
+          - { name: motor, label: Motor, type: string }
+          - { name: hp, label: Potencia (hp), type: number, options: { min: 1 } }
+          - { name: trans, label: Transmisión, type: string }
+          - { name: traccion, label: Tracción, type: string }
+          - { name: rend, label: Rendimiento (km/l), type: number, description: "Kilómetros por litro, combinado. Ej. 15.4", options: { step: any, min: 0 } }
+          - { name: pas, label: Pasajeros, type: number, options: { min: 1, max: 9 } }
+          - { name: cajuela, label: Cajuela (L), type: number, options: { min: 0 } }
+          - { name: bolsas, label: Bolsas de aire, type: number, options: { min: 0, max: 20 } }
+
+  - name: marcas
+    label: Marcas
+    type: file
+    path: opciones/data/marcas.json
+    format: json
+    fields:
+      - name: marcas
+        label: Marcas
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{nombre}" } }
+        fields:
+          - { name: nombre, label: Nombre, type: string, required: true }
+          - { name: logo, label: Logo, type: image, description: "Mejor en SVG de un solo color (azul #1B2A4A), como los demás.", options: { path: opciones/assets/marcas, extensions: [svg, png, webp] } }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
+
+  - name: financieras
+    label: Financieras
+    type: file
+    path: opciones/data/financieras.json
+    format: json
+    fields:
+      - name: financieras
+        label: Financieras
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{nombre}" } }
+        fields:
+          - { name: id, label: Id único (sin espacios), type: string, required: true, description: "No se puede repetir. Solo minúsculas, números y guiones.", pattern: { regex: "^[a-z0-9]+(-[a-z0-9]+)*$", message: "Solo minúsculas, números y guiones, sin espacios ni acentos (ej. cx-5)" } }
+          - { name: nombre, label: Nombre, type: string }
+          - { name: tasa, label: Tasa anual (%), type: number, description: "Ej. 13.9", options: { step: any, min: 0, max: 100 } }
+          - { name: apertura, label: Comisión por apertura (%), type: number, options: { step: any, min: 0, max: 100 } }
+          - { name: seguro, label: Seguro mensual (MXN), type: number, description: "Pesos por mes. Pon 0 si no aplica.", options: { step: any, min: 0 } }
+          - { name: enganche_desde, label: "Enganche desde (%) — opcional", type: number, description: "Se muestra en el banner de Ofertas de crédito al tocar la financiera.", options: { step: any, min: 0, max: 100 } }
+          - { name: plazos, label: "Plazos disponibles — opcional", type: string, description: "Texto libre. Ej. 12 a 60 meses" }
+          - { name: detalle, label: "Detalle — opcional", type: text, description: "Texto breve que se muestra en el banner al tocar la financiera." }
+          - { name: enlace, label: "Enlace para más información — opcional", type: string, description: "Debe empezar con https://", pattern: { regex: "^$|^https?://[^ ]+$", message: "Debe empezar con https:// y no llevar espacios" } }
+          - { name: logo, label: "Logo — opcional", type: image, description: "Mejor en SVG o PNG con fondo transparente.", options: { path: opciones/assets/financieras, extensions: [svg, png, webp] } }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
+
+  - name: ofertas
+    label: Ofertas de crédito
+    type: file
+    path: opciones/data/ofertas.json
+    format: json
+    fields:
+      - name: ofertas
+        label: Ofertas
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{etiqueta}: {valor}" } }
+        fields:
+          - { name: etiqueta, label: Etiqueta, type: string }
+          - { name: valor, label: Valor destacado, type: string }
+          - { name: detalle, label: Detalle, type: string }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
+
+  - name: noticias
+    label: Noticias y tips
+    type: file
+    path: opciones/data/noticias.json
+    format: json
+    fields:
+      - name: noticias
+        label: Noticias
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{titulo}" } }
+        fields:
+          - { name: categoria, label: Categoría, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: resumen, label: Resumen, type: text }
+          - { name: contenido, label: Texto completo del artículo (opcional), type: text, description: "Separa los párrafos con una línea en blanco. Si lo llenas, la noticia se abre en su propia página. Si lo dejas vacío y hay enlace, abre el enlace; si no hay ninguno, la tarjeta no es clicable." }
+          - { name: minutos, label: Minutos de lectura, type: number }
+          - { name: foto, label: Foto, type: image, options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+          - { name: icono, label: Ícono (SVG), type: image, options: { path: opciones/assets/iconos, extensions: [svg] } }
+          - { name: enlace, label: Enlace externo (opcional), type: string, description: "Se usa solo si no hay texto completo. Debe empezar con https://, mailto: o tel:." }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
+
+  - name: requisitos
+    label: Requisitos de crédito
+    type: file
+    path: opciones/data/requisitos.json
+    format: json
+    fields:
+      - name: perfiles
+        label: Perfiles
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{pestana}" } }
+        fields:
+          - { name: id, label: Id único (sin espacios), type: string, required: true, description: "No se puede repetir. Solo minúsculas, números y guiones.", pattern: { regex: "^[a-z0-9]+(-[a-z0-9]+)*$", message: "Solo minúsculas, números y guiones, sin espacios ni acentos (ej. cx-5)" } }
+          - { name: pestana, label: Nombre corto, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: para, label: Para quién es, type: string }
+          - { name: documentos, label: Documentos, type: string, list: true }
+          - { name: condiciones, label: Condiciones, type: string, list: true }
+
+  - name: anuncios
+    label: Publicidad
+    type: file
+    path: opciones/data/anuncios.json
+    format: json
+    fields:
+      - name: anuncios
+        label: Anuncios
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{anunciante}" } }
+        fields:
+          - { name: id, label: Id único (se usa en Secciones), type: string, required: true, description: "No se puede repetir. Solo minúsculas, números y guiones.", pattern: { regex: "^[a-z0-9]+(-[a-z0-9]+)*$", message: "Solo minúsculas, números y guiones, sin espacios ni acentos (ej. cx-5)" } }
+          - { name: anunciante, label: Anunciante, type: string }
+          - { name: texto, label: Texto, type: string }
+          - { name: texto_boton, label: Texto del botón (opcional), type: string }
+          - { name: enlace, label: Enlace (opcional), type: string }
+          - name: ubicacion
+            label: Dónde aparece
+            type: select
+            options: { values: [inicio, requisitos] }
+          - { name: mostrar, label: Mostrar, type: boolean, default: true }
+
   - name: nissan-versiones
     label: Nissan – Versiones y precios
     type: file
-    path: data/nissan-versiones.json
+    path: opciones/data/nissan-versiones.json
     format: json
-    list: true
     fields:
-      - name: modelo
-        label: Modelo
-        type: string
-      - name: anio
-        label: Año modelo
-        type: number
-        options:
-          min: 2020
-      - name: version
-        label: Versión
-        type: string
-      - name: precio
-        label: Precio (MXN)
-        type: number
-        options:
-          min: 0
-      - name: estado_precio
-        label: Estado del precio
-        type: string
-      - name: equipamiento
-        label: Equipamiento destacado
-        type: text
-      - name: nota
-        label: Nota
-        type: text
-      - name: fuente
-        label: Fuente
-        type: string
-      - name: url_pagina
-        label: URL de la página
-        type: string
-      - name: url_pdf
-        label: URL del PDF de catálogo
-        type: string
-      - name: fecha_captura
-        label: Fecha de captura
-        type: string
+      - name: versiones
+        label: Versiones
+        type: object
+        list: { collapsible: { collapsed: true, summary: "Nissan {modelo} {version}" } }
+        fields:
+          - { name: modelo, label: Modelo, type: string, required: true }
+          - { name: anio, label: Año modelo, type: number, options: { min: 2020 } }
+          - { name: version, label: Versión, type: string, required: true }
+          - { name: precio, label: Precio (MXN), type: number, options: { min: 0 } }
+          - name: estado_precio
+            label: Estado del precio
+            type: select
+            options:
+              values:
+                - Confirmado por el usuario
+                - Solo página del modelo
+          - { name: equipamiento, label: Equipamiento destacado, type: text }
+          - { name: nota, label: Nota, type: text }
+          - { name: fuente, label: Fuente, type: string }
+          - { name: url_pagina, label: URL de la página, type: string }
+          - { name: url_pdf, label: URL del PDF de catálogo, type: string }
+          - { name: fecha_captura, label: Fecha de captura, type: string }
