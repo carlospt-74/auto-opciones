@@ -376,31 +376,43 @@ content:
             - Alfa Romeo
             - Audi
             - BMW
+            - Buick
+            - BYD
             - Cadillac
             - Chevrolet
+            - Chirey
             - Chrysler
+            - Cupra
             - Dodge
             - Fiat
             - Ford
+            - GAC
+            - GMC
             - Honda
             - Hyundai
+            - JAC
             - Jeep
             - Kia
             - Land Rover
+            - Lincoln
             - Mazda
             - Mercedes Benz
+            - MG
             - Mini Cooper
             - Mitsubishi
             - Nissan
             - Peugeot
+            - Porsche
             - RAM
             - Renault
             - Seat
             - Smart
+            - Subaru
             - Suzuki
             - Tesla
             - Toyota
             - Volkswagen
+            - Volvo
       - { name: modelo, label: Modelo, type: string, required: true }
       - { name: version, label: Versión, type: string }
       - name: tipo
