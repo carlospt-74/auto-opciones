@@ -7491,7 +7491,7 @@
       "mostrar": true
     },
     {
-      "id": "mercedes-benz-cla-electrico-sedan-version-de-entrada-precio-",
+      "id": "mercedes-benz-cla-electrico-sedan-version-de-entrada-precio",
       "marca": "Mercedes Benz",
       "modelo": "CLA Eléctrico (Sedán)",
       "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
@@ -7530,7 +7530,7 @@
       "mostrar": true
     },
     {
-      "id": "mercedes-benz-clase-c-sedan-version-de-entrada-precio-desde-",
+      "id": "mercedes-benz-clase-c-sedan-version-de-entrada-precio-desde",
       "marca": "Mercedes Benz",
       "modelo": "Clase C Sedán",
       "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
@@ -7543,7 +7543,7 @@
       "mostrar": true
     },
     {
-      "id": "mercedes-benz-clase-e-sedan-version-de-entrada-precio-desde-",
+      "id": "mercedes-benz-clase-e-sedan-version-de-entrada-precio-desde",
       "marca": "Mercedes Benz",
       "modelo": "Clase E Sedán",
       "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
@@ -7712,7 +7712,7 @@
       "mostrar": true
     },
     {
-      "id": "mercedes-benz-mercedes-amg-clase-e-sedan-version-de-entrada-",
+      "id": "mercedes-benz-mercedes-amg-clase-e-sedan-version-de-entrada",
       "marca": "Mercedes Benz",
       "modelo": "Mercedes-AMG Clase E Sedán",
       "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
@@ -8183,7 +8183,7 @@
       "traccion": "Delantera"
     },
     {
-      "id": "mini-cooper-mini-countryman-electrico-countryman-e-favoured-",
+      "id": "mini-cooper-mini-countryman-electrico-countryman-e-favoured",
       "marca": "Mini Cooper",
       "modelo": "MINI Countryman Eléctrico",
       "version": "Countryman E Favoured Trim",
@@ -11348,7 +11348,7 @@
       "trans": "Automática"
     },
     {
-      "id": "suzuki-dzire-boostergreen-gls-tm-int-black-inferida-como-la-",
+      "id": "suzuki-dzire-boostergreen-gls-tm-int-black-inferida-como-la",
       "marca": "Suzuki",
       "modelo": "Dzire BoosterGreen",
       "version": "GLS TM Int. Black (inferida como la de entrada)",
