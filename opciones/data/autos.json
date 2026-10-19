@@ -220,7 +220,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-frontier.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -234,7 +234,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-frontier.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -248,7 +248,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-frontier.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual",
       "traccion": "4x4"
     },
@@ -263,7 +263,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-frontier.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Automática"
     },
     {
@@ -277,7 +277,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-frontier.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Automática"
     },
     {
@@ -291,7 +291,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-frontier.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Automática",
       "traccion": "4x4"
     },
@@ -306,7 +306,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-frontier-hibrida.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-frontier-hibrida-platinum",
@@ -319,7 +319,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-frontier-hibrida.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-kait-exclusive-cvt",
@@ -332,7 +332,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kait.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -346,7 +346,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kait.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -360,7 +360,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kicks.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -374,7 +374,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kicks.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -388,7 +388,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kicks.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -402,7 +402,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kicks-play.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -416,7 +416,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kicks-play.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -430,7 +430,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kicks-play.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -444,7 +444,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kicks-play.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -458,7 +458,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kicks-play-e-power.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-kicks-play-e-power-play-exclusive",
@@ -471,7 +471,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kicks-play-e-power.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-kicks-play-e-power-play-platinum",
@@ -484,7 +484,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-kicks-play-e-power.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-magnite-advance-mt",
@@ -497,7 +497,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-magnite.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -511,7 +511,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-magnite.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -525,7 +525,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-magnite.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -539,7 +539,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-magnite.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -553,7 +553,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-march.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -567,7 +567,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-march.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -581,7 +581,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-np300.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -595,7 +595,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-np300.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -609,7 +609,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-np300.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -623,7 +623,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-pathfinder.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "traccion": "4WD"
     },
     {
@@ -637,7 +637,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-sentra.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -651,7 +651,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-sentra.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -665,7 +665,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-sentra.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -679,7 +679,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-sentra.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -693,7 +693,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-urvan.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-urvan-panel-amplia-aa",
@@ -706,7 +706,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-urvan.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-urvan-11-pasajeros-aa",
@@ -719,7 +719,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-urvan.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-urvan-14-pasajeros-amplia-aa",
@@ -732,7 +732,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-urvan.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-v-drive-base-tm",
@@ -745,7 +745,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-v-drive.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -759,7 +759,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-v-drive.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -773,7 +773,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-versa.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -787,7 +787,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-versa.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -801,7 +801,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-versa.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -815,7 +815,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-versa.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     },
     {
@@ -829,7 +829,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-versa.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -843,7 +843,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-versa.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "CVT"
     },
     {
@@ -857,7 +857,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-x-trail.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-x-trail-exclusive-2-row",
@@ -870,7 +870,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-x-trail.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-x-trail-platinum-2-row",
@@ -883,7 +883,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-x-trail.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-x-trail-platinum-plus-2-row",
@@ -896,7 +896,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-x-trail.webp",
       "enfoque_foto": "centro",
-      "mostrar": false
+      "mostrar": true
     },
     {
       "id": "nissan-z-touring-at",
@@ -909,7 +909,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-z.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Automática"
     },
     {
@@ -923,7 +923,7 @@
       "vigencia": "19 de octubre de 2026",
       "foto": "assets/fotos/nissan-z.webp",
       "enfoque_foto": "centro",
-      "mostrar": false,
+      "mostrar": true,
       "trans": "Manual"
     }
   ]

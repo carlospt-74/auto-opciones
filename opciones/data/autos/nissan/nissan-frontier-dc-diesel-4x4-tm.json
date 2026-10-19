@@ -9,7 +9,7 @@
   "vigencia": "19 de octubre de 2026",
   "foto": "assets/fotos/nissan-frontier.webp",
   "enfoque_foto": "centro",
-  "mostrar": false,
+  "mostrar": true,
   "trans": "Manual",
   "traccion": "4x4"
 }

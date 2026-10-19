@@ -9,6 +9,6 @@
   "vigencia": "19 de octubre de 2026",
   "foto": "assets/fotos/nissan-march.webp",
   "enfoque_foto": "centro",
-  "mostrar": false,
+  "mostrar": true,
   "trans": "Manual"
 }
