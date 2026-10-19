@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-clase-c-sedan-version-de-entrada-precio-desde",
+  "marca": "Mercedes Benz",
+  "modelo": "Clase C Sedán",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 1109000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-clase-c-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

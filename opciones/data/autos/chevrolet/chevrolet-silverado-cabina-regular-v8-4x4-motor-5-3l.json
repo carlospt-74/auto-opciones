@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-silverado-cabina-regular-v8-4x4-motor-5-3l",
+  "marca": "Chevrolet",
+  "modelo": "Silverado",
+  "version": "Cabina Regular V8 4X4 Motor 5.3l",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1058200,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-silverado-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

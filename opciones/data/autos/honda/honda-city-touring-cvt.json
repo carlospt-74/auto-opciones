@@ -1,0 +1,13 @@
+{
+  "id": "honda-city-touring-cvt",
+  "marca": "Honda",
+  "modelo": "City",
+  "version": "TOURING CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 471900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-city-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

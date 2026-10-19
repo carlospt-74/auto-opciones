@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-golf-gti-gti",
+  "marca": "Volkswagen",
+  "modelo": "Golf GTI",
+  "version": "GTI",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 857990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-golf-gti-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

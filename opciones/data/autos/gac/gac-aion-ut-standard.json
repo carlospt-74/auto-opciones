@@ -1,0 +1,13 @@
+{
+  "id": "gac-aion-ut-standard",
+  "marca": "GAC",
+  "modelo": "AION UT",
+  "version": "Standard",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 419900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-aion-ut-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

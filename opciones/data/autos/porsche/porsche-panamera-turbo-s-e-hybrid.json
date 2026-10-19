@@ -1,0 +1,14 @@
+{
+  "id": "porsche-panamera-turbo-s-e-hybrid",
+  "marca": "Porsche",
+  "modelo": "Panamera",
+  "version": "Turbo S E-Hybrid",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 4658000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-panamera-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

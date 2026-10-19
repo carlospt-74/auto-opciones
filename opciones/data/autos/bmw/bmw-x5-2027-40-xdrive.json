@@ -1,0 +1,14 @@
+{
+  "id": "bmw-x5-2027-40-xdrive",
+  "marca": "BMW",
+  "modelo": "X5 (2027)",
+  "version": "40 xDrive",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1729900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x5-2027-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

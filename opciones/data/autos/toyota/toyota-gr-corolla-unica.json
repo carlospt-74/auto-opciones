@@ -1,0 +1,13 @@
+{
+  "id": "toyota-gr-corolla-unica",
+  "marca": "Toyota",
+  "modelo": "GR Corolla",
+  "version": "Única",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 975000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-gr-corolla-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "ford-territory-ambiente",
+  "marca": "Ford",
+  "modelo": "Territory",
+  "version": "Ambiente",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 569900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-territory-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

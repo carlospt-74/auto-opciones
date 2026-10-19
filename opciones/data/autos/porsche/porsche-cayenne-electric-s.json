@@ -1,0 +1,14 @@
+{
+  "id": "porsche-cayenne-electric-s",
+  "marca": "Porsche",
+  "modelo": "Cayenne Electric",
+  "version": "S",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2378000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-cayenne-electric-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

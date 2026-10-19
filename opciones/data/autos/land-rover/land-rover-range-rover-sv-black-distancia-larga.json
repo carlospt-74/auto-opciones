@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-range-rover-sv-black-distancia-larga",
+  "marca": "Land Rover",
+  "modelo": "Range Rover",
+  "version": "SV Black (distancia larga)",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 6385000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-range-rover-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

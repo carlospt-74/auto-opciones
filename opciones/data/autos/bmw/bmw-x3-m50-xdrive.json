@@ -1,0 +1,14 @@
+{
+  "id": "bmw-x3-m50-xdrive",
+  "marca": "BMW",
+  "modelo": "X3",
+  "version": "M50 xDrive",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1629900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x3-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

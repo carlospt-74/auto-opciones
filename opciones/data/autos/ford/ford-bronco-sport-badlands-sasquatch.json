@@ -1,0 +1,13 @@
+{
+  "id": "ford-bronco-sport-badlands-sasquatch",
+  "marca": "Ford",
+  "modelo": "Bronco Sport",
+  "version": "Badlands Sasquatch",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 939500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-bronco-sport-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

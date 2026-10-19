@@ -1,0 +1,13 @@
+{
+  "id": "kia-k4-hatchback-gt-line-turbo",
+  "marca": "Kia",
+  "modelo": "K4 Hatchback",
+  "version": "GT-Line Turbo",
+  "anio": 2027,
+  "tipo": "Hatchback",
+  "precio": 583200,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-k4-hatchback-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

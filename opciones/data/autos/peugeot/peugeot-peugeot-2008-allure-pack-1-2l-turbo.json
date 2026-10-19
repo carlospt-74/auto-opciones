@@ -1,0 +1,13 @@
+{
+  "id": "peugeot-peugeot-2008-allure-pack-1-2l-turbo",
+  "marca": "Peugeot",
+  "modelo": "Peugeot 2008",
+  "version": "Allure Pack 1.2L Turbo",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 468900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/peugeot-peugeot-2008-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

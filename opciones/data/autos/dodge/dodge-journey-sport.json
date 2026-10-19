@@ -1,0 +1,13 @@
+{
+  "id": "dodge-journey-sport",
+  "marca": "Dodge",
+  "modelo": "Journey",
+  "version": "SPORT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 682900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/foto-proximamente.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false
+}

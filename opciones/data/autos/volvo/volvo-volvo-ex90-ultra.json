@@ -1,0 +1,13 @@
+{
+  "id": "volvo-volvo-ex90-ultra",
+  "marca": "Volvo",
+  "modelo": "Volvo EX90",
+  "version": "Ultra",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 2249900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volvo-volvo-ex90-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "lincoln-aviator-reserve",
+  "marca": "Lincoln",
+  "modelo": "Aviator",
+  "version": "Reserve",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1763000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/lincoln-aviator-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

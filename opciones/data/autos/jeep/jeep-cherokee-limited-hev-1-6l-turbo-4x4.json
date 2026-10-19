@@ -1,0 +1,14 @@
+{
+  "id": "jeep-cherokee-limited-hev-1-6l-turbo-4x4",
+  "marca": "Jeep",
+  "modelo": "Cherokee",
+  "version": "Limited HEV 1.6L Turbo 4x4",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 913900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jeep-cherokee-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

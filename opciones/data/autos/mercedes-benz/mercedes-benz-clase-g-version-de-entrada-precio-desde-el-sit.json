@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-clase-g-version-de-entrada-precio-desde-el-sit",
+  "marca": "Mercedes Benz",
+  "modelo": "Clase G",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 3959000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-clase-g-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

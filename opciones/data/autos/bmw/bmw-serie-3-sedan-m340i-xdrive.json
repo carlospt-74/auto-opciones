@@ -1,0 +1,14 @@
+{
+  "id": "bmw-serie-3-sedan-m340i-xdrive",
+  "marca": "BMW",
+  "modelo": "Serie 3 Sedán",
+  "version": "M340i xDrive",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 1443900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-3-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

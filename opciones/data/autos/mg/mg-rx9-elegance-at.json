@@ -1,0 +1,13 @@
+{
+  "id": "mg-rx9-elegance-at",
+  "marca": "MG",
+  "modelo": "RX9",
+  "version": "ELEGANCE AT",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 777000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-rx9-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-taos-trendline",
+  "marca": "Volkswagen",
+  "modelo": "Taos",
+  "version": "Trendline",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 502390,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-taos-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

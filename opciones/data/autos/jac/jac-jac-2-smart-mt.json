@@ -1,0 +1,14 @@
+{
+  "id": "jac-jac-2-smart-mt",
+  "marca": "JAC",
+  "modelo": "JAC 2",
+  "version": "Smart MT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 315000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-jac-2-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "MT"
+}

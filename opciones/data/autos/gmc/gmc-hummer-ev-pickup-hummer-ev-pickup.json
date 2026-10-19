@@ -1,0 +1,13 @@
+{
+  "id": "gmc-hummer-ev-pickup-hummer-ev-pickup",
+  "marca": "GMC",
+  "modelo": "Hummer EV Pickup",
+  "version": "Hummer EV Pickup",
+  "anio": 2025,
+  "tipo": "Pickup",
+  "precio": 3650000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-hummer-ev-pickup-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

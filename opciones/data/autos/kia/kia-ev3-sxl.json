@@ -1,0 +1,13 @@
+{
+  "id": "kia-ev3-sxl",
+  "marca": "Kia",
+  "modelo": "EV3",
+  "version": "SXL",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 767700,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-ev3-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

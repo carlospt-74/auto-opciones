@@ -1,0 +1,13 @@
+{
+  "id": "bmw-ix3-40",
+  "marca": "BMW",
+  "modelo": "iX3",
+  "version": "40",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1296900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-ix3-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

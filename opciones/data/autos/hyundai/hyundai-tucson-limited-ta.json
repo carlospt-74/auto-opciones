@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-tucson-limited-ta",
+  "marca": "Hyundai",
+  "modelo": "Tucson",
+  "version": "Limited TA",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 696200,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-tucson-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

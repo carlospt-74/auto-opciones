@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-range-rover-velar-belgravia-edition",
+  "marca": "Land Rover",
+  "modelo": "Range Rover Velar",
+  "version": "Belgravia Edition",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 2015000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-range-rover-velar-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

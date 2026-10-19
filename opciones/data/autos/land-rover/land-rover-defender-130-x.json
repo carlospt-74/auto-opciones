@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-defender-130-x",
+  "marca": "Land Rover",
+  "modelo": "Defender 130",
+  "version": "X",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 3155000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-defender-130-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

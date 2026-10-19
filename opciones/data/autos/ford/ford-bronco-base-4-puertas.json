@@ -1,0 +1,13 @@
+{
+  "id": "ford-bronco-base-4-puertas",
+  "marca": "Ford",
+  "modelo": "Bronco",
+  "version": "Base 4 Puertas",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1040500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-bronco-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

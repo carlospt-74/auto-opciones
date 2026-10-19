@@ -1,0 +1,13 @@
+{
+  "id": "honda-civic-i-style",
+  "marca": "Honda",
+  "modelo": "Civic",
+  "version": "i-Style",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 605900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-civic-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

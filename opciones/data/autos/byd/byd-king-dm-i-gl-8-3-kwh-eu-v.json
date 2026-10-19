@@ -1,0 +1,13 @@
+{
+  "id": "byd-king-dm-i-gl-8-3-kwh-eu-v",
+  "marca": "BYD",
+  "modelo": "King DM-i",
+  "version": "GL 8.3 kWh (EU V)",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 499800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/byd-king-dm-i-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

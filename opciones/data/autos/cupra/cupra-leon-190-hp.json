@@ -1,0 +1,13 @@
+{
+  "id": "cupra-leon-190-hp",
+  "marca": "Cupra",
+  "modelo": "León",
+  "version": "190 hp",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 656900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/cupra-leon-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

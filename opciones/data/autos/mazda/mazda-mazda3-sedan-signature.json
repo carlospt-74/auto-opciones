@@ -1,0 +1,14 @@
+{
+  "id": "mazda-mazda3-sedan-signature",
+  "marca": "Mazda",
+  "modelo": "Mazda3 Sedán",
+  "version": "Signature",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 552900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-mazda3-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-cheyenne-crew-cab-4x4-zr2",
+  "marca": "Chevrolet",
+  "modelo": "Cheyenne",
+  "version": "Crew Cab 4X4 ZR2",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1836700,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-cheyenne-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

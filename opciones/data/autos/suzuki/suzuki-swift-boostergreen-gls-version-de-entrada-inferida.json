@@ -1,0 +1,13 @@
+{
+  "id": "suzuki-swift-boostergreen-gls-version-de-entrada-inferida",
+  "marca": "Suzuki",
+  "modelo": "Swift BoosterGreen",
+  "version": "GLS (versión de entrada, inferida)",
+  "anio": 2027,
+  "tipo": "Hatchback",
+  "precio": 339990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/suzuki-swift-boostergreen-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

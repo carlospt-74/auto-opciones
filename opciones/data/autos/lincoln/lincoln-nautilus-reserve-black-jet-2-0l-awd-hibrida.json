@@ -1,0 +1,14 @@
+{
+  "id": "lincoln-nautilus-reserve-black-jet-2-0l-awd-hibrida",
+  "marca": "Lincoln",
+  "modelo": "Nautilus",
+  "version": "Reserve Black Jet 2.0L AWD Híbrida",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1602900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/lincoln-nautilus-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "AWD"
+}

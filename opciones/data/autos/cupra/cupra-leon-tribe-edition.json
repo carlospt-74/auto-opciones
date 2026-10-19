@@ -1,0 +1,13 @@
+{
+  "id": "cupra-leon-tribe-edition",
+  "marca": "Cupra",
+  "modelo": "León",
+  "version": "Tribe Edition",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 865900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/cupra-leon-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

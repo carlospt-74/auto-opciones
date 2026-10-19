@@ -1,0 +1,13 @@
+{
+  "id": "seat-ibiza-fr",
+  "marca": "Seat",
+  "modelo": "Ibiza",
+  "version": "FR",
+  "anio": 2027,
+  "tipo": "Hatchback",
+  "precio": 376900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/seat-ibiza-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

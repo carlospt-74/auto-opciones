@@ -1,0 +1,14 @@
+{
+  "id": "bmw-serie-2-gran-coupe-218-gran-coupe",
+  "marca": "BMW",
+  "modelo": "Serie 2 Gran Coupé",
+  "version": "218 Gran Coupé",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 851900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-2-gran-coupe-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

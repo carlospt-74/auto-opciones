@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-jetta-gli-gli",
+  "marca": "Volkswagen",
+  "modelo": "Jetta GLI",
+  "version": "GLI",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 691190,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-jetta-gli-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

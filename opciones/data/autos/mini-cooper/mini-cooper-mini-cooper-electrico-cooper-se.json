@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-cooper-electrico-cooper-se",
+  "marca": "Mini Cooper",
+  "modelo": "MINI Cooper Eléctrico",
+  "version": "Cooper SE",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 808000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-cooper-electrico-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

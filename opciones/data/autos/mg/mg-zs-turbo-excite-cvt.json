@@ -1,0 +1,14 @@
+{
+  "id": "mg-zs-turbo-excite-cvt",
+  "marca": "MG",
+  "modelo": "ZS Turbo",
+  "version": "EXCITE CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 399900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-zs-turbo-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

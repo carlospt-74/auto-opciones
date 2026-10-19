@@ -1,0 +1,14 @@
+{
+  "id": "jac-e-30x-limited",
+  "marca": "JAC",
+  "modelo": "E 30X",
+  "version": "Limited",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 556000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-e-30x-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT"
+}

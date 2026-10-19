@@ -1,0 +1,14 @@
+{
+  "id": "bmw-serie-1-m135-xdrive",
+  "marca": "BMW",
+  "modelo": "Serie 1",
+  "version": "M135 xDrive",
+  "anio": 2027,
+  "tipo": "Hatchback",
+  "precio": 1188900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-1-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

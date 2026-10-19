@@ -1,0 +1,14 @@
+{
+  "id": "jeep-renegade-limited-s-1-3l-turbo-6at",
+  "marca": "Jeep",
+  "modelo": "Renegade",
+  "version": "Limited S 1.3L Turbo 6AT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 511900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jeep-renegade-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT"
+}

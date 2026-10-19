@@ -1,0 +1,15 @@
+{
+  "id": "bmw-ix-xdrive60",
+  "marca": "BMW",
+  "modelo": "iX",
+  "version": "xDrive60",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2069900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-ix-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "xDrive"
+}

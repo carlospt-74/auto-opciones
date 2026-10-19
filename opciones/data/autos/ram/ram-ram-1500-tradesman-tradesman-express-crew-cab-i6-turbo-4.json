@@ -1,0 +1,14 @@
+{
+  "id": "ram-ram-1500-tradesman-tradesman-express-crew-cab-i6-turbo-4",
+  "marca": "RAM",
+  "modelo": "RAM 1500 Tradesman",
+  "version": "Tradesman Express Crew Cab I6 Turbo 4x4",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1179600,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/foto-proximamente.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "traccion": "4x4"
+}

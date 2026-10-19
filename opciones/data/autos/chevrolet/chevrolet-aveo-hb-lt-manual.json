@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-aveo-hb-lt-manual",
+  "marca": "Chevrolet",
+  "modelo": "Aveo HB",
+  "version": "LT Manual",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 346500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-aveo-hb-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

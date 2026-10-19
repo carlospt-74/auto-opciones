@@ -1,0 +1,15 @@
+{
+  "id": "dodge-durango-6-2l-v8-hellcat-srt-2026-at",
+  "marca": "Dodge",
+  "modelo": "Durango",
+  "version": "6.2L V8 Hellcat SRT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 2179900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/dodge-durango-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "AWD"
+}

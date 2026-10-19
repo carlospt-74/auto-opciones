@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-aveo-sedan-lt-plus",
+  "marca": "Chevrolet",
+  "modelo": "Aveo Sedán",
+  "version": "LT Plus",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 390000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-aveo-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

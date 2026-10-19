@@ -1,0 +1,13 @@
+{
+  "id": "mg-hs-turbo-trophy-at",
+  "marca": "MG",
+  "modelo": "HS Turbo",
+  "version": "TROPHY AT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 659900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-hs-turbo-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

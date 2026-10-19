@@ -1,0 +1,13 @@
+{
+  "id": "toyota-corolla-base-cvt",
+  "marca": "Toyota",
+  "modelo": "Corolla",
+  "version": "Base CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 435900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-corolla-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

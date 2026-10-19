@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-john-cooper-works-3-puertas-john-cooper-wor",
+  "marca": "Mini Cooper",
+  "modelo": "MINI John Cooper Works 3 Puertas",
+  "version": "John Cooper Works (Aut.)",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 865000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-john-cooper-works-3-puertas-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

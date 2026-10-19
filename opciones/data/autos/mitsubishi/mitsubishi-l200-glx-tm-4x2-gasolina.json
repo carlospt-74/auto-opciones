@@ -1,0 +1,15 @@
+{
+  "id": "mitsubishi-l200-glx-tm-4x2-gasolina",
+  "marca": "Mitsubishi",
+  "modelo": "L200",
+  "version": "GLX TM 4x2 Gasolina",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 582900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mitsubishi-l200-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual",
+  "traccion": "4x2"
+}

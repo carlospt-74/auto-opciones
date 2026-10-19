@@ -1,0 +1,13 @@
+{
+  "id": "lincoln-navigator-black-label-l",
+  "marca": "Lincoln",
+  "modelo": "Navigator",
+  "version": "Black Label L",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2999900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/lincoln-navigator-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

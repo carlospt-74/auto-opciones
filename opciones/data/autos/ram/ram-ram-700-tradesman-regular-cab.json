@@ -1,0 +1,13 @@
+{
+  "id": "ram-ram-700-tradesman-regular-cab",
+  "marca": "RAM",
+  "modelo": "RAM 700",
+  "version": "Tradesman Regular Cab",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 338400,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ram-ram-700-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

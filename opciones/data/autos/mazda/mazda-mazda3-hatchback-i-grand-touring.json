@@ -1,0 +1,14 @@
+{
+  "id": "mazda-mazda3-hatchback-i-grand-touring",
+  "marca": "Mazda",
+  "modelo": "Mazda3 Hatchback",
+  "version": "i Grand Touring",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 498900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-mazda3-hatchback-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

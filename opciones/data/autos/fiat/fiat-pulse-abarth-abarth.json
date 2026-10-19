@@ -1,0 +1,15 @@
+{
+  "id": "fiat-pulse-abarth-abarth",
+  "marca": "Fiat",
+  "modelo": "Pulse Abarth",
+  "version": "Abarth",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 473500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/fiat-pulse-abarth-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

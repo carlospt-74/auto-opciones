@@ -1,0 +1,13 @@
+{
+  "id": "jeep-cherokee-version-de-entrada-precio-desde-del-sitio",
+  "marca": "Jeep",
+  "modelo": "Cherokee",
+  "version": "Versión de entrada (precio \"Desde\" del sitio)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 858900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jeep-cherokee-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

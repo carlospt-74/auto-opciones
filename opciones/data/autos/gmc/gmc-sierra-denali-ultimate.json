@@ -1,0 +1,13 @@
+{
+  "id": "gmc-sierra-denali-ultimate",
+  "marca": "GMC",
+  "modelo": "Sierra",
+  "version": "Denali Ultimate",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 2121500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-sierra-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

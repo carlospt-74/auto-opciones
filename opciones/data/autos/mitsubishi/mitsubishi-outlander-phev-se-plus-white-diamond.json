@@ -1,0 +1,14 @@
+{
+  "id": "mitsubishi-outlander-phev-se-plus-white-diamond",
+  "marca": "Mitsubishi",
+  "modelo": "Outlander PHEV",
+  "version": "SE Plus White Diamond",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 891900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mitsubishi-outlander-phev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "AWD (Twin-Motor S-AWC)"
+}

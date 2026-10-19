@@ -1,0 +1,14 @@
+{
+  "id": "porsche-macan-electric-4s",
+  "marca": "Porsche",
+  "modelo": "Macan Electric",
+  "version": "4S",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2048000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-macan-electric-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

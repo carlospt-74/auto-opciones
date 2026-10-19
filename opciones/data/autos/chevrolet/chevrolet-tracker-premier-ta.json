@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-tracker-premier-ta",
+  "marca": "Chevrolet",
+  "modelo": "Tracker",
+  "version": "Premier TA",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 582500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-tracker-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

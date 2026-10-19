@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-mercedes-maybach-gls-version-de-entrada-precio",
+  "marca": "Mercedes Benz",
+  "modelo": "Mercedes-Maybach GLS",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 4749000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-mercedes-maybach-gls-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

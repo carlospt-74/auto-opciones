@@ -1,0 +1,15 @@
+{
+  "id": "acura-mdx-type-s-type-s",
+  "marca": "Acura",
+  "modelo": "MDX Type S",
+  "version": "Type S",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1883900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/acura-mdx-type-s-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "SH-AWD"
+}

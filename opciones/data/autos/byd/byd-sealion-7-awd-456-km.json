@@ -1,0 +1,14 @@
+{
+  "id": "byd-sealion-7-awd-456-km",
+  "marca": "BYD",
+  "modelo": "Sealion 7",
+  "version": "AWD 456 km",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 949800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/byd-sealion-7-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "Integral (AWD)"
+}

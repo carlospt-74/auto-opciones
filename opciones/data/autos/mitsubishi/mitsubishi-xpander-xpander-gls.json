@@ -1,0 +1,15 @@
+{
+  "id": "mitsubishi-xpander-xpander-gls",
+  "marca": "Mitsubishi",
+  "modelo": "Xpander",
+  "version": "Xpander (GLS)",
+  "anio": 2026,
+  "tipo": "Van",
+  "precio": 453900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mitsubishi-xpander-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática (4 vel.)",
+  "traccion": "Delantera"
+}

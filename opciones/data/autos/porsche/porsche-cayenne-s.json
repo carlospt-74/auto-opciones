@@ -1,0 +1,14 @@
+{
+  "id": "porsche-cayenne-s",
+  "marca": "Porsche",
+  "modelo": "Cayenne",
+  "version": "S",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2218000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-cayenne-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

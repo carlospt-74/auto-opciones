@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-cooper-electrico-cooper-se-classic-trim",
+  "marca": "Mini Cooper",
+  "modelo": "MINI Cooper Eléctrico",
+  "version": "Cooper SE Classic Trim",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 750000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-cooper-electrico-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

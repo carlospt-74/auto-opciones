@@ -1,0 +1,14 @@
+{
+  "id": "porsche-macan-t",
+  "marca": "Porsche",
+  "modelo": "Macan",
+  "version": "T",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1418000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-macan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

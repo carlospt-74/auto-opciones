@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-venue-limited-dct",
+  "marca": "Hyundai",
+  "modelo": "Venue",
+  "version": "Limited DCT",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 449000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-venue-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

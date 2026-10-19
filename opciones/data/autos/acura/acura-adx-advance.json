@@ -1,0 +1,15 @@
+{
+  "id": "acura-adx-advance",
+  "marca": "Acura",
+  "modelo": "ADX",
+  "version": "Advance",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 909900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/acura-adx-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT",
+  "traccion": "AWD"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-spark-euv-activ-bitono",
+  "marca": "Chevrolet",
+  "modelo": "Spark EUV",
+  "version": "Activ Bitono",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 464200,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-spark-euv-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

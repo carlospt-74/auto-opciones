@@ -1,0 +1,14 @@
+{
+  "id": "gmc-canyon-at4x",
+  "marca": "GMC",
+  "modelo": "Canyon",
+  "version": "AT4X",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1378000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-canyon-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "AWD"
+}

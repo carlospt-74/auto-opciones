@@ -1,0 +1,13 @@
+{
+  "id": "ford-expedition-platinum-ultimate",
+  "marca": "Ford",
+  "modelo": "Expedition",
+  "version": "Platinum Ultimate",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1965500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-expedition-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

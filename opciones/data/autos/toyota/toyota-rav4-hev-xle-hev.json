@@ -1,0 +1,13 @@
+{
+  "id": "toyota-rav4-hev-xle-hev",
+  "marca": "Toyota",
+  "modelo": "RAV4 HEV",
+  "version": "XLE HEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 712000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-rav4-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

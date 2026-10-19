@@ -1,0 +1,13 @@
+{
+  "id": "dodge-journey-gt-plus",
+  "marca": "Dodge",
+  "modelo": "Journey",
+  "version": "GT PLUS",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 729900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/foto-proximamente.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false
+}

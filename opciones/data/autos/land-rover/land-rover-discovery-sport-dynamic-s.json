@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-discovery-sport-dynamic-s",
+  "marca": "Land Rover",
+  "modelo": "Discovery Sport",
+  "version": "Dynamic S",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1325000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-discovery-sport-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

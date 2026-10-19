@@ -1,0 +1,13 @@
+{
+  "id": "bmw-z4-m40i-final-edition",
+  "marca": "BMW",
+  "modelo": "Z4",
+  "version": "M40i Final Edition",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 1595900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-z4-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

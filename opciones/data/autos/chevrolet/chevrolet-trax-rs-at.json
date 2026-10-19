@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-trax-rs-at",
+  "marca": "Chevrolet",
+  "modelo": "Trax",
+  "version": "RS AT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 635800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-trax-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

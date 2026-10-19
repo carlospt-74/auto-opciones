@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-blazer-ev-ev",
+  "marca": "Chevrolet",
+  "modelo": "Blazer EV",
+  "version": "EV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1226500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-blazer-ev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

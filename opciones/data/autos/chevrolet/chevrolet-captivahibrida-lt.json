@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-captivahibrida-lt",
+  "marca": "Chevrolet",
+  "modelo": "Captiva Híbrida",
+  "version": "LT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 577500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-captivahibrida-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

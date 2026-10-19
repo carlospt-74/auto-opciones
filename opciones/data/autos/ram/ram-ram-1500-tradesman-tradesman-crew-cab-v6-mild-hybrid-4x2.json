@@ -1,0 +1,14 @@
+{
+  "id": "ram-ram-1500-tradesman-tradesman-crew-cab-v6-mild-hybrid-4x2",
+  "marca": "RAM",
+  "modelo": "RAM 1500 Tradesman",
+  "version": "Tradesman Crew Cab V6 Mild-Hybrid 4x2",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1023100,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/foto-proximamente.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "traccion": "4x2"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "jeep-grand-wagoneer-l-l-limited-4x4-2027",
+  "marca": "Jeep",
+  "modelo": "Grand Wagoneer L",
+  "version": "L Limited 4x4",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2176900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jeep-grand-wagoneer-l-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-colorado-zr2",
+  "marca": "Chevrolet",
+  "modelo": "Colorado",
+  "version": "ZR2",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1255700,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-colorado-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

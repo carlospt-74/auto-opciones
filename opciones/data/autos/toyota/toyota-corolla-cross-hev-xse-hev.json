@@ -1,0 +1,13 @@
+{
+  "id": "toyota-corolla-cross-hev-xse-hev",
+  "marca": "Toyota",
+  "modelo": "Corolla Cross HEV",
+  "version": "XSE HEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 684900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-corolla-cross-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

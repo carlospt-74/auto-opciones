@@ -1,0 +1,14 @@
+{
+  "id": "acura-integra-type-s-type-s",
+  "marca": "Acura",
+  "modelo": "Integra Type S",
+  "version": "Type S",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 1165900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/acura-integra-type-s-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "MT"
+}

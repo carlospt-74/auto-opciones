@@ -6,8 +6,8 @@
   "anio": 2026,
   "tipo": "Sedán",
   "precio": 401990,
-  "vigencia": "19 de octubre de 2026",
-  "foto": "assets/fotos/nissan-sentra.webp",
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/nissan-sentra-2026.webp",
   "enfoque_foto": "centro",
   "mostrar": true,
   "trans": "CVT"

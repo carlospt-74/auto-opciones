@@ -1,0 +1,13 @@
+{
+  "id": "ram-ram-700-tradesman-crew-cab",
+  "marca": "RAM",
+  "modelo": "RAM 700",
+  "version": "Tradesman Crew Cab",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 388400,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ram-ram-700-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

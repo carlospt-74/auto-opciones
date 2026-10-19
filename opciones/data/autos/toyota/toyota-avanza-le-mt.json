@@ -1,0 +1,13 @@
+{
+  "id": "toyota-avanza-le-mt",
+  "marca": "Toyota",
+  "modelo": "Avanza",
+  "version": "LE MT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 367300,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-avanza-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

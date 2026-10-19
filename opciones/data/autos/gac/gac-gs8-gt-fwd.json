@@ -1,0 +1,15 @@
+{
+  "id": "gac-gs8-gt-fwd",
+  "marca": "GAC",
+  "modelo": "GS8",
+  "version": "GT FWD",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 759900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-gs8-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "FWD"
+}

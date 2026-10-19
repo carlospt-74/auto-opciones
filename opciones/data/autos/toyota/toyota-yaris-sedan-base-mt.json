@@ -1,0 +1,13 @@
+{
+  "id": "toyota-yaris-sedan-base-mt",
+  "marca": "Toyota",
+  "modelo": "Yaris Sedán",
+  "version": "Base MT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 327700,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-yaris-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

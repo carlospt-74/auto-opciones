@@ -1,0 +1,13 @@
+{
+  "id": "gmc-hummer-ev-suv-hummer-ev-suv",
+  "marca": "GMC",
+  "modelo": "Hummer EV SUV",
+  "version": "Hummer EV SUV",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 3500000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-hummer-ev-suv-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

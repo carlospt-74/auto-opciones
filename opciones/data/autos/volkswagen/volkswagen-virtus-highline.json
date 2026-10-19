@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-virtus-highline",
+  "marca": "Volkswagen",
+  "modelo": "Virtus",
+  "version": "Highline",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 399490,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-virtus-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

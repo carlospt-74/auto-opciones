@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-range-rover-hse-distancia-corta",
+  "marca": "Land Rover",
+  "modelo": "Range Rover",
+  "version": "HSE (distancia corta)",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 3705000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-range-rover-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

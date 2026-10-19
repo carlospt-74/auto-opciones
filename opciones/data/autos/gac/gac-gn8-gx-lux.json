@@ -1,0 +1,13 @@
+{
+  "id": "gac-gn8-gx-lux",
+  "marca": "GAC",
+  "modelo": "GN8",
+  "version": "GX Lux",
+  "anio": 2025,
+  "tipo": "Van",
+  "precio": 1028800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-gn8-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

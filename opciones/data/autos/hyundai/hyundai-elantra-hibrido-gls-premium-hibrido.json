@@ -1,0 +1,13 @@
+{
+  "id": "hyundai-elantra-hibrido-gls-premium-hibrido",
+  "marca": "Hyundai",
+  "modelo": "Elantra Híbrido",
+  "version": "GLS Premium Híbrido",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 645500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-elantra-hibrido-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

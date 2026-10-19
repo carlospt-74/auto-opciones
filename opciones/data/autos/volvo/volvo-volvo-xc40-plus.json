@@ -1,0 +1,13 @@
+{
+  "id": "volvo-volvo-xc40-plus",
+  "marca": "Volvo",
+  "modelo": "Volvo XC40",
+  "version": "Plus",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 857900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volvo-volvo-xc40-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,14 @@
+{
+  "id": "mazda-mazda3-sedan-i-grand-touring-mhev",
+  "marca": "Mazda",
+  "modelo": "Mazda3 Sedán",
+  "version": "i Grand Touring MHEV",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 502900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-mazda3-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

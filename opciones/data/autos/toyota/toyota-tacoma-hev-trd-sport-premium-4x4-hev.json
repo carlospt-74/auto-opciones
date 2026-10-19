@@ -1,0 +1,13 @@
+{
+  "id": "toyota-tacoma-hev-trd-sport-premium-4x4-hev",
+  "marca": "Toyota",
+  "modelo": "Tacoma HEV",
+  "version": "TRD Sport Premium 4x4 HEV",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1167500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-tacoma-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

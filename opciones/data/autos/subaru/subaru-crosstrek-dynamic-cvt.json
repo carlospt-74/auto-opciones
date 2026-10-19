@@ -1,0 +1,14 @@
+{
+  "id": "subaru-crosstrek-dynamic-cvt",
+  "marca": "Subaru",
+  "modelo": "Crosstrek",
+  "version": "Dynamic CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 554900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/subaru-crosstrek-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-groove-rs",
+  "marca": "Chevrolet",
+  "modelo": "Groove",
+  "version": "RS",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 501400,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-groove-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

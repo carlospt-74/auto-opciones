@@ -1,0 +1,13 @@
+{
+  "id": "buick-encore-gx-avenir",
+  "marca": "Buick",
+  "modelo": "Encore GX",
+  "version": "Avenir",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 620000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/buick-encore-gx-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

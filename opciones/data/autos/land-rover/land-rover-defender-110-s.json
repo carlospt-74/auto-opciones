@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-defender-110-s",
+  "marca": "Land Rover",
+  "modelo": "Defender 110",
+  "version": "S",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2175000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-defender-110-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

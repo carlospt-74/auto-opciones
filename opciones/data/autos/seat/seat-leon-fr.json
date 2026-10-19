@@ -1,0 +1,13 @@
+{
+  "id": "seat-leon-fr",
+  "marca": "Seat",
+  "modelo": "León",
+  "version": "FR",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 519900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/seat-leon-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

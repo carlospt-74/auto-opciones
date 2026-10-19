@@ -1,0 +1,15 @@
+{
+  "id": "mitsubishi-outlander-sport-se-plus",
+  "marca": "Mitsubishi",
+  "modelo": "Outlander Sport",
+  "version": "SE Plus",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 526900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mitsubishi-outlander-sport-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática (CVT)",
+  "traccion": "Delantera"
+}

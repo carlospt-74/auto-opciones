@@ -1,0 +1,14 @@
+{
+  "id": "peugeot-peugeot-rifter-allure-pack-1-6l-diesel",
+  "marca": "Peugeot",
+  "modelo": "Peugeot Rifter",
+  "version": "Allure Pack 1.6L Diésel",
+  "anio": 2027,
+  "tipo": "Van",
+  "precio": 479900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/peugeot-peugeot-rifter-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

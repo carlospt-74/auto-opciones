@@ -1,0 +1,15 @@
+{
+  "id": "mitsubishi-mirage-g4-glx-cvt",
+  "marca": "Mitsubishi",
+  "modelo": "Mirage G4",
+  "version": "GLX CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 322900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mitsubishi-mirage-g4-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática (CVT)",
+  "traccion": "2WD"
+}

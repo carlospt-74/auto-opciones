@@ -1,0 +1,14 @@
+{
+  "id": "jac-jac-2-smart-cvt",
+  "marca": "JAC",
+  "modelo": "JAC 2",
+  "version": "Smart CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 342000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-jac-2-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-range-rover-sport-se",
+  "marca": "Land Rover",
+  "modelo": "Range Rover Sport",
+  "version": "SE",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2340000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-range-rover-sport-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

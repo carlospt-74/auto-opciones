@@ -1,0 +1,13 @@
+{
+  "id": "buick-envision-avenir",
+  "marca": "Buick",
+  "modelo": "Envision",
+  "version": "Avenir",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 975000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/buick-envision-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

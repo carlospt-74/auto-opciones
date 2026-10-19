@@ -1,0 +1,13 @@
+{
+  "id": "volvo-volvo-ex40-plus",
+  "marca": "Volvo",
+  "modelo": "Volvo EX40",
+  "version": "Plus",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1045900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volvo-volvo-ex40-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

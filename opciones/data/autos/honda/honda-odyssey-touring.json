@@ -1,0 +1,13 @@
+{
+  "id": "honda-odyssey-touring",
+  "marca": "Honda",
+  "modelo": "Odyssey",
+  "version": "Touring",
+  "anio": 2027,
+  "tipo": "Van",
+  "precio": 1212900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-odyssey-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

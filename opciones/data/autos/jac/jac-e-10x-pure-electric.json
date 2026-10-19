@@ -1,0 +1,14 @@
+{
+  "id": "jac-e-10x-pure-electric",
+  "marca": "JAC",
+  "modelo": "E 10x",
+  "version": "Pure Electric",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 371000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-e-10x-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT"
+}

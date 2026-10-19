@@ -1,0 +1,14 @@
+{
+  "id": "bmw-ix2-xdrive30",
+  "marca": "BMW",
+  "modelo": "iX2",
+  "version": "xDrive30",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1385900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-ix2-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

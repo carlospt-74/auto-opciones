@@ -1,0 +1,14 @@
+{
+  "id": "porsche-911-turbo-s-turbo-s",
+  "marca": "Porsche",
+  "modelo": "911 Turbo S",
+  "version": "Turbo S",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 5228000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-911-turbo-s-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

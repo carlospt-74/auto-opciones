@@ -1,0 +1,13 @@
+{
+  "id": "bmw-m3-m3-competition",
+  "marca": "BMW",
+  "modelo": "M3",
+  "version": "M3 Competition",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 2234900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-m3-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

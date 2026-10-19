@@ -1,0 +1,13 @@
+{
+  "id": "ford-mustang-mach-e-select",
+  "marca": "Ford",
+  "modelo": "Mustang Mach-E",
+  "version": "Select",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 996500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-mustang-mach-e-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

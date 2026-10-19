@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-cooper-3-puertas-cooper-s",
+  "marca": "Mini Cooper",
+  "modelo": "MINI Cooper 3 Puertas",
+  "version": "Cooper S",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 768000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-cooper-3-puertas-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

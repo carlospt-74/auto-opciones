@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-tahoe-high-country",
+  "marca": "Chevrolet",
+  "modelo": "Tahoe",
+  "version": "High Country",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 2139600,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-tahoe-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

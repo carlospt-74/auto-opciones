@@ -1,0 +1,13 @@
+{
+  "id": "honda-city-prime-cvt",
+  "marca": "Honda",
+  "modelo": "City",
+  "version": "PRIME CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 440900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-city-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,14 @@
+{
+  "id": "renault-koleos-techno",
+  "marca": "Renault",
+  "modelo": "Koleos",
+  "version": "Techno",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 706500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/renault-koleos-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

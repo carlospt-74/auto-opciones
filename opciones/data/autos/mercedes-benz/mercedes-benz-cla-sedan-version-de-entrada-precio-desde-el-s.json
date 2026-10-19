@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-cla-sedan-version-de-entrada-precio-desde-el-s",
+  "marca": "Mercedes Benz",
+  "modelo": "CLA (Sedán)",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 955900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-cla-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

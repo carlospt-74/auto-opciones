@@ -1,0 +1,13 @@
+{
+  "id": "ford-expedition-active",
+  "marca": "Ford",
+  "modelo": "Expedition",
+  "version": "Active",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1765500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-expedition-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

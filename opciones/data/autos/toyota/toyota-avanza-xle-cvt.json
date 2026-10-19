@@ -1,0 +1,13 @@
+{
+  "id": "toyota-avanza-xle-cvt",
+  "marca": "Toyota",
+  "modelo": "Avanza",
+  "version": "XLE CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 400200,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-avanza-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

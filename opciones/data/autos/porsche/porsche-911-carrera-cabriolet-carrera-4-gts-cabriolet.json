@@ -1,0 +1,14 @@
+{
+  "id": "porsche-911-carrera-cabriolet-carrera-4-gts-cabriolet",
+  "marca": "Porsche",
+  "modelo": "911 Carrera Cabriolet",
+  "version": "Carrera 4 GTS Cabriolet",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 3828000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-911-carrera-cabriolet-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

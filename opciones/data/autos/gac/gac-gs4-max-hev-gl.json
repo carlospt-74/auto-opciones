@@ -1,0 +1,13 @@
+{
+  "id": "gac-gs4-max-hev-gl",
+  "marca": "GAC",
+  "modelo": "GS4 MAX",
+  "version": "HEV GL",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 639900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-gs4-max-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

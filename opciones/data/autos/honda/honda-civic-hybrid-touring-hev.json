@@ -1,0 +1,13 @@
+{
+  "id": "honda-civic-hybrid-touring-hev",
+  "marca": "Honda",
+  "modelo": "Civic Hybrid",
+  "version": "Touring HEV",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 759900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-civic-hybrid-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

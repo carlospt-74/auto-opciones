@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-cla-electrico-sedan-version-de-entrada-precio",
+  "marca": "Mercedes Benz",
+  "modelo": "CLA Eléctrico (Sedán)",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 1049000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-cla-electrico-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

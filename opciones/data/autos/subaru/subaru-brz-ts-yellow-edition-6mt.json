@@ -1,0 +1,14 @@
+{
+  "id": "subaru-brz-ts-yellow-edition-6mt",
+  "marca": "Subaru",
+  "modelo": "BRZ",
+  "version": "tS Yellow Edition 6MT",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 899900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/subaru-brz-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "MT"
+}

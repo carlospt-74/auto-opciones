@@ -1,0 +1,14 @@
+{
+  "id": "mazda-mx-5-i-sport",
+  "marca": "Mazda",
+  "modelo": "MX-5",
+  "version": "i Sport",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 546900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-mx-5-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

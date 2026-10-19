@@ -1,0 +1,13 @@
+{
+  "id": "ford-super-duty-f-250-xlt",
+  "marca": "Ford",
+  "modelo": "Super Duty F-250",
+  "version": "XLT",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1560800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-super-duty-f-250-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

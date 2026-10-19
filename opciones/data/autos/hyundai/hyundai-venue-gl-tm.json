@@ -1,0 +1,14 @@
+{
+  "id": "hyundai-venue-gl-tm",
+  "marca": "Hyundai",
+  "modelo": "Venue",
+  "version": "GL TM",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 395000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/hyundai-venue-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

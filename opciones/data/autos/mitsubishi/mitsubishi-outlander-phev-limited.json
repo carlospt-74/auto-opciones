@@ -1,0 +1,14 @@
+{
+  "id": "mitsubishi-outlander-phev-limited",
+  "marca": "Mitsubishi",
+  "modelo": "Outlander PHEV",
+  "version": "Limited",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 948900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mitsubishi-outlander-phev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "AWD (Twin-Motor S-AWC)"
+}

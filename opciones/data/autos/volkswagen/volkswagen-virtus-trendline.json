@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-virtus-trendline",
+  "marca": "Volkswagen",
+  "modelo": "Virtus",
+  "version": "Trendline",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 322490,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-virtus-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

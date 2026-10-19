@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-cooper-5-puertas-cooper-c-favoured-trim",
+  "marca": "Mini Cooper",
+  "modelo": "MINI Cooper 5 Puertas",
+  "version": "Cooper C Favoured Trim",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 779900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-cooper-5-puertas-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

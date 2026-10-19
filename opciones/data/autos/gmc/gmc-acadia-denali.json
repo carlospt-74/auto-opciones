@@ -1,0 +1,13 @@
+{
+  "id": "gmc-acadia-denali",
+  "marca": "GMC",
+  "modelo": "Acadia",
+  "version": "Denali",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1494000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-acadia-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

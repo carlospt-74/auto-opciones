@@ -1,0 +1,13 @@
+{
+  "id": "kia-sorento-sxl",
+  "marca": "Kia",
+  "modelo": "Sorento",
+  "version": "SXL",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 992900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-sorento-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

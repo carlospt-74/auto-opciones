@@ -1,0 +1,14 @@
+{
+  "id": "ram-ram-700-laramie-crew-cab-1-0l-turbo-cvt",
+  "marca": "RAM",
+  "modelo": "RAM 700",
+  "version": "Laramie Crew Cab 1.0L Turbo CVT",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 491500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ram-ram-700-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

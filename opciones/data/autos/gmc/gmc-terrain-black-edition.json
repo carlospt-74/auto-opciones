@@ -1,0 +1,14 @@
+{
+  "id": "gmc-terrain-black-edition",
+  "marca": "GMC",
+  "modelo": "Terrain",
+  "version": "Black Edition",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 848900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-terrain-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

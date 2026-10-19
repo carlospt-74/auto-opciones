@@ -1,0 +1,13 @@
+{
+  "id": "ford-explorer-st",
+  "marca": "Ford",
+  "modelo": "Explorer",
+  "version": "ST",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1393600,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-explorer-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

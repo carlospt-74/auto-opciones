@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-suburban-rst",
+  "marca": "Chevrolet",
+  "modelo": "Suburban",
+  "version": "RST",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 2181100,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-suburban-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

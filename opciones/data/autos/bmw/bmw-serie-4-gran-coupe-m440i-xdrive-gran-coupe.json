@@ -1,0 +1,14 @@
+{
+  "id": "bmw-serie-4-gran-coupe-m440i-xdrive-gran-coupe",
+  "marca": "BMW",
+  "modelo": "Serie 4 Gran Coupé",
+  "version": "M440i xDrive Gran Coupé",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 1624900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-4-gran-coupe-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

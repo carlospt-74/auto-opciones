@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-mercedes-maybach-eqs-suv-version-de-entrada-pr",
+  "marca": "Mercedes Benz",
+  "modelo": "Mercedes-Maybach EQS SUV",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 3650000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-mercedes-maybach-eqs-suv-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

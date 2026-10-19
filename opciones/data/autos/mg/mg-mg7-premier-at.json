@@ -1,0 +1,14 @@
+{
+  "id": "mg-mg7-premier-at",
+  "marca": "MG",
+  "modelo": "MG7",
+  "version": "PREMIER AT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 629000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-mg7-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

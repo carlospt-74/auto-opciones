@@ -1,0 +1,13 @@
+{
+  "id": "mg-zs-turbo-elegance-cvt",
+  "marca": "MG",
+  "modelo": "ZS Turbo",
+  "version": "ELEGANCE CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 490000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mg-zs-turbo-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

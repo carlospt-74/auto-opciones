@@ -1,0 +1,13 @@
+{
+  "id": "kia-k4-hatchback-ex-ivt",
+  "marca": "Kia",
+  "modelo": "K4 Hatchback",
+  "version": "EX IVT",
+  "anio": 2027,
+  "tipo": "Hatchback",
+  "precio": 491900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-k4-hatchback-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,14 @@
+{
+  "id": "suzuki-dzire-boostergreen-gls-tm-int-black-inferida-como-la",
+  "marca": "Suzuki",
+  "modelo": "Dzire BoosterGreen",
+  "version": "GLS TM Int. Black (inferida como la de entrada)",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 304990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/suzuki-dzire-boostergreen-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

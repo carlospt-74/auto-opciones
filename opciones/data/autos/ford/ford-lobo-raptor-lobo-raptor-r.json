@@ -1,0 +1,13 @@
+{
+  "id": "ford-lobo-raptor-lobo-raptor-r",
+  "marca": "Ford",
+  "modelo": "Lobo Raptor",
+  "version": "Lobo Raptor R",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 2790000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-lobo-raptor-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

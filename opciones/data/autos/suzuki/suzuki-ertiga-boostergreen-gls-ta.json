@@ -1,0 +1,14 @@
+{
+  "id": "suzuki-ertiga-boostergreen-gls-ta",
+  "marca": "Suzuki",
+  "modelo": "Ertiga BoosterGreen",
+  "version": "GLS TA",
+  "anio": 2026,
+  "tipo": "Van",
+  "precio": 409990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/suzuki-ertiga-boostergreen-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

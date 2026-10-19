@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-tahoe-z71",
+  "marca": "Chevrolet",
+  "modelo": "Tahoe",
+  "version": "Z71",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 2130500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-tahoe-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

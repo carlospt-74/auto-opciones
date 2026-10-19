@@ -1,0 +1,13 @@
+{
+  "id": "gac-aion-y-gx",
+  "marca": "GAC",
+  "modelo": "AION Y",
+  "version": "GX",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 589900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-aion-y-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

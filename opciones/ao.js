@@ -28,6 +28,14 @@
     return o;
   }
 
+  // Luminancia promedio de cada foto (0-255), para elegir un fondo con buen contraste. Si falta, se usan los fondos claros.
+  let LUM = {};
+  fetch('data/fotos-lum.json').then(r => r.ok ? r.json() : {}).then(j => { LUM = j || {}; notify(); }).catch(() => {});
+  const FONDOS = [['#FFFFFF', 255], ['#E6E9EE', 232], ['#EFE4D2', 230], ['#D5E0EA', 224], ['#4A5463', 85], ['#5B4636', 75], ['#8C94A0', 146], ['#15181D', 25], ['#6F8FB0', 139], ['#B9C9B5', 196]];
+  const rgbDe = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+  const distCol = (a, b) => Math.hypot(...rgbDe(a).map((v, i) => v - rgbDe(b)[i]));
+  const FONDO_RAYAS = 'repeating-linear-gradient(135deg,#F7F3EF 0 12px,#EFE9E3 12px 24px)';
+
   Promise.all(Object.entries(ARCH).map(([k, f]) =>
     fetch('data/' + f + '.json', { cache: 'no-cache' })
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
@@ -347,15 +355,33 @@
     };
     const marcaTxt = st.marca || 'auto';
 
+    // Fondo de color por versión: cada versión de un mismo modelo y año recibe un fondo distinto (por precio, estable),
+    // entre los que contrastan con el color de la foto.
+    const fondoDe = {};
+    const grupos = {};
+    AUTOS.forEach(a => { (grupos[a.marca + '|' + a.modelo + '|' + (a.anio || '')] = grupos[a.marca + '|' + a.modelo + '|' + (a.anio || '')] || []).push(a); });
+    Object.values(grupos).forEach(g => {
+      const ord = [...g].sort((x, y) => x.precio - y.precio || String(x.id).localeCompare(String(y.id)));
+      const l = LUM[(g[0].foto || '')];
+      const ok = l === undefined ? FONDOS.slice(0, 4) : FONDOS.filter(f => Math.abs(f[1] - l) > 60);
+      const pal0 = ok.length ? ok : FONDOS.slice(0, 4);
+      // Se elige primero el blanco (o el primero compatible) y después, cada vez, el color más distinto de los ya elegidos.
+      const pal = [pal0[0]];
+      while (pal.length < Math.min(ord.length, pal0.length)) {
+        const rest = pal0.filter(p => !pal.includes(p));
+        pal.push(rest.reduce((m, p) => Math.min(...pal.map(q => distCol(p[0], q[0]))) > Math.min(...pal.map(q => distCol(m[0], q[0]))) ? p : m));
+      }
+      ord.forEach((a, i) => { fondoDe[a.id] = pal[i % pal.length][0]; });
+    });
     const autos = lista.slice(0, visibles).map(a => {
       const inC = cmp.includes(a.id);
-      return { ...a, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', precioF: mxn(a.precio), nombre: a.marca + ' ' + a.modelo,
+      return { ...a, fondo: a.foto && fondoDe[a.id] ? fondoDe[a.id] : FONDO_RAYAS, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', precioF: mxn(a.precio), nombre: a.marca + ' ' + a.modelo,
         mensual: mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))), specs: specs(a),
         mensualTxt: esContado ? '' : esArrend ? T.renta_cotizar : mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))) + '/mes*', hayMensualTxt: !esContado,
         ficha: st.ficha === a.id, noFicha: st.ficha !== a.id, abrirFicha: () => set({ ficha: a.id }), cerrarFicha: () => set({ ficha: null, nVer: visibles }),
         inCmp: inC, notInCmp: !inC, cmpDisabled: !inC && nCmp >= 3,
         cmpLabel: inC ? T.en_comparador : (nCmp >= 3 ? T.comparador_lleno : T.comparar), toggleCmp: () => toggleCmp(a.id),
-        hayAnio: !!a.anio, anioF: a.anio ? 'Modelo ' + a.anio : '', hayVig: !!a.vigencia, vigF: a.vigencia ? 'Precio vigente al ' + a.vigencia : '',
+        hayAnio: !!a.anio, anioF: a.anio ? 'Modelo ' + a.anio : '', hayVig: !!a.vigencia, vigF: a.vigencia ? 'Precio vigente: ' + a.vigencia : '',
         cotizar: () => lead('auto', llenar(MSG.auto, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), enganche: eng + '%', plazo: plazo + ' meses', pago: pagoSel, detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))) + ' al mes.' + segTxt, mensualidad: mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))) + ' al mes' })) };
     });
 
@@ -375,7 +401,7 @@
       const segFin = segDe(a), segAparte = haySeguro && !segOn, segUnico = segAparte ? Math.min(500000, parseInt(st.segMonto[i], 10) || 0) : 0;
       const aperturaM = monto * (+f.apertura || 0) / 100;
       const pagoIni = Math.round(engM) + Math.round(aperturaM) + segUnico;
-      return { n: i + 1, filled: true, empty: false, id: a.id, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', marca: a.marca, modelo: a.modelo, version: a.version, nombre: a.marca + ' ' + a.modelo,
+      return { n: i + 1, filled: true, empty: false, id: a.id, fondo: a.foto && fondoDe[a.id] ? fondoDe[a.id] : FONDO_RAYAS, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', marca: a.marca, modelo: a.modelo, version: a.version, nombre: a.marca + ' ' + a.modelo,
         precioF: mxn(a.precio), engF: mxn(engM), montoF: mxn(monto + segFin),
         incluyeSeg: segOn, segFinF: mxn(segFin), pideSeg: segAparte, segVal: segUnico ? String(segUnico) : '', onSegMonto: e => { const v = String(e.target.value).replace(/[^0-9]/g, '').slice(0, 6); const m = st.segMonto.slice(); m[i] = v; set({ segMonto: m }); },
         pagoIniF: mxn(pagoIni),

@@ -1,0 +1,13 @@
+{
+  "id": "chirey-tiggo-2-pro-luxury",
+  "marca": "Chirey",
+  "modelo": "Tiggo 2 Pro",
+  "version": "Luxury",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 329900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chirey-tiggo-2-pro-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

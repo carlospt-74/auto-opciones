@@ -1,0 +1,14 @@
+{
+  "id": "subaru-forester-premium-plus-cvt",
+  "marca": "Subaru",
+  "modelo": "Forester",
+  "version": "Premium Plus CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 689900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/subaru-forester-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "gmc-terrain-denali",
+  "marca": "GMC",
+  "modelo": "Terrain",
+  "version": "Denali",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1007900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-terrain-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "AWD"
+}

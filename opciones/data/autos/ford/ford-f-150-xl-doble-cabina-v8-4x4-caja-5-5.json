@@ -1,0 +1,14 @@
+{
+  "id": "ford-f-150-xl-doble-cabina-v8-4x4-caja-5-5",
+  "marca": "Ford",
+  "modelo": "F-150",
+  "version": "XL Doble Cabina V8 4x4 Caja 5.5'",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1208500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-f-150-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x4"
+}

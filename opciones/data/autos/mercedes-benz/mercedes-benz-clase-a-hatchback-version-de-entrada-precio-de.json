@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-clase-a-hatchback-version-de-entrada-precio-de",
+  "marca": "Mercedes Benz",
+  "modelo": "Clase A Hatchback",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 879000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-clase-a-hatchback-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,15 @@
+{
+  "id": "gmc-terrain-at4",
+  "marca": "GMC",
+  "modelo": "Terrain",
+  "version": "AT4",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 961900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gmc-terrain-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "AWD"
+}

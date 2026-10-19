@@ -1,0 +1,14 @@
+{
+  "id": "mazda-mazda2-sedan-i-sport-2026-automatica",
+  "marca": "Mazda",
+  "modelo": "Mazda2 Sedán",
+  "version": "i Sport",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 341900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-mazda2-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

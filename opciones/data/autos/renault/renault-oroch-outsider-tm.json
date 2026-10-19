@@ -1,0 +1,14 @@
+{
+  "id": "renault-oroch-outsider-tm",
+  "marca": "Renault",
+  "modelo": "Oroch",
+  "version": "Outsider TM",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 458500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/renault-oroch-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

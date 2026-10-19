@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-range-rover-evoque-hoxton-edition",
+  "marca": "Land Rover",
+  "modelo": "Range Rover Evoque",
+  "version": "Hoxton Edition",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1515000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-range-rover-evoque-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

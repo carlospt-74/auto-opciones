@@ -1,0 +1,13 @@
+{
+  "id": "ford-bronco-heritage",
+  "marca": "Ford",
+  "modelo": "Bronco",
+  "version": "Heritage",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1330500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-bronco-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

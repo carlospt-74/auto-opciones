@@ -1,0 +1,13 @@
+{
+  "id": "honda-cr-v-touring",
+  "marca": "Honda",
+  "modelo": "CR-V",
+  "version": "Touring",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 876900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-cr-v-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

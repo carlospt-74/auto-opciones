@@ -1,0 +1,13 @@
+{
+  "id": "kia-seltos-ex",
+  "marca": "Kia",
+  "modelo": "Seltos",
+  "version": "EX",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 529900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-seltos-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

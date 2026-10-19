@@ -1,0 +1,14 @@
+{
+  "id": "subaru-forester-touring-cvt",
+  "marca": "Subaru",
+  "modelo": "Forester",
+  "version": "Touring CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 799900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/subaru-forester-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-jetta-trendline",
+  "marca": "Volkswagen",
+  "modelo": "Jetta",
+  "version": "Trendline",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 449290,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-jetta-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

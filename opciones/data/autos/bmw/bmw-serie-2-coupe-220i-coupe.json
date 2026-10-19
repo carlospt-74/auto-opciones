@@ -1,0 +1,14 @@
+{
+  "id": "bmw-serie-2-coupe-220i-coupe",
+  "marca": "BMW",
+  "modelo": "Serie 2 Coupé",
+  "version": "220i Coupé",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 932900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-2-coupe-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

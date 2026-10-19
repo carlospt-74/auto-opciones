@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-onix-premier-redline",
+  "marca": "Chevrolet",
+  "modelo": "Onix",
+  "version": "Premier Redline",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 452300,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-onix-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

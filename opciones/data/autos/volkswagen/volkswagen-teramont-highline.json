@@ -1,0 +1,13 @@
+{
+  "id": "volkswagen-teramont-highline",
+  "marca": "Volkswagen",
+  "modelo": "Teramont",
+  "version": "Highline",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1152190,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volkswagen-teramont-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

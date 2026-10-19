@@ -1,0 +1,13 @@
+{
+  "id": "land-rover-defender-octa-octa",
+  "marca": "Land Rover",
+  "modelo": "Defender OCTA",
+  "version": "OCTA",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 4780000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/land-rover-defender-octa-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

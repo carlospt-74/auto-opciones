@@ -1,0 +1,13 @@
+{
+  "id": "ford-ranger-raptor-ranger-raptor-2027",
+  "marca": "Ford",
+  "modelo": "Ranger Raptor",
+  "version": "Ranger Raptor 2027",
+  "anio": 2027,
+  "tipo": "Pickup",
+  "precio": 1334000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-ranger-raptor-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

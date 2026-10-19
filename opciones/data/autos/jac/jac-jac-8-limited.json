@@ -1,0 +1,14 @@
+{
+  "id": "jac-jac-8-limited",
+  "marca": "JAC",
+  "modelo": "JAC 8",
+  "version": "Limited",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 499900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/jac-jac-8-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "DCT"
+}

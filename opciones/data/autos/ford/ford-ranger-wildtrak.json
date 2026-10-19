@@ -1,0 +1,13 @@
+{
+  "id": "ford-ranger-wildtrak",
+  "marca": "Ford",
+  "modelo": "Ranger",
+  "version": "Wildtrak",
+  "anio": 2027,
+  "tipo": "Pickup",
+  "precio": 988000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-ranger-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

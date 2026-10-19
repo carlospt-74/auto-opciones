@@ -1,0 +1,14 @@
+{
+  "id": "porsche-911-gt3-gt3-s-c",
+  "marca": "Porsche",
+  "modelo": "911 GT3",
+  "version": "GT3 S/C",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 5598000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-911-gt3-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

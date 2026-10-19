@@ -1,0 +1,15 @@
+{
+  "id": "mitsubishi-outlander-se-plus",
+  "marca": "Mitsubishi",
+  "modelo": "Outlander",
+  "version": "SE Plus",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 609900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mitsubishi-outlander-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática (CVT)",
+  "traccion": "Delantera"
+}

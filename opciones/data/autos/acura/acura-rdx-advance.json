@@ -1,0 +1,15 @@
+{
+  "id": "acura-rdx-advance",
+  "marca": "Acura",
+  "modelo": "RDX",
+  "version": "Advance",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1209900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/acura-rdx-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "SH-AWD"
+}

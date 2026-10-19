@@ -1,0 +1,14 @@
+{
+  "id": "bmw-x5-2026-xdrive40i",
+  "marca": "BMW",
+  "modelo": "X5 (2026)",
+  "version": "xDrive40i",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1700000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x5-2026-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

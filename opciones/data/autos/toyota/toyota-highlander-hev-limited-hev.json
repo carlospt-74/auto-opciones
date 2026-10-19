@@ -1,0 +1,13 @@
+{
+  "id": "toyota-highlander-hev-limited-hev",
+  "marca": "Toyota",
+  "modelo": "Highlander HEV",
+  "version": "Limited HEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1025900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-highlander-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

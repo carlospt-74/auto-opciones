@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-captiva-lt-7-pasajeros",
+  "marca": "Chevrolet",
+  "modelo": "Captiva",
+  "version": "LT 7 Pasajeros",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 557800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-captiva-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

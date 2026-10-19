@@ -1,0 +1,14 @@
+{
+  "id": "bmw-x6-xdrive40i-m-pro-edition",
+  "marca": "BMW",
+  "modelo": "X6",
+  "version": "xDrive40i M Pro Edition",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1899900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-x6-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

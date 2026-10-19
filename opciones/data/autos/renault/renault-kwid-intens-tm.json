@@ -1,0 +1,14 @@
+{
+  "id": "renault-kwid-intens-tm",
+  "marca": "Renault",
+  "modelo": "Kwid",
+  "version": "Intens TM",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 252000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/renault-kwid-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

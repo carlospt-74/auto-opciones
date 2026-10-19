@@ -1,0 +1,13 @@
+{
+  "id": "ford-lobo-tremor-high",
+  "marca": "Ford",
+  "modelo": "Lobo",
+  "version": "Tremor High",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1600500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-lobo-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

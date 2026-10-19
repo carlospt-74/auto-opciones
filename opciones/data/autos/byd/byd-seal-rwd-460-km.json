@@ -1,0 +1,14 @@
+{
+  "id": "byd-seal-rwd-460-km",
+  "marca": "BYD",
+  "modelo": "Seal",
+  "version": "RWD 460 km",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 778800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/byd-seal-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "Trasera (RWD)"
+}

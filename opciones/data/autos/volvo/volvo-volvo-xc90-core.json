@@ -1,0 +1,13 @@
+{
+  "id": "volvo-volvo-xc90-core",
+  "marca": "Volvo",
+  "modelo": "Volvo XC90",
+  "version": "Core",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1669900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volvo-volvo-xc90-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

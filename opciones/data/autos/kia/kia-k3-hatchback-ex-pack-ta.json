@@ -1,0 +1,13 @@
+{
+  "id": "kia-k3-hatchback-ex-pack-ta",
+  "marca": "Kia",
+  "modelo": "K3 Hatchback",
+  "version": "EX PACK TA",
+  "anio": 2027,
+  "tipo": "Hatchback",
+  "precio": 435900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-k3-hatchback-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

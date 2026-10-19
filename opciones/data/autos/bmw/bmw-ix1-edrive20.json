@@ -1,0 +1,13 @@
+{
+  "id": "bmw-ix1-edrive20",
+  "marca": "BMW",
+  "modelo": "iX1",
+  "version": "eDrive20",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1171900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-ix1-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

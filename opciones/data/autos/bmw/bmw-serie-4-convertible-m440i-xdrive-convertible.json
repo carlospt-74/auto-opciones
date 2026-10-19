@@ -1,0 +1,14 @@
+{
+  "id": "bmw-serie-4-convertible-m440i-xdrive-convertible",
+  "marca": "BMW",
+  "modelo": "Serie 4 Convertible",
+  "version": "M440i xDrive Convertible",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 1786900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-serie-4-convertible-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "subaru-brz-ts-6mt",
+  "marca": "Subaru",
+  "modelo": "BRZ",
+  "version": "tS 6MT",
+  "anio": 2026,
+  "tipo": "Deportivo",
+  "precio": 884900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/subaru-brz-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "MT"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "acura-integra-a-spec",
+  "marca": "Acura",
+  "modelo": "Integra",
+  "version": "A-Spec",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 920900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/acura-integra-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

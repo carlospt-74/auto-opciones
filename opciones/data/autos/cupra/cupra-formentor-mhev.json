@@ -1,0 +1,13 @@
+{
+  "id": "cupra-formentor-mhev",
+  "marca": "Cupra",
+  "modelo": "Formentor",
+  "version": "MHEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 667900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/cupra-formentor-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

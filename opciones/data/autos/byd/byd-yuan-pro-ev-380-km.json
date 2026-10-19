@@ -1,0 +1,13 @@
+{
+  "id": "byd-yuan-pro-ev-380-km",
+  "marca": "BYD",
+  "modelo": "Yuan Pro",
+  "version": "EV 380 km",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 579800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/byd-yuan-pro-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

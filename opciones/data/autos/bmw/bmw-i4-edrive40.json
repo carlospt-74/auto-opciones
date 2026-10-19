@@ -1,0 +1,13 @@
+{
+  "id": "bmw-i4-edrive40",
+  "marca": "BMW",
+  "modelo": "i4",
+  "version": "eDrive40",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 1484000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-i4-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

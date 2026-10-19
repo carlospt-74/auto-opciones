@@ -1,0 +1,13 @@
+{
+  "id": "toyota-raize-xle-mt",
+  "marca": "Toyota",
+  "modelo": "Raize",
+  "version": "XLE MT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 390400,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-raize-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

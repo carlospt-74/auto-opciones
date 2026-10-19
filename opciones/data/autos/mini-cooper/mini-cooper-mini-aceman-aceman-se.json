@@ -1,0 +1,15 @@
+{
+  "id": "mini-cooper-mini-aceman-aceman-se",
+  "marca": "Mini Cooper",
+  "modelo": "MINI Aceman",
+  "version": "Aceman SE",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 872000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mini-cooper-mini-aceman-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "Delantera"
+}

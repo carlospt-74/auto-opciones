@@ -1,0 +1,14 @@
+{
+  "id": "ford-f-150-xl-cabina-regular-v6-4x2-caja-8",
+  "marca": "Ford",
+  "modelo": "F-150",
+  "version": "XL Cabina Regular V6 4x2 Caja 8'",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1027000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-f-150-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x2"
+}

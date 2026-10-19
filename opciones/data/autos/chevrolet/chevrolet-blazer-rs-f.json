@@ -1,0 +1,13 @@
+{
+  "id": "chevrolet-blazer-rs-f",
+  "marca": "Chevrolet",
+  "modelo": "Blazer",
+  "version": "RS (F)",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 1174900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-blazer-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

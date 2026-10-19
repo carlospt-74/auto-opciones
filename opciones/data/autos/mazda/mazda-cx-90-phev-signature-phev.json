@@ -1,0 +1,13 @@
+{
+  "id": "mazda-cx-90-phev-signature-phev",
+  "marca": "Mazda",
+  "modelo": "CX-90 PHEV",
+  "version": "Signature PHEV",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1119900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-cx-90-phev-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

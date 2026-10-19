@@ -1,0 +1,13 @@
+{
+  "id": "toyota-prius-base",
+  "marca": "Toyota",
+  "modelo": "Prius",
+  "version": "Base",
+  "anio": 2027,
+  "tipo": "Hatchback",
+  "precio": 525500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-prius-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

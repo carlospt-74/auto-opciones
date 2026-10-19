@@ -1,0 +1,14 @@
+{
+  "id": "dodge-attitude-gt",
+  "marca": "Dodge",
+  "modelo": "Attitude",
+  "version": "GT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 450900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/dodge-attitude-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT"
+}

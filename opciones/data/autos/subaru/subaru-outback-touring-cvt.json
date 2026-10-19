@@ -1,0 +1,14 @@
+{
+  "id": "subaru-outback-touring-cvt",
+  "marca": "Subaru",
+  "modelo": "Outback",
+  "version": "Touring CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 899900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/subaru-outback-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "CVT"
+}

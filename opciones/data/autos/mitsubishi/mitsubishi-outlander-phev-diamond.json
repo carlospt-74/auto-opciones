@@ -1,0 +1,14 @@
+{
+  "id": "mitsubishi-outlander-phev-diamond",
+  "marca": "Mitsubishi",
+  "modelo": "Outlander PHEV",
+  "version": "Diamond",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1013900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mitsubishi-outlander-phev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "AWD (Twin-Motor S-AWC)"
+}

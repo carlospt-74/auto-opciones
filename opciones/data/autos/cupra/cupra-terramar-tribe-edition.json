@@ -1,0 +1,13 @@
+{
+  "id": "cupra-terramar-tribe-edition",
+  "marca": "Cupra",
+  "modelo": "Terramar",
+  "version": "Tribe Edition",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1000900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/cupra-terramar-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

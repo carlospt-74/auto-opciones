@@ -1,0 +1,13 @@
+{
+  "id": "toyota-camry-hev-xse-hev",
+  "marca": "Toyota",
+  "modelo": "Camry HEV",
+  "version": "XSE HEV",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 705600,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/toyota-camry-hev-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

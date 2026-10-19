@@ -1,0 +1,14 @@
+{
+  "id": "suzuki-fronx-boostergreen-gls-ta",
+  "marca": "Suzuki",
+  "modelo": "Fronx BoosterGreen",
+  "version": "GLS TA",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 399990,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/suzuki-fronx-boostergreen-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

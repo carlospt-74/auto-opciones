@@ -1,0 +1,14 @@
+{
+  "id": "ford-bronco-base-2-puertas-manual",
+  "marca": "Ford",
+  "modelo": "Bronco",
+  "version": "Base 2 Puertas Manual",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 998500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ford-bronco-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

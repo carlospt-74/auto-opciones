@@ -1,0 +1,14 @@
+{
+  "id": "mazda-mazda2-hatchback-i-sport-2026-automatica",
+  "marca": "Mazda",
+  "modelo": "Mazda2 Hatchback",
+  "version": "i Sport",
+  "anio": 2026,
+  "tipo": "Hatchback",
+  "precio": 341900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-mazda2-hatchback-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

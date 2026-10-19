@@ -1,0 +1,14 @@
+{
+  "id": "porsche-taycan-turbo-gt-with-weissach-package",
+  "marca": "Porsche",
+  "modelo": "Taycan",
+  "version": "Turbo GT with Weissach Package",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 5048000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-taycan-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

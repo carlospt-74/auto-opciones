@@ -1,0 +1,13 @@
+{
+  "id": "volvo-volvo-ec40-ultra",
+  "marca": "Volvo",
+  "modelo": "Volvo EC40",
+  "version": "Ultra",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 1185900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/volvo-volvo-ec40-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

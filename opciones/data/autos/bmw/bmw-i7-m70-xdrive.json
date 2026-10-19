@@ -1,0 +1,14 @@
+{
+  "id": "bmw-i7-m70-xdrive",
+  "marca": "BMW",
+  "modelo": "i7",
+  "version": "M70 xDrive",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 3883900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-i7-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

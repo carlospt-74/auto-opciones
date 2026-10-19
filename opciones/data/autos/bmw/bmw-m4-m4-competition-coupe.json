@@ -1,0 +1,14 @@
+{
+  "id": "bmw-m4-m4-competition-coupe",
+  "marca": "BMW",
+  "modelo": "M4",
+  "version": "M4 Competition Coupé",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 2284900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-m4-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

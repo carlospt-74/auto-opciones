@@ -1,0 +1,15 @@
+{
+  "id": "ram-ram-1200-bighorn-cc-2-0t-8a-t-4x4",
+  "marca": "RAM",
+  "modelo": "RAM 1200",
+  "version": "Bighorn CC 2.0T 8A/T 4x4",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 609900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ram-ram-1200-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "4x4"
+}

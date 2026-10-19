@@ -1,0 +1,14 @@
+{
+  "id": "mazda-mazda2-sedan-i-2026-manual",
+  "marca": "Mazda",
+  "modelo": "Mazda2 Sedán",
+  "version": "i",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 301900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-mazda2-sedan-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Manual"
+}

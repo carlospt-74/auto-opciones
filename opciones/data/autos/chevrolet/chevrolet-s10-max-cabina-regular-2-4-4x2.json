@@ -1,0 +1,14 @@
+{
+  "id": "chevrolet-s10-max-cabina-regular-2-4-4x2",
+  "marca": "Chevrolet",
+  "modelo": "S10 Max",
+  "version": "Cabina Regular 2.4 4X2",
+  "anio": 2027,
+  "tipo": "Pickup",
+  "precio": 484000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/chevrolet-s10-max-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "4x2"
+}

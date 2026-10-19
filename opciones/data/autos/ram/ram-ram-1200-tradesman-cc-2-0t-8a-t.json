@@ -1,0 +1,15 @@
+{
+  "id": "ram-ram-1200-tradesman-cc-2-0t-8a-t",
+  "marca": "RAM",
+  "modelo": "RAM 1200",
+  "version": "Tradesman CC 2.0T 8A/T",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 537500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ram-ram-1200-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática",
+  "traccion": "4x2"
+}

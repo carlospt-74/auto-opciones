@@ -1,0 +1,14 @@
+{
+  "id": "mazda-cx-70-carbon-edition-mhev",
+  "marca": "Mazda",
+  "modelo": "CX-70",
+  "version": "Carbon Edition MHEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 996900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mazda-cx-70-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

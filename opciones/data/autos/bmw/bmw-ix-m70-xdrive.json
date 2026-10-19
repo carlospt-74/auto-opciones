@@ -1,0 +1,14 @@
+{
+  "id": "bmw-ix-m70-xdrive",
+  "marca": "BMW",
+  "modelo": "iX",
+  "version": "M70 xDrive",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 2539900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-ix-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ram-ram-2500-hd-bighorn-6-4l-v8-hemi-8a-t",
+  "marca": "RAM",
+  "modelo": "RAM 2500 HD",
+  "version": "Bighorn 6.4L V8 HEMI 8A/T",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 1368410,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/ram-ram-2500-hd-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "kia-seltos-lx",
+  "marca": "Kia",
+  "modelo": "Seltos",
+  "version": "LX",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 499900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/kia-seltos-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

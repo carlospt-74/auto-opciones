@@ -1,0 +1,15 @@
+{
+  "id": "gac-gn8-gt",
+  "marca": "GAC",
+  "modelo": "GN8",
+  "version": "GT",
+  "anio": 2025,
+  "tipo": "Van",
+  "precio": 888800,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/gac-gn8-2025.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "AT",
+  "traccion": "FWD"
+}

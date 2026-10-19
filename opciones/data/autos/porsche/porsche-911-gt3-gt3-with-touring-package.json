@@ -1,0 +1,13 @@
+{
+  "id": "porsche-911-gt3-gt3-with-touring-package",
+  "marca": "Porsche",
+  "modelo": "911 GT3",
+  "version": "GT3 with Touring Package",
+  "anio": 2027,
+  "tipo": "Deportivo",
+  "precio": 4398000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/porsche-911-gt3-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "honda-pilot-touring",
+  "marca": "Honda",
+  "modelo": "Pilot",
+  "version": "Touring",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1240900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-pilot-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

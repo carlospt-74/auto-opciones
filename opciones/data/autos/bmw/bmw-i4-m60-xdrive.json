@@ -1,0 +1,14 @@
+{
+  "id": "bmw-i4-m60-xdrive",
+  "marca": "BMW",
+  "modelo": "i4",
+  "version": "M60 xDrive",
+  "anio": 2027,
+  "tipo": "Sedán",
+  "precio": 1634900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/bmw-i4-2027.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "traccion": "xDrive"
+}

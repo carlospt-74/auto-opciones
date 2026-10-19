@@ -1,0 +1,13 @@
+{
+  "id": "mercedes-benz-glb-version-de-entrada-precio-desde-el-sitio-n",
+  "marca": "Mercedes Benz",
+  "modelo": "GLB",
+  "version": "Versión de entrada (precio \"desde\"; el sitio no publica precio por versión)",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1026000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/mercedes-benz-glb-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

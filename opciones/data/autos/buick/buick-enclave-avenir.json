@@ -1,0 +1,13 @@
+{
+  "id": "buick-enclave-avenir",
+  "marca": "Buick",
+  "modelo": "Enclave",
+  "version": "Avenir",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1410000,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/buick-enclave-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true
+}

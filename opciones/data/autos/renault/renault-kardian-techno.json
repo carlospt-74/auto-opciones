@@ -1,0 +1,14 @@
+{
+  "id": "renault-kardian-techno",
+  "marca": "Renault",
+  "modelo": "Kardian",
+  "version": "Techno",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 458500,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/renault-kardian-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": true,
+  "trans": "Automática"
+}
