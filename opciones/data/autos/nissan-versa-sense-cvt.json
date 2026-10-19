@@ -1,0 +1,14 @@
+{
+  "id": "nissan-versa-sense-cvt",
+  "marca": "Nissan",
+  "modelo": "Versa",
+  "version": "Sense CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 351990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-versa.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "trans": "CVT"
+}

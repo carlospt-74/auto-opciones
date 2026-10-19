@@ -1,0 +1,14 @@
+{
+  "id": "nissan-pathfinder-platinum-4wd",
+  "marca": "Nissan",
+  "modelo": "Pathfinder",
+  "version": "Platinum 4WD",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 1199990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-pathfinder.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "traccion": "4WD"
+}

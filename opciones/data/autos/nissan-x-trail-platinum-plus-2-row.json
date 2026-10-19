@@ -1,0 +1,13 @@
+{
+  "id": "nissan-x-trail-platinum-plus-2-row",
+  "marca": "Nissan",
+  "modelo": "X-Trail",
+  "version": "Platinum Plus 2 Row",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 749990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-x-trail.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false
+}

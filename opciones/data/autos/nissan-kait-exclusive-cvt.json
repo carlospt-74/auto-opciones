@@ -1,0 +1,14 @@
+{
+  "id": "nissan-kait-exclusive-cvt",
+  "marca": "Nissan",
+  "modelo": "Kait",
+  "version": "Exclusive CVT",
+  "anio": 2027,
+  "tipo": "SUV",
+  "precio": 460990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-kait.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "trans": "CVT"
+}

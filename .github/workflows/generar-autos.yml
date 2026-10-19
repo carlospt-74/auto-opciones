@@ -1,0 +1,45 @@
+# Arma opciones/data/autos.json (lo que lee el portal) a partir de un archivo por auto en opciones/data/autos/.
+# Corre cuando cambia un auto en el CMS. También revisa los precios (los commits de una Action no disparan
+# otras Actions, por eso la revisión de "Revisar precios" se hace aquí).
+name: Generar autos.json
+
+on:
+  push:
+    branches: [main]
+    paths: ['opciones/data/autos/**', 'tools/generar-autos.py']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generar-autos
+  cancel-in-progress: false
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generar autos.json
+        run: |
+          cp opciones/data/autos.json /tmp/anterior.json 2>/dev/null || rm -f /tmp/anterior.json
+          python3 tools/generar-autos.py
+      - name: Revisar precios contra el autos.json anterior
+        id: precios
+        continue-on-error: true
+        run: python3 .github/scripts/revisar_precios.py /tmp/anterior.json opciones/data/autos.json | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Publicar autos.json si cambió
+        run: |
+          if git diff --quiet -- opciones/data/autos.json; then echo "autos.json ya estaba al día."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add opciones/data/autos.json
+          git commit -m "Actualiza opciones/data/autos.json (generado desde opciones/data/autos/)"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Avisar si la revisión de precios falló
+        if: steps.precios.outcome == 'failure'
+        run: |
+          echo "::error::Hay un precio fuera de rango o con un salto de más de 25 %. autos.json ya se publicó; corrígelo o revierte (ver opciones/GUIA-CMS.md)."
+          exit 1

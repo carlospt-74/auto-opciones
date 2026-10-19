@@ -1,0 +1,14 @@
+{
+  "id": "nissan-sentra-sr-platinum-cvt",
+  "marca": "Nissan",
+  "modelo": "Sentra",
+  "version": "SR Platinum CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 540100,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-sentra.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "trans": "CVT"
+}

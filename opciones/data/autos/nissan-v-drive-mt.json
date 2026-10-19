@@ -1,0 +1,14 @@
+{
+  "id": "nissan-v-drive-mt",
+  "marca": "Nissan",
+  "modelo": "V-Drive",
+  "version": "MT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 294100,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-v-drive.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "trans": "Manual"
+}

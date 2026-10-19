@@ -1,0 +1,15 @@
+{
+  "id": "nissan-frontier-dc-diesel-4x4-tm",
+  "marca": "Nissan",
+  "modelo": "Frontier",
+  "version": "DC Diesel 4X4 TM",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 528990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-frontier.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "trans": "Manual",
+  "traccion": "4x4"
+}

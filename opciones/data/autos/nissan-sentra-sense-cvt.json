@@ -1,0 +1,14 @@
+{
+  "id": "nissan-sentra-sense-cvt",
+  "marca": "Nissan",
+  "modelo": "Sentra",
+  "version": "Sense CVT",
+  "anio": 2026,
+  "tipo": "Sedán",
+  "precio": 401990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-sentra.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "trans": "CVT"
+}

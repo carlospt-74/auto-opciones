@@ -1,0 +1,14 @@
+{
+  "id": "nissan-magnite-exclusive-cvt",
+  "marca": "Nissan",
+  "modelo": "Magnite",
+  "version": "Exclusive CVT",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 389990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-magnite.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "trans": "CVT"
+}

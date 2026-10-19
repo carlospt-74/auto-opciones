@@ -1,0 +1,14 @@
+{
+  "id": "nissan-np300-chasis-diesel-tm-ac-vdc",
+  "marca": "Nissan",
+  "modelo": "NP300",
+  "version": "Chasis Diesel TM AC VDC",
+  "anio": 2026,
+  "tipo": "Pickup",
+  "precio": 441990,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-np300.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "trans": "Manual"
+}

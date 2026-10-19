@@ -1,0 +1,14 @@
+{
+  "id": "nissan-kicks-play-advance-cvt",
+  "marca": "Nissan",
+  "modelo": "Kicks Play",
+  "version": "Advance CVT",
+  "anio": 2025,
+  "tipo": "SUV",
+  "precio": 516900,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-kicks-play.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "trans": "CVT"
+}

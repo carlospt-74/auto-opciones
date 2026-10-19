@@ -1,0 +1,14 @@
+{
+  "id": "nissan-z-touring-mt",
+  "marca": "Nissan",
+  "modelo": "Z",
+  "version": "Touring MT",
+  "anio": 2025,
+  "tipo": "Deportivo",
+  "precio": 1280100,
+  "vigencia": "19 de octubre de 2026",
+  "foto": "assets/fotos/nissan-z.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false,
+  "trans": "Manual"
+}
