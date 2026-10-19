@@ -1,0 +1,45 @@
+content:
+  - name: nissan-versiones
+    label: Nissan – Versiones y precios
+    type: file
+    path: data/nissan-versiones.json
+    format: json
+    list: true
+    fields:
+      - name: modelo
+        label: Modelo
+        type: string
+      - name: anio
+        label: Año modelo
+        type: number
+        options:
+          min: 2020
+      - name: version
+        label: Versión
+        type: string
+      - name: precio
+        label: Precio (MXN)
+        type: number
+        options:
+          min: 0
+      - name: estado_precio
+        label: Estado del precio
+        type: string
+      - name: equipamiento
+        label: Equipamiento destacado
+        type: text
+      - name: nota
+        label: Nota
+        type: text
+      - name: fuente
+        label: Fuente
+        type: string
+      - name: url_pagina
+        label: URL de la página
+        type: string
+      - name: url_pdf
+        label: URL del PDF de catálogo
+        type: string
+      - name: fecha_captura
+        label: Fecha de captura
+        type: string
