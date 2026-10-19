@@ -28,6 +28,12 @@
     return o;
   }
 
+  // Luminancia promedio de cada foto (0-255), para elegir un fondo con buen contraste. Si falta, se usan los fondos claros.
+  let LUM = {};
+  fetch('data/fotos-lum.json').then(r => r.ok ? r.json() : {}).then(j => { LUM = j || {}; notify(); }).catch(() => {});
+  const FONDOS = [['#FFFFFF', 255], ['#E6E9EE', 232], ['#EFE4D2', 230], ['#D5E0EA', 224], ['#4A5463', 85], ['#5B4636', 75], ['#A4573A', 105], ['#15181D', 25]];
+  const FONDO_RAYAS = 'repeating-linear-gradient(135deg,#F7F3EF 0 12px,#EFE9E3 12px 24px)';
+
   Promise.all(Object.entries(ARCH).map(([k, f]) =>
     fetch('data/' + f + '.json', { cache: 'no-cache' })
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
@@ -347,9 +353,21 @@
     };
     const marcaTxt = st.marca || 'auto';
 
+    // Fondo de color por versión: cada versión de un mismo modelo y año recibe un fondo distinto (por precio, estable),
+    // entre los que contrastan con el color de la foto.
+    const fondoDe = {};
+    const grupos = {};
+    AUTOS.forEach(a => { (grupos[a.marca + '|' + a.modelo + '|' + (a.anio || '')] = grupos[a.marca + '|' + a.modelo + '|' + (a.anio || '')] || []).push(a); });
+    Object.values(grupos).forEach(g => {
+      const ord = [...g].sort((x, y) => x.precio - y.precio || String(x.id).localeCompare(String(y.id)));
+      const l = LUM[(g[0].foto || '')];
+      const ok = l === undefined ? FONDOS.slice(0, 4) : FONDOS.filter(f => Math.abs(f[1] - l) > 60);
+      const pal = ok.length ? ok : FONDOS.slice(0, 4);
+      ord.forEach((a, i) => { fondoDe[a.id] = pal[i % pal.length][0]; });
+    });
     const autos = lista.slice(0, visibles).map(a => {
       const inC = cmp.includes(a.id);
-      return { ...a, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', precioF: mxn(a.precio), nombre: a.marca + ' ' + a.modelo,
+      return { ...a, fondo: a.foto && fondoDe[a.id] ? fondoDe[a.id] : FONDO_RAYAS, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', precioF: mxn(a.precio), nombre: a.marca + ' ' + a.modelo,
         mensual: mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))), specs: specs(a),
         mensualTxt: esContado ? '' : esArrend ? T.renta_cotizar : mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))) + '/mes*', hayMensualTxt: !esContado,
         ficha: st.ficha === a.id, noFicha: st.ficha !== a.id, abrirFicha: () => set({ ficha: a.id }), cerrarFicha: () => set({ ficha: null, nVer: visibles }),
