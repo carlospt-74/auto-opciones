@@ -35,6 +35,7 @@ for name,idxp in index:
         if slug=='v-drive-2026': notes.append('El PDF de catálogo del sitio es de Nissan Colombia y no lista las versiones BASE TM / MT')
         if slug=='kait-2027': notes.append('El PDF incluye también la versión ADVANCE, que no aparece en la página')
         if not x.get('caracteristicas'): notes.append('La página no lista equipamiento para esta versión')
+        if slug in('versa-2026','kait-2027','x-trail-2027'): notes.append('Precio confirmado por el usuario el 2026-10-19 (coincide con la página)')
         ws.append([model,int(year),v,p,x['precio'],num(idxp),head,'; '.join(notes),'\n'.join(x.get('caracteristicas',[])),'nissanrivero.com – página del modelo (pestaña de versión, vía Firecrawl interact)',BASE%slug,PDF%slug,t]); nver+=1
     # fichas
     tsr=datetime.datetime.fromtimestamp(os.path.getmtime(f'pdf_{slug}.json'),datetime.UTC).strftime('%Y-%m-%dT%H:%M:%SZ')
