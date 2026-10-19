@@ -383,7 +383,7 @@
       const fecha = hoy.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
       const m2 = n => '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       const fila = (k, v) => '<div><span>' + esc(k) + '</span><b>' + esc(v) + '</b></div>';
-      const wa = ct.whatsapp || '', mail = correo1 || '', web = location.host;
+      const d10 = soloDigitos(ct.whatsapp || '').replace(/^52(?=\d{10}$)/, ''), wa = d10.length === 10 ? d10.slice(0, 2) + ' ' + d10.slice(2, 6) + ' ' + d10.slice(6) : (ct.whatsapp || ''), mail = correo1 || '', web = location.host;
       const autoFilas = [fila('Marca', a.marca), fila('Modelo', a.modelo), a.version ? fila('Versión', a.version) : '', a.anio ? fila('Año modelo', a.anio) : '', a.trans ? fila('Transmisión', a.trans) : '', a.traccion ? fila('Tracción', a.traccion) : '', fila('Precio de lista', mxn(a.precio)), a.vigencia ? fila('Precio vigente', a.vigencia) : ''].join('');
       const html = '<!doctype html><html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Simulación ' + esc(folio) + ' · ' + esc(a.marca + ' ' + a.modelo) + '</title><style>@page{size:A4;margin:0}*{box-sizing:border-box}body{margin:0;background:#e9ecf1;font-family:Archivo,system-ui,sans-serif;color:#1F3466;-webkit-print-color-adjust:exact;print-color-adjust:exact}'
         + '.barra{position:sticky;top:0;background:#1F3466;color:#fff;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:14px}.barra button{font:inherit;font-weight:600;border:0;border-radius:12px;padding:9px 16px;background:#EE8A52;color:#fff;cursor:pointer}'
