@@ -128,7 +128,7 @@
 <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:600"><span>{{ T.pago_inicial }}</span><span>{{ s.pagoIniF }}</span></div>
 <div style="height:1px;background:rgba(31,52,102,.12);margin:4px 0"></div></sc-if>
 <sc-for list="{{ s.specs }}" as="r"><div style="display:flex;justify-content:space-between;gap:10px;font-size:13px"><span style="color:#56607A">{{ r.k }}</span><span style="text-align:right">{{ r.v }}</span></div></sc-for>
-<div data-noprint style="margin-top:auto;padding-top:10px"><button onClick="{{ s.quiero }}" style="width:100%;border-radius:14px;background:var(--ao-1);border:1px solid var(--ao-1);color:#fff;padding:13px 14px;font-weight:600;font-size:15px;cursor:pointer" style-hover="background:var(--ao-1h)">{{ T.quiero_opcion }}</button></div>
+<div data-noprint style="margin-top:auto;padding-top:10px;display:flex;flex-direction:column;gap:8px"><sc-if value="{{ s.hayCotiz }}"><button onClick="{{ s.simular }}" style="width:100%;border-radius:14px;background:#fff;border:1px solid rgba(31,52,102,.3);color:var(--ao-azul);padding:11px 14px;font-weight:600;font-size:14px;cursor:pointer" style-hover="border-color:var(--ao-1)">Descargar simulación</button></sc-if><button onClick="{{ s.quiero }}" style="width:100%;border-radius:14px;background:var(--ao-1);border:1px solid var(--ao-1);color:#fff;padding:13px 14px;font-weight:600;font-size:15px;cursor:pointer" style-hover="background:var(--ao-1h)">{{ T.quiero_opcion }}</button></div>
 </div>
 </div>
 </sc-if>
@@ -185,6 +185,7 @@
 <div style="display:flex;gap:8px;flex-wrap:wrap">
 <sc-if value="{{ a.notInCmp }}" hint-placeholder-val="{{ true }}"><button onClick="{{ a.toggleCmp }}" disabled="{{ a.cmpDisabled }}" style="border-radius:14px;background:#fff;border:1px solid rgba(31,52,102,.3);color:var(--ao-azul);padding:10px 14px;font-weight:600;font-size:13px;cursor:pointer" style-hover="border-color:var(--ao-1)">+ {{ a.cmpLabel }}</button></sc-if>
 <sc-if value="{{ a.inCmp }}"><button onClick="{{ a.toggleCmp }}" style="border-radius:14px;background:var(--ao-suave);border:1px solid var(--ao-1);color:var(--ao-tx);padding:10px 14px;font-weight:600;font-size:13px;cursor:pointer">✓ {{ a.cmpLabel }}</button></sc-if>
+<sc-if value="{{ a.hayCotiz }}"><button onClick="{{ a.simular }}" style="border-radius:14px;background:#fff;border:1px solid rgba(31,52,102,.3);color:var(--ao-azul);padding:10px 14px;font-weight:600;font-size:13px;cursor:pointer" style-hover="border-color:var(--ao-1)">Descargar simulación</button></sc-if>
 <button onClick="{{ a.cotizar }}" style="border-radius:14px;background:var(--ao-1);border:1px solid var(--ao-1);color:#fff;padding:10px 14px;font-weight:600;font-size:13px;cursor:pointer" style-hover="background:var(--ao-1h)">{{ T.cotizar_auto }}</button>
 </div>
 </div>

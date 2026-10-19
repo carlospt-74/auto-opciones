@@ -369,6 +369,48 @@
     };
     const marcaTxt = st.marca || 'auto';
 
+    // Simulación de crédito imprimible (una hoja por auto), con el plan que la persona tiene elegido.
+    const SIM_LEGAL = 'Esta simulación es informativa y no constituye una oferta, cotización oficial ni compromiso de crédito de Auto-Opciones ni de institución financiera alguna. Las cifras se calcularon con una tasa de referencia y pueden variar según la institución, tu perfil y la fecha de contratación. El crédito está sujeto a aprobación de la institución financiera. El seguro del primer año es una estimación y se suma al monto financiado; el costo real depende de la aseguradora y del paquete elegido. El pago inicial incluye el enganche, la comisión por apertura y, cuando se paga por separado, el seguro; no incluye placas, trámites ni accesorios. Precios, versiones y disponibilidad sujetos a cambio sin previo aviso. Las imágenes son ilustrativas.';
+    const hayCotiz = !esContado && !esArrend;
+    // Enlace que reabre esta simulación en el portal (auto, enganche, plazo, seguro, financiera y forma de pago).
+    const enlaceSim = (a, f, segUnico) => location.origin + location.pathname + '#/comparar/' + encodeURIComponent(a.id) + '/' + [eng, plazo, segOn ? 1 : 0, encodeURIComponent(f.id || '_'), segUnico || '0', encodeURIComponent(pagoSel)].join('/');
+    const simular = (a, f, nombreFin, segUnico) => () => {
+      const esc = x => String(x == null ? '' : x).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+      const abs = u => { try { return new URL(u, location.href).href; } catch (e) { return ''; } };
+      const engM = a.precio * eng / 100, monto = a.precio - engM, segFin = segDe(a), tasa = +f.tasa || 0, aperPct = +f.apertura || 0, aperM = monto * aperPct / 100;
+      const pagoIni = Math.round(engM) + Math.round(aperM) + (segUnico || 0), mens = mensualidad(a.precio, eng, f, plazo, segFin);
+      const hoy = new Date(), yy = String(hoy.getFullYear()).slice(2) + String(hoy.getMonth() + 1).padStart(2, '0') + String(hoy.getDate()).padStart(2, '0');
+      let h = 0; [a.id, eng, plazo, nombreFin, segOn ? 1 : 0].join('|').split('').forEach(ch => { h = (h * 31 + ch.charCodeAt(0)) >>> 0; });
+      const folio = 'AO-' + yy + '-' + h.toString(36).toUpperCase().padStart(4, '0').slice(-4);
+      // El folio es un enlace que reabre esta misma simulación en el portal (auto, enganche, plazo, seguro, financiera y forma de pago).
+      const enlace = enlaceSim(a, f, segUnico);
+      const fecha = hoy.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+      const m2 = n => '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      const fila = (k, v) => '<div><span>' + esc(k) + '</span><b>' + esc(v) + '</b></div>';
+      const d10 = soloDigitos(ct.whatsapp || '').replace(/^52(?=\d{10}$)/, ''), wa = d10.length === 10 ? d10.slice(0, 2) + ' ' + d10.slice(2, 6) + ' ' + d10.slice(6) : (ct.whatsapp || ''), mail = correo1 || '', web = location.host;
+      const autoFilas = [fila('Marca', a.marca), fila('Modelo', a.modelo), a.version ? fila('Versión', a.version) : '', a.anio ? fila('Año modelo', a.anio) : '', a.trans ? fila('Transmisión', a.trans) : '', a.traccion ? fila('Tracción', a.traccion) : '', fila('Precio de lista', mxn(a.precio)), a.vigencia ? fila('Precio vigente', a.vigencia) : ''].join('');
+      const html = '<!doctype html><html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Simulación ' + esc(folio) + ' · ' + esc(a.marca + ' ' + a.modelo) + '</title><style>@page{size:letter;margin:0}*{box-sizing:border-box}body{margin:0;background:#e9ecf1;font-family:Archivo,system-ui,sans-serif;color:#1F3466;-webkit-print-color-adjust:exact;print-color-adjust:exact}'
+        + '.barra{position:sticky;top:0;background:#1F3466;color:#fff;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:14px}.barra button{font:inherit;font-weight:600;border:0;border-radius:12px;padding:9px 16px;background:#EE8A52;color:#fff;cursor:pointer}'
+        + '.hoja{width:816px;max-width:100%;min-height:1056px;background:#fff;margin:16px auto;padding:34px 44px;display:flex;flex-direction:column;gap:14px}'
+        + '.top{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #1F3466;padding-bottom:14px;gap:12px}.top img{width:210px;max-width:45%;height:auto}.tit{text-align:right}.tit h1{margin:0;font-size:24px;font-weight:600}.tit p{margin:2px 0 0;font-size:12px;color:#56607A}'
+        + '.badge{display:inline-block;background:#FEF3EB;color:#9C4A1E;font-weight:600;font-size:11px;padding:3px 9px;border-radius:10px;margin-top:6px}.sec{border:1px solid rgba(31,52,102,.15);border-radius:14px;overflow:hidden}'
+        + '.sec h2{margin:0;background:#1F3466;color:#fff;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:8px 14px}.auto{display:grid;grid-template-columns:300px 1fr}.ph{background:#F7F3EF;min-height:190px;position:relative}.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}'
+        + '.il{position:absolute;right:8px;bottom:6px;font-size:10px;color:#56607A;background:rgba(255,255,255,.9);padding:2px 7px;border-radius:8px}.kv{padding:6px 14px}.kv div{display:flex;justify-content:space-between;gap:12px;padding:5.5px 0;border-bottom:1px solid rgba(31,52,102,.08);font-size:13.5px}.kv div:last-child{border:0}.kv span{color:#56607A}.kv b{font-weight:600;text-align:right}'
+        + '.big{background:#FBF9F7;padding:14px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(31,52,102,.1);gap:12px}.big small{display:block;font-size:12px;color:#56607A}.big strong{font-size:34px;font-weight:600;color:#9C4A1E}.cols{display:grid;grid-template-columns:1fr 1fr}'
+        + '.contacto{padding:12px 14px;font-size:13.5px;line-height:1.55}.legal{font-size:9px;line-height:1.5;color:#56607A;margin-top:auto}.pie{display:flex;justify-content:space-between;font-size:10.5px;color:#56607A;border-top:1px solid rgba(31,52,102,.15);padding-top:8px;gap:12px}'
+        + '@media (max-width:700px){.auto,.cols{grid-template-columns:1fr}.hoja{padding:24px 18px}}@media print{html,body{background:#fff;width:816px;height:1056px;overflow:hidden}.barra{display:none}.hoja{margin:0;width:816px;height:1056px;min-height:0;padding:34px 44px;overflow:hidden}.auto{grid-template-columns:300px 1fr}.cols{grid-template-columns:1fr 1fr}}</style></head><body>'
+        + '<div class="barra"><span>Simulación lista. Elige «Guardar como PDF» en el cuadro de impresión.</span><button onclick="window.print()">Imprimir o guardar PDF</button></div>'
+        + '<div class="hoja"><div class="top"><img src="' + esc(abs(S0.logo || 'AutoOpciones_Logo/02_solo-texto/AutoOpciones_02_solo-texto.svg')) + '" alt="Auto-Opciones"><div class="tit"><h1>Simulación de crédito</h1><p>Folio <a href="' + esc(enlace) + '" style="color:#1F3466;font-weight:600">' + esc(folio) + '</a></p><p>Fecha: ' + esc(fecha) + '</p><span class="badge">Cifras estimadas · No es una oferta oficial</span></div></div>'
+        + '<div class="sec"><h2>Datos del auto</h2><div class="auto"><div class="ph">' + (a.foto ? '<img src="' + esc(abs(a.foto)) + '" alt=""><span class="il">Imagen ilustrativa</span>' : '') + '</div><div class="kv">' + autoFilas + '</div></div></div>'
+        + '<div class="sec"><h2>Plan simulado</h2><div class="cols"><div class="kv">' + fila('Institución de referencia', nombreFin) + fila('Enganche (' + eng + '%)', mxn(engM)) + fila('Monto a financiar', mxn(monto + segFin)) + (segOn ? fila('Seguro 1.er año (estimado, financiado)', mxn(segFin)) : segUnico > 0 ? fila('Seguro 1.er año (pago único, no financiado)', mxn(segUnico)) : fila('Seguro 1.er año', 'No incluido')) + '</div>'
+        + '<div class="kv">' + fila('Plazo', plazo + ' meses') + fila('Tasa anual de referencia', tasa + '%') + fila('Comisión por apertura', mxn(aperM)) + fila('Pago inicial estimado', mxn(pagoIni)) + '</div></div>'
+        + '<div class="big"><div><small>Pago mensual estimado</small><strong>' + m2(mens) + '</strong></div><div style="text-align:right"><small>durante ' + plazo + ' meses</small><small>Total de pagos: ' + mxn(mens * plazo) + '</small></div></div></div>'
+        + '<div class="sec"><h2>¿Te interesa? Contáctanos</h2><div class="contacto">' + (wa ? 'WhatsApp <b>' + esc(wa) + '</b><br>' : '') + (mail ? 'Correo: <b>' + esc(mail) + '</b> · ' : '') + esc(web) + '<br><span style="color:#56607A">Menciona el folio <b style="color:#1F3466">' + esc(folio) + '</b> o envía esta hoja para darte seguimiento más rápido.</span></div></div>'
+        + '<div class="legal"><b>Aviso importante.</b> ' + esc(SIM_LEGAL) + '</div><div class="pie"><span>Auto-Opciones · Monterrey, MX</span><span>Simulación generada en ' + esc(web) + ' · Folio <a href="' + esc(enlace) + '" style="color:#56607A">' + esc(folio) + '</a></span></div></div>'
+        + '<script>(function(){var H=1056;function reset(){var h=document.querySelector(".hoja");h.style.zoom="";h.style.width="";h.style.height="";h.style.minHeight=""}function ajusta(){var h=document.querySelector(".hoja");reset();var t=h.scrollHeight;if(t>H){var z=H/t;h.style.zoom=z;h.style.width=(816/z)+"px";h.style.height=(H/z)+"px";h.style.minHeight="0"}}window.ajustaHoja=ajusta;window.addEventListener("beforeprint",ajusta);window.addEventListener("afterprint",reset);window.addEventListener("load",function(){if(!/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent))setTimeout(function(){window.print()},600)})})()<\/script></body></html>';
+      track('simulacion', { auto: a.id, institucion: nombreFin });
+      try { const url = URL.createObjectURL(new Blob([html], { type: 'text/html' })); window.open(url, '_blank'); } catch (e) {}
+    };
     // Fondo de color por versión: cada versión de un mismo modelo y año recibe un fondo distinto (por precio, estable),
     // entre los que contrastan con el color de la foto.
     const fondoDe = {};
@@ -396,6 +438,7 @@
         inCmp: inC, notInCmp: !inC, cmpDisabled: !inC && nCmp >= 3,
         cmpLabel: inC ? T.en_comparador : (nCmp >= 3 ? T.comparador_lleno : T.comparar), toggleCmp: () => toggleCmp(a.id),
         hayAnio: !!a.anio, anioF: a.anio ? 'Modelo ' + a.anio : '', hayVig: !!a.vigencia, vigF: a.vigencia ? 'Precio vigente: ' + a.vigencia : '',
+        hayCotiz, simular: simular(a, finTarjeta, 'Tasa de referencia', 0),
         cotizar: () => lead('auto', llenar(MSG.auto, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), enganche: eng + '%', plazo: plazo + ' meses', pago: pagoSel, detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))) + ' al mes.' + segTxt, mensualidad: mxn(mensualidad(a.precio, eng, finTarjeta, plazo, segDe(a))) + ' al mes' })) };
     });
 
@@ -423,8 +466,9 @@
         mensualF: mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))), finId: f.id || '', finNombre: f.nombre || '',
         fins: FIN.map(x => ({ id: x.id, nombre: x.nombre })), specs: specs(a),
         onFin: e => { const fin = st.fin.slice(); fin[i] = e.target.value; set({ fin }); },
+        hayCotiz, simular: simular(a, f, f.nombre || 'Tasa de referencia', segUnico),
         quiero: () => lead('opcion', llenar(MSG.opcion, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), financiera: esContado || esArrend ? '' : (f.nombre || ''), enganche: eng + '%', plazo: plazo + ' meses', mensualidad: mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))) + ' al mes',
-          detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con ' + (f.nombre ? f.nombre + ', ' : '') + 'enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))) + ' al mes.' + segTxt + ' Pago inicial estimado: ' + mxn(pagoIni) + ' (enganche, comisión por apertura' + (segUnico ? ' y seguro' : '') + ').' })),
+          detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con ' + (f.nombre ? f.nombre + ', ' : '') + 'enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))) + ' al mes.' + segTxt + ' Pago inicial estimado: ' + mxn(pagoIni) + ' (enganche, comisión por apertura' + (segUnico ? ' y seguro' : '') + ').' }) + (hayCotiz ? '\n\nSimulación con estos datos: ' + enlaceSim(a, f, segUnico) : '')),
         quitar: () => { const cc = cmp.slice(); cc[i] = null; const m = st.segMonto.slice(); m[i] = ''; set({ cmp: cc, segMonto: m }); } };
     });
     const compartirCmp = () => {
