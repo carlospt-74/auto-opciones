@@ -2381,7 +2381,7 @@
       "tipo": "SUV",
       "precio": 603900,
       "vigencia": "octubre de 2026",
-      "foto": "",
+      "foto": "assets/fotos/foto-proximamente.webp",
       "enfoque_foto": "centro",
       "mostrar": false
     },
@@ -2394,7 +2394,7 @@
       "tipo": "SUV",
       "precio": 682900,
       "vigencia": "octubre de 2026",
-      "foto": "",
+      "foto": "assets/fotos/foto-proximamente.webp",
       "enfoque_foto": "centro",
       "mostrar": false
     },
@@ -2407,7 +2407,7 @@
       "tipo": "SUV",
       "precio": 729900,
       "vigencia": "octubre de 2026",
-      "foto": "",
+      "foto": "assets/fotos/foto-proximamente.webp",
       "enfoque_foto": "centro",
       "mostrar": false
     },
@@ -5147,7 +5147,7 @@
       "tipo": "SUV",
       "precio": 1619900,
       "vigencia": "octubre de 2026",
-      "foto": "",
+      "foto": "assets/fotos/foto-proximamente.webp",
       "enfoque_foto": "centro",
       "mostrar": false,
       "traccion": "4x4"
@@ -10518,7 +10518,7 @@
       "tipo": "Pickup",
       "precio": 1023100,
       "vigencia": "octubre de 2026",
-      "foto": "",
+      "foto": "assets/fotos/foto-proximamente.webp",
       "enfoque_foto": "centro",
       "mostrar": false,
       "traccion": "4x2"
@@ -10532,7 +10532,7 @@
       "tipo": "Pickup",
       "precio": 1063100,
       "vigencia": "octubre de 2026",
-      "foto": "",
+      "foto": "assets/fotos/foto-proximamente.webp",
       "enfoque_foto": "centro",
       "mostrar": false,
       "traccion": "4x4"
@@ -10546,7 +10546,7 @@
       "tipo": "Pickup",
       "precio": 1153100,
       "vigencia": "octubre de 2026",
-      "foto": "",
+      "foto": "assets/fotos/foto-proximamente.webp",
       "enfoque_foto": "centro",
       "mostrar": false,
       "traccion": "4x4"
@@ -10560,7 +10560,7 @@
       "tipo": "Pickup",
       "precio": 1179600,
       "vigencia": "octubre de 2026",
-      "foto": "",
+      "foto": "assets/fotos/foto-proximamente.webp",
       "enfoque_foto": "centro",
       "mostrar": false,
       "traccion": "4x4"
@@ -10574,7 +10574,7 @@
       "tipo": "Pickup",
       "precio": 1883700,
       "vigencia": "octubre de 2026",
-      "foto": "",
+      "foto": "assets/fotos/foto-proximamente.webp",
       "enfoque_foto": "centro",
       "mostrar": false,
       "traccion": "4x4"
@@ -10631,7 +10631,7 @@
       "tipo": "Pickup",
       "precio": 1719900,
       "vigencia": "octubre de 2026",
-      "foto": "",
+      "foto": "assets/fotos/foto-proximamente.webp",
       "enfoque_foto": "centro",
       "mostrar": false,
       "trans": "Automática"
@@ -12410,7 +12410,7 @@
       "tipo": "SUV",
       "precio": 899990,
       "vigencia": "octubre de 2026",
-      "foto": "",
+      "foto": "assets/fotos/foto-proximamente.webp",
       "enfoque_foto": "centro",
       "mostrar": false
     },

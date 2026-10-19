@@ -7,7 +7,7 @@
   "tipo": "Pickup",
   "precio": 1063100,
   "vigencia": "octubre de 2026",
-  "foto": "",
+  "foto": "assets/fotos/foto-proximamente.webp",
   "enfoque_foto": "centro",
   "mostrar": false,
   "traccion": "4x4"
