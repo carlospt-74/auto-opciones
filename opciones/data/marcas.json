@@ -42,7 +42,7 @@
     },
     {
       "nombre": "Chirey",
-      "logo": "",
+      "logo": "assets/marcas/chirey.webp",
       "mostrar": true
     },
     {
@@ -112,7 +112,7 @@
     },
     {
       "nombre": "Lincoln",
-      "logo": "",
+      "logo": "assets/marcas/lincoln.svg",
       "mostrar": true
     },
     {
