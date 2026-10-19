@@ -1,5 +1,5 @@
 import json,re,glob,sys,os,datetime
-sys.path.insert(0,'..')
+sys.path.insert(0,'..'); sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from specs import parse
 from openpyxl import Workbook
 from openpyxl.styles import Font,PatternFill,Alignment
@@ -62,6 +62,14 @@ for name,idxp in index:
 for v,p in (('ADVANCE 2 ROW',529900),('EXCLUSIVE 2 ROW',591900),('PLATINUM 2 ROW',638900),('PLATINUM 3 ROW',661900),('PLATINUM PLUS 2 ROW',708900)):
     ws.append(['X-TRAIL',2026,v,p,f'Desde ${p:,} MXN',None,None,'Precio proporcionado por el usuario el 2026-10-19; no verificado en la página (solo se leyó la pestaña 2027). Sin equipamiento capturado.','','Proporcionado por el usuario (pestaña 2026 de la página del X-Trail, no leída por el scraping)',BASE%'x-trail-2027',PDF%'x-trail-2027','2026-10-19'])
     nver+=1
+
+import epower2027
+EP='fuentes/nissan-2027-x_trail_e_power-catalogo.pdf (PDF proporcionado por el usuario, X-Trail e-POWER 2027)'
+for v,p,n in (('EXCLUSIVE e-POWER',751990,'El usuario indicó "Estrena desde $751,990" sin decir la versión; se asigna a la de entrada por ser precio "desde" (confirmar). El modelo 2027 es distinto de la fila 2026 (PLATINUM $842,900 en la página)'),('PLATINUM e-POWER e-4ORCE',None,'Precio no proporcionado')):
+    ws.append(['X-TRAIL E-POWER',2027,v,p,f'Desde ${p:,} MXN' if p else None,None,None,n,'','Precio: dato del usuario ("Estrena desde"); versiones: PDF proporcionado por el usuario',None,EP,'2026-10-19']); nver+=1
+for sec,con,ver,val,tag in epower2027.rows2():
+    q='OK: celda combinada visible en el PDF; aplica a ambas versiones' if tag=='merged' else 'OK: texto del PDF con símbolos legibles (• aplica, - no aplica)'
+    ws2.append(['X-TRAIL E-POWER',2027,sec,con,ver,val,q,EP,'2026-10-19']); nspec+=1
 for w,H,widths in((ws,H1,[22,8,28,13,18,18,18,40,70,34,52,52,22]),(ws2,H2,[22,8,26,60,34,30,40,52,22])):
     for c in w[1]: c.font=Font(bold=True,color='FFFFFF'); c.fill=PatternFill('solid',fgColor='C3002F'); c.alignment=Alignment(wrap_text=True,vertical='center')
     for i,wd in enumerate(widths,1): w.column_dimensions[get_column_letter(i)].width=wd
