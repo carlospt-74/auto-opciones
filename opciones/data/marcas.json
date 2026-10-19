@@ -21,6 +21,16 @@
       "mostrar": true
     },
     {
+      "nombre": "Buick",
+      "logo": "assets/marcas/buick.webp",
+      "mostrar": true
+    },
+    {
+      "nombre": "BYD",
+      "logo": "assets/marcas/byd.svg",
+      "mostrar": true
+    },
+    {
       "nombre": "Cadillac",
       "logo": "assets/marcas/cadillac.svg",
       "mostrar": true
@@ -31,8 +41,18 @@
       "mostrar": true
     },
     {
+      "nombre": "Chirey",
+      "logo": "",
+      "mostrar": true
+    },
+    {
       "nombre": "Chrysler",
       "logo": "assets/marcas/chrysler.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Cupra",
+      "logo": "assets/marcas/cupra.svg",
       "mostrar": true
     },
     {
@@ -51,6 +71,16 @@
       "mostrar": true
     },
     {
+      "nombre": "GAC",
+      "logo": "assets/marcas/gac.webp",
+      "mostrar": true
+    },
+    {
+      "nombre": "GMC",
+      "logo": "assets/marcas/gmc.webp",
+      "mostrar": true
+    },
+    {
       "nombre": "Honda",
       "logo": "assets/marcas/honda.svg",
       "mostrar": true
@@ -58,6 +88,11 @@
     {
       "nombre": "Hyundai",
       "logo": "assets/marcas/hyundai.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "JAC",
+      "logo": "assets/marcas/jac.svg",
       "mostrar": true
     },
     {
@@ -76,6 +111,11 @@
       "mostrar": true
     },
     {
+      "nombre": "Lincoln",
+      "logo": "",
+      "mostrar": true
+    },
+    {
       "nombre": "Mazda",
       "logo": "assets/marcas/mazda.svg",
       "mostrar": true
@@ -83,6 +123,11 @@
     {
       "nombre": "Mercedes Benz",
       "logo": "assets/marcas/mercedes.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "MG",
+      "logo": "assets/marcas/mg.svg",
       "mostrar": true
     },
     {
@@ -106,6 +151,11 @@
       "mostrar": true
     },
     {
+      "nombre": "Porsche",
+      "logo": "assets/marcas/porsche.svg",
+      "mostrar": true
+    },
+    {
       "nombre": "RAM",
       "logo": "assets/marcas/ram.svg",
       "mostrar": true
@@ -126,8 +176,18 @@
       "mostrar": true
     },
     {
+      "nombre": "Subaru",
+      "logo": "assets/marcas/subaru.svg",
+      "mostrar": true
+    },
+    {
       "nombre": "Suzuki",
       "logo": "assets/marcas/suzuki.svg",
+      "mostrar": true
+    },
+    {
+      "nombre": "Tesla",
+      "logo": "assets/marcas/tesla.webp",
       "mostrar": true
     },
     {
@@ -141,8 +201,8 @@
       "mostrar": true
     },
     {
-      "nombre": "Tesla",
-      "logo": "assets/marcas/tesla.webp",
+      "nombre": "Volvo",
+      "logo": "assets/marcas/volvo.svg",
       "mostrar": true
     }
   ]
