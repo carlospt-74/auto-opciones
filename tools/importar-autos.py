@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pasa una hoja de cálculo (Excel o CSV) con autos a opciones/data/autos/ (un archivo por auto) y regenera autos.json.
+"""Pasa una hoja de cálculo (Excel o CSV) con autos a opciones/data/autos/<marca>/ (un archivo por auto) y regenera autos.json.
 
 Uso:
     python3 tools/importar-autos.py --plantilla hoja.xlsx      # crea la plantilla vacía para llenar
@@ -171,8 +171,10 @@ def main():
 
     carpeta_autos = os.path.join(R, 'opciones/data/autos')
     if not os.path.isdir(carpeta_autos):
-        sys.exit('No encuentro opciones/data/autos/ (un archivo por auto).')
-    autos = [leer_json(f) for f in sorted(glob.glob(os.path.join(carpeta_autos, '*.json')))]
+        sys.exit('No encuentro opciones/data/autos/<marca>/ (un archivo por auto).')
+    archivos = sorted(glob.glob(os.path.join(carpeta_autos, '**', '*.json'), recursive=True))
+    autos = [leer_json(f) for f in archivos]
+    rutas = {x['id']: f for x, f in zip(autos, archivos)}
     tocados = set()
     por_marca = {norm(m): m for m in marcas}
     por_tipo = {norm(t): t for t in tipos}
@@ -312,7 +314,9 @@ def main():
         print('\nSolo revisión. Para escribir los cambios, agrega --aplicar.')
         return
     for x in [x for x in autos if x['id'] in tocados] + nuevos_dicts:
-        with open(os.path.join(carpeta_autos, x['id'] + '.json'), 'w', encoding='utf-8') as f:
+        destino = rutas.get(x['id']) or os.path.join(carpeta_autos, slug(x['marca']), x['id'] + '.json')
+        os.makedirs(os.path.dirname(destino), exist_ok=True)
+        with open(destino, 'w', encoding='utf-8') as f:
             json.dump(x, f, ensure_ascii=False, indent=2)
     subprocess.run([sys.executable, os.path.join(R, 'tools/generar-autos.py'), '--raiz', R], check=True)
     print('\nActualizados %d autos y creados %d en opciones/data/autos/ (%d en total).' % (len(tocados), len(nuevos_dicts), len(autos) + len(nuevos_dicts)))

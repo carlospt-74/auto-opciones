@@ -352,8 +352,12 @@ content:
     type: collection
     path: data/autos
     format: json
-    filename: "{fields.id}.json"
+    subfolders: true
+    filename: "{fields.marca}/{fields.id}.json"
     view:
+      layout: tree
+      node:
+        filename: _marca.json
       fields: [marca, modelo, version, tipo, precio, mostrar]
       primary: modelo
       sort: [marca, modelo, version, precio, orden]

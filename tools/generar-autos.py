@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Arma opciones/data/autos.json (lo que lee el portal) a partir de un archivo por auto en opciones/data/autos/.
+"""Arma opciones/data/autos.json (lo que lee el portal) a partir de un archivo por auto en opciones/data/autos/<marca>/ (una carpeta por marca).
 
 Uso:
     python3 tools/generar-autos.py            # escribe opciones/data/autos.json
@@ -20,8 +20,9 @@ carpeta = os.path.join(a.raiz, 'opciones/data/autos')
 destino = os.path.join(a.raiz, 'opciones/data/autos.json')
 
 autos, errores, ids = [], [], {}
-for ruta in sorted(glob.glob(os.path.join(carpeta, '*.json'))):
-    nombre = os.path.basename(ruta)
+for ruta in sorted(glob.glob(os.path.join(carpeta, '**', '*.json'), recursive=True)):
+    nombre = os.path.relpath(ruta, carpeta)
+    base = os.path.basename(ruta)
     try:
         with open(ruta, encoding='utf-8') as f:
             x = json.load(f)
@@ -29,7 +30,7 @@ for ruta in sorted(glob.glob(os.path.join(carpeta, '*.json'))):
         errores.append('%s: JSON inválido (%s)' % (nombre, e)); continue
     if not isinstance(x, dict) or not x.get('id'):
         errores.append('%s: falta el campo id' % nombre); continue
-    if nombre != x['id'] + '.json':
+    if base != x['id'] + '.json':
         errores.append('%s: el nombre del archivo debe ser %s.json' % (nombre, x['id']))
     if x['id'] in ids:
         errores.append('%s: el id "%s" ya lo usa %s' % (nombre, x['id'], ids[x['id']]))
