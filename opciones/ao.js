@@ -393,7 +393,7 @@
       const segFin = segDe(a), segAparte = haySeguro && !segOn, segUnico = segAparte ? Math.min(500000, parseInt(st.segMonto[i], 10) || 0) : 0;
       const aperturaM = monto * (+f.apertura || 0) / 100;
       const pagoIni = Math.round(engM) + Math.round(aperturaM) + segUnico;
-      return { n: i + 1, filled: true, empty: false, id: a.id, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', marca: a.marca, modelo: a.modelo, version: a.version, nombre: a.marca + ' ' + a.modelo,
+      return { n: i + 1, filled: true, empty: false, id: a.id, fondo: a.foto && fondoDe[a.id] ? fondoDe[a.id] : FONDO_RAYAS, enfoque: ENFOQUE[a.enfoque_foto] || 'center', foto: a.foto || '', marca: a.marca, modelo: a.modelo, version: a.version, nombre: a.marca + ' ' + a.modelo,
         precioF: mxn(a.precio), engF: mxn(engM), montoF: mxn(monto + segFin),
         incluyeSeg: segOn, segFinF: mxn(segFin), pideSeg: segAparte, segVal: segUnico ? String(segUnico) : '', onSegMonto: e => { const v = String(e.target.value).replace(/[^0-9]/g, '').slice(0, 6); const m = st.segMonto.slice(); m[i] = v; set({ segMonto: m }); },
         pagoIniF: mxn(pagoIni),
