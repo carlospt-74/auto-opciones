@@ -139,6 +139,8 @@
   const slug = x => norm(x).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
   const soloDigitos = x => String(x || '').replace(/\D/g, '');
   const numMx = x => { const d = soloDigitos(x); return d.length === 10 ? '52' + d : d; };
+  // En celular el WhatsApp se abre directo; en computadora o tablet se ofrece un recuadro con varias vías de contacto.
+  const esCel = () => { try { return /iPhone|iPod|Android.+Mobile|Windows Phone/i.test(navigator.userAgent) || (window.matchMedia('(pointer:coarse)').matches && Math.min(screen.width, screen.height) < 600); } catch (e) { return false; } };
   const telHref = x => { const n = numMx(x); return n ? 'tel:+' + n : ''; };
 
   // Analítica (opcional): solo se carga si se llena en el CMS.
@@ -235,7 +237,18 @@
   const estadoDeHash = () => {
     const p = (location.hash || '').replace(/^#\/?/, '').split('/').filter(Boolean).map(x => { try { return decodeURIComponent(x); } catch (e) { return x; } });
     if (p[0] === 'requisitos') return { page: 'req', req: p[1] || null, ficha: null, menu: false };
-    if (p[0] === 'comparar' && p[1]) return { page: 'inicio', ficha: null, menu: false, cmp: [0, 1, 2].map(i => p[1].split(',')[i] || null), irCmp: true };
+    if (p[0] === 'comparar' && p[1]) {
+      const e = { page: 'inicio', ficha: null, menu: false, cmp: [0, 1, 2].map(i => p[1].split(',')[i] || null), irCmp: true };
+      // Ajustes del enlace compartido (opcionales; los enlaces anteriores solo traen los autos).
+      const eng = parseInt(p[2], 10), plazo = parseInt(p[3], 10);
+      if (isFinite(eng) && eng >= 0 && eng <= 100) e.eng = eng;
+      if (isFinite(plazo) && plazo > 0 && plazo <= 120) e.plazo = plazo;
+      if (p[4] === '1' || p[4] === '0') e.seg = p[4] === '1';
+      if (p[5]) e.fin = [0, 1, 2].map(i => (p[5].split(',')[i] || '').trim()).map(v => v && v !== '_' ? v : undefined);
+      if (p[6]) e.segMonto = [0, 1, 2].map(i => String((p[6].split(',')[i] || '')).replace(/[^0-9]/g, '').replace(/^0+$/, '').slice(0, 6));
+      if (p[7]) e.pago = p[7];
+      return e;
+    }
     if (p[0] === 'auto' && p[1]) return { page: 'inicio', ficha: p[1], menu: false };
     if (p[0] === 'noticia' && p[1]) return { page: 'noticia', nid: p[1], ficha: null, menu: false };
     return { page: 'inicio', ficha: null, menu: false };
@@ -256,7 +269,7 @@
   const guardarChecks = c => { try { localStorage.setItem(LS_CHECKS, JSON.stringify(c)); } catch (e) {} };
 
   function initState() {
-    return { page: 'inicio', nid: null, pago: null, menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, seg: null, segMonto: ['', '', ''], req: null, checks: leerChecks(), q: '', orden: '', mmax: '', nVer: 0, finVer: null, cmpPos: 0, w: 1280 };
+    return { page: 'inicio', nid: null, pago: null, menu: false, marca: null, tipo: '*', pres: '', ficha: null, cmp: null, fin: [], slotMarca: [null, null, null], eng: null, plazo: null, seg: null, leadModal: null, copiado: false, segMonto: ['', '', ''], req: null, checks: leerChecks(), q: '', orden: '', mmax: '', nVer: 0, finVer: null, cmpPos: 0, w: 1280 };
   }
 
   function vals(c) {
@@ -343,12 +356,13 @@
       if (d.indexOf('seccion:') === 0) scrollA(d.slice(8)); else window.scrollTo(0, 0);
     };
 
-    window.__aoEsc = () => { if (st.menu) set({ menu: false }); else if (st.ficha) set({ ficha: null, nVer: visibles }); };
+    window.__aoEsc = () => { if (st.leadModal) set({ leadModal: null }); else if (st.menu) set({ menu: false }); else if (st.ficha) set({ ficha: null, nVer: visibles }); };
     const T = { ...TEXTOS, ...Object.fromEntries(Object.entries(S0.textos || {}).filter(([, v]) => typeof v === 'string' && v !== '')) };
     const MSG = { ...MENSAJES, ...Object.fromEntries(Object.entries({ auto: ct.mensaje_auto, opcion: ct.mensaje_opcion, marca: ct.mensaje_marca, credito: ct.mensaje_credito, compartir: ct.mensaje_compartir }).filter(([, v]) => v)) };
     const waNum = numMx(ct.whatsapp), correo1 = lst(ct.correos)[0];
     const lead = (tipo, texto) => {
       track('lead', { tipo });
+      if (!esCel() && (waNum || correo1)) { set({ leadModal: { texto, tipo }, copiado: false }); return; }
       if (waNum) window.open('https://wa.me/' + waNum + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
       else if (correo1) window.location.href = 'mailto:' + correo1 + '?subject=' + encodeURIComponent('Solicitud desde el portal Auto-Opciones') + '&body=' + encodeURIComponent(texto);
       else if (telHref(ct.telefono)) window.location.href = telHref(ct.telefono);
@@ -416,7 +430,9 @@
     const compartirCmp = () => {
       const f = slots.filter(s => s.filled);
       if (!f.length) return;
-      const url = location.origin + location.pathname + '#/comparar/' + f.map(s => encodeURIComponent(s.id)).join(',');
+      // Además de los autos, el enlace conserva enganche, plazo, seguro, financieras, montos de seguro y forma de pago.
+      const ajustes = [eng, plazo, segOn ? 1 : 0, f.map(s => encodeURIComponent(s.finId || '_')).join(','), f.map(s => s.segVal || '0').join(','), encodeURIComponent(pagoSel)].join('/');
+      const url = location.origin + location.pathname + '#/comparar/' + f.map(s => encodeURIComponent(s.id)).join(',') + '/' + ajustes;
       const lineas = f.map(s => '• ' + [s.nombre, s.version].filter(Boolean).join(' ') + ' · ' + s.precioF + (esContado ? '' : ' · ' + s.mensualF + '/mes*'));
       const pie = esContado ? '' : '\n* ' + T.leyenda_mensualidad + ' (' + eng + '% de enganche, ' + plazo + ' meses' + (segOn ? ', con seguro del primer año estimado' : '') + ')';
       track('compartir', { autos: f.length });
@@ -481,6 +497,20 @@
       verPres: fil.mostrar_presupuesto !== false && PRES.length > 0, verPago: fil.mostrar_pago !== false && lst(fil.pagos).length > 0,
       presOpts: PRES.map((p, i) => ({ i: String(i), texto: p.texto })), presSel: st.pres == null ? '' : String(st.pres), onPres: e => setFiltro({ pres: e.target.value }),
       pagoOpts: PAGOS.map(t => ({ t })), pagoSel, onPago: e => setFiltro({ pago: e.target.value }),
+      ...(() => {
+        const lm = st.leadModal, tx = lm ? lm.texto : '', asunto = 'Solicitud desde el portal Auto-Opciones', canal = n => track('lead_canal', { canal: n, tipo: lm ? lm.tipo : '' });
+        const abre = (url, n) => { canal(n); window.open(url, '_blank', 'noopener'); };
+        return {
+          leadAbierto: !!lm, leadStop: e => { try { e.stopPropagation(); } catch (x) {} }, leadTexto: tx, leadCerrar: () => set({ leadModal: null }),
+          hayLeadWa: !!waNum, hayLeadCorreo: !!correo1, leadCorreo: correo1 || '',
+          leadWa: () => abre('https://wa.me/' + waNum + '?text=' + encodeURIComponent(tx), 'whatsapp'),
+          leadGmail: () => abre('https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(correo1 || '') + '&su=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx), 'gmail'),
+          leadOutlook: () => abre('https://outlook.live.com/mail/0/deeplink/compose?to=' + encodeURIComponent(correo1 || '') + '&subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx), 'outlook'),
+          leadMailto: () => { canal('mailto'); window.location.href = 'mailto:' + correo1 + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(tx); },
+          leadCopiar: () => { canal('copiar'); const ok = () => set({ copiado: true }); try { navigator.clipboard.writeText(tx).then(ok, () => {}); } catch (e) {} },
+          leadCopiadoTxt: st.copiado ? 'Mensaje copiado ✓' : 'Copiar mensaje'
+        };
+      })(),
       hayCmp: nCmp > 0, compartirCmp, txtCompartir: T.compartir_comparacion, cmpFin: nCmp > 0 && !esContado, conFin: !esContado, haySeguro, leyendaSeguro: segOn ? ' ' + T.leyenda_seguro : '', segTitulo: T.seguro_interruptor,
       segOpts: [{ label: 'Sí', active: segOn, inactive: !segOn, pick: () => set({ seg: true }) }, { label: 'No', active: !segOn, inactive: segOn, pick: () => set({ seg: false }) }],
       cardCols: S.autos.vista === 'cuadricula' ? 'repeat(auto-fit,minmax(min(100%,280px),1fr))' : W >= 760 ? 'minmax(300px,36%) minmax(0,1fr)' : 'minmax(0,1fr)', cardAlto: W >= 760 && S.autos.vista !== 'cuadricula' ? '260px' : '220px',
