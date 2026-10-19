@@ -372,6 +372,8 @@
     // Simulación de crédito imprimible (una hoja por auto), con el plan que la persona tiene elegido.
     const SIM_LEGAL = 'Esta simulación es informativa y no constituye una oferta, cotización oficial ni compromiso de crédito de Auto-Opciones ni de institución financiera alguna. Las cifras se calcularon con una tasa de referencia y pueden variar según la institución, tu perfil y la fecha de contratación. El crédito está sujeto a aprobación de la institución financiera. El seguro del primer año es una estimación y se suma al monto financiado; el costo real depende de la aseguradora y del paquete elegido. El pago inicial incluye el enganche, la comisión por apertura y, cuando se paga por separado, el seguro; no incluye placas, trámites ni accesorios. Precios, versiones y disponibilidad sujetos a cambio sin previo aviso. Las imágenes son ilustrativas.';
     const hayCotiz = !esContado && !esArrend;
+    // Enlace que reabre esta simulación en el portal (auto, enganche, plazo, seguro, financiera y forma de pago).
+    const enlaceSim = (a, f, segUnico) => location.origin + location.pathname + '#/comparar/' + encodeURIComponent(a.id) + '/' + [eng, plazo, segOn ? 1 : 0, encodeURIComponent(f.id || '_'), segUnico || '0', encodeURIComponent(pagoSel)].join('/');
     const simular = (a, f, nombreFin, segUnico) => () => {
       const esc = x => String(x == null ? '' : x).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
       const abs = u => { try { return new URL(u, location.href).href; } catch (e) { return ''; } };
@@ -381,7 +383,7 @@
       let h = 0; [a.id, eng, plazo, nombreFin, segOn ? 1 : 0].join('|').split('').forEach(ch => { h = (h * 31 + ch.charCodeAt(0)) >>> 0; });
       const folio = 'AO-' + yy + '-' + h.toString(36).toUpperCase().padStart(4, '0').slice(-4);
       // El folio es un enlace que reabre esta misma simulación en el portal (auto, enganche, plazo, seguro, financiera y forma de pago).
-      const enlace = location.origin + location.pathname + '#/comparar/' + encodeURIComponent(a.id) + '/' + [eng, plazo, segOn ? 1 : 0, encodeURIComponent(f.id || '_'), segUnico || '0', encodeURIComponent(pagoSel)].join('/');
+      const enlace = enlaceSim(a, f, segUnico);
       const fecha = hoy.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
       const m2 = n => '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       const fila = (k, v) => '<div><span>' + esc(k) + '</span><b>' + esc(v) + '</b></div>';
@@ -466,7 +468,7 @@
         onFin: e => { const fin = st.fin.slice(); fin[i] = e.target.value; set({ fin }); },
         hayCotiz, simular: simular(a, f, f.nombre || 'Tasa de referencia', segUnico),
         quiero: () => lead('opcion', llenar(MSG.opcion, { auto: [a.marca, a.modelo, a.version].filter(Boolean).join(' '), anio: a.anio ? ' ' + a.anio : '', precio: mxn(a.precio), financiera: esContado || esArrend ? '' : (f.nombre || ''), enganche: eng + '%', plazo: plazo + ' meses', mensualidad: mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))) + ' al mes',
-          detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con ' + (f.nombre ? f.nombre + ', ' : '') + 'enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))) + ' al mes.' + segTxt + ' Pago inicial estimado: ' + mxn(pagoIni) + ' (enganche, comisión por apertura' + (segUnico ? ' y seguro' : '') + ').' })),
+          detalle: esContado ? 'Me interesa comprarlo de contado.' : esArrend ? 'Me interesa la opción de arrendamiento.' : 'Con ' + (f.nombre ? f.nombre + ', ' : '') + 'enganche de ' + eng + '% a ' + plazo + ' meses, la mensualidad estimada es ' + mxn(mensualidad(a.precio, eng, f, plazo, segDe(a))) + ' al mes.' + segTxt + ' Pago inicial estimado: ' + mxn(pagoIni) + ' (enganche, comisión por apertura' + (segUnico ? ' y seguro' : '') + ').' }) + (hayCotiz ? '\n\nSimulación con estos datos: ' + enlaceSim(a, f, segUnico) : '')),
         quitar: () => { const cc = cmp.slice(); cc[i] = null; const m = st.segMonto.slice(); m[i] = ''; set({ cmp: cc, segMonto: m }); } };
     });
     const compartirCmp = () => {
