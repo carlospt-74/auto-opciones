@@ -31,7 +31,9 @@
   // Luminancia promedio de cada foto (0-255), para elegir un fondo con buen contraste. Si falta, se usan los fondos claros.
   let LUM = {};
   fetch('data/fotos-lum.json').then(r => r.ok ? r.json() : {}).then(j => { LUM = j || {}; notify(); }).catch(() => {});
-  const FONDOS = [['#FFFFFF', 255], ['#E6E9EE', 232], ['#EFE4D2', 230], ['#D5E0EA', 224], ['#4A5463', 85], ['#5B4636', 75], ['#A4573A', 105], ['#15181D', 25]];
+  const FONDOS = [['#FFFFFF', 255], ['#E6E9EE', 232], ['#EFE4D2', 230], ['#D5E0EA', 224], ['#4A5463', 85], ['#5B4636', 75], ['#A4573A', 105], ['#15181D', 25], ['#6F8FB0', 139], ['#B9C9B5', 196]];
+  const rgbDe = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+  const distCol = (a, b) => Math.hypot(...rgbDe(a).map((v, i) => v - rgbDe(b)[i]));
   const FONDO_RAYAS = 'repeating-linear-gradient(135deg,#F7F3EF 0 12px,#EFE9E3 12px 24px)';
 
   Promise.all(Object.entries(ARCH).map(([k, f]) =>
@@ -362,7 +364,13 @@
       const ord = [...g].sort((x, y) => x.precio - y.precio || String(x.id).localeCompare(String(y.id)));
       const l = LUM[(g[0].foto || '')];
       const ok = l === undefined ? FONDOS.slice(0, 4) : FONDOS.filter(f => Math.abs(f[1] - l) > 60);
-      const pal = ok.length ? ok : FONDOS.slice(0, 4);
+      const pal0 = ok.length ? ok : FONDOS.slice(0, 4);
+      // Se elige primero el blanco (o el primero compatible) y después, cada vez, el color más distinto de los ya elegidos.
+      const pal = [pal0[0]];
+      while (pal.length < Math.min(ord.length, pal0.length)) {
+        const rest = pal0.filter(p => !pal.includes(p));
+        pal.push(rest.reduce((m, p) => Math.min(...pal.map(q => distCol(p[0], q[0]))) > Math.min(...pal.map(q => distCol(m[0], q[0]))) ? p : m));
+      }
       ord.forEach((a, i) => { fondoDe[a.id] = pal[i % pal.length][0]; });
     });
     const autos = lista.slice(0, visibles).map(a => {
