@@ -31,7 +31,7 @@
   // Luminancia promedio de cada foto (0-255), para elegir un fondo con buen contraste. Si falta, se usan los fondos claros.
   let LUM = {};
   fetch('data/fotos-lum.json').then(r => r.ok ? r.json() : {}).then(j => { LUM = j || {}; notify(); }).catch(() => {});
-  const FONDOS = [['#FFFFFF', 255], ['#E6E9EE', 232], ['#EFE4D2', 230], ['#D5E0EA', 224], ['#4A5463', 85], ['#5B4636', 75], ['#A4573A', 105], ['#15181D', 25], ['#6F8FB0', 139], ['#B9C9B5', 196]];
+  const FONDOS = [['#FFFFFF', 255], ['#E6E9EE', 232], ['#EFE4D2', 230], ['#D5E0EA', 224], ['#4A5463', 85], ['#5B4636', 75], ['#8C94A0', 146], ['#15181D', 25], ['#6F8FB0', 139], ['#B9C9B5', 196]];
   const rgbDe = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
   const distCol = (a, b) => Math.hypot(...rgbDe(a).map((v, i) => v - rgbDe(b)[i]));
   const FONDO_RAYAS = 'repeating-linear-gradient(135deg,#F7F3EF 0 12px,#EFE9E3 12px 24px)';
