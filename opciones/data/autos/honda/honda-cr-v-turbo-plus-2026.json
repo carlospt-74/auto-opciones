@@ -1,0 +1,13 @@
+{
+  "id": "honda-cr-v-turbo-plus-2026",
+  "marca": "Honda",
+  "modelo": "CR-V",
+  "version": "Turbo Plus",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 822900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-cr-v-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false
+}

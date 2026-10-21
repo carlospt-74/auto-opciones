@@ -3944,6 +3944,19 @@
       "mostrar": true
     },
     {
+      "id": "honda-cr-v-turbo-plus-2026",
+      "marca": "Honda",
+      "modelo": "CR-V",
+      "version": "Turbo Plus",
+      "anio": 2026,
+      "tipo": "SUV",
+      "precio": 822900,
+      "vigencia": "octubre de 2026",
+      "foto": "assets/fotos/honda-cr-v-2026.webp",
+      "enfoque_foto": "centro",
+      "mostrar": false
+    },
+    {
       "id": "honda-cr-v-turbo-plus",
       "marca": "Honda",
       "modelo": "CR-V",
@@ -3955,6 +3968,19 @@
       "foto": "assets/fotos/honda-cr-v-2027.webp",
       "enfoque_foto": "centro",
       "mostrar": true
+    },
+    {
+      "id": "honda-cr-v-touring-2026",
+      "marca": "Honda",
+      "modelo": "CR-V",
+      "version": "Touring",
+      "anio": 2026,
+      "tipo": "SUV",
+      "precio": 868900,
+      "vigencia": "octubre de 2026",
+      "foto": "assets/fotos/honda-cr-v-2026.webp",
+      "enfoque_foto": "centro",
+      "mostrar": false
     },
     {
       "id": "honda-cr-v-touring",
@@ -3970,6 +3996,19 @@
       "mostrar": true
     },
     {
+      "id": "honda-cr-v-hybrid-touring-hev-2026",
+      "marca": "Honda",
+      "modelo": "CR-V Hybrid",
+      "version": "Touring HEV",
+      "anio": 2026,
+      "tipo": "SUV",
+      "precio": 957900,
+      "vigencia": "octubre de 2026",
+      "foto": "assets/fotos/honda-cr-v-hybrid-2026.webp",
+      "enfoque_foto": "centro",
+      "mostrar": false
+    },
+    {
       "id": "honda-cr-v-hybrid-touring-hev",
       "marca": "Honda",
       "modelo": "CR-V Hybrid",
@@ -3981,6 +4020,19 @@
       "foto": "assets/fotos/honda-cr-v-hybrid-2027.webp",
       "enfoque_foto": "centro",
       "mostrar": true
+    },
+    {
+      "id": "honda-cr-v-hybrid-sport-touring-hev-2026",
+      "marca": "Honda",
+      "modelo": "CR-V Hybrid",
+      "version": "Sport Touring HEV",
+      "anio": 2026,
+      "tipo": "SUV",
+      "precio": 985900,
+      "vigencia": "octubre de 2026",
+      "foto": "assets/fotos/honda-cr-v-hybrid-2026.webp",
+      "enfoque_foto": "centro",
+      "mostrar": false
     },
     {
       "id": "honda-cr-v-hybrid-sport-touring-hev",
@@ -4113,6 +4165,19 @@
       "mostrar": true
     },
     {
+      "id": "honda-odyssey-touring-2026",
+      "marca": "Honda",
+      "modelo": "Odyssey",
+      "version": "Touring",
+      "anio": 2026,
+      "tipo": "Van",
+      "precio": 1202900,
+      "vigencia": "octubre de 2026",
+      "foto": "assets/fotos/honda-odyssey-2026.webp",
+      "enfoque_foto": "centro",
+      "mostrar": false
+    },
+    {
       "id": "honda-odyssey-touring",
       "marca": "Honda",
       "modelo": "Odyssey",
@@ -4124,6 +4189,19 @@
       "foto": "assets/fotos/honda-odyssey-2027.webp",
       "enfoque_foto": "centro",
       "mostrar": true
+    },
+    {
+      "id": "honda-odyssey-black-edition-2026",
+      "marca": "Honda",
+      "modelo": "Odyssey",
+      "version": "Black Edition",
+      "anio": 2026,
+      "tipo": "Van",
+      "precio": 1232900,
+      "vigencia": "octubre de 2026",
+      "foto": "assets/fotos/honda-odyssey-2026.webp",
+      "enfoque_foto": "centro",
+      "mostrar": false
     },
     {
       "id": "honda-odyssey-black-edition",

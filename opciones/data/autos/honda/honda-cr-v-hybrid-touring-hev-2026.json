@@ -1,0 +1,13 @@
+{
+  "id": "honda-cr-v-hybrid-touring-hev-2026",
+  "marca": "Honda",
+  "modelo": "CR-V Hybrid",
+  "version": "Touring HEV",
+  "anio": 2026,
+  "tipo": "SUV",
+  "precio": 957900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-cr-v-hybrid-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false
+}

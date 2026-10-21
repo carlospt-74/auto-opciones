@@ -1,0 +1,13 @@
+{
+  "id": "honda-odyssey-black-edition-2026",
+  "marca": "Honda",
+  "modelo": "Odyssey",
+  "version": "Black Edition",
+  "anio": 2026,
+  "tipo": "Van",
+  "precio": 1232900,
+  "vigencia": "octubre de 2026",
+  "foto": "assets/fotos/honda-odyssey-2026.webp",
+  "enfoque_foto": "centro",
+  "mostrar": false
+}
