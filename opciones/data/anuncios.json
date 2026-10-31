@@ -16,6 +16,60 @@
       "texto_boton": "",
       "enlace": "",
       "ubicacion": "requisitos",
+      "mostrar": false
+    },
+    {
+      "id": "bbva",
+      "anunciante": "BBVA",
+      "texto": "Plazos de 12 a 72 meses, y sin comisión por apertura si tienes Nómina BBVA.",
+      "texto_boton": "Más información",
+      "enlace": "https://www.bbva.mx/personas/productos/creditos/comprar-auto-credito.html",
+      "ubicacion": "inicio",
+      "mostrar": true
+    },
+    {
+      "id": "banorte",
+      "anunciante": "Banorte",
+      "texto": "Autoestrene: tasa fija, hasta 90 % de financiamiento sobre la factura y plazos de hasta 72 meses.",
+      "texto_boton": "Más información",
+      "enlace": "https://www.banorte.com/Personal/Creditos-de-Auto/Autoestrene-Banorte",
+      "ubicacion": "inicio",
+      "mostrar": true
+    },
+    {
+      "id": "santander",
+      "anunciante": "Santander",
+      "texto": "Crédito automotriz sin penalización por pagos anticipados y sin necesidad de ser cliente.",
+      "texto_boton": "Más información",
+      "enlace": "https://www.santander.com.mx/personas/credito-y-financiamiento/credito-automotriz",
+      "ubicacion": "inicio",
+      "mostrar": true
+    },
+    {
+      "id": "scotiabank",
+      "anunciante": "Scotiabank",
+      "texto": "CrediAuto: enganche desde 5 %, plazos de 12 a 72 meses y pagos anticipados sin penalización.",
+      "texto_boton": "Más información",
+      "enlace": "https://www.scotiabank.com.mx/personas/creditos/automotriz/crediauto.aspx",
+      "ubicacion": "inicio",
+      "mostrar": true
+    },
+    {
+      "id": "banregio",
+      "anunciante": "Banregio",
+      "texto": "Crédito automotriz con enganche desde 10 %, plazos de hasta 60 meses y pagos anticipados sin penalización.",
+      "texto_boton": "Más información",
+      "enlace": "https://www.banregio.com/personas/automotriz/autos-nuevos.php",
+      "ubicacion": "inicio",
+      "mostrar": true
+    },
+    {
+      "id": "inbursa",
+      "anunciante": "Inbursa",
+      "texto": "Autoexpress: autos nuevos de cualquier marca, enganche desde 10 % y plazos de 12 a 72 meses.",
+      "texto_boton": "Más información",
+      "enlace": "https://www.autoexpressinbursa.com/home",
+      "ubicacion": "inicio",
       "mostrar": true
     }
   ]
