@@ -155,6 +155,17 @@ En **Configuración del sitio → grupo 2 (Secciones de la página de inicio)**,
 
 Para agregar una sección, presiona **Add an item** y elige su tipo. Los tipos se usan una sola vez, salvo **Publicidad**, que puedes repetir. Para poner otro anuncio, crea el anuncio en **Publicidad**, luego agrega una sección de tipo *Publicidad* y elige el anuncio en la lista.
 
+### Publicidad: una sola franja que rota
+La página de inicio tiene **una sola sección de Publicidad** con el anuncio **todos**: muestra una franja que cambia de anuncio sola, en **orden alfabético**, con puntos debajo para elegir uno a mano.
+- **Ocultar toda la franja:** en esa sección de Publicidad, apaga el interruptor **Mostrar**. La franja desaparece del inicio sin borrar los anuncios; para volver a verla, enciéndelo.
+- **Segundos entre anuncios** (en esa sección): por omisión 6, mínimo 3.
+- Rotan todos los anuncios de **Publicidad** que tengan **Mostrar** encendido y **Dónde aparece: inicio**. Para quitar uno de la rotación, apaga su **Mostrar**; un anuncio nuevo entra solo, sin tocar la sección.
+- La franja no rota mientras el visitante tiene el cursor o el foco encima, ni si su dispositivo tiene activado "reducir movimiento" (en ese caso se cambia solo con los puntos). Tampoco rota con la pestaña oculta.
+- La franja mide lo que mida el anuncio más largo, para que la página no "salte" al rotar.
+- Si quieres un anuncio fijo en otro lugar, agrega otra sección de Publicidad y elige ese anuncio en la lista en lugar de **todos**.
+- Los anuncios de **Requisitos** no entran en la rotación: ese lugar muestra solo el primer anuncio visible de esa ubicación.
+- La lista desplegable "Anuncio a mostrar" es fija. Si creas un anuncio nuevo, no hace falta agregarlo a la lista mientras uses **todos**; solo es necesario para elegirlo como anuncio fijo, y se agrega en **Configuration** (como las marcas) o lo hace quien administre el repositorio.
+
 ## Menú y botón con enlace externo
 En **Configuración del sitio → grupo 1 (Encabezado) → Menú superior** (y en **Botón del menú**), el campo **Lleva a** elige un lugar del propio sitio. Si quieres abrir un enlace externo, llena **Enlace externo** con `https://…`, `mailto:…` o `tel:…`. Cuando tiene un enlace, se usa ese en lugar de **Lleva a**.
 
@@ -197,7 +208,7 @@ El CMS no reduce el tamaño de las fotos. Para aligerar las que pesan más de 15
 Los documentos que marca cada visitante se recuerdan en su propio navegador; no se guardan en ningún servidor. El mensaje de preautorización incluye cuáles faltan. El botón **Imprimir o guardar mi lista** abre la impresión del navegador (también sirve para guardarla como PDF): al imprimir solo salen el perfil y la lista, sin encabezado, panel de solicitud ni botones.
 
 ## Teclado y accesibilidad
-Con la tecla **Tab**, lo primero que aparece es **Saltar al contenido**. La tecla **Esc** cierra el menú del celular y la ficha técnica. Si el visitante tiene activado "reducir movimiento" en su dispositivo, el sitio evita las animaciones.
+Con la tecla **Tab**, lo primero que aparece es **Saltar al contenido**. La tecla **Esc** cierra el menú del celular y la ficha técnica. Si el visitante tiene activado "reducir movimiento" en su dispositivo, el sitio evita las animaciones y la franja de publicidad no rota sola.
 
 ## Cómo llega un auto al portal (autos.json)
 Cada auto vive en su propio archivo, `opciones/data/autos/<marca>/<id>.json`, y eso es lo que editas en el CMS. El portal lee un solo archivo, `opciones/data/autos.json`, que **se genera solo**: al guardar un auto, la acción **Generar autos.json** (pestaña Actions de GitHub) lo arma con todos los autos y lo publica en unos segundos. **No edites `autos.json` a mano**: el siguiente guardado lo reescribe. Si por algún motivo no se generó, corre `python3 tools/generar-autos.py` y sube el cambio.

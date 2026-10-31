@@ -125,12 +125,21 @@ content:
               - { name: titulo, label: Nombre en el CMS, type: string, description: "Solo para identificar la sección en el CMS; no se muestra en el portal." }
               - name: anuncio
                 label: Anuncio a mostrar (los creas en Publicidad)
-                description: "Los anuncios se crean en el menú Publicidad. Puedes repetir esta sección con distintos anuncios."
+                description: "«todos» muestra una sola franja que rota entre todos los anuncios visibles del inicio, en orden alfabético. También puedes elegir un anuncio fijo. Los anuncios se crean en el menú Publicidad."
                 type: select
+                default: todos
                 options:
                   values:
+                    - todos
                     - afirme
+                    - banorte
+                    - banregio
+                    - bbva
                     - hsbc
+                    - inbursa
+                    - santander
+                    - scotiabank
+              - { name: segundos, label: "Segundos entre anuncios (solo con «todos»)", type: number, description: "Por omisión 6. Mínimo 3.", options: { step: 1, min: 3, max: 60 } }
           - name: info_credito
             label: Información de crédito
             fields:
