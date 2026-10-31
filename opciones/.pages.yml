@@ -73,7 +73,19 @@ content:
               - { name: titulo, label: Título (primera parte), type: string }
               - { name: resaltado, label: Palabra resaltada, type: string }
               - { name: titulo_fin, label: Final del título, type: string }
-              - { name: foto, label: Foto, type: image, description: "Horizontal, de unos 1600 × 900 px. Mejor una foto de autos o de Monterrey.", options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+              - { name: foto, label: "Foto única (respaldo)", type: image, description: "Se usa solo si la lista «Fotos del banner» está vacía. Horizontal, de unos 1600 × 900 px.", options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+              - name: fotos
+                label: Fotos del banner (reel)
+                description: "Cambian solas con un fundido. La primera en verse es la que coincide con el momento del día del visitante (mañana 6 a 12 h, tarde 12 a 19 h, noche 19 a 6 h); después siguen en este orden. Usa fotos horizontales de unos 2000 px de ancho, de menos de 200 KB, con licencia que permita su uso."
+                type: object
+                list: { collapsible: { collapsed: true, summary: "{momento}: {alt}" } }
+                fields:
+                  - { name: foto, label: Foto, type: image, options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+                  - { name: momento, label: Momento del día, type: select, options: { values: [mañana, tarde, noche] } }
+                  - { name: alt, label: "Descripción corta de la foto", type: string, description: "Ej. Monterrey al atardecer, con el Cerro de la Silla." }
+                  - { name: enfoque, label: "Enfoque de la foto (qué parte se prioriza al recortar)", type: select, default: centro, options: { values: [arriba, arriba-centro, centro, abajo-centro, abajo] } }
+                  - { name: credito, label: "Autor y fuente (solo para control interno)", type: string, description: "Ej. Pexels · Ernesto Tijerina Cantú · licencia Pexels. No se muestra en el portal." }
+              - { name: segundos, label: "Segundos entre fotos", type: number, description: "Por omisión 7. Mínimo 3.", options: { step: 1, min: 3, max: 60 } }
               - { name: boton, label: Texto del botón, type: string }
           - name: marcas
             label: Explora tu marca

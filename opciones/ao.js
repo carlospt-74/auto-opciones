@@ -109,6 +109,29 @@
   // No rota sola si la persona pidió "reducir movimiento", ni mientras tiene el cursor o el foco encima, ni con la pestaña oculta.
   const sinMov = () => { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
   const hayHover = () => { try { return window.matchMedia('(hover: hover)').matches; } catch (e) { return false; } };
+  // Banner inicial: reel de fotos de la ciudad. La primera foto es la que coincide con el momento del día del visitante
+  // (mañana 6 a 12 h, tarde 12 a 19 h, noche 19 a 6 h, según la hora de su dispositivo); después sigue el orden de la lista.
+  // Cambia con un fundido cada "segundos" segundos; con "reducir movimiento" o la pestaña oculta no rota.
+  // Las fotos que aún no toca mostrar no se descargan: solo la actual y la siguiente.
+  const PIXEL = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+  const momentoDelDia = () => { const h = new Date().getHours(); return h >= 6 && h < 12 ? 'mañana' : h >= 12 && h < 19 ? 'tarde' : 'noche'; };
+  function rotarBanner(c, st, b) {
+    const lista = (Array.isArray(b.fotos) ? b.fotos : []).filter(f => f && f.foto);
+    const n = lista.length, seg = Math.max(3, +b.segundos || 7);
+    const clave = n > 1 ? seg : 0;
+    if (c._banSeg !== clave) {
+      clearInterval(c._banT); c._banT = null; c._banSeg = clave;
+      if (clave) c._banT = setInterval(() => { if (document.hidden || sinMov()) return; c.setState({ banI: ((c.state || {}).banI || 0) + 1 }); }, clave * 1000);
+    }
+    if (!n) return { hayReel: false, sinReel: true, reel: [] };
+    if (c._banI0 === undefined || c._banN !== n) { const k = lista.findIndex(f => f.momento === momentoDelDia()); c._banI0 = k >= 0 ? k : 0; c._banN = n; c._banVistas = new Set(); }
+    const i = (c._banI0 + (st.banI || 0)) % n, sig = (i + 1) % n;
+    c._banVistas.add(i); if (n > 1) c._banVistas.add(sig);
+    return { hayReel: true, sinReel: false,
+      reel: lista.map((f, k) => ({ src: c._banVistas.has(k) ? f.foto : PIXEL, alt: k === i ? (f.alt || '') : '', oculto: k === i ? 'false' : 'true',
+        op: k === i ? '1' : '0', pos: ENFOQUE[f.enfoque] || 'center', prio: k === i ? 'high' : 'low' })) };
+  }
+
   function rotarPubs(c, st, pubs) {
     const rot = pubs.find(p => p.seg > 0 && p.lista.length > 1);
     if (!rot) { clearInterval(c._pubT); c._pubT = null; c._pubSeg = 0; }
@@ -569,7 +592,7 @@
       marcaActiva: st.marca || 'Todas las marcas',
       heroMarca: st.marca || '', onHeroMarca: e => setFiltro({ marca: e.target.value || null }),
       marcasSelect: MARCAS.map(m => ({ m: m.nombre })),
-      heroFoto: S.banner.foto || '',
+      heroFoto: S.banner.foto || '', ...rotarBanner(c, st, S.banner),
       fl: { presupuesto: fil.texto_presupuesto || 'Presupuesto', cualquiera: fil.texto_cualquiera || 'Cualquiera', pago: fil.texto_pago || 'Pago' },
       verPres: fil.mostrar_presupuesto !== false && PRES.length > 0, verPago: fil.mostrar_pago !== false && lst(fil.pagos).length > 0,
       presOpts: PRES.map((p, i) => ({ i: String(i), texto: p.texto })), presSel: st.pres == null ? '' : String(st.pres), onPres: e => setFiltro({ pres: e.target.value }),
