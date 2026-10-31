@@ -1,5 +1,5 @@
 media:
-  input: opciones/assets
+  input: assets
   output: assets
   rename: safe
 
@@ -15,7 +15,7 @@ content:
   - name: sitio
     label: Configuración del sitio
     type: file
-    path: opciones/data/sitio.json
+    path: data/sitio.json
     format: json
     fields:
       - name: encabezado
@@ -73,14 +73,14 @@ content:
               - { name: titulo, label: Título (primera parte), type: string }
               - { name: resaltado, label: Palabra resaltada, type: string }
               - { name: titulo_fin, label: Final del título, type: string }
-              - { name: foto, label: "Foto única (respaldo)", type: image, description: "Se usa solo si la lista «Fotos del banner» está vacía. Horizontal, de unos 1600 × 900 px.", options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+              - { name: foto, label: "Foto única (respaldo)", type: image, description: "Se usa solo si la lista «Fotos del banner» está vacía. Horizontal, de unos 1600 × 900 px.", options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
               - name: fotos
                 label: Fotos del banner (reel)
                 description: "Cambian solas con un fundido. La primera en verse es la que coincide con el momento del día del visitante (mañana 6 a 12 h, tarde 12 a 19 h, noche 19 a 6 h); después siguen en este orden. Usa fotos horizontales de unos 2000 px de ancho, de menos de 200 KB, con licencia que permita su uso."
                 type: object
                 list: { collapsible: { collapsed: true, summary: "{momento}: {alt}" } }
                 fields:
-                  - { name: foto, label: Foto, type: image, options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+                  - { name: foto, label: Foto, type: image, options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
                   - { name: momento, label: Momento del día, type: select, options: { values: [mañana, tarde, noche] } }
                   - { name: alt, label: "Descripción corta de la foto", type: string, description: "Ej. Monterrey al atardecer, con el Cerro de la Silla." }
                   - { name: enfoque, label: "Enfoque de la foto (qué parte se prioriza al recortar)", type: select, default: centro, options: { values: [arriba, arriba-centro, centro, abajo-centro, abajo] } }
@@ -371,7 +371,7 @@ content:
   - name: autos
     label: Autos
     type: collection
-    path: opciones/data/autos
+    path: data/autos
     format: json
     subfolders: true
     filename: "{fields.marca}/{fields.id}.json"
@@ -453,7 +453,7 @@ content:
       - { name: precio, label: Precio, type: number, required: true, description: "En pesos, sin símbolo ni comas. Ej. 689900. Revisa los ceros: el CMS solo acepta de 100,000 a 15,000,000.", options: { step: any, min: 100000, max: 15000000 } }
       - { name: seguro_anual, label: Seguro anual propio (MXN), type: number, description: "Opcional. Si lo dejas vacío o en 0, se usa el porcentaje general sobre el precio. Pon aquí la cotización real de este auto.", options: { step: any, min: 0, max: 500000 } }
       - { name: vigencia, label: Precio vigente, type: string, description: "Fecha o mes en texto. Ej. octubre de 2026 o 30 de octubre de 2026. Opcional: se muestra bajo el precio." }
-      - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1000 px de ancho y proporción 3:2. El auto debe verse completo, centrado y con aire alrededor, porque la tarjeta recorta la foto. Formatos: JPG, PNG o WEBP.", options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+      - { name: foto, label: Foto, type: image, required: true, description: "Horizontal, de unos 1000 px de ancho y proporción 3:2. El auto debe verse completo, centrado y con aire alrededor, porque la tarjeta recorta la foto. Formatos: JPG, PNG o WEBP.", options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
       - name: enfoque_foto
         label: Enfoque de la foto
         type: select
@@ -480,7 +480,7 @@ content:
   - name: marcas
     label: Marcas
     type: file
-    path: opciones/data/marcas.json
+    path: data/marcas.json
     format: json
     fields:
       - name: marcas
@@ -489,13 +489,13 @@ content:
         list: { collapsible: { collapsed: true, summary: "{nombre}" } }
         fields:
           - { name: nombre, label: Nombre, type: string, required: true }
-          - { name: logo, label: Logo, type: image, description: "Mejor en SVG de un solo color (azul #1B2A4A), como los demás.", options: { path: opciones/assets/marcas, extensions: [svg, png, webp] } }
+          - { name: logo, label: Logo, type: image, description: "Mejor en SVG de un solo color (azul #1B2A4A), como los demás.", options: { path: assets/marcas, extensions: [svg, png, webp] } }
           - { name: mostrar, label: Mostrar, type: boolean, default: true }
 
   - name: financieras
     label: Financieras
     type: file
-    path: opciones/data/financieras.json
+    path: data/financieras.json
     format: json
     fields:
       - name: financieras
@@ -512,13 +512,13 @@ content:
           - { name: plazos, label: "Plazos disponibles — opcional", type: string, description: "Texto libre. Ej. 12 a 60 meses" }
           - { name: detalle, label: "Detalle — opcional", type: text, description: "Texto breve que se muestra en el banner al tocar la financiera." }
           - { name: enlace, label: "Enlace para más información — opcional", type: string, description: "Debe empezar con https://", pattern: { regex: "^$|^https?://[^ ]+$", message: "Debe empezar con https:// y no llevar espacios" } }
-          - { name: logo, label: "Logo — opcional", type: image, description: "Mejor en SVG o PNG con fondo transparente.", options: { path: opciones/assets/financieras, extensions: [svg, png, webp] } }
+          - { name: logo, label: "Logo — opcional", type: image, description: "Mejor en SVG o PNG con fondo transparente.", options: { path: assets/financieras, extensions: [svg, png, webp] } }
           - { name: mostrar, label: Mostrar, type: boolean, default: true }
 
   - name: ofertas
     label: Ofertas de crédito
     type: file
-    path: opciones/data/ofertas.json
+    path: data/ofertas.json
     format: json
     fields:
       - name: ofertas
@@ -534,7 +534,7 @@ content:
   - name: noticias
     label: Noticias y tips
     type: file
-    path: opciones/data/noticias.json
+    path: data/noticias.json
     format: json
     fields:
       - name: noticias
@@ -547,15 +547,15 @@ content:
           - { name: resumen, label: Resumen, type: text }
           - { name: contenido, label: Texto completo del artículo (opcional), type: text, description: "Separa los párrafos con una línea en blanco. Si lo llenas, la noticia se abre en su propia página. Si lo dejas vacío y hay enlace, abre el enlace; si no hay ninguno, la tarjeta no es clicable." }
           - { name: minutos, label: Minutos de lectura, type: number }
-          - { name: foto, label: Foto, type: image, options: { path: opciones/assets/fotos, extensions: [jpg, jpeg, png, webp] } }
-          - { name: icono, label: Ícono (SVG), type: image, options: { path: opciones/assets/iconos, extensions: [svg] } }
+          - { name: foto, label: Foto, type: image, options: { path: assets/fotos, extensions: [jpg, jpeg, png, webp] } }
+          - { name: icono, label: Ícono (SVG), type: image, options: { path: assets/iconos, extensions: [svg] } }
           - { name: enlace, label: Enlace externo (opcional), type: string, description: "Se usa solo si no hay texto completo. Debe empezar con https://, mailto: o tel:." }
           - { name: mostrar, label: Mostrar, type: boolean, default: true }
 
   - name: requisitos
     label: Requisitos de crédito
     type: file
-    path: opciones/data/requisitos.json
+    path: data/requisitos.json
     format: json
     fields:
       - name: perfiles
@@ -573,7 +573,7 @@ content:
   - name: anuncios
     label: Publicidad
     type: file
-    path: opciones/data/anuncios.json
+    path: data/anuncios.json
     format: json
     fields:
       - name: anuncios

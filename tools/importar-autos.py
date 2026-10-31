@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Pasa una hoja de cálculo (Excel o CSV) con autos a opciones/data/autos/<marca>/ (un archivo por auto) y regenera autos.json.
+"""Pasa una hoja de cálculo (Excel o CSV) con autos a data/autos/<marca>/ (un archivo por auto) y regenera autos.json.
 
 Uso:
     python3 tools/importar-autos.py --plantilla hoja.xlsx      # crea la plantilla vacía para llenar
     python3 tools/importar-autos.py hoja.xlsx                  # solo revisa: muestra qué agregaría y cambiaría
-    python3 tools/importar-autos.py hoja.xlsx --aplicar        # escribe opciones/data/autos/*.json y regenera autos.json
+    python3 tools/importar-autos.py hoja.xlsx --aplicar        # escribe data/autos/*.json y regenera autos.json
 
 Reglas:
   * Una fila = una versión de auto. Las filas vacías o que empiezan con # se ignoran.
@@ -155,13 +155,13 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('hoja', nargs='?', help='archivo .xlsx o .csv con los autos')
     ap.add_argument('--raiz', default='.', help='carpeta raíz del repositorio')
-    ap.add_argument('--aplicar', action='store_true', help='escribe los archivos de opciones/data/autos/ y regenera autos.json (sin esto solo revisa)')
+    ap.add_argument('--aplicar', action='store_true', help='escribe los archivos de data/autos/ y regenera autos.json (sin esto solo revisa)')
     ap.add_argument('--ignorar-errores', action='store_true', help='aplica las filas buenas aunque otras tengan errores')
     ap.add_argument('--plantilla', metavar='ARCHIVO.xlsx', help='crea la plantilla vacía y termina')
     a = ap.parse_args()
     R = a.raiz
-    marcas = [m['nombre'] for m in leer_json(os.path.join(R, 'opciones/data/marcas.json'))['marcas'] if m.get('nombre')]
-    sitio = leer_json(os.path.join(R, 'opciones/data/sitio.json'))
+    marcas = [m['nombre'] for m in leer_json(os.path.join(R, 'data/marcas.json'))['marcas'] if m.get('nombre')]
+    sitio = leer_json(os.path.join(R, 'data/sitio.json'))
     f0 = sitio.get('filtros'); f0 = (f0[0] if isinstance(f0, list) and f0 else f0) or {}
     tipos = [t for t in f0.get('tipos', []) if t]
     if a.plantilla:
@@ -169,9 +169,9 @@ def main():
     if not a.hoja:
         ap.error('indica la hoja .xlsx o .csv (o usa --plantilla)')
 
-    carpeta_autos = os.path.join(R, 'opciones/data/autos')
+    carpeta_autos = os.path.join(R, 'data/autos')
     if not os.path.isdir(carpeta_autos):
-        sys.exit('No encuentro opciones/data/autos/<marca>/ (un archivo por auto).')
+        sys.exit('No encuentro data/autos/<marca>/ (un archivo por auto).')
     archivos = sorted(glob.glob(os.path.join(carpeta_autos, '**', '*.json'), recursive=True))
     autos = [leer_json(f) for f in archivos]
     rutas = {x['id']: f for x, f in zip(autos, archivos)}
@@ -261,8 +261,8 @@ def main():
                 if campo in ('id', 'marca', 'modelo') or ex.get(campo) == v:
                     continue
                 if campo == 'foto':
-                    if v and not os.path.exists(os.path.join(R, 'opciones', v)):
-                        avisos.append('Fila %d (%s): la foto "%s" no existe en opciones/' % (n, rotulo, v))
+                    if v and not os.path.exists(os.path.join(R, v)):
+                        avisos.append('Fila %d (%s): la foto "%s" no existe en el repositorio' % (n, rotulo, v))
                 if campo == 'precio' and ex.get('precio') and abs(v - ex['precio']) / ex['precio'] > 0.25:
                     avisos.append('Fila %d (%s): el precio cambia más de 25%% (%s → %s), revísalo' % (n, rotulo, ex['precio'], v))
                 dif.append((campo, ex.get(campo), v))
@@ -286,9 +286,9 @@ def main():
         while nid in ids_usados:
             nid = '%s-%d' % (base, c); c += 1
         ids_usados.add(nid); vals['id'] = nid
-        foto_ok = bool(vals.get('foto')) and os.path.exists(os.path.join(R, 'opciones', vals['foto']))
+        foto_ok = bool(vals.get('foto')) and os.path.exists(os.path.join(R, vals['foto']))
         if vals.get('foto') and not foto_ok:
-            avisos.append('Fila %d (%s): la foto "%s" no existe en opciones/; entra sin foto' % (n, rotulo, vals['foto'])); vals['foto'] = ''
+            avisos.append('Fila %d (%s): la foto "%s" no existe en el repositorio; entra sin foto' % (n, rotulo, vals['foto'])); vals['foto'] = ''
         if not foto_ok:
             avisos.append('%s: entra con "mostrar" apagado porque no tiene foto (sube la foto en el CMS y enciéndelo)' % rotulo)
         vals['foto'] = vals.get('foto', '') if foto_ok else ''
@@ -319,7 +319,7 @@ def main():
         with open(destino, 'w', encoding='utf-8') as f:
             json.dump(x, f, ensure_ascii=False, indent=2)
     subprocess.run([sys.executable, os.path.join(R, 'tools/generar-autos.py'), '--raiz', R], check=True)
-    print('\nActualizados %d autos y creados %d en opciones/data/autos/ (%d en total).' % (len(tocados), len(nuevos_dicts), len(autos) + len(nuevos_dicts)))
+    print('\nActualizados %d autos y creados %d en data/autos/ (%d en total).' % (len(tocados), len(nuevos_dicts), len(autos) + len(nuevos_dicts)))
 
 
 if __name__ == '__main__':
