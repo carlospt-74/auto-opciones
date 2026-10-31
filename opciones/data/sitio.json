@@ -186,7 +186,7 @@
   ],
   "calculo": [
     {
-      "formula": "(monto + seguro_anual) * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)",
+      "formula": "(monto + seguro_anual) * (tasa_mensual * (1 + iva / 100)) / (1 - (1 + tasa_mensual * (1 + iva / 100)) ^ -plazo)",
       "enganches": [
         10,
         20,

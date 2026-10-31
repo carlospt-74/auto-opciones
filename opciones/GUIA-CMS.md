@@ -161,7 +161,11 @@ En **Configuración del sitio → grupo 1 (Encabezado) → Menú superior** (y e
 ## Fórmula de mensualidad
 Está en **Configuración del sitio → grupo 4 (Comparador y cálculo de mensualidad)**. La fórmula actual es:
 
-`(monto + seguro_anual) * tasa_mensual / (1 - (1 + tasa_mensual) ^ -plazo)`
+`(monto + seguro_anual) * (tasa_mensual * (1 + iva / 100)) / (1 - (1 + tasa_mensual * (1 + iva / 100)) ^ -plazo)`
+
+Esta fórmula le suma a la tasa el IVA de los intereses (los bancos publican la tasa sin IVA y cobran IVA sobre el interés de cada mes). En pruebas con créditos de ejemplo queda a menos de 0.5 % del pago promedio real; el pago real baja un poco cada mes, así que el resultado es una **estimación**. La fórmula anterior (sin IVA en los intereses) quedaba entre 3.5 % y 4.3 % por debajo.
+
+**Cómo capturar las financieras con esta fórmula:** en **Tasa anual** escribe la tasa publicada por el banco, **sin IVA**. En **Comisión por apertura** escribe la comisión publicada **multiplicada por 1.16**, porque el portal no le suma IVA (por ejemplo, 2.5 % publicado se captura como 2.9). Anota la fuente y la fecha en el mensaje del cambio.
 
 Variables que puedes usar: `precio`, `enganche`, `monto` (precio menos enganche), `tasa` (anual en %), `tasa_mensual`, `plazo` (meses), `apertura` (%), `seguro` (mensual), `seguro_anual` (pesos del seguro del primer año de ese auto), `iva` (%). Para potencias usa `^`.
 
