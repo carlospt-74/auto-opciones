@@ -157,6 +157,7 @@ Para agregar una sección, presiona **Add an item** y elige su tipo. Los tipos s
 
 ### Publicidad: una sola franja que rota
 La página de inicio tiene **una sola sección de Publicidad** con el anuncio **todos**: muestra una franja que cambia de anuncio sola, en **orden alfabético**, con puntos debajo para elegir uno a mano.
+- **Ocultar toda la franja:** en esa sección de Publicidad, apaga el interruptor **Mostrar**. La franja desaparece del inicio sin borrar los anuncios; para volver a verla, enciéndelo.
 - **Segundos entre anuncios** (en esa sección): por omisión 6, mínimo 3.
 - Rotan todos los anuncios de **Publicidad** que tengan **Mostrar** encendido y **Dónde aparece: inicio**. Para quitar uno de la rotación, apaga su **Mostrar**; un anuncio nuevo entra solo, sin tocar la sección.
 - La franja no rota mientras el visitante tiene el cursor o el foco encima, ni si su dispositivo tiene activado "reducir movimiento" (en ese caso se cambia solo con los puntos). Tampoco rota con la pestaña oculta.
