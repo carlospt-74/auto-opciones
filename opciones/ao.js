@@ -570,7 +570,16 @@
     return {
       T, hayPagina: true,
       saltar: e => { if (e && e.preventDefault) e.preventDefault(); const m = document.getElementById('contenido'); if (m) { m.focus(); m.scrollIntoView(); } }, imprimir: () => window.print(), rootRef: c._rootRef,
-      heroPadTop: W < 760 ? '180px' : 'clamp(12px,2cqi,24px)', cmpCols: W < 760 ? 'repeat(3,max(250px,78cqi))' : 'repeat(3,minmax(240px,1fr))', cmpMin: W < 760 ? '0' : '760px', waBottom: st.page === 'inicio' ? '88px' : '20px',
+      hero: W < 760
+        // Celular: la foto va en su propia caja 3:2 y el buscador debajo, en 2 x 2, sin tapar la foto.
+        ? { rad: '0', ov: 'visible', minH: '0', bg: 'transparent', dir: 'column', alin: 'stretch', gap: '16px', pad: '0',
+            fpos: 'relative', finset: 'auto', faspect: '3 / 2', frad: '24px',
+            tpad: '16px', tcols: 'repeat(2,minmax(0,1fr))', tgap: '12px 16px', tw: '100%', tsombra: '0 4px 16px rgba(31,52,102,.08)', tborde: '1px solid rgba(31,52,102,.12)' }
+        // Tableta y escritorio: la foto llena la caja y el buscador va encima, abajo a la izquierda.
+        : { rad: '32px', ov: 'hidden', minH: 'clamp(300px,32cqi,440px)', bg: 'repeating-linear-gradient(135deg,#FBF9F7 0 14px,#F3EEE9 14px 28px)', dir: 'row', alin: 'flex-end', gap: '0', pad: 'clamp(12px,2cqi,24px)',
+            fpos: 'absolute', finset: '0', faspect: 'auto', frad: 'inherit',
+            tpad: 'clamp(16px,2cqi,24px)', tcols: 'repeat(auto-fit,minmax(150px,1fr))', tgap: '16px', tw: 'min(100%,760px)', tsombra: '0 12px 32px rgba(31,52,102,.14)', tborde: '0 solid transparent' },
+      cmpCols: W < 760 ? 'repeat(3,max(250px,78cqi))' : 'repeat(3,minmax(240px,1fr))', cmpMin: W < 760 ? '0' : '760px', waBottom: st.page === 'inicio' ? '88px' : '20px',
       q: st.q || '', onQ: e => setFiltro({ q: e.target.value }), ordenSel, onOrden: e => setFiltro({ orden: e.target.value }),
       ordenOpts: [['', T.orden_relevancia], ['precio_asc', T.orden_precio_asc], ['precio_desc', T.orden_precio_desc], ['mensual', T.orden_mensual]].map(([v, t]) => ({ v, t })),
       mmaxSel: MMAX ? String(MMAX) : '', onMmax: e => setFiltro({ mmax: e.target.value }), mmaxOpts: MMAX_OPTS, verMmax: MMAX_OPTS.length > 0 && !esContado,
