@@ -243,9 +243,9 @@
       ],
       "plazo_inicial": 48,
       "tasa_tarjetas": 13.9,
+      "iva": 16,
       "seguro_porcentaje": 2,
       "seguro_incluir_inicial": true,
-      "iva": 16,
       "nota": "*Cifras ilustrativas. Sujetas a aprobación de crédito de cada institución."
     }
   ],
@@ -301,7 +301,7 @@
   ],
   "contacto": [
     {
-      "telefono": "999 414 5826",
+      "telefono": "81 2021-4644",
       "correos": [
         "hola@auto-opciones.com"
       ],
