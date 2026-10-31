@@ -89,13 +89,42 @@
         verFin: s.mostrar_financieras !== false, verIconos: s.mostrar_iconos !== false };
       if (s.tipo === 'publicidad') {
         if (!o.show) return;
+        // "todos": una sola franja que rota entre todos los anuncios del inicio, en orden alfabético.
+        if (s.anuncio === 'todos') {
+          const lista = ads.filter(x => x.ubicacion !== 'requisitos').sort((x, y) => String(x.anunciante).localeCompare(String(y.anunciante), 'es', { sensitivity: 'base' }));
+          if (lista.length) pubs.push({ ...o, lista, seg: Math.max(3, +s.segundos || 6) });
+          return;
+        }
         const a = ads.find(x => x.id === s.anuncio) || ads.find(x => x.ubicacion !== 'requisitos');
-        if (a) pubs.push({ ...o, anunciante: a.anunciante, texto: a.texto, enlace: a.enlace, texto_boton: a.texto_boton || 'Ver más', hayEnlace: !!a.enlace });
+        if (a) pubs.push({ ...o, lista: [a], seg: 0 });
         return;
       }
       if (!S[s.tipo].seen) S[s.tipo] = { ...o, seen: true };
     });
     return { S, pubs };
+  }
+
+  // Franja de publicidad: muestra un anuncio a la vez y, si hay varios, rota cada "seg" segundos.
+  // Todos los anuncios se apilan en la misma celda (solo cambia cuál es visible), así la franja no cambia de alto al rotar.
+  // No rota sola si la persona pidió "reducir movimiento", ni mientras tiene el cursor o el foco encima, ni con la pestaña oculta.
+  const sinMov = () => { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
+  const hayHover = () => { try { return window.matchMedia('(hover: hover)').matches; } catch (e) { return false; } };
+  function rotarPubs(c, st, pubs) {
+    const rot = pubs.find(p => p.seg > 0 && p.lista.length > 1);
+    if (!rot) { clearInterval(c._pubT); c._pubT = null; c._pubSeg = 0; }
+    else if (c._pubSeg !== rot.seg) {
+      clearInterval(c._pubT); c._pubSeg = rot.seg;
+      c._pubT = setInterval(() => { if (document.hidden || c._pubH || c._pubF || sinMov()) return; c.setState({ pubI: ((c.state || {}).pubI || 0) + 1 }); }, rot.seg * 1000);
+    }
+    return pubs.map(p => {
+      const n = p.lista.length, i = ((((st.pubI || 0) % n) + n) % n);
+      return { ...p, hayPuntos: n > 1,
+        items: p.lista.map((a, k) => ({ anunciante: a.anunciante, texto: a.texto, enlace: a.enlace, texto_boton: a.texto_boton || 'Ver más', hayEnlace: !!a.enlace,
+          op: k === i ? '1' : '0', vis: k === i ? 'visible' : 'hidden', oculto: k === i ? 'false' : 'true' })),
+        puntos: n > 1 ? p.lista.map((a, k) => ({ label: 'Ver el anuncio de ' + a.anunciante, actual: k === i ? 'true' : 'false', w: k === i ? '20px' : '8px', col: k === i ? 'var(--ao-1)' : 'rgba(31,52,102,.25)', ir: () => c.setState({ pubI: k }) })) : [],
+        hoverIn: () => { if (hayHover()) c._pubH = true; }, hoverOut: () => { c._pubH = false; },
+        focoIn: () => { c._pubF = true; }, focoOut: () => { c._pubF = false; } };
+    });
   }
 
   const FICHA_BASE = [{ etiqueta: 'Motor', campo: 'motor', unidad: '' }];
@@ -299,7 +328,8 @@
     }
     const S0 = D.sitio, cal = S0.calculo || {}, fil = S0.filtros || {}, ct = S0.contacto || {}, rq = S0.requisitos || {};
     const W = st.w || 1280;
-    const { S, pubs } = secciones();
+    const { S, pubs: pubsBase } = secciones();
+    const pubs = rotarPubs(c, st, pubsBase);
     const FICHA = lst(S0.ficha).length ? S0.ficha : FICHA_BASE;
     const specs = a => FICHA.filter(f => a[f.campo] !== undefined && a[f.campo] !== '').map(f => { const raw = a[f.campo], v = raw + (f.unidad ? ' ' + f.unidad : ''); return { k: f.etiqueta, v, v2: !f.unidad && /^\d+([.,]\d+)?$/.test(String(raw)) ? raw + ' ' + String(f.etiqueta).toLowerCase() : v }; });
     const AUTOS = D.autos.filter(a => a.mostrar !== false);

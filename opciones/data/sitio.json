@@ -90,50 +90,9 @@
       "tipo": "publicidad",
       "mostrar": true,
       "fondo": "blanco",
-      "titulo": "Anuncio de Afirme",
-      "anuncio": "afirme"
-    },
-    {
-      "tipo": "publicidad",
-      "mostrar": true,
-      "fondo": "blanco",
-      "titulo": "Anuncio de Banorte",
-      "anuncio": "banorte"
-    },
-    {
-      "tipo": "publicidad",
-      "mostrar": true,
-      "fondo": "blanco",
-      "titulo": "Anuncio de Banregio",
-      "anuncio": "banregio"
-    },
-    {
-      "tipo": "publicidad",
-      "mostrar": true,
-      "fondo": "blanco",
-      "titulo": "Anuncio de BBVA",
-      "anuncio": "bbva"
-    },
-    {
-      "tipo": "publicidad",
-      "mostrar": true,
-      "fondo": "blanco",
-      "titulo": "Anuncio de Inbursa",
-      "anuncio": "inbursa"
-    },
-    {
-      "tipo": "publicidad",
-      "mostrar": true,
-      "fondo": "blanco",
-      "titulo": "Anuncio de Santander",
-      "anuncio": "santander"
-    },
-    {
-      "tipo": "publicidad",
-      "mostrar": true,
-      "fondo": "blanco",
-      "titulo": "Anuncio de Scotiabank",
-      "anuncio": "scotiabank"
+      "titulo": "Anuncios de financieras (rotan)",
+      "anuncio": "todos",
+      "segundos": 6
     },
     {
       "tipo": "info_credito",
