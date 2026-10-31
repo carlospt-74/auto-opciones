@@ -3,16 +3,16 @@
     {
       "id": "bbva",
       "nombre": "BBVA",
-      "tasa": 13.9,
-      "apertura": 2,
+      "tasa": 13.99,
+      "apertura": 3.5,
       "seguro": 0,
       "mostrar": true
     },
     {
       "id": "banorte",
       "nombre": "Banorte",
-      "tasa": 14.5,
-      "apertura": 2,
+      "tasa": 14.99,
+      "apertura": 2.9,
       "seguro": 0,
       "mostrar": true
     },
@@ -22,13 +22,13 @@
       "tasa": 13.5,
       "apertura": 2,
       "seguro": 0,
-      "mostrar": true
+      "mostrar": false
     },
     {
       "id": "afirme",
       "nombre": "Afirme",
-      "tasa": 15.2,
-      "apertura": 2,
+      "tasa": 15.5,
+      "apertura": 2.9,
       "seguro": 0,
       "mostrar": true
     },
@@ -38,13 +38,37 @@
       "tasa": 14.2,
       "apertura": 2,
       "seguro": 0,
-      "mostrar": true
+      "mostrar": false
     },
     {
       "id": "banregio",
       "nombre": "Banregio",
-      "tasa": 12,
-      "apertura": 2,
+      "tasa": 13,
+      "apertura": 2.3,
+      "seguro": 0,
+      "mostrar": true
+    },
+    {
+      "id": "santander",
+      "nombre": "Santander",
+      "tasa": 17.49,
+      "apertura": 4.1,
+      "seguro": 0,
+      "mostrar": true
+    },
+    {
+      "id": "scotiabank",
+      "nombre": "Scotiabank",
+      "tasa": 13.99,
+      "apertura": 2.9,
+      "seguro": 0,
+      "mostrar": true
+    },
+    {
+      "id": "inbursa",
+      "nombre": "Inbursa",
+      "tasa": 13.76,
+      "apertura": 2.9,
       "seguro": 0,
       "mostrar": true
     }
