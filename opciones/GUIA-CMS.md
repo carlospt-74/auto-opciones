@@ -119,7 +119,15 @@ El filtro **Pago** del banner cambia lo que muestran las tarjetas de autos:
 También se incluye en el mensaje de cotización. Para que funcione, escribe las opciones en **grupo 3 → Formas de pago** con las palabras *Crédito*, *Contado* o *Arrendamiento*.
 
 ## Foto del banner y colores
-- La **foto del banner** se cambia en **grupo 2 (Secciones de la página de inicio) → Banner → Foto** (horizontal, de unos 1600 × 900 px).
+- **Fotos del banner (reel):** en **grupo 2 (Secciones de la página de inicio) → Banner → Fotos del banner**, agrega varias fotos de la ciudad y el banner las cambia solas con un fundido.
+  - Cada foto lleva **Momento del día** (mañana, tarde o noche), una **Descripción corta** (para lectores de pantalla), el **Enfoque** (qué parte se prioriza al recortar; la caja del banner es muy ancha, así que lo importante debe quedar al centro y arriba, y no en la esquina inferior izquierda, donde va el buscador) y, opcionalmente, **Autor y fuente**, que no se muestra en el portal.
+  - **Qué foto se ve primero:** la que coincide con la hora del dispositivo del visitante (mañana de 6 a 12 h, tarde de 12 a 19 h, noche de 19 a 6 h). Después siguen en el orden de la lista. Si ninguna coincide, empieza por la primera.
+  - **Segundos entre fotos:** por omisión 7, mínimo 3.
+  - **No rota** si el visitante activó "reducir movimiento" o tiene la pestaña oculta (en ese caso se queda en la foto que le tocó por la hora).
+  - Para ahorrar datos, el portal solo descarga la foto que se ve y la siguiente.
+  - **Fotos:** horizontales, de unos 2000 px de ancho y menos de 200 KB (`python3 tools/optimizar-fotos.py` las aligera). **Solo usa fotos con licencia que permita su uso** (por ejemplo, las de Pexels o Unsplash, o fotos propias) y anota en **Autor y fuente** de dónde salió cada una. No uses fotos de Google Imágenes, Getty, Shutterstock, Adobe Stock ni iStock sin permiso o licencia.
+  - Si la lista está vacía, se usa la **Foto única (respaldo)** de la misma sección (horizontal, de unos 1600 × 900 px).
+  - Para ocultar el banner completo, apaga **Mostrar** en esa sección.
 - Los colores de la marca están en **grupo 10 (Colores)**. El naranja de los botones es `#EE8A52` (hover `#DE7840`).
 
 ## Ofertas de crédito

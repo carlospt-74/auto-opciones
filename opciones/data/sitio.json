@@ -35,6 +35,8 @@
       "resaltado": "opciones",
       "titulo_fin": "sobre la mesa.",
       "foto": "assets/fotos/fotomty2.jpg",
+      "fotos": [],
+      "segundos": 7,
       "boton": "Buscar"
     },
     {
