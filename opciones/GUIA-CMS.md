@@ -124,7 +124,7 @@ También se incluye en el mensaje de cotización. Para que funcione, escribe las
   - **Cómo se ve según el dispositivo:** en computadora y tableta la foto llena una caja muy ancha (de 2.8:1 a 4:1) y el buscador va encima, abajo a la izquierda, así que se recorta arriba y abajo: usa el **Enfoque** para que se vea lo importante (por ejemplo, el Cerro de la Silla). En celular (menos de 760 px) la foto va completa en su propia caja de proporción 3:2 y el buscador queda debajo, en 2 × 2, sin taparla; ahí el Enfoque casi no cambia nada.
   - **Qué foto se ve primero:** la que coincide con la hora del dispositivo del visitante (mañana de 6 a 12 h, tarde de 12 a 19 h, noche de 19 a 6 h). Después siguen en el orden de la lista. Si ninguna coincide, empieza por la primera.
   - **Segundos entre fotos:** por omisión 7, mínimo 3.
-  - **No rota** si el visitante activó "reducir movimiento" o tiene la pestaña oculta (en ese caso se queda en la foto que le tocó por la hora).
+  - **Cuándo no rota:** con la pestaña oculta. Si el visitante activó "reducir movimiento" (o "quitar animaciones") en su teléfono, **sigue rotando, pero el cambio es instantáneo, sin fundido**.
   - Para ahorrar datos, el portal solo descarga la foto que se ve y la siguiente.
   - **Fotos:** horizontales, de unos 2000 px de ancho y menos de 200 KB (`python3 tools/optimizar-fotos.py` las aligera). **Solo usa fotos con licencia que permita su uso** (por ejemplo, las de Pexels o Unsplash, o fotos propias) y anota en **Autor y fuente** de dónde salió cada una. No uses fotos de Google Imágenes, Getty, Shutterstock, Adobe Stock ni iStock sin permiso o licencia.
   - Si la lista está vacía, se usa la **Foto única (respaldo)** de la misma sección (horizontal, de unos 1600 × 900 px).
@@ -169,7 +169,7 @@ La página de inicio tiene **una sola sección de Publicidad** con el anuncio **
 - **Ocultar toda la franja:** en esa sección de Publicidad, apaga el interruptor **Mostrar**. La franja desaparece del inicio sin borrar los anuncios; para volver a verla, enciéndelo.
 - **Segundos entre anuncios** (en esa sección): por omisión 6, mínimo 3.
 - Rotan todos los anuncios de **Publicidad** que tengan **Mostrar** encendido y **Dónde aparece: inicio**. Para quitar uno de la rotación, apaga su **Mostrar**; un anuncio nuevo entra solo, sin tocar la sección.
-- La franja no rota mientras el visitante tiene el cursor o el foco encima, ni si su dispositivo tiene activado "reducir movimiento" (en ese caso se cambia solo con los puntos). Tampoco rota con la pestaña oculta.
+- La franja no rota mientras el visitante tiene el cursor o el foco encima, ni con la pestaña oculta. Con "reducir movimiento" activado en el dispositivo sigue rotando, pero el cambio es instantáneo, sin fundido.
 - La franja mide lo que mida el anuncio más largo, para que la página no "salte" al rotar.
 - Si quieres un anuncio fijo en otro lugar, agrega otra sección de Publicidad y elige ese anuncio en la lista en lugar de **todos**.
 - Los anuncios de **Requisitos** no entran en la rotación: ese lugar muestra solo el primer anuncio visible de esa ubicación.
@@ -217,7 +217,7 @@ El CMS no reduce el tamaño de las fotos. Para aligerar las que pesan más de 15
 Los documentos que marca cada visitante se recuerdan en su propio navegador; no se guardan en ningún servidor. El mensaje de preautorización incluye cuáles faltan. El botón **Imprimir o guardar mi lista** abre la impresión del navegador (también sirve para guardarla como PDF): al imprimir solo salen el perfil y la lista, sin encabezado, panel de solicitud ni botones.
 
 ## Teclado y accesibilidad
-Con la tecla **Tab**, lo primero que aparece es **Saltar al contenido**. La tecla **Esc** cierra el menú del celular y la ficha técnica. Si el visitante tiene activado "reducir movimiento" en su dispositivo, el sitio evita las animaciones y la franja de publicidad no rota sola.
+Con la tecla **Tab**, lo primero que aparece es **Saltar al contenido**. La tecla **Esc** cierra el menú del celular y la ficha técnica. Si el visitante tiene activado "reducir movimiento" en su dispositivo, el sitio evita las animaciones: los fundidos son instantáneos, pero el banner y la franja de publicidad siguen cambiando de foto y de anuncio cada pocos segundos. Hoy no hay un botón para pausarlos.
 
 ## Cómo llega un auto al portal (autos.json)
 Cada auto vive en su propio archivo, `opciones/data/autos/<marca>/<id>.json`, y eso es lo que editas en el CMS. El portal lee un solo archivo, `opciones/data/autos.json`, que **se genera solo**: al guardar un auto, la acción **Generar autos.json** (pestaña Actions de GitHub) lo arma con todos los autos y lo publica en unos segundos. **No edites `autos.json` a mano**: el siguiente guardado lo reescribe. Si por algún motivo no se generó, corre `python3 tools/generar-autos.py` y sube el cambio.

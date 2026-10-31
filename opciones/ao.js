@@ -106,12 +106,11 @@
 
   // Franja de publicidad: muestra un anuncio a la vez y, si hay varios, rota cada "seg" segundos.
   // Todos los anuncios se apilan en la misma celda (solo cambia cuál es visible), así la franja no cambia de alto al rotar.
-  // No rota sola si la persona pidió "reducir movimiento", ni mientras tiene el cursor o el foco encima, ni con la pestaña oculta.
-  const sinMov = () => { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
+  // No rota mientras tiene el cursor o el foco encima, ni con la pestaña oculta. Con "reducir movimiento" sigue rotando, pero el cambio es instantáneo (sin fundido).
   const hayHover = () => { try { return window.matchMedia('(hover: hover)').matches; } catch (e) { return false; } };
   // Banner inicial: reel de fotos de la ciudad. La primera foto es la que coincide con el momento del día del visitante
   // (mañana 6 a 12 h, tarde 12 a 19 h, noche 19 a 6 h, según la hora de su dispositivo); después sigue el orden de la lista.
-  // Cambia con un fundido cada "segundos" segundos; con "reducir movimiento" o la pestaña oculta no rota.
+  // Cambia con un fundido cada "segundos" segundos (sin fundido, instantáneo, con "reducir movimiento"); con la pestaña oculta no rota.
   // Las fotos que aún no toca mostrar no se descargan: solo la actual y la siguiente.
   const PIXEL = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
   const momentoDelDia = () => { const h = new Date().getHours(); return h >= 6 && h < 12 ? 'mañana' : h >= 12 && h < 19 ? 'tarde' : 'noche'; };
@@ -121,7 +120,7 @@
     const clave = n > 1 ? seg : 0;
     if (c._banSeg !== clave) {
       clearInterval(c._banT); c._banT = null; c._banSeg = clave;
-      if (clave) c._banT = setInterval(() => { if (document.hidden || sinMov()) return; c.setState({ banI: ((c.state || {}).banI || 0) + 1 }); }, clave * 1000);
+      if (clave) c._banT = setInterval(() => { if (document.hidden) return; c.setState({ banI: ((c.state || {}).banI || 0) + 1 }); }, clave * 1000);
     }
     if (!n) return { hayReel: false, sinReel: true, reel: [] };
     if (c._banI0 === undefined || c._banN !== n) { const k = lista.findIndex(f => f.momento === momentoDelDia()); c._banI0 = k >= 0 ? k : 0; c._banN = n; c._banVistas = new Set(); }
@@ -137,7 +136,7 @@
     if (!rot) { clearInterval(c._pubT); c._pubT = null; c._pubSeg = 0; }
     else if (c._pubSeg !== rot.seg) {
       clearInterval(c._pubT); c._pubSeg = rot.seg;
-      c._pubT = setInterval(() => { if (document.hidden || c._pubH || c._pubF || sinMov()) return; c.setState({ pubI: ((c.state || {}).pubI || 0) + 1 }); }, rot.seg * 1000);
+      c._pubT = setInterval(() => { if (document.hidden || c._pubH || c._pubF) return; c.setState({ pubI: ((c.state || {}).pubI || 0) + 1 }); }, rot.seg * 1000);
     }
     return pubs.map(p => {
       const n = p.lista.length, i = ((((st.pubI || 0) % n) + n) % n);
