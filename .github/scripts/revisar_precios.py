@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Revisa los precios de opciones/data/autos.json contra la versión anterior.
+"""Revisa los precios de data/autos.json contra la versión anterior.
 
 Falla (código 1) si algún precio sale del rango permitido o cambia más del umbral.
 Uso: revisar_precios.py ANTERIOR.json NUEVO.json   (ANTERIOR puede no existir)

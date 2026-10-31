@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Mientras index.html tenga "noindex", Google puede rastrear pero no indexa el sitio.
+# Al quitar el noindex, quita el "#" de la siguiente línea:
+# Sitemap: https://auto-opciones.com/sitemap.xml

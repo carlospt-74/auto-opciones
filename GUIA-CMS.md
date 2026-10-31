@@ -29,7 +29,7 @@ Cada vez que guardas, el cambio se publica solo en 1 o 2 minutos. Si no lo ves, 
 Las listas (autos, marcas, financieras, noticias, etc.) se abren **colapsadas** y cada registro muestra su nombre, por ejemplo "Toyota RAV4 XLE Híbrida". Haz clic en un registro para abrirlo, o en **Expand all** para abrirlos todos. Arrastra el ícono de puntos para cambiar el orden y usa el bote de basura para borrar.
 
 ## Agregar un auto nuevo
-1. Entra a **Autos** y crea un registro nuevo (botón de agregar de la lista). El **Id** también será el nombre del archivo, y el auto se guarda solo en la carpeta de su marca (`opciones/data/autos/<marca>/<id>.json`; si la marca es nueva, se crea su carpeta). Los nombres de carpeta van en minúsculas y con guiones.
+1. Entra a **Autos** y crea un registro nuevo (botón de agregar de la lista). El **Id** también será el nombre del archivo, y el auto se guarda solo en la carpeta de su marca (`data/autos/<marca>/<id>.json`; si la marca es nueva, se crea su carpeta). Los nombres de carpeta van en minúsculas y con guiones.
 2. Llena al menos los campos marcados **Required**: Id, Marca, Modelo, Tipo, Precio y Foto.
    - **Id:** corto, único y solo con minúsculas, números y guiones. Ejemplo: `cx-5`.
    - **Marca** y **Tipo:** se eligen de una lista desplegable (así no hay errores de escritura).
@@ -44,7 +44,7 @@ Un auto nuevo nace con **Mostrar** encendido. Si no debe verse todavía, apágal
 Para cargar o actualizar varios autos a la vez (por ejemplo, con las listas de precios de una agencia):
 1. Llena `tools/plantilla-autos.xlsx` (o un `.csv` con las mismas columnas): una fila por versión. Marca, modelo, versión y precio son obligatorios; lo que no sepas se deja vacío.
 2. Revisa lo que cambiaría: `python3 tools/importar-autos.py mi-hoja.xlsx`. Muestra los autos nuevos, los precios o datos que cambian, los errores y los avisos. No escribe nada.
-3. Si todo está bien: `python3 tools/importar-autos.py mi-hoja.xlsx --aplicar`. Escribe un archivo por auto en `opciones/data/autos/<marca>/` y vuelve a generar `autos.json`. Sube el cambio al repositorio.
+3. Si todo está bien: `python3 tools/importar-autos.py mi-hoja.xlsx --aplicar`. Escribe un archivo por auto en `data/autos/<marca>/` y vuelve a generar `autos.json`. Sube el cambio al repositorio.
 
 Cosas que debes saber:
 - Una celda vacía **nunca borra** un dato que ya existe.
@@ -150,7 +150,7 @@ En **Configuración del sitio → grupo 9 (Título, descripción y estadísticas
 - **Plausible** (de pago) o **Google Analytics 4** (usa cookies): también disponibles.
 
 Notas:
-- Umami solo mide en los dominios de "Umami: dominios donde se mide" (por defecto `auto-opciones.com` y `www.auto-opciones.com`), así que las vistas previas y pruebas no cuentan. El portal en `/opciones` sí cuenta si se abre desde auto-opciones.com.
+- Umami solo mide en los dominios de "Umami: dominios donde se mide" (por defecto `auto-opciones.com` y `www.auto-opciones.com`), así que las vistas previas y pruebas no cuentan.
 - Umami respeta la opción "No rastrear" del navegador de quien visita.
 - Cada evento y cada propiedad de un evento cuenta para el límite mensual del plan gratis de Umami (100,000 eventos).
 - Para que tus propias visitas no cuenten, en Umami se puede excluir tu IP o usar un navegador aparte para administrar.
@@ -220,10 +220,10 @@ Los documentos que marca cada visitante se recuerdan en su propio navegador; no 
 Con la tecla **Tab**, lo primero que aparece es **Saltar al contenido**. La tecla **Esc** cierra el menú del celular y la ficha técnica. Si el visitante tiene activado "reducir movimiento" en su dispositivo, el sitio evita las animaciones: los fundidos son instantáneos, pero el banner y la franja de publicidad siguen cambiando de foto y de anuncio cada pocos segundos. Hoy no hay un botón para pausarlos.
 
 ## Cómo llega un auto al portal (autos.json)
-Cada auto vive en su propio archivo, `opciones/data/autos/<marca>/<id>.json`, y eso es lo que editas en el CMS. El portal lee un solo archivo, `opciones/data/autos.json`, que **se genera solo**: al guardar un auto, la acción **Generar autos.json** (pestaña Actions de GitHub) lo arma con todos los autos y lo publica en unos segundos. **No edites `autos.json` a mano**: el siguiente guardado lo reescribe. Si por algún motivo no se generó, corre `python3 tools/generar-autos.py` y sube el cambio.
+Cada auto vive en su propio archivo, `data/autos/<marca>/<id>.json`, y eso es lo que editas en el CMS. El portal lee un solo archivo, `data/autos.json`, que **se genera solo**: al guardar un auto, la acción **Generar autos.json** (pestaña Actions de GitHub) lo arma con todos los autos y lo publica en unos segundos. **No edites `autos.json` a mano**: el siguiente guardado lo reescribe. Si por algún motivo no se generó, corre `python3 tools/generar-autos.py` y sube el cambio.
 
 ## Historial de cambios
-Cada vez que guardas en el CMS se crea un registro en GitHub con un mensaje en español, por ejemplo "Actualiza opciones/data/autos.json (desde Pages CMS)".
+Cada vez que guardas en el CMS se crea un registro en GitHub con un mensaje en español, por ejemplo "Actualiza data/autos.json (desde Pages CMS)".
 
 ## Precio mal capturado: cómo evitarlo y cómo corregirlo
 **Antes de guardar.** El campo **Precio** solo acepta de 100,000 a 15,000,000. Revisa los ceros y compara con la lista de la agencia. Anota siempre en **Precio vigente al** la fecha del precio.
@@ -232,7 +232,7 @@ Cada vez que guardas en el CMS se crea un registro en GitHub con un mensaje en e
 
 **Cómo corregir.**
 1. Lo más rápido: vuelve a abrir el auto en el CMS, escribe el precio correcto y guarda.
-2. Si no sabes cuál era el correcto, en GitHub abre el archivo del auto (`opciones/data/autos/<marca>/<id>.json`), pulsa **History**, abre el último guardado que estaba bien y copia el contenido del archivo en ese guardado. Luego edita el archivo actual, pega ese contenido y guarda (commit). Los nombres de los botones de GitHub pueden variar un poco.
+2. Si no sabes cuál era el correcto, en GitHub abre el archivo del auto (`data/autos/<marca>/<id>.json`), pulsa **History**, abre el último guardado que estaba bien y copia el contenido del archivo en ese guardado. Luego edita el archivo actual, pega ese contenido y guarda (commit). Los nombres de los botones de GitHub pueden variar un poco.
 3. Si quieres, pide ayuda y comparte el enlace del guardado equivocado.
 
 ## Ten en cuenta

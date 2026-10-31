@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Sincroniza las listas desplegables de Marca y Tipo (en .pages.yml) con los datos del sitio.
 
-Marca  <- nombres de opciones/data/marcas.json (en orden alfabético)
-Anuncio <- ids de opciones/data/anuncios.json
-Tipo   <- 'Tipos de auto' de opciones/data/sitio.json (grupo Filtros)
+Marca  <- nombres de data/marcas.json (en orden alfabético)
+Anuncio <- «todos» + ids de data/anuncios.json
+Tipo   <- 'Tipos de auto' de data/sitio.json (grupo Filtros)
 
 Uso:
-    python3 tools/sincronizar-listas.py            # actualiza .pages.yml y opciones/.pages.yml
+    python3 tools/sincronizar-listas.py            # actualiza .pages.yml
     python3 tools/sincronizar-listas.py --revisar  # solo informa; termina con código 1 si hay diferencias
 
 Ejecútalo después de agregar, quitar o renombrar una marca o un tipo, y sube el cambio al repositorio.
@@ -30,9 +30,10 @@ def clave_orden(nombre):
     # Alfabético sin distinguir mayúsculas ni acentos (igual que el portal).
     return ''.join(c for c in unicodedata.normalize('NFD', nombre.casefold()) if not unicodedata.combining(c))
 
-marcas = sorted((m['nombre'] for m in leer_json('opciones/data/marcas.json')['marcas'] if m.get('nombre')), key=clave_orden)
-anuncios = [x['id'] for x in leer_json('opciones/data/anuncios.json')['anuncios'] if x.get('id')]
-tipos = [t for t in uno(leer_json('opciones/data/sitio.json').get('filtros')).get('tipos', []) if t]
+marcas = sorted((m['nombre'] for m in leer_json('data/marcas.json')['marcas'] if m.get('nombre')), key=clave_orden)
+# "todos" es la opción que rota entre todos los anuncios; no es un anuncio, pero debe estar siempre en la lista.
+anuncios = ['todos'] + sorted(x['id'] for x in leer_json('data/anuncios.json')['anuncios'] if x.get('id'))
+tipos = [t for t in uno(leer_json('data/sitio.json').get('filtros')).get('tipos', []) if t]
 
 def yaml_texto(v):
     return json.dumps(v, ensure_ascii=False) if re.search(r'[:#\[\]{},&*!|>\'"%@`]|^\s|\s$|^-', v) else v
@@ -68,6 +69,4 @@ if a.revisar:
     print('Hay diferencias: ejecuta este script sin --revisar.'); sys.exit(1)
 with open(ruta, 'w', encoding='utf-8') as f:
     f.write(nuevo)
-with open(os.path.join(R, 'opciones/.pages.yml'), 'w', encoding='utf-8') as f:
-    f.write(nuevo.replace('opciones/assets', 'assets').replace('opciones/data/', 'data/'))
-print('Actualizados .pages.yml y opciones/.pages.yml')
+print('Actualizado .pages.yml')

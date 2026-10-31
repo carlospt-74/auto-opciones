@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reduce el peso de las fotos JPG/JPEG de una carpeta (por defecto opciones/assets/fotos).
+"""Reduce el peso de las fotos JPG/JPEG de una carpeta (por defecto assets/fotos).
 
 Uso:   python3 tools/optimizar-fotos.py [carpeta] [--ancho 1600] [--calidad 82] [--solo-mayores-a 150]
 Requiere Pillow (pip install pillow). Solo toca archivos .jpg/.jpeg; no cambia nombres ni rutas.
@@ -9,7 +9,7 @@ import argparse, os, sys
 from PIL import Image, ImageOps
 
 ap = argparse.ArgumentParser()
-ap.add_argument('carpeta', nargs='?', default='opciones/assets/fotos')
+ap.add_argument('carpeta', nargs='?', default='assets/fotos')
 ap.add_argument('--ancho', type=int, default=1600, help='ancho máximo en px')
 ap.add_argument('--calidad', type=int, default=82)
 ap.add_argument('--solo-mayores-a', type=int, default=150, help='solo archivos de más de N KB')
