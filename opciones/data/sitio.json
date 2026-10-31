@@ -35,7 +35,43 @@
       "resaltado": "opciones",
       "titulo_fin": "sobre la mesa.",
       "foto": "assets/fotos/fotomty2.jpg",
-      "fotos": [],
+      "fotos": [
+        {
+          "foto": "assets/fotos/mty-manana-aereo.webp",
+          "momento": "mañana",
+          "alt": "Vista aérea de Monterrey con el Cerro de la Silla y el skyline bajo un cielo despejado.",
+          "enfoque": "centro",
+          "credito": "Pexels · Jonathan Zavala · Aerial View of Monterrey with Iconic Mountain Backdrop · licencia Pexels (leída el 31-oct-2026)"
+        },
+        {
+          "foto": "assets/fotos/mty-manana-cerro.webp",
+          "momento": "mañana",
+          "alt": "El Cerro de la Silla sobre los edificios del centro de Monterrey.",
+          "enfoque": "abajo",
+          "credito": "Pexels · Ivan Guzman · Saddle Hill Mountain in the City of Monterrey · licencia Pexels (leída el 31-oct-2026)"
+        },
+        {
+          "foto": "assets/fotos/mty-tarde-bruma.webp",
+          "momento": "tarde",
+          "alt": "Skyline de Monterrey entre montañas, con luz dorada de la tarde.",
+          "enfoque": "arriba-centro",
+          "credito": "Pexels · Dante Muñoz · Cityscape of Monterrey at Sunset, Mexico · licencia Pexels (leída el 31-oct-2026)"
+        },
+        {
+          "foto": "assets/fotos/mty-tarde-crepusculo.webp",
+          "momento": "tarde",
+          "alt": "Monterrey al anochecer, con el Cerro de la Silla y un cielo rosa y morado.",
+          "enfoque": "centro",
+          "credito": "Pexels · Gino Gonzalez · City With High-Rise Buildings Near Mountains Under Blue Sky · licencia Pexels (leída el 31-oct-2026)"
+        },
+        {
+          "foto": "assets/fotos/fotomty2.jpg",
+          "momento": "noche",
+          "alt": "Monterrey de noche, con el Cerro de la Silla y las luces de la ciudad.",
+          "enfoque": "centro",
+          "credito": "Foto actual del portal · origen y licencia sin confirmar · uso temporal hasta reemplazarla por una foto con licencia"
+        }
+      ],
       "segundos": 7,
       "boton": "Buscar"
     },
